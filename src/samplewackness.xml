@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialogue>
+<npcname></npcname>
+<description></description>
+<location></location>
+<unknowndesc></unknowndesc>
+<knowndesc></knowndesc>
+
+<dialoguenodes>
+<node name="Node001">
+<npctext alt_female="Harhar har test!">Rastafari dem</npctext>
+<option>
+<text>Can you give me some shit!</text>
+<link_to>Node002</link_to>
+</option>
+</node>
+</dialoguenodes>
+
+</dialogue>

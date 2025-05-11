@@ -1,0 +1,266 @@
+COMPILER CodeSnippets 
+(*
+
+Parser for FMF Dialogue Tool codesnippets
+  
+*)
+
+DELPHI
+  PRIVATE
+    fOutputStream : TMemoryStream;
+    fSubSelectDepth : integer;
+    fInNaturalJoin : boolean;
+            
+    procedure Final;
+                
+    property OutputStream : TMemoryStream read fOutputStream write fOutputStream;
+    CREATE 
+    fOutputStream := TMemoryStream.Create;
+  DESTROY                     
+    fOutputStream.Free;
+  ERRORS
+ 
+END_DELPHI
+
+(* Arbitrary Code *)
+
+const
+  PadLen = 20;
+
+const
+
+  PARAM_TYPE_INT       = 1;
+  PARAM_TYPE_NODE      = 2;
+  PARAM_TYPE_BOOL      = 3;
+  PARAM_TYPE_FLOATNODE = 4;
+  PARAM_TYPE_STRING    = 5;
+  PARAM_TYPE_SKILL     = 6;
+  PARAM_TYPE_STAT      = 7;
+  PARAM_TYPE_GVAR      = 8;
+  PARAM_TYPE_LVAR      = 9;
+  PARAM_TYPE_SVAR      = 10;
+  PARAM_TYPE_PID       = 11;
+  PARAM_TYPE_MVAR      = 12;
+
+type Param             = record
+    ParamType: integer;
+    paramname: string;
+    paramdesc: string;
+
+  end;
+
+
+type CodeSnippet = record
+    InternalName: string;
+    DisplayName:  string;
+    Params:       array [0..32] of ^Param;
+    ParamCount:   integer;
+    Lines:        string;
+  end;
+
+var CodeSnippetData: array [0..256] of ^CodeSnippet;
+var CodeSnippetcnt:  integer;
+tempcodesnippet: CodeSnippet;
+temp_param: param;
+                         
+function PadR(S : string; Ch : char; L : integer) : string;
+var
+  i : integer;
+begin
+  for i := 1 to L - (Length(s)) do
+    s := s + Ch;
+  Result := s;
+end;
+
+
+
+
+function GetParamType(ptype: integer): string;
+begin;
+  Result := 'Unknown';
+  case ptype of
+    PARAM_TYPE_INT:
+      Result := 'Integer';
+    PARAM_TYPE_NODE:
+      Result := 'NodePTR';
+    PARAM_TYPE_BOOL:
+      Result := 'Boolean';
+    PARAM_TYPE_STRING:
+      Result := 'String';
+    PARAM_TYPE_FLOATNODE:
+      Result := 'FloatNodePTR';
+    PARAM_TYPE_GVAR:
+      Result := 'Global Var';
+    PARAM_TYPE_SVAR:
+      Result := 'Script Var';
+    PARAM_TYPE_MVAR:
+      Result := 'Map Var';
+    PARAM_TYPE_LVAR:
+      Result := 'Local Var';
+    PARAM_TYPE_STAT:
+      Result := 'Player Stat';
+    PARAM_TYPE_SKILL:
+      Result := 'Player Skill';
+    PARAM_TYPE_PID:
+      Result := 'Item/Critter PID';
+  end;
+
+end;
+
+
+
+procedure T-->Grammar<--.Final;
+var u, t: integer;
+begin
+{$IFDEF ParserBuild}
+  writeln('Codesnippets: ', codesnippetcnt);
+  for t := 0 to codesnippetcnt - 1 do
+  begin;
+    writeln('#', t + 1, ': ', codesnippetdata[t].internalname, ' (', codesnippetdata[t].displayname, ')');
+    for u := 0 to codesnippetdata[t].ParamCount - 1 do
+    begin;
+      writeln('   param=', u + 1, ': ', GetParamType(codesnippetdata[t].params[u].ParamType),
+        ' ', codesnippetdata[t].params[u].paramname, ' (',
+        codesnippetdata[t].params[u].paramdesc, ')');
+    end;
+    writeln;
+    writeln(codesnippetdata[t].Lines);
+  end;
+{$ENDIF}
+  OutputStream.Position := 0;
+  OutputStream.SaveToStream(ListStream);
+  OutputStream.Clear;
+end;
+
+procedure AddCOdeSnippet (data: codesnippet);
+begin
+new(codesnippetdata[codesnippetcnt]);
+codesnippetdata[codesnippetcnt]^ := data;
+
+inc(codesnippetcnt);
+end
+
+function parse_string(zstr: string): string;
+var t:    integer;
+var temp: string;
+var len:  integer;
+begin;
+result:='';
+  len := 0;
+temp:='';
+  //writeln ('Parsing string: ',zstr);
+  t   := pos('"', zstr) + 1;
+  len := length(zstr);
+  while (zstr[t] <> '"') do
+  begin;
+    //writeln (zstr[t]);
+    if (zstr[t] = '\') and (zstr[t + 1] = '"') then
+    begin;
+      temp := temp + '"';
+      Inc(t, 1);
+    end else
+    if (zstr[t] = '\') and (zstr[t + 1] = '\') then
+    begin;
+      temp := temp + '\';
+      Inc(t, 1);
+    end else
+    if (zstr[t] = '\') and (zstr[t + 1] = 't') then
+    begin;
+      temp := temp + #9;
+      Inc(t, 1);
+    end else
+    if (zstr[t] = '\') and (zstr[t + 1] = 'n') then
+    begin;
+      temp := temp + #13#10;
+      Inc(t, 1);
+    end else
+
+      temp := temp + zstr[t];
+
+    Inc(t);
+  end;
+  Result := temp;
+end;
+
+
+
+(* End of Arbitrary Code *)
+
+IGNORE CASE
+
+CHARACTERS
+  letter   = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" .
+  digit    = "0123456789" .
+  hexdigit = digit + "ABCDEFabcdef" .
+  tab      = CHR(9) .
+  lf       = CHR(10) .
+  eol      = CHR(13) .
+  files    = letter + digit + ":\." .
+  chars    = CHR(32) .. CHR(255) - "'" .
+  strings  = CHR(32) .. CHR(255) - '"'.
+  macros   = ANY - eol .
+
+COMMENTS FROM "//" TO eol  
+
+COMMENTS FROM "/*" TO "*/"  
+
+IGNORE
+  tab + eol + lf
+
+TOKENS
+  identifier = ( "_" | letter) { "_" | letter | digit } .
+  number     = ["-"] digit { digit } [ "." { digit }] [ "U" | "u" | "L" | "l" ] .
+  hexnumber  = "0" ( "x" | "X" ) hexdigit { hexdigit } [ "U" | "u" | "L" | "l" ] .
+  _string     = '"' ["\" ] { strings } '"' .
+  char       = "'" [ "\" ] chars "'" .
+  library    = "<" files { files } ">" .
+
+IGNORE CHR(1)..CHR(32)
+
+PRODUCTIONS
+ (*
+  PARAM_TYPE_INT       = 1;
+  PARAM_TYPE_NODE      = 2;
+  PARAM_TYPE_BOOL      = 3;
+  PARAM_TYPE_FLOATNODE = 4;
+  PARAM_TYPE_STRING    = 5;
+  PARAM_TYPE_SKILL     = 6;
+  PARAM_TYPE_STAT      = 7;
+  PARAM_TYPE_GVAR      = 8;
+  PARAM_TYPE_LVAR      = 9;
+  PARAM_TYPE_SVAR      = 10;
+  PARAM_TYPE_PID       = 11;
+  PARAM_TYPE_MVAR      = 12;
+ *)
+ 
+ paramtype = (
+ "int" (. temp_param.paramtype := PARAM_TYPE_INT .) 
+ | "string" (. temp_param.paramtype := PARAM_TYPE_STRING .) 
+ | "stat" (. temp_param.paramtype := PARAM_TYPE_STAT .) 
+ | "bool" (. temp_param.paramtype := PARAM_TYPE_BOOL .) 
+ | "skill" (. temp_param.paramtype := PARAM_TYPE_SKILL .) 
+ | "pid_id" (. temp_param.paramtype := PARAM_TYPE_PID .) 
+ | "local_var" (. temp_param.paramtype := PARAM_TYPE_LVAR .) 
+ | "map_var" (. temp_param.paramtype := PARAM_TYPE_MVAR .) 
+ | "global_var" (. temp_param.paramtype := PARAM_TYPE_GVAR .) 
+ | "script_var" (. temp_param.paramtype := PARAM_TYPE_GVAR .) 
+ | "node" (. temp_param.paramtype := PARAM_TYPE_NODE .) 
+ | "floatnode" (. temp_param.paramtype := PARAM_TYPE_FLOATNODE .) 
+  ) .
+ 
+ Params =  paramtype 
+ identifier (.temp_param.paramname := lexstring;  .) 
+ "="
+  _string (. temp_param.paramdesc := parse_string(lexstring);  .) .
+                                                         
+ CodePreset =  "CodePreset" (. tempcodesnippet.paramcnt := 0;  tempcodesnippet.lines := ''; .) identifier (. tempcodesnippet.internalname := lexstring;   .) "(" Params (.new(tempcodesnippet.params[tempcodesnippet.ParamCount]);  := tempcodesnippet.params[tempcodesnippet.ParamCount] := tempparam; inc(tempcodesnippet.ParamCount) ;.)  {"," Params (.new(tempcodesnippet.params[tempcodesnippet.ParamCount]);  := tempcodesnippet.params[tempcodesnippet.ParamCount] := tempparam; inc(tempcodesnippet.ParamCount) ;.) } ")" "desc" "=" _string  (. tempcodesnippet.displayname := parse_String(lexstring) .) 
+ "{"
+  _string (.tempcodesnippet.lines := parse_string(lexstring); .) {"," _string (.tempcodesnippet.lines := tempcodesnippet.lines + #13#10 + parse_string(lexstring) .) }
+ "}" (. AddCodeSnippet(tempcodesnippet) .) 
+ .
+ 
+ 
+ CodeSnippets = CodePreset {";" CodePreset} (. Final .).          
+ 
+                                                            
+END CodeSnippets  .

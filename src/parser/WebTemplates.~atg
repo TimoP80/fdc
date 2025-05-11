@@ -1,0 +1,153 @@
+COMPILER WebSnippets
+(*
+
+Attempt to create MSG parser
+  
+*)
+
+DELPHI
+  PRIVATE
+    fOutputStream : TMemoryStream;
+    fSubSelectDepth : integer;
+    fInNaturalJoin : boolean;
+            
+    procedure Init;
+    procedure Final;
+    property OutputStream : TMemoryStream read fOutputStream write fOutputStream;
+  PUBLISHED
+    CREATE 
+      fOutputStream := TMemoryStream.Create;
+ 
+  DESTROY                     
+    fOutputStream.Free;
+  ERRORS
+ 
+END_DELPHI
+
+(* Arbitrary Code *)
+
+type
+  MSGEntry = record
+    snippetid:      string;
+    data: String;
+  end;
+
+type
+  MessageFile = record
+    msgfilename: String;
+    entries:     array of ^MSGEntry;
+    entrycnt:    Integer;
+  end;
+
+var
+  CurrentMessageFile: Messagefile;
+
+
+const
+  PadLen = 20;
+
+
+                        
+function PadR(S : string; Ch : char; L : integer) : string;
+var
+  i : integer;
+begin
+  for i := 1 to L - (Length(s)) do
+    s := s + Ch;
+  Result := s;
+end;
+
+
+procedure T-->Grammar<--.Init;
+begin
+  OutputStream.Clear;
+ currentmessagefile.entrycnt:=0;  
+ end;
+
+procedure T-->Grammar<--.Final;
+begin
+   OutputStream.Position := 0;
+  OutputStream.SaveToStream(ListStream);
+  OutputStream.Clear;
+end;
+                                 
+function parse_string(zstr: string): string;
+var t:    integer;
+var temp: string;
+var len:  integer;
+begin;
+result:='';
+  len := 0;
+temp:='';
+  writeln ('Parsing string: ',zstr);
+  t   := pos('{', zstr) + 1;
+  len := length(zstr);
+  while (zstr[t] <> '}') do
+  begin;
+    //writeln (zstr[t]);
+
+      temp := temp + zstr[t];
+
+    Inc(t);
+  end;
+  Result := temp;
+end;
+
+
+
+(* End of Arbitrary Code *)
+
+IGNORE CASE
+
+CHARACTERS
+  letter   = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" .
+  digit    = "0123456789" .
+  hexdigit = digit + "ABCDEFabcdef" .
+  tab      = CHR(9) .
+  lf       = CHR(10) .
+  eol      = CHR(13) .
+  files    = letter + digit + ":\." .
+  chars    = CHR(32) .. CHR(255) - "'" .
+  strings  = CHR(32) .. CHR(255) - '"'.
+  msgentrys  = CHR(13) + CHR (10) + CHR(9) + CHR(32) .. CHR(255) - '{' - '}'.
+  macros   = ANY - eol .
+
+COMMENTS FROM "#" TO eol
+
+IGNORE
+  tab + eol + lf
+
+TOKENS
+  identifier = ( "_" | letter) { "_" | letter | digit } .
+  number     = digit { digit } [ "." { digit }] [ "U" | "u" | "L" | "l" ] .
+  hexnumber  = "0" ( "x" | "X" ) hexdigit { hexdigit } [ "U" | "u" | "L" | "l" ] .
+  _string     = '"' { strings } '"' .
+  _msgentry = "{" { ["#"] msgentrys } "}" .
+  char       = "'" [ "\" ] chars "'" .
+  library    = "<" files { files } ">" .
+  endofline = eol.
+
+IGNORE CHR(1)..CHR(32)
+
+PRODUCTIONS
+
+WebEntry = (. 
+ setlength(CurrentMessageFile.entries, CurrentMessageFile.entrycnt + 1);
+  new(CurrentMessageFile.entries[CurrentMessageFile.entrycnt]);
+
+  
+.) _msgentry (. 
+
+  CurrentMessageFile.entries[CurrentMessageFile.entrycnt].snippetid := parse_String(lexstring)  ;
+
+
+
+ .)  _msgentry  (.
+  CurrentMessageFile.entries[CurrentMessageFile.entrycnt].data := parse_string(lexstring);
+    Inc(currentmessagefile.entrycnt);
+
+  .) .
+
+WebSnippets = (. currentmessagefile.entrycnt := 0; .) WebEntry {WebEntry}.
+                                                                
+END WebSnippets.

@@ -1,0 +1,93 @@
+COMPILER GVarParse     
+(*
+
+Parser for the Fallout 2 Global Variable list
+  
+*)
+
+DELPHI
+  PRIVATE
+    fOutputStream : TMemoryStream;
+    fSubSelectDepth : integer;
+    fInNaturalJoin : boolean;
+            
+    procedure Init;
+    procedure Final;
+                
+    property OutputStream : TMemoryStream read fOutputStream write fOutputStream;
+    CREATE 
+    fOutputStream := TMemoryStream.Create;
+  DESTROY                     
+    fOutputStream.Free;
+  ERRORS
+ 
+END_DELPHI
+
+(* Arbitrary Code *)
+
+const
+  PadLen = 20;
+                        
+function PadR(S : string; Ch : char; L : integer) : string;
+var
+  i : integer;
+begin
+  for i := 1 to L - (Length(s)) do
+    s := s + Ch;
+  Result := s;
+end;
+
+procedure T-->Grammar<--.Init;
+begin
+  OutputStream.Clear;
+
+ end;
+
+procedure T-->Grammar<--.Final;
+begin
+   OutputStream.Position := 0;
+  OutputStream.SaveToStream(ListStream);
+  OutputStream.Clear;
+end;
+                                 
+
+
+
+(* End of Arbitrary Code *)
+
+IGNORE CASE
+
+CHARACTERS
+  letter   = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" .
+  digit    = "0123456789" .
+  hexdigit = digit + "ABCDEFabcdef" .
+  tab      = CHR(9) .
+  lf       = CHR(10) .
+  eol      = CHR(13) .
+  files    = letter + digit + ":\." .
+  chars    = CHR(32) .. CHR(255) - "'" .
+  strings  = CHR(32) .. CHR(255) - '"'.
+  macros   = ANY - eol .
+
+COMMENTS FROM "//" TO eol  
+
+IGNORE
+  tab + eol + lf
+
+TOKENS
+  identifier = ( "_" | letter) { "_" | letter | digit } .
+  number     = ["-"] digit { digit } [ "." { digit }] [ "U" | "u" | "L" | "l" ] .
+  hexnumber  = "0" ( "x" | "X" ) hexdigit { hexdigit } [ "U" | "u" | "L" | "l" ] .
+  string     = '"' ["\"] { strings } '"' .
+  char       = "'" [ "\" ] chars "'" .
+  library    = "<" files { files } ">" .
+
+IGNORE CHR(1)..CHR(32)
+
+PRODUCTIONS
+ 
+ GVarParse = "GAME_GLOBAL_VARS" ":" VarDefinition {VarDefinition}.          
+ 
+VarDefinition = identifier  (. (* Insert code here to grab the variable*) .) ":=" number (. (* Insert code here to grab the value *) .) ";" (. (* Insert code to increment number of global variables *) .) . 
+                                                            
+END GVarParse.

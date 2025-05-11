@@ -1,0 +1,46 @@
+[Frames]
+Ancestor=
+Parser=
+Test Project=
+Test Form=
+Test DFM=
+Console=
+[Output]
+Directory=
+[Options]
+C=0
+M=0
+R=0
+E=0
+Z=0
+V=0
+B=0
+O=0
+H=0
+Y=0
+D=0
+L=0
+A=0
+F=0
+G=0
+I=0
+S=0
+T=0
+X=0
+[Registration]
+Palette=Coco/R
+[Version Info]
+Major Version=0
+Minor Version=0
+Next Build=0
+Release=0
+Comment=
+Author=
+Copyright=
+Last Build=30.12.1899
+[Messages]
+Show Warnings=1
+Show LL(1) Start Succ=1
+[Hash]
+Primary=
+Secondary=

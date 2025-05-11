@@ -1,0 +1,130 @@
+library Export_PHP;
+
+{
+
+FMF Dialogue tool plugin
+
+Plugin Name: PHP Exporter
+Author: DjUnique
+
+Description:
+
+This plugin exports the dialogue as a php file for interactive testing in a browser.
+
+}
+
+uses
+  SysUtils,
+  Classes,            Dialogs,
+  pluginfunc;
+
+var dlg: pdialogue;
+    template,data: TStrings;
+    dlgx: TSaveDialog;
+    {$R *.res}
+
+function GetPluginName: ShortString; stdcall;
+begin;
+result := 'Dialogue -> PHP Script';
+end;
+function GetPluginDescription: ShortString; stdcall;
+begin;
+result := 'This plugin exports the dialogue into an interactive PHP script which runs the dialogue just like the dialogue engine in the tool.';
+end;
+function CanAddToMenu: boolean; stdcall;
+begin;
+result := True;
+end;
+
+function GetKeyShortCut: shortstring; stdcall;
+begin;
+result := 'Ctrl+P';
+end;
+procedure PluginClose; stdcall;
+begin;
+end;
+
+function GetInterfaceVersion: shortstring; stdcall;
+begin;
+result := interface_version;
+end;
+
+
+
+
+procedure RunPlugin (basepath: shortstring); stdcall;
+var i,j: integer;
+begin;
+new(dlg);
+dlg := GetDLG;
+
+data := TStringlist.create;
+template:=TStringlist.create;
+template.LoadFromFile(basepath+'\plugins\phptemplate.php');
+dlgx := TSaveDialog.Create(nil);
+dlgx.Filter := 'PHP files (*.php)|*.php;All files (*.*)|*.*';
+dlgx.DefaultExt := 'php';
+dlgx.InitialDir := basepath+'\html';
+
+// data is the stuff in the beginning of the php file
+data.add('<?php');
+data.add('$dlgname = "'+dlg.filename+'";');
+data.add('$dlg_globals[''name''] = "'+dlg.npcname+'";');
+data.add('$dlg_globals[''location''] = "'+dlg.location+'";');
+dlg.description:=StringReplace(dlg.description,#13#10,'<br>',[rfReplaceAll]);
+data.add('$dlg_globals[''description''] = "'+dlg.description+'";');
+data.add('$dlg_globals[''unknown_desc''] = "'+dlg.unknowndesc+'";');
+data.add('$dlg_globals[''known_desc''] = "'+dlg.knowndesc+'";');
+data.add('$dlg_globals[''detailed_desc''] = "'+dlg.detaileddesc+'";');
+data.add('$nodecount = '+inttostr(dlg.nodecount)+';');
+for i:=0 to dlg.nodecount-1 do
+begin;
+data.add('$nodes['''+inttostr(i)+'''][''name''] = "'+dlg.nodes[i].nodename+'";');
+data.add('$nodes['''+inttostr(i)+'''][''notes''] = "'+dlg.nodes[i].notes+'";');
+data.add('$nodes['''+inttostr(i)+'''][''npc_text''] = "'+dlg.nodes[i].npctext+'";');
+data.add('$nodes['''+inttostr(i)+'''][''npc_text_female''] = "'+dlg.nodes[i].npctext_female+'";');
+data.add('$nodes['''+inttostr(i)+'''][''numoptions''] = '+inttostr(dlg.nodes[i].optioncnt)+';');
+   for j:=0 to dlg.nodes[i].optioncnt-1 do
+   begin;
+    data.add('$nodes['''+inttostr(i)+'''][''playeroptions'']['+inttostr(j)+'][''optiontext''] = "'+dlg.nodes[i].options[j].optiontext+'";');
+    data.add('$nodes['''+inttostr(i)+'''][''playeroptions'']['+inttostr(j)+'][''notes''] = "'+dlg.nodes[i].options[j].notes+'";');
+    data.add('$nodes['''+inttostr(i)+'''][''playeroptions'']['+inttostr(j)+'][''target''] = '+inttostr(dlg.nodes[i].options[j].noderesolved)+';');
+    data.add('$nodes['''+inttostr(i)+'''][''playeroptions'']['+inttostr(j)+'][''reaction''] = '+inttostr(dlg.nodes[i].options[j].reaction)+';');
+    data.add('$nodes['''+inttostr(i)+'''][''playeroptions'']['+inttostr(j)+'][''genderflags''] = '+inttostr(dlg.nodes[i].options[j].genderflags)+';');
+    data.add('$nodes['''+inttostr(i)+'''][''playeroptions'']['+inttostr(j)+'][''intcheck''] = '+inttostr(dlg.nodes[i].options[j].intcheck)+';');
+   end;
+
+end;
+data.text := StringReplace(data.text,'<','&lt;',[rfReplaceAll]);
+data.text := StringReplace(data.text,'>','&gt;',[rfReplaceAll]);
+
+
+data.text := StringReplace(data.text,'&lt;br&gt;','<br>',[rfReplaceAll]);
+data.text := StringReplace(data.text,'&lt;?php','<?php',[rfReplaceAll]);
+data.add('?>');
+
+if dlgx.Execute then
+begin;
+template.text := StringReplace(template.text,'%%dlgcode%%','include("data_'+extractfilename(changefileext(dlgx.filename,''))+'.php");',[rfReplaceAll]);
+data.savetofile(extractfiledir(dlgx.filename)+'\data_'+extractfilename(dlgx.filename));
+template.SaveToFile(dlgx.filename);
+senddebugmsg(pchar('Dialogue exported to PHP as '+dlgx.filename));
+end;
+
+template.free;
+data.free;
+
+end;
+
+exports
+   GetPluginName,
+   GetPluginDescription,
+   CanAddToMenu,
+   RunPlugin,
+   GetKeyShortCut,
+   GetInterfaceVersion,
+   PluginClose;
+
+begin
+
+end.

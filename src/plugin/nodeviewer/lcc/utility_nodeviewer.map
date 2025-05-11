@@ -1,0 +1,770 @@
+output   input     virtual
+section  section   address    tsize
+.text             10001000  8a00  89c0 
+
+         .text    10001000   31c   31c  m:\lcc\lib\libcrt0s.obj
+                  100010a0              __except_handler3
+                  100011be              __init_stdhandles
+                  10001196              __crtLibMain@12
+                  10001000              _main
+         .text    1000131c  23fc  23fc  fmf_sdk_example.obj
+                  10003378              _GetLineCount
+                  10001e61              _MsgHandle@16
+                  1000316c              _SingleConditionMet
+                  10003051              _InitPC
+                  10002de1              _GetInterfaceVersion@0
+                  10003567              _WriteLines
+                  100026a6              _PopulateList
+                  10003492              _DoCustomTVDraw
+                  10001492              _GetPluginName@0
+                  1000189b              _CanAddToMenu@0
+                  1000131c              _ShowError
+                  10002e62              _PluginUpdate@0
+                  10001379              _LibMain@12
+                  10002f88              _Execute
+                  10002e3b              _PluginClose@0
+                  100018a1              _TreeRightClick
+                  100014ec              _GetPluginDescription@0
+                  10001546              _RunPlugin@256
+                  100032c8              _ConditionsMet
+         .text    10003718    6c    6c  [m:\lcc\lib\libc.lib] alludiv.obj
+                  10003718              __aulldiv
+                  10003718              __alludiv
+         .text    10003784   61c   61c  [m:\lcc\lib\libc.lib] asctoq.obj
+                  10003d27              ___normalize
+                  10003784              ___asctoq
+         .text    10003da0    78    78  [m:\lcc\lib\libc.lib] aullrem.obj
+                  10003da0              __aullrem
+         .text    10003e18    2c    2c  [m:\lcc\lib\libc.lib] ceil.obj
+                  10003e18              _ceil
+                  10003e3e              _ceill
+                  10003e38              _ceilf
+         .text    10003e44    50    50  [m:\lcc\lib\libc.lib] floorl.obj
+                  10003e6f              _floorf
+                  10003e83              __flooru
+                  10003e44              _floorl
+                  10003e7e              __floori
+                  10003e78              _floor
+         .text    10003e94    88    88  [m:\lcc\lib\libc.lib] fmod.obj
+                  10003ed8              _fmodid
+                  10003ec4              _fmodf
+                  10003ece              _fmoddi
+                  10003f04              _fmoduu
+                  10003e94              _fmodl
+                  10003ee4              _fmodii
+                  10003ef0              _fmodui
+                  10003ea4              _fmod
+         .text    10003f1c    9c    9c  [m:\lcc\lib\libc.lib] fpclassify.obj
+                  10003f97              ___fpclassd
+                  10003fa0              ___fpclassl
+                  10003f1c              ___FpclassifyInternal
+                  10003fac              ___fpclassf
+         .text    10003fb8    24    24  [m:\lcc\lib\libc.lib] ftol.obj
+                  10003fb8              __ftol
+         .text    10003fdc    80    80  [m:\lcc\lib\libc.lib] ftoul.obj
+                  10003fdc              __ftoul
+         .text    1000405c    e0    e0  [m:\lcc\lib\libc.lib] isinfl.obj
+                  100040f1              _isinff
+                  100040a6              _isinfd
+                  1000412f              __isinfi
+                  100040a6              __isinfd
+                  1000405c              _isinfl
+         .text    1000413c    50    50  [m:\lcc\lib\libc.lib] log10l.obj
+                  10004184              _log10
+                  1000413c              _log10l
+                  1000417c              _log10f
+         .text    1000418c    58    58  [m:\lcc\lib\libc.lib] maxnormal.obj
+                  100041d0              _infinityl
+                  100041d0              _infinityf
+                  100041d0              _infinity
+                  100041da              _nan
+                  100041bf              _max_normalf
+                  100041b6              _min_normal
+                  100041c9              _min_normalf
+                  1000418c              _max_normall
+                  100041da              _nanf
+                  100041a8              _max_normal
+                  1000419d              _min_normall
+                  100041da              _nanl
+         .text    100041e4   268   268  [m:\lcc\lib\libc.lib] powl.obj
+                  100041e4              _powl
+                  10004383              _powill
+                  100043fb              _powdi
+                  100043d3              _powlli
+                  1000435b              _powlld
+                  100043ab              _powid
+                  10004333              _powdll
+                  10004423              _powii
+         .text    1000444c   274   274  [m:\lcc\lib\libc.lib] powlasm.obj
+                  100044a0              ___powl_internal
+         .text    100046c0  12fc  12fc  [m:\lcc\lib\libc.lib] qfloat.obj
+                  100051dd              ___qtoasc
+                  100046c3              ___qinfin
+                  10004bda              ___qtoe64
+                  1000512a              ___qcmp
+                  10004aff              ___e64toq
+                  100047db              ___qmul
+                  100058e9              ___qmuli
+                  10004a4d              ___normlz
+                  100046f0              ___qdiv
+         .text    100059bc   8fc   8fc  [m:\lcc\lib\libc.lib] qfltb386.obj
+                  100059bc              ___shdn1
+                  10006268              ___qmov
+                  10005b34              ___addm
+                  10005ab4              ___shup8
+                  100059ec              ___shup1
+                  10005aa8              ___shup16
+                  10005a28              ___shdn8
+                  10006138              ___mulin
+                  10005a1c              ___shdn16
+                  10005c20              ___subm
+                  100062a0              ___qclear
+                  10006058              ___mulm
+                  10005d48              ___divm
+                  10006280              ___qmovz
+         .text    100062b8    a8    a8  [m:\lcc\lib\libc.lib] sprintf.obj
+                  1000632d              _sprintf
+                  100062d2              _vsprintf
+                  100062fe              _xsprintfv
+                  100062fe              _sprintfv
+                  1000632d              _xsprintf
+                  100062d2              _xvsprintf
+         .text    10006360    20    20  [m:\lcc\lib\libc.lib] stack.obj
+                  10006360              __stackprobe
+         .text    10006380    50    50  [m:\lcc\lib\libc.lib] strcpy.obj
+                  10006380              _strcpy@8
+                  100063a9              _strcpy
+         .text    100063d0    50    50  [m:\lcc\lib\libc.lib] strlcpy.obj
+                  100063d0              _strlcpy
+         .text    10006420    7c    7c  [m:\lcc\lib\libc.lib] strlen.obj
+                  10006420              _strlen
+         .text    1000649c  3230  3230  [m:\lcc\lib\libc.lib] xprintf.obj
+                  100064cf              ___SetLocale
+                  1000950f              _vprintf
+                  100094df              _xprintf
+                  1000955c              _xfprintf
+                  100095a5              _fprintfv
+                  10009534              _printfv
+                  1000955c              _fprintf
+                  1000649c              ___isQualifierChar
+                  10006545              ___GetPosition
+                  10009426              ___doFormat
+                  1000660f              ___Parse
+                  100094df              _printf
+                  10009586              _vfprintf
+         .text    100096cc     c     c  [m:\lcc\lib\kernel32.lib] 156.obj
+                  100096cc              _ExitProcess@4
+         .text    100096d8     c     c  [m:\lcc\lib\kernel32.lib] 211.obj
+                  100096d8              _FormatMessageA@28
+         .text    100096e4     c     c  [m:\lcc\lib\kernel32.lib] 216.obj
+                  100096e4              _FreeLibrary@4
+         .text    100096f0     c     c  [m:\lcc\lib\kernel32.lib] 293.obj
+                  100096f0              _GetEnvironmentStringsA@0
+         .text    100096fc     c     c  [m:\lcc\lib\kernel32.lib] 317.obj
+                  100096fc              _GetLastError@0
+         .text    10009708     c     c  [m:\lcc\lib\kernel32.lib] 360.obj
+                  10009708              _GetProcAddress@8
+         .text    10009714     c     c  [m:\lcc\lib\kernel32.lib] 421.obj
+                  10009714              _GetTickCount@0
+         .text    10009720     c     c  [m:\lcc\lib\kernel32.lib] 516.obj
+                  10009720              _LoadLibraryA@4
+         .text    1000972c     c     c  [m:\lcc\lib\kernel32.lib] 526.obj
+                  1000972c              _LocalFree@4
+         .text    10009738     c     c  [m:\lcc\lib\kernel32.lib] 633.obj
+                  10009738              _RtlUnwind@16
+         .text    10009744     c     c  [m:\lcc\lib\user32.lib] 115.obj
+                  10009744              _GetClientRect@8
+         .text    10009750     c     c  [m:\lcc\lib\user32.lib] 126.obj
+                  10009750              _ClientToScreen@8
+         .text    1000975c     c     c  [m:\lcc\lib\user32.lib] 127.obj
+                  1000975c              _ScreenToClient@8
+         .text    10009768     c     c  [m:\lcc\lib\user32.lib] 26.obj
+                  10009768              _LoadCursorA@8
+         .text    10009774     c     c  [m:\lcc\lib\user32.lib] 275.obj
+                  10009774              _SetMenu@8
+         .text    10009780     c     c  [m:\lcc\lib\user32.lib] 28.obj
+                  10009780              _LoadIconA@8
+         .text    1000978c     c     c  [m:\lcc\lib\user32.lib] 285.obj
+                  1000978c              _CreatePopupMenu@0
+         .text    10009798     c     c  [m:\lcc\lib\user32.lib] 294.obj
+                  10009798              _AppendMenuA@16
+         .text    100097a4     c     c  [m:\lcc\lib\user32.lib] 302.obj
+                  100097a4              _TrackPopupMenu@28
+         .text    100097b0     c     c  [m:\lcc\lib\user32.lib] 321.obj
+                  100097b0              _MessageBoxA@16
+         .text    100097bc     c     c  [m:\lcc\lib\user32.lib] 342.obj
+                  100097bc              _GetCursorPos@4
+         .text    100097c8     c     c  [m:\lcc\lib\user32.lib] 36.obj
+                  100097c8              _GetMessageA@16
+         .text    100097d4     c     c  [m:\lcc\lib\user32.lib] 40.obj
+                  100097d4              _TranslateMessage@4
+         .text    100097e0     c     c  [m:\lcc\lib\user32.lib] 41.obj
+                  100097e0              _DispatchMessageA@4
+         .text    100097ec     c     c  [m:\lcc\lib\user32.lib] 440.obj
+                  100097ec              _GetWindowDC@4
+         .text    100097f8     c     c  [m:\lcc\lib\user32.lib] 448.obj
+                  100097f8              _FillRect@12
+         .text    10009804     c     c  [m:\lcc\lib\user32.lib] 53.obj
+                  10009804              _SendMessageA@16
+         .text    10009810     c     c  [m:\lcc\lib\user32.lib] 6.obj
+                  10009810              _RegisterClassA@4
+         .text    1000981c     c     c  [m:\lcc\lib\user32.lib] 66.obj
+                  1000981c              _PostQuitMessage@4
+         .text    10009828     c     c  [m:\lcc\lib\user32.lib] 8.obj
+                  10009828              _UnregisterClassA@8
+         .text    10009834     c     c  [m:\lcc\lib\user32.lib] 80.obj
+                  10009834              _ShowWindow@8
+         .text    10009840     c     c  [m:\lcc\lib\user32.lib] 84.obj
+                  10009840              _CreateWindowExA@48
+         .text    1000984c     c     c  [m:\lcc\lib\user32.lib] 86.obj
+                  1000984c              _DestroyWindow@4
+         .text    10009858     c     c  [m:\lcc\lib\user32.lib] 87.obj
+                  10009858              _SetWindowPos@28
+         .text    10009864     c     c  [m:\lcc\lib\user32.lib] 98.obj
+                  10009864              _DefWindowProcA@16
+         .text    10009870     c     c  [m:\lcc\lib\gdi32.lib] 150.obj
+                  10009870              _GetTextExtentExPointA@28
+         .text    1000987c     c     c  [m:\lcc\lib\gdi32.lib] 239.obj
+                  1000987c              _TextOutA@20
+         .text    10009888     c     c  [m:\lcc\lib\gdi32.lib] 260.obj
+                  10009888              _DPtoLP@12
+         .text    10009894     c     c  [m:\lcc\lib\comctl32.lib] 13.obj
+                  10009894              _InitCommonControls@0
+         .text    100098a0     c     c  [m:\lcc\lib\crtdll.lib] 129.obj
+                  100098a0              _fdopen
+         .text    100098ac     c     c  [m:\lcc\lib\crtdll.lib] 233.obj
+                  100098ac              _itoa
+         .text    100098b8     c     c  [m:\lcc\lib\crtdll.lib] 336.obj
+                  100098b8              _open_osfhandle
+         .text    100098c4     c     c  [m:\lcc\lib\crtdll.lib] 432.obj
+                  100098c4              _strnicmp
+         .text    100098d0     c     c  [m:\lcc\lib\crtdll.lib] 512.obj
+                  100098d0              _atol
+         .text    100098dc     c     c  [m:\lcc\lib\crtdll.lib] 526.obj
+                  100098dc              _fclose
+         .text    100098e8     c     c  [m:\lcc\lib\crtdll.lib] 538.obj
+                  100098e8              _fputc
+         .text    100098f4     c     c  [m:\lcc\lib\crtdll.lib] 542.obj
+                  100098f4              _free
+         .text    10009900     c     c  [m:\lcc\lib\crtdll.lib] 58.obj
+                  10009900              _cexit
+         .text    1000990c     c     c  [m:\lcc\lib\crtdll.lib] 586.obj
+                  1000990c              _localeconv
+         .text    10009918     c     c  [m:\lcc\lib\crtdll.lib] 591.obj
+                  10009918              _malloc
+         .text    10009924     c     c  [m:\lcc\lib\crtdll.lib] 597.obj
+                  10009924              _memcpy
+         .text    10009930     c     c  [m:\lcc\lib\crtdll.lib] 598.obj
+                  10009930              _memmove
+         .text    1000993c     c     c  [m:\lcc\lib\crtdll.lib] 599.obj
+                  1000993c              _memset
+         .text    10009948     c     c  [m:\lcc\lib\crtdll.lib] 603.obj
+                  10009948              _pow
+         .text    10009954     c     c  [m:\lcc\lib\crtdll.lib] 609.obj
+                  10009954              _raise
+         .text    10009960     c     c  [m:\lcc\lib\crtdll.lib] 616.obj
+                  10009960              _setbuf
+         .text    1000996c     c     c  [m:\lcc\lib\crtdll.lib] 626.obj
+                  1000996c              _strcat
+         .text    10009978     c     c  [m:\lcc\lib\crtdll.lib] 627.obj
+                  10009978              _strchr
+         .text    10009984     c     c  [m:\lcc\lib\crtdll.lib] 628.obj
+                  10009984              _strcmp
+         .text    10009990     c     c  [m:\lcc\lib\crtdll.lib] 636.obj
+                  10009990              _strncmp
+         .text    1000999c     c     c  [m:\lcc\lib\crtdll.lib] 644.obj
+                  1000999c              _strtol
+         .text    100099a8     c     c  [m:\lcc\lib\crtdll.lib] 674.obj
+                  100099a8              _wcslen
+         .text    100099b4     c     c  [m:\lcc\lib\crtdll.lib] 688.obj
+                  100099b4              _wctomb
+
+.bss              1000a000  1248     0 
+
+         .bss     1000a000  1004  1004  fmf_sdk_example.obj
+         .bss     1000b004    3c    3c  [m:\lcc\lib\libc.lib] qfloat.obj
+
+         COMMON   1000b040     4     4  fmf_sdk_example.obj
+                  1000b040              _cmd
+         COMMON   1000b044     4     4  [m:\lcc\lib\libc.lib] qfloat.obj
+                  1000b044              ___SC
+         COMMON   1000b048   200   200  [m:\lcc\lib\libc.lib] xprintf.obj
+                  1000b048              ___internalDigitArray
+
+.data             1000c000  1200  10d0 
+
+         .data    1000c000    90    90  m:\lcc\lib\libcrt0s.obj
+                  1000c00c              _stderr
+                  1000c024              __InitialStack
+                  1000c008              _stdin
+                  1000c010              __environ
+                  1000c034              __ExceptionCode
+                  1000c030              __plccStackTrace
+                  1000c004              _stdout
+                  1000c038              __ExceptionPointers
+                  1000c020              __ShadowStack
+         .data    1000c090   520   520  fmf_sdk_example.obj
+                  1000c09c              _defAppName
+                  1000c094              _ExecuteScriptLines
+                  1000c090              _GetDLG
+                  1000c0a0              _PCStats
+                  1000c098              _GetPlayer
+         .data    1000c5b0     8     8  [m:\lcc\lib\libc.lib] asctoq.obj
+         .data    1000c5b8   104   104  [m:\lcc\lib\libc.lib] ctype.obj
+                  1000c5b8              __ctype
+         .data    1000c6bc    10    10  [m:\lcc\lib\libc.lib] log10l.obj
+         .data    1000c6cc    10    10  [m:\lcc\lib\libc.lib] maxnormal.obj
+                  1000c6d4              ___infinity__
+                  1000c6d8              ___infinitym__
+                  1000c6cc              _NAN
+                  1000c6cc              ___nan__
+         .data    1000c6dc    2c    2c  [m:\lcc\lib\libc.lib] powl.obj
+         .data    1000c708    30    30  [m:\lcc\lib\libc.lib] powlasm.obj
+         .data    1000c738   67c   67c  [m:\lcc\lib\libc.lib] qfloat.obj
+                  1000c738              ___qone
+                  1000c770              ___qtens
+         .data    1000cdb4    44    44  [m:\lcc\lib\libc.lib] qfltb386.obj
+         .data    1000cdf8   2cc   2cc  [m:\lcc\lib\libc.lib] xprintf.obj
+                  1000cff0              ___escaped
+                  1000ce94              ___internalDigitsUnconverted
+                  1000ce4a              ___internalDigitsLower
+                  1000ce07              ___internalThousandSeparator
+                  1000ce00              ___internalLocaleValues
+                  1000cdf8              ___internalNullString
+                  1000ce0a              ___internalGrouping
+                  1000ce6f              ___internalDigitsUpper
+                  1000cff9              ___translation
+         .data    1000d0c4     c     c  [m:\lcc\lib\crtdll.lib] 201.obj
+                  1000d0c4              __iob
+
+.idata            1000e000   800   800 
+
+         .idata$2 1000e000    14    14  [m:\lcc\lib\kernel32.lib] 1.obj
+                  1000e000              $hkernel
+         .idata$2 1000e014    14    14  [m:\lcc\lib\user32.lib] 1.obj
+                  1000e014              $huser32
+         .idata$2 1000e028    14    14  [m:\lcc\lib\gdi32.lib] 1.obj
+                  1000e028              $hgdi32
+         .idata$2 1000e03c    14    14  [m:\lcc\lib\comctl32.lib] 1.obj
+                  1000e03c              $hcomctl
+         .idata$2 1000e050    14    14  [m:\lcc\lib\crtdll.lib] 1.obj
+                  1000e050              $hcrtdll
+
+         .idata$3 1000e064    40    40  m:\lcc\lib\libcrt0s.obj
+
+         .idata$4 1000e0a4     4     4  [m:\lcc\lib\kernel32.lib] 0.obj
+         .idata$4 1000e0a8     4     4  [m:\lcc\lib\kernel32.lib] 1.obj
+         .idata$4 1000e0ac     4     4  [m:\lcc\lib\kernel32.lib] 156.obj
+         .idata$4 1000e0b0     4     4  [m:\lcc\lib\kernel32.lib] 211.obj
+         .idata$4 1000e0b4     4     4  [m:\lcc\lib\kernel32.lib] 216.obj
+         .idata$4 1000e0b8     4     4  [m:\lcc\lib\kernel32.lib] 293.obj
+         .idata$4 1000e0bc     4     4  [m:\lcc\lib\kernel32.lib] 317.obj
+         .idata$4 1000e0c0     4     4  [m:\lcc\lib\kernel32.lib] 360.obj
+         .idata$4 1000e0c4     4     4  [m:\lcc\lib\kernel32.lib] 421.obj
+         .idata$4 1000e0c8     4     4  [m:\lcc\lib\kernel32.lib] 516.obj
+         .idata$4 1000e0cc     4     4  [m:\lcc\lib\kernel32.lib] 526.obj
+         .idata$4 1000e0d0     4     4  [m:\lcc\lib\kernel32.lib] 633.obj
+         .idata$4 1000e0d4     4     4  [m:\lcc\lib\user32.lib] 0.obj
+         .idata$4 1000e0d8     4     4  [m:\lcc\lib\user32.lib] 1.obj
+         .idata$4 1000e0dc     4     4  [m:\lcc\lib\user32.lib] 115.obj
+         .idata$4 1000e0e0     4     4  [m:\lcc\lib\user32.lib] 126.obj
+         .idata$4 1000e0e4     4     4  [m:\lcc\lib\user32.lib] 127.obj
+         .idata$4 1000e0e8     4     4  [m:\lcc\lib\user32.lib] 26.obj
+         .idata$4 1000e0ec     4     4  [m:\lcc\lib\user32.lib] 275.obj
+         .idata$4 1000e0f0     4     4  [m:\lcc\lib\user32.lib] 28.obj
+         .idata$4 1000e0f4     4     4  [m:\lcc\lib\user32.lib] 285.obj
+         .idata$4 1000e0f8     4     4  [m:\lcc\lib\user32.lib] 294.obj
+         .idata$4 1000e0fc     4     4  [m:\lcc\lib\user32.lib] 302.obj
+         .idata$4 1000e100     4     4  [m:\lcc\lib\user32.lib] 321.obj
+         .idata$4 1000e104     4     4  [m:\lcc\lib\user32.lib] 342.obj
+         .idata$4 1000e108     4     4  [m:\lcc\lib\user32.lib] 36.obj
+         .idata$4 1000e10c     4     4  [m:\lcc\lib\user32.lib] 40.obj
+         .idata$4 1000e110     4     4  [m:\lcc\lib\user32.lib] 41.obj
+         .idata$4 1000e114     4     4  [m:\lcc\lib\user32.lib] 440.obj
+         .idata$4 1000e118     4     4  [m:\lcc\lib\user32.lib] 448.obj
+         .idata$4 1000e11c     4     4  [m:\lcc\lib\user32.lib] 53.obj
+         .idata$4 1000e120     4     4  [m:\lcc\lib\user32.lib] 6.obj
+         .idata$4 1000e124     4     4  [m:\lcc\lib\user32.lib] 66.obj
+         .idata$4 1000e128     4     4  [m:\lcc\lib\user32.lib] 8.obj
+         .idata$4 1000e12c     4     4  [m:\lcc\lib\user32.lib] 80.obj
+         .idata$4 1000e130     4     4  [m:\lcc\lib\user32.lib] 84.obj
+         .idata$4 1000e134     4     4  [m:\lcc\lib\user32.lib] 86.obj
+         .idata$4 1000e138     4     4  [m:\lcc\lib\user32.lib] 87.obj
+         .idata$4 1000e13c     4     4  [m:\lcc\lib\user32.lib] 98.obj
+         .idata$4 1000e140     4     4  [m:\lcc\lib\gdi32.lib] 0.obj
+         .idata$4 1000e144     4     4  [m:\lcc\lib\gdi32.lib] 1.obj
+         .idata$4 1000e148     4     4  [m:\lcc\lib\gdi32.lib] 150.obj
+         .idata$4 1000e14c     4     4  [m:\lcc\lib\gdi32.lib] 239.obj
+         .idata$4 1000e150     4     4  [m:\lcc\lib\gdi32.lib] 260.obj
+         .idata$4 1000e154     4     4  [m:\lcc\lib\comctl32.lib] 0.obj
+         .idata$4 1000e158     4     4  [m:\lcc\lib\comctl32.lib] 1.obj
+         .idata$4 1000e15c     4     4  [m:\lcc\lib\comctl32.lib] 13.obj
+         .idata$4 1000e160     4     4  [m:\lcc\lib\crtdll.lib] 0.obj
+         .idata$4 1000e164     4     4  [m:\lcc\lib\crtdll.lib] 1.obj
+         .idata$4 1000e168     4     4  [m:\lcc\lib\crtdll.lib] 129.obj
+         .idata$4 1000e16c     4     4  [m:\lcc\lib\crtdll.lib] 201.obj
+         .idata$4 1000e170     4     4  [m:\lcc\lib\crtdll.lib] 233.obj
+         .idata$4 1000e174     4     4  [m:\lcc\lib\crtdll.lib] 336.obj
+         .idata$4 1000e178     4     4  [m:\lcc\lib\crtdll.lib] 432.obj
+         .idata$4 1000e17c     4     4  [m:\lcc\lib\crtdll.lib] 512.obj
+         .idata$4 1000e180     4     4  [m:\lcc\lib\crtdll.lib] 526.obj
+         .idata$4 1000e184     4     4  [m:\lcc\lib\crtdll.lib] 538.obj
+         .idata$4 1000e188     4     4  [m:\lcc\lib\crtdll.lib] 542.obj
+         .idata$4 1000e18c     4     4  [m:\lcc\lib\crtdll.lib] 58.obj
+         .idata$4 1000e190     4     4  [m:\lcc\lib\crtdll.lib] 586.obj
+         .idata$4 1000e194     4     4  [m:\lcc\lib\crtdll.lib] 591.obj
+         .idata$4 1000e198     4     4  [m:\lcc\lib\crtdll.lib] 597.obj
+         .idata$4 1000e19c     4     4  [m:\lcc\lib\crtdll.lib] 598.obj
+         .idata$4 1000e1a0     4     4  [m:\lcc\lib\crtdll.lib] 599.obj
+         .idata$4 1000e1a4     4     4  [m:\lcc\lib\crtdll.lib] 603.obj
+         .idata$4 1000e1a8     4     4  [m:\lcc\lib\crtdll.lib] 609.obj
+         .idata$4 1000e1ac     4     4  [m:\lcc\lib\crtdll.lib] 616.obj
+         .idata$4 1000e1b0     4     4  [m:\lcc\lib\crtdll.lib] 626.obj
+         .idata$4 1000e1b4     4     4  [m:\lcc\lib\crtdll.lib] 627.obj
+         .idata$4 1000e1b8     4     4  [m:\lcc\lib\crtdll.lib] 628.obj
+         .idata$4 1000e1bc     4     4  [m:\lcc\lib\crtdll.lib] 636.obj
+         .idata$4 1000e1c0     4     4  [m:\lcc\lib\crtdll.lib] 644.obj
+         .idata$4 1000e1c4     4     4  [m:\lcc\lib\crtdll.lib] 674.obj
+         .idata$4 1000e1c8     4     4  [m:\lcc\lib\crtdll.lib] 688.obj
+
+         .idata$5 1000e1cc     4     4  [m:\lcc\lib\kernel32.lib] 0.obj
+         .idata$5 1000e1d0     4     4  [m:\lcc\lib\kernel32.lib] 1.obj
+         .idata$5 1000e1d4     4     4  [m:\lcc\lib\kernel32.lib] 156.obj
+                  1000e1d4              __imp__ExitProcess@4
+         .idata$5 1000e1d8     4     4  [m:\lcc\lib\kernel32.lib] 211.obj
+                  1000e1d8              __imp__FormatMessageA@28
+         .idata$5 1000e1dc     4     4  [m:\lcc\lib\kernel32.lib] 216.obj
+                  1000e1dc              __imp__FreeLibrary@4
+         .idata$5 1000e1e0     4     4  [m:\lcc\lib\kernel32.lib] 293.obj
+                  1000e1e0              __imp__GetEnvironmentStringsA@0
+         .idata$5 1000e1e4     4     4  [m:\lcc\lib\kernel32.lib] 317.obj
+                  1000e1e4              __imp__GetLastError@0
+         .idata$5 1000e1e8     4     4  [m:\lcc\lib\kernel32.lib] 360.obj
+                  1000e1e8              __imp__GetProcAddress@8
+         .idata$5 1000e1ec     4     4  [m:\lcc\lib\kernel32.lib] 421.obj
+                  1000e1ec              __imp__GetTickCount@0
+         .idata$5 1000e1f0     4     4  [m:\lcc\lib\kernel32.lib] 516.obj
+                  1000e1f0              __imp__LoadLibraryA@4
+         .idata$5 1000e1f4     4     4  [m:\lcc\lib\kernel32.lib] 526.obj
+                  1000e1f4              __imp__LocalFree@4
+         .idata$5 1000e1f8     4     4  [m:\lcc\lib\kernel32.lib] 633.obj
+                  1000e1f8              __imp__RtlUnwind@16
+         .idata$5 1000e1fc     4     4  [m:\lcc\lib\user32.lib] 0.obj
+         .idata$5 1000e200     4     4  [m:\lcc\lib\user32.lib] 1.obj
+         .idata$5 1000e204     4     4  [m:\lcc\lib\user32.lib] 115.obj
+                  1000e204              __imp__GetClientRect@8
+         .idata$5 1000e208     4     4  [m:\lcc\lib\user32.lib] 126.obj
+                  1000e208              __imp__ClientToScreen@8
+         .idata$5 1000e20c     4     4  [m:\lcc\lib\user32.lib] 127.obj
+                  1000e20c              __imp__ScreenToClient@8
+         .idata$5 1000e210     4     4  [m:\lcc\lib\user32.lib] 26.obj
+                  1000e210              __imp__LoadCursorA@8
+         .idata$5 1000e214     4     4  [m:\lcc\lib\user32.lib] 275.obj
+                  1000e214              __imp__SetMenu@8
+         .idata$5 1000e218     4     4  [m:\lcc\lib\user32.lib] 28.obj
+                  1000e218              __imp__LoadIconA@8
+         .idata$5 1000e21c     4     4  [m:\lcc\lib\user32.lib] 285.obj
+                  1000e21c              __imp__CreatePopupMenu@0
+         .idata$5 1000e220     4     4  [m:\lcc\lib\user32.lib] 294.obj
+                  1000e220              __imp__AppendMenuA@16
+         .idata$5 1000e224     4     4  [m:\lcc\lib\user32.lib] 302.obj
+                  1000e224              __imp__TrackPopupMenu@28
+         .idata$5 1000e228     4     4  [m:\lcc\lib\user32.lib] 321.obj
+                  1000e228              __imp__MessageBoxA@16
+         .idata$5 1000e22c     4     4  [m:\lcc\lib\user32.lib] 342.obj
+                  1000e22c              __imp__GetCursorPos@4
+         .idata$5 1000e230     4     4  [m:\lcc\lib\user32.lib] 36.obj
+                  1000e230              __imp__GetMessageA@16
+         .idata$5 1000e234     4     4  [m:\lcc\lib\user32.lib] 40.obj
+                  1000e234              __imp__TranslateMessage@4
+         .idata$5 1000e238     4     4  [m:\lcc\lib\user32.lib] 41.obj
+                  1000e238              __imp__DispatchMessageA@4
+         .idata$5 1000e23c     4     4  [m:\lcc\lib\user32.lib] 440.obj
+                  1000e23c              __imp__GetWindowDC@4
+         .idata$5 1000e240     4     4  [m:\lcc\lib\user32.lib] 448.obj
+                  1000e240              __imp__FillRect@12
+         .idata$5 1000e244     4     4  [m:\lcc\lib\user32.lib] 53.obj
+                  1000e244              __imp__SendMessageA@16
+         .idata$5 1000e248     4     4  [m:\lcc\lib\user32.lib] 6.obj
+                  1000e248              __imp__RegisterClassA@4
+         .idata$5 1000e24c     4     4  [m:\lcc\lib\user32.lib] 66.obj
+                  1000e24c              __imp__PostQuitMessage@4
+         .idata$5 1000e250     4     4  [m:\lcc\lib\user32.lib] 8.obj
+                  1000e250              __imp__UnregisterClassA@8
+         .idata$5 1000e254     4     4  [m:\lcc\lib\user32.lib] 80.obj
+                  1000e254              __imp__ShowWindow@8
+         .idata$5 1000e258     4     4  [m:\lcc\lib\user32.lib] 84.obj
+                  1000e258              __imp__CreateWindowExA@48
+         .idata$5 1000e25c     4     4  [m:\lcc\lib\user32.lib] 86.obj
+                  1000e25c              __imp__DestroyWindow@4
+         .idata$5 1000e260     4     4  [m:\lcc\lib\user32.lib] 87.obj
+                  1000e260              __imp__SetWindowPos@28
+         .idata$5 1000e264     4     4  [m:\lcc\lib\user32.lib] 98.obj
+                  1000e264              __imp__DefWindowProcA@16
+         .idata$5 1000e268     4     4  [m:\lcc\lib\gdi32.lib] 0.obj
+         .idata$5 1000e26c     4     4  [m:\lcc\lib\gdi32.lib] 1.obj
+         .idata$5 1000e270     4     4  [m:\lcc\lib\gdi32.lib] 150.obj
+                  1000e270              __imp__GetTextExtentExPointA@28
+         .idata$5 1000e274     4     4  [m:\lcc\lib\gdi32.lib] 239.obj
+                  1000e274              __imp__TextOutA@20
+         .idata$5 1000e278     4     4  [m:\lcc\lib\gdi32.lib] 260.obj
+                  1000e278              __imp__DPtoLP@12
+         .idata$5 1000e27c     4     4  [m:\lcc\lib\comctl32.lib] 0.obj
+         .idata$5 1000e280     4     4  [m:\lcc\lib\comctl32.lib] 1.obj
+         .idata$5 1000e284     4     4  [m:\lcc\lib\comctl32.lib] 13.obj
+                  1000e284              __imp__InitCommonControls@0
+         .idata$5 1000e288     4     4  [m:\lcc\lib\crtdll.lib] 0.obj
+         .idata$5 1000e28c     4     4  [m:\lcc\lib\crtdll.lib] 1.obj
+         .idata$5 1000e290     4     4  [m:\lcc\lib\crtdll.lib] 129.obj
+                  1000e290              __imp__fdopen
+         .idata$5 1000e294     4     4  [m:\lcc\lib\crtdll.lib] 201.obj
+                  1000e294              __imp___iob
+         .idata$5 1000e298     4     4  [m:\lcc\lib\crtdll.lib] 233.obj
+                  1000e298              __imp__itoa
+         .idata$5 1000e29c     4     4  [m:\lcc\lib\crtdll.lib] 336.obj
+                  1000e29c              __imp__open_osfhandle
+         .idata$5 1000e2a0     4     4  [m:\lcc\lib\crtdll.lib] 432.obj
+                  1000e2a0              __imp__strnicmp
+         .idata$5 1000e2a4     4     4  [m:\lcc\lib\crtdll.lib] 512.obj
+                  1000e2a4              __imp__atol
+         .idata$5 1000e2a8     4     4  [m:\lcc\lib\crtdll.lib] 526.obj
+                  1000e2a8              __imp__fclose
+         .idata$5 1000e2ac     4     4  [m:\lcc\lib\crtdll.lib] 538.obj
+                  1000e2ac              __imp__fputc
+         .idata$5 1000e2b0     4     4  [m:\lcc\lib\crtdll.lib] 542.obj
+                  1000e2b0              __imp__free
+         .idata$5 1000e2b4     4     4  [m:\lcc\lib\crtdll.lib] 58.obj
+                  1000e2b4              __imp__cexit
+         .idata$5 1000e2b8     4     4  [m:\lcc\lib\crtdll.lib] 586.obj
+                  1000e2b8              __imp__localeconv
+         .idata$5 1000e2bc     4     4  [m:\lcc\lib\crtdll.lib] 591.obj
+                  1000e2bc              __imp__malloc
+         .idata$5 1000e2c0     4     4  [m:\lcc\lib\crtdll.lib] 597.obj
+                  1000e2c0              __imp__memcpy
+         .idata$5 1000e2c4     4     4  [m:\lcc\lib\crtdll.lib] 598.obj
+                  1000e2c4              __imp__memmove
+         .idata$5 1000e2c8     4     4  [m:\lcc\lib\crtdll.lib] 599.obj
+                  1000e2c8              __imp__memset
+         .idata$5 1000e2cc     4     4  [m:\lcc\lib\crtdll.lib] 603.obj
+                  1000e2cc              __imp__pow
+         .idata$5 1000e2d0     4     4  [m:\lcc\lib\crtdll.lib] 609.obj
+                  1000e2d0              __imp__raise
+         .idata$5 1000e2d4     4     4  [m:\lcc\lib\crtdll.lib] 616.obj
+                  1000e2d4              __imp__setbuf
+         .idata$5 1000e2d8     4     4  [m:\lcc\lib\crtdll.lib] 626.obj
+                  1000e2d8              __imp__strcat
+         .idata$5 1000e2dc     4     4  [m:\lcc\lib\crtdll.lib] 627.obj
+                  1000e2dc              __imp__strchr
+         .idata$5 1000e2e0     4     4  [m:\lcc\lib\crtdll.lib] 628.obj
+                  1000e2e0              __imp__strcmp
+         .idata$5 1000e2e4     4     4  [m:\lcc\lib\crtdll.lib] 636.obj
+                  1000e2e4              __imp__strncmp
+         .idata$5 1000e2e8     4     4  [m:\lcc\lib\crtdll.lib] 644.obj
+                  1000e2e8              __imp__strtol
+         .idata$5 1000e2ec     4     4  [m:\lcc\lib\crtdll.lib] 674.obj
+                  1000e2ec              __imp__wcslen
+         .idata$5 1000e2f0     4     4  [m:\lcc\lib\crtdll.lib] 688.obj
+                  1000e2f0              __imp__wctomb
+
+         .idata$6 1000e2f4     8     8  m:\lcc\lib\libcrt0s.obj
+         .idata$6 1000e2fc     e     e  [m:\lcc\lib\kernel32.lib] 156.obj
+         .idata$6 1000e30c    12    12  [m:\lcc\lib\kernel32.lib] 211.obj
+         .idata$6 1000e320     e     e  [m:\lcc\lib\kernel32.lib] 216.obj
+         .idata$6 1000e330    1a    1a  [m:\lcc\lib\kernel32.lib] 293.obj
+         .idata$6 1000e34c    10    10  [m:\lcc\lib\kernel32.lib] 317.obj
+         .idata$6 1000e35c    12    12  [m:\lcc\lib\kernel32.lib] 360.obj
+         .idata$6 1000e370    10    10  [m:\lcc\lib\kernel32.lib] 421.obj
+         .idata$6 1000e380    10    10  [m:\lcc\lib\kernel32.lib] 516.obj
+         .idata$6 1000e390     c     c  [m:\lcc\lib\kernel32.lib] 526.obj
+         .idata$6 1000e39c     c     c  [m:\lcc\lib\kernel32.lib] 633.obj
+         .idata$6 1000e3a8    10    10  [m:\lcc\lib\user32.lib] 115.obj
+         .idata$6 1000e3b8    12    12  [m:\lcc\lib\user32.lib] 126.obj
+         .idata$6 1000e3cc    12    12  [m:\lcc\lib\user32.lib] 127.obj
+         .idata$6 1000e3e0     e     e  [m:\lcc\lib\user32.lib] 26.obj
+         .idata$6 1000e3f0     a     a  [m:\lcc\lib\user32.lib] 275.obj
+         .idata$6 1000e3fc     c     c  [m:\lcc\lib\user32.lib] 28.obj
+         .idata$6 1000e408    12    12  [m:\lcc\lib\user32.lib] 285.obj
+         .idata$6 1000e41c     e     e  [m:\lcc\lib\user32.lib] 294.obj
+         .idata$6 1000e42c    12    12  [m:\lcc\lib\user32.lib] 302.obj
+         .idata$6 1000e440     e     e  [m:\lcc\lib\user32.lib] 321.obj
+         .idata$6 1000e450    10    10  [m:\lcc\lib\user32.lib] 342.obj
+         .idata$6 1000e460     e     e  [m:\lcc\lib\user32.lib] 36.obj
+         .idata$6 1000e470    14    14  [m:\lcc\lib\user32.lib] 40.obj
+         .idata$6 1000e484    14    14  [m:\lcc\lib\user32.lib] 41.obj
+         .idata$6 1000e498     e     e  [m:\lcc\lib\user32.lib] 440.obj
+         .idata$6 1000e4a8     c     c  [m:\lcc\lib\user32.lib] 448.obj
+         .idata$6 1000e4b4    10    10  [m:\lcc\lib\user32.lib] 53.obj
+         .idata$6 1000e4c4    12    12  [m:\lcc\lib\user32.lib] 6.obj
+         .idata$6 1000e4d8    12    12  [m:\lcc\lib\user32.lib] 66.obj
+         .idata$6 1000e4ec    14    14  [m:\lcc\lib\user32.lib] 8.obj
+         .idata$6 1000e500     e     e  [m:\lcc\lib\user32.lib] 80.obj
+         .idata$6 1000e510    12    12  [m:\lcc\lib\user32.lib] 84.obj
+         .idata$6 1000e524    10    10  [m:\lcc\lib\user32.lib] 86.obj
+         .idata$6 1000e534    10    10  [m:\lcc\lib\user32.lib] 87.obj
+         .idata$6 1000e544    12    12  [m:\lcc\lib\user32.lib] 98.obj
+         .idata$6 1000e558    18    18  [m:\lcc\lib\gdi32.lib] 150.obj
+         .idata$6 1000e570     c     c  [m:\lcc\lib\gdi32.lib] 239.obj
+         .idata$6 1000e57c     a     a  [m:\lcc\lib\gdi32.lib] 260.obj
+         .idata$6 1000e588    16    16  [m:\lcc\lib\comctl32.lib] 13.obj
+         .idata$6 1000e5a0     a     a  [m:\lcc\lib\crtdll.lib] 129.obj
+         .idata$6 1000e5ac     8     8  [m:\lcc\lib\crtdll.lib] 201.obj
+         .idata$6 1000e5b4     8     8  [m:\lcc\lib\crtdll.lib] 233.obj
+         .idata$6 1000e5bc    12    12  [m:\lcc\lib\crtdll.lib] 336.obj
+         .idata$6 1000e5d0     c     c  [m:\lcc\lib\crtdll.lib] 432.obj
+         .idata$6 1000e5dc     8     8  [m:\lcc\lib\crtdll.lib] 512.obj
+         .idata$6 1000e5e4     a     a  [m:\lcc\lib\crtdll.lib] 526.obj
+         .idata$6 1000e5f0     8     8  [m:\lcc\lib\crtdll.lib] 538.obj
+         .idata$6 1000e5f8     8     8  [m:\lcc\lib\crtdll.lib] 542.obj
+         .idata$6 1000e600     a     a  [m:\lcc\lib\crtdll.lib] 58.obj
+         .idata$6 1000e60c     e     e  [m:\lcc\lib\crtdll.lib] 586.obj
+         .idata$6 1000e61c     a     a  [m:\lcc\lib\crtdll.lib] 591.obj
+         .idata$6 1000e628     a     a  [m:\lcc\lib\crtdll.lib] 597.obj
+         .idata$6 1000e634     a     a  [m:\lcc\lib\crtdll.lib] 598.obj
+         .idata$6 1000e640     a     a  [m:\lcc\lib\crtdll.lib] 599.obj
+         .idata$6 1000e64c     6     6  [m:\lcc\lib\crtdll.lib] 603.obj
+         .idata$6 1000e654     8     8  [m:\lcc\lib\crtdll.lib] 609.obj
+         .idata$6 1000e65c     a     a  [m:\lcc\lib\crtdll.lib] 616.obj
+         .idata$6 1000e668     a     a  [m:\lcc\lib\crtdll.lib] 626.obj
+         .idata$6 1000e674     a     a  [m:\lcc\lib\crtdll.lib] 627.obj
+         .idata$6 1000e680     a     a  [m:\lcc\lib\crtdll.lib] 628.obj
+         .idata$6 1000e68c     a     a  [m:\lcc\lib\crtdll.lib] 636.obj
+         .idata$6 1000e698     a     a  [m:\lcc\lib\crtdll.lib] 644.obj
+         .idata$6 1000e6a4     a     a  [m:\lcc\lib\crtdll.lib] 674.obj
+         .idata$6 1000e6b0     a     a  [m:\lcc\lib\crtdll.lib] 688.obj
+
+         .idata$7 1000e6bc     e     e  [m:\lcc\lib\kernel32.lib] 0.obj
+                  1000e6bc              $tkernel
+         .idata$7 1000e6cc     4     4  [m:\lcc\lib\kernel32.lib] 156.obj
+         .idata$7 1000e6d0     4     4  [m:\lcc\lib\kernel32.lib] 211.obj
+         .idata$7 1000e6d4     4     4  [m:\lcc\lib\kernel32.lib] 216.obj
+         .idata$7 1000e6d8     4     4  [m:\lcc\lib\kernel32.lib] 293.obj
+         .idata$7 1000e6dc     4     4  [m:\lcc\lib\kernel32.lib] 317.obj
+         .idata$7 1000e6e0     4     4  [m:\lcc\lib\kernel32.lib] 360.obj
+         .idata$7 1000e6e4     4     4  [m:\lcc\lib\kernel32.lib] 421.obj
+         .idata$7 1000e6e8     4     4  [m:\lcc\lib\kernel32.lib] 516.obj
+         .idata$7 1000e6ec     4     4  [m:\lcc\lib\kernel32.lib] 526.obj
+         .idata$7 1000e6f0     4     4  [m:\lcc\lib\kernel32.lib] 633.obj
+         .idata$7 1000e6f4     c     c  [m:\lcc\lib\user32.lib] 0.obj
+                  1000e6f4              $tuser32
+         .idata$7 1000e700     4     4  [m:\lcc\lib\user32.lib] 115.obj
+         .idata$7 1000e704     4     4  [m:\lcc\lib\user32.lib] 126.obj
+         .idata$7 1000e708     4     4  [m:\lcc\lib\user32.lib] 127.obj
+         .idata$7 1000e70c     4     4  [m:\lcc\lib\user32.lib] 26.obj
+         .idata$7 1000e710     4     4  [m:\lcc\lib\user32.lib] 275.obj
+         .idata$7 1000e714     4     4  [m:\lcc\lib\user32.lib] 28.obj
+         .idata$7 1000e718     4     4  [m:\lcc\lib\user32.lib] 285.obj
+         .idata$7 1000e71c     4     4  [m:\lcc\lib\user32.lib] 294.obj
+         .idata$7 1000e720     4     4  [m:\lcc\lib\user32.lib] 302.obj
+         .idata$7 1000e724     4     4  [m:\lcc\lib\user32.lib] 321.obj
+         .idata$7 1000e728     4     4  [m:\lcc\lib\user32.lib] 342.obj
+         .idata$7 1000e72c     4     4  [m:\lcc\lib\user32.lib] 36.obj
+         .idata$7 1000e730     4     4  [m:\lcc\lib\user32.lib] 40.obj
+         .idata$7 1000e734     4     4  [m:\lcc\lib\user32.lib] 41.obj
+         .idata$7 1000e738     4     4  [m:\lcc\lib\user32.lib] 440.obj
+         .idata$7 1000e73c     4     4  [m:\lcc\lib\user32.lib] 448.obj
+         .idata$7 1000e740     4     4  [m:\lcc\lib\user32.lib] 53.obj
+         .idata$7 1000e744     4     4  [m:\lcc\lib\user32.lib] 6.obj
+         .idata$7 1000e748     4     4  [m:\lcc\lib\user32.lib] 66.obj
+         .idata$7 1000e74c     4     4  [m:\lcc\lib\user32.lib] 8.obj
+         .idata$7 1000e750     4     4  [m:\lcc\lib\user32.lib] 80.obj
+         .idata$7 1000e754     4     4  [m:\lcc\lib\user32.lib] 84.obj
+         .idata$7 1000e758     4     4  [m:\lcc\lib\user32.lib] 86.obj
+         .idata$7 1000e75c     4     4  [m:\lcc\lib\user32.lib] 87.obj
+         .idata$7 1000e760     4     4  [m:\lcc\lib\user32.lib] 98.obj
+         .idata$7 1000e764     a     a  [m:\lcc\lib\gdi32.lib] 0.obj
+                  1000e764              $tgdi32
+         .idata$7 1000e770     4     4  [m:\lcc\lib\gdi32.lib] 150.obj
+         .idata$7 1000e774     4     4  [m:\lcc\lib\gdi32.lib] 239.obj
+         .idata$7 1000e778     4     4  [m:\lcc\lib\gdi32.lib] 260.obj
+         .idata$7 1000e77c     e     e  [m:\lcc\lib\comctl32.lib] 0.obj
+                  1000e77c              $tcomctl
+         .idata$7 1000e78c     4     4  [m:\lcc\lib\comctl32.lib] 13.obj
+         .idata$7 1000e790     c     c  [m:\lcc\lib\crtdll.lib] 0.obj
+                  1000e790              $tcrtdll
+         .idata$7 1000e79c     4     4  [m:\lcc\lib\crtdll.lib] 129.obj
+         .idata$7 1000e7a0     4     4  [m:\lcc\lib\crtdll.lib] 201.obj
+         .idata$7 1000e7a4     4     4  [m:\lcc\lib\crtdll.lib] 233.obj
+         .idata$7 1000e7a8     4     4  [m:\lcc\lib\crtdll.lib] 336.obj
+         .idata$7 1000e7ac     4     4  [m:\lcc\lib\crtdll.lib] 432.obj
+         .idata$7 1000e7b0     4     4  [m:\lcc\lib\crtdll.lib] 512.obj
+         .idata$7 1000e7b4     4     4  [m:\lcc\lib\crtdll.lib] 526.obj
+         .idata$7 1000e7b8     4     4  [m:\lcc\lib\crtdll.lib] 538.obj
+         .idata$7 1000e7bc     4     4  [m:\lcc\lib\crtdll.lib] 542.obj
+         .idata$7 1000e7c0     4     4  [m:\lcc\lib\crtdll.lib] 58.obj
+         .idata$7 1000e7c4     4     4  [m:\lcc\lib\crtdll.lib] 586.obj
+         .idata$7 1000e7c8     4     4  [m:\lcc\lib\crtdll.lib] 591.obj
+         .idata$7 1000e7cc     4     4  [m:\lcc\lib\crtdll.lib] 597.obj
+         .idata$7 1000e7d0     4     4  [m:\lcc\lib\crtdll.lib] 598.obj
+         .idata$7 1000e7d4     4     4  [m:\lcc\lib\crtdll.lib] 599.obj
+         .idata$7 1000e7d8     4     4  [m:\lcc\lib\crtdll.lib] 603.obj
+         .idata$7 1000e7dc     4     4  [m:\lcc\lib\crtdll.lib] 609.obj
+         .idata$7 1000e7e0     4     4  [m:\lcc\lib\crtdll.lib] 616.obj
+         .idata$7 1000e7e4     4     4  [m:\lcc\lib\crtdll.lib] 626.obj
+         .idata$7 1000e7e8     4     4  [m:\lcc\lib\crtdll.lib] 627.obj
+         .idata$7 1000e7ec     4     4  [m:\lcc\lib\crtdll.lib] 628.obj
+         .idata$7 1000e7f0     4     4  [m:\lcc\lib\crtdll.lib] 636.obj
+         .idata$7 1000e7f4     4     4  [m:\lcc\lib\crtdll.lib] 644.obj
+         .idata$7 1000e7f8     4     4  [m:\lcc\lib\crtdll.lib] 674.obj
+         .idata$7 1000e7fc     4     4  [m:\lcc\lib\crtdll.lib] 688.obj
+
+.debug            1000f000    fa     0 
+
+         .drectve 1000f000    ca    ca  fmf_sdk_example.obj
+         .drectve 1000f0cc    16    16  [m:\lcc\lib\libc.lib] sprintf.obj
+         .drectve 1000f0e4    16    16  [m:\lcc\lib\libc.lib] xprintf.obj
+
+Section .text: 35264
+	m:\lcc\lib\libcrt0s.obj:  796
+	fmf_sdk_example.obj:  9212
+	m:\lcc\lib\libc.lib: 24500
+	m:\lcc\lib\kernel32.lib: 120
+	m:\lcc\lib\user32.lib: 300
+	m:\lcc\lib\gdi32.lib: 36
+	m:\lcc\lib\comctl32.lib: 12
+
+Section .bss: 0
+
+Section .data: 4304
+	m:\lcc\lib\libcrt0s.obj:  144
+	fmf_sdk_example.obj:  1312
+	m:\lcc\lib\libc.lib: 2836
+	m:\lcc\lib\kernel32.lib: 0
+	m:\lcc\lib\user32.lib: 0
+	m:\lcc\lib\gdi32.lib: 0
+	m:\lcc\lib\comctl32.lib: 0
+
+Section .idata: 2048
+	m:\lcc\lib\crtdll.lib: 32
+	m:\lcc\lib\kernel32.lib: 20
+	m:\lcc\lib\user32.lib: 20
+	m:\lcc\lib\gdi32.lib: 20
+	m:\lcc\lib\comctl32.lib: 20
+	m:\lcc\lib\libcrt0s.obj:  64
+	m:\lcc\lib\kernel32.lib: 52
+	m:\lcc\lib\user32.lib: 108
+	m:\lcc\lib\gdi32.lib: 20
+	m:\lcc\lib\comctl32.lib: 12
+	m:\lcc\lib\crtdll.lib: 108
+	m:\lcc\lib\kernel32.lib: 48
+	m:\lcc\lib\user32.lib: 108
+	m:\lcc\lib\gdi32.lib: 20
+	m:\lcc\lib\comctl32.lib: 12
+	m:\lcc\lib\libcrt0s.obj:  8
+	m:\lcc\lib\kernel32.lib: 178
+	m:\lcc\lib\user32.lib: 410
+	m:\lcc\lib\gdi32.lib: 44
+	m:\lcc\lib\comctl32.lib: 10
+	m:\lcc\lib\crtdll.lib: 252
+	m:\lcc\lib\kernel32.lib: 52
+	m:\lcc\lib\user32.lib: 110
+	m:\lcc\lib\gdi32.lib: 26
+	m:\lcc\lib\comctl32.lib: 16
+
+Section .debug: 0
+	fmf_sdk_example.obj:  202
+
+Section .reloc: 1708
+
+Section .edata: 308
+
+

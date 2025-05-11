@@ -1,0 +1,3193 @@
+
+ Start         Length     Name                   Class
+ 0001:00000000 0001F124H .text                   CODE
+ 0002:00000000 000022D8H .data                   DATA
+ 0002:000022D8 00002785H .bss                    BSS
+
+
+Detailed map of segments
+
+ 0001:00000000 00005557 C=CODE     S=.text    G=(none)   M=System   ACBP=A9
+ 0001:00005558 00000140 C=CODE     S=.text    G=(none)   M=SysInit  ACBP=A9
+ 0001:00005698 00000038 C=CODE     S=.text    G=(none)   M=Types    ACBP=A9
+ 0001:000056D0 00000240 C=CODE     S=.text    G=(none)   M=Windows  ACBP=A9
+ 0001:00005910 00000038 C=CODE     S=.text    G=(none)   M=Messages ACBP=A9
+ 0001:00005948 00000308 C=CODE     S=.text    G=(none)   M=SysConst ACBP=A9
+ 0001:00005C50 000061E4 C=CODE     S=.text    G=(none)   M=SysUtils ACBP=A9
+ 0001:0000BE34 000007FB C=CODE     S=.text    G=(none)   M=VarUtils ACBP=A9
+ 0001:0000C630 000059AA C=CODE     S=.text    G=(none)   M=Variants ACBP=A9
+ 0001:00011FDC 00000098 C=CODE     S=.text    G=(none)   M=RTLConsts ACBP=A9
+ 0001:00012074 00000084 C=CODE     S=.text    G=(none)   M=TypInfo  ACBP=A9
+ 0001:000120F8 00000098 C=CODE     S=.text    G=(none)   M=ActiveX  ACBP=A9
+ 0001:00012190 00003466 C=CODE     S=.text    G=(none)   M=Classes  ACBP=A9
+ 0001:000155F8 00000038 C=CODE     S=.text    G=(none)   M=Math     ACBP=A9
+ 0001:00015630 00000124 C=CODE     S=.text    G=(none)   M=Contnrs  ACBP=A9
+ 0001:00015754 00000194 C=CODE     S=.text    G=(none)   M=SyncObjs ACBP=A9
+ 0001:000158E8 0000044D C=CODE     S=.text    G=(none)   M=JclResources ACBP=A9
+ 0001:00015D38 00000272 C=CODE     S=.text    G=(none)   M=JclBase  ACBP=A9
+ 0001:00015FAC 00000038 C=CODE     S=.text    G=(none)   M=AccCtrl  ACBP=A9
+ 0001:00015FE4 000002C1 C=CODE     S=.text    G=(none)   M=JclWin32 ACBP=A9
+ 0001:000162A8 00000038 C=CODE     S=.text    G=(none)   M=ShellAPI ACBP=A9
+ 0001:000162E0 00000058 C=CODE     S=.text    G=(none)   M=ComConst ACBP=A9
+ 0001:00016338 00000E65 C=CODE     S=.text    G=(none)   M=ComObj   ACBP=A9
+ 0001:000171A0 00000038 C=CODE     S=.text    G=(none)   M=CommCtrl ACBP=A9
+ 0001:000171D8 00000038 C=CODE     S=.text    G=(none)   M=RegStr   ACBP=A9
+ 0001:00017210 00000038 C=CODE     S=.text    G=(none)   M=WinInet  ACBP=A9
+ 0001:00017248 00000038 C=CODE     S=.text    G=(none)   M=UrlMon   ACBP=A9
+ 0001:00017280 00000038 C=CODE     S=.text    G=(none)   M=ShlObj   ACBP=A9
+ 0001:000172B8 00000155 C=CODE     S=.text    G=(none)   M=JclLogic ACBP=A9
+ 0001:00017410 00000161 C=CODE     S=.text    G=(none)   M=JclStringConversions ACBP=A9
+ 0001:00017574 000017F5 C=CODE     S=.text    G=(none)   M=JclCharsets ACBP=A9
+ 0001:00018D6C 00000155 C=CODE     S=.text    G=(none)   M=Jcl8087  ACBP=A9
+ 0001:00018EC4 00000038 C=CODE     S=.text    G=(none)   M=WinSock  ACBP=A9
+ 0001:00018EFC 00000038 C=CODE     S=.text    G=(none)   M=Snmp     ACBP=A9
+ 0001:00018F34 00000038 C=CODE     S=.text    G=(none)   M=TlHelp32 ACBP=A9
+ 0001:00018F6C 00000038 C=CODE     S=.text    G=(none)   M=PsAPI    ACBP=A9
+ 0001:00018FA4 00000068 C=CODE     S=.text    G=(none)   M=IniFiles ACBP=A9
+ 0001:0001900C 00000159 C=CODE     S=.text    G=(none)   M=JclIniFiles ACBP=A9
+ 0001:00019168 00000A58 C=CODE     S=.text    G=(none)   M=JclSysInfo ACBP=A9
+ 0001:00019BC0 00001AB9 C=CODE     S=.text    G=(none)   M=JclUnicode ACBP=A9
+ 0001:0001B67C 00000159 C=CODE     S=.text    G=(none)   M=JclWideStrings ACBP=A9
+ 0001:0001B7D8 000004BF C=CODE     S=.text    G=(none)   M=JclRegistry ACBP=A9
+ 0001:0001BC98 0000047D C=CODE     S=.text    G=(none)   M=JclSynch ACBP=A9
+ 0001:0001C118 0000018D C=CODE     S=.text    G=(none)   M=JclMath  ACBP=A9
+ 0001:0001C2A8 00000155 C=CODE     S=.text    G=(none)   M=JclStreams ACBP=A9
+ 0001:0001C400 0000023F C=CODE     S=.text    G=(none)   M=JclAnsiStrings ACBP=A9
+ 0001:0001C640 000003EF C=CODE     S=.text    G=(none)   M=JclStrings ACBP=A9
+ 0001:0001CA30 0000015D C=CODE     S=.text    G=(none)   M=JclShell ACBP=A9
+ 0001:0001CB90 00000159 C=CODE     S=.text    G=(none)   M=JclSecurity ACBP=A9
+ 0001:0001CCEC 00000159 C=CODE     S=.text    G=(none)   M=JclDateTime ACBP=A9
+ 0001:0001CE48 00000159 C=CODE     S=.text    G=(none)   M=JclConsole ACBP=A9
+ 0001:0001CFA4 00000700 C=CODE     S=.text    G=(none)   M=JclSysUtils ACBP=A9
+ 0001:0001D6A4 00000865 C=CODE     S=.text    G=(none)   M=JclUnitVersioning ACBP=A9
+ 0001:0001DF0C 00000905 C=CODE     S=.text    G=(none)   M=JclFileUtils ACBP=A9
+ 0001:0001E814 00000910 C=CODE     S=.text    G=(none)   M=sourcecnt ACBP=A9
+ 0002:00000000 0000009C C=DATA     S=.data    G=DGROUP   M=System   ACBP=A9
+ 0002:0000009C 0000001C C=DATA     S=.data    G=DGROUP   M=SysInit  ACBP=A9
+ 0002:000000B8 00000250 C=DATA     S=.data    G=DGROUP   M=SysUtils ACBP=A9
+ 0002:00000308 00000008 C=DATA     S=.data    G=DGROUP   M=VarUtils ACBP=A9
+ 0002:00000310 00000076 C=DATA     S=.data    G=DGROUP   M=Variants ACBP=A9
+ 0002:00000388 0000000C C=DATA     S=.data    G=DGROUP   M=TypInfo  ACBP=A9
+ 0002:00000394 00000010 C=DATA     S=.data    G=DGROUP   M=ActiveX  ACBP=A9
+ 0002:000003A4 00000004 C=DATA     S=.data    G=DGROUP   M=Classes  ACBP=A9
+ 0002:000003A8 00000018 C=DATA     S=.data    G=DGROUP   M=JclResources ACBP=A9
+ 0002:000003C0 00000018 C=DATA     S=.data    G=DGROUP   M=JclBase  ACBP=A9
+ 0002:000003D8 00000018 C=DATA     S=.data    G=DGROUP   M=JclWin32 ACBP=A9
+ 0002:000003F0 00000030 C=DATA     S=.data    G=DGROUP   M=ComObj   ACBP=A9
+ 0002:00000420 00000018 C=DATA     S=.data    G=DGROUP   M=JclLogic ACBP=A9
+ 0002:00000438 00000018 C=DATA     S=.data    G=DGROUP   M=JclStringConversions ACBP=A9
+ 0002:00000450 00000988 C=DATA     S=.data    G=DGROUP   M=JclCharsets ACBP=A9
+ 0002:00000DD8 00000018 C=DATA     S=.data    G=DGROUP   M=Jcl8087  ACBP=A9
+ 0002:00000DF0 00000008 C=DATA     S=.data    G=DGROUP   M=IniFiles ACBP=A9
+ 0002:00000DF8 00000018 C=DATA     S=.data    G=DGROUP   M=JclIniFiles ACBP=A9
+ 0002:00000E10 00000754 C=DATA     S=.data    G=DGROUP   M=JclSysInfo ACBP=A9
+ 0002:00001564 0000075C C=DATA     S=.data    G=DGROUP   M=JclUnicode ACBP=A9
+ 0002:00001CC0 00000018 C=DATA     S=.data    G=DGROUP   M=JclWideStrings ACBP=A9
+ 0002:00001CD8 000000C0 C=DATA     S=.data    G=DGROUP   M=JclRegistry ACBP=A9
+ 0002:00001D98 00000018 C=DATA     S=.data    G=DGROUP   M=JclSynch ACBP=A9
+ 0002:00001DB0 00000020 C=DATA     S=.data    G=DGROUP   M=JclMath  ACBP=A9
+ 0002:00001DD0 00000018 C=DATA     S=.data    G=DGROUP   M=JclStreams ACBP=A9
+ 0002:00001DE8 0000001C C=DATA     S=.data    G=DGROUP   M=JclAnsiStrings ACBP=A9
+ 0002:00001E04 00000024 C=DATA     S=.data    G=DGROUP   M=JclStrings ACBP=A9
+ 0002:00001E28 0000001C C=DATA     S=.data    G=DGROUP   M=JclShell ACBP=A9
+ 0002:00001E44 00000018 C=DATA     S=.data    G=DGROUP   M=JclSecurity ACBP=A9
+ 0002:00001E5C 00000018 C=DATA     S=.data    G=DGROUP   M=JclDateTime ACBP=A9
+ 0002:00001E74 00000018 C=DATA     S=.data    G=DGROUP   M=JclConsole ACBP=A9
+ 0002:00001E8C 0000002C C=DATA     S=.data    G=DGROUP   M=JclSysUtils ACBP=A9
+ 0002:00001EB8 00000028 C=DATA     S=.data    G=DGROUP   M=JclUnitVersioning ACBP=A9
+ 0002:00001EE0 00000048 C=DATA     S=.data    G=DGROUP   M=JclFileUtils ACBP=A9
+ 0002:00003000 00000664 C=BSS      S=.bss     G=DGROUP   M=System   ACBP=A9
+ 0002:00003664 00000010 C=BSS      S=.bss     G=DGROUP   M=SysInit  ACBP=A9
+ 0002:00003674 00000004 C=BSS      S=.bss     G=DGROUP   M=Types    ACBP=A9
+ 0002:00003678 00000004 C=BSS      S=.bss     G=DGROUP   M=Windows  ACBP=A9
+ 0002:0000367C 00000004 C=BSS      S=.bss     G=DGROUP   M=Messages ACBP=A9
+ 0002:00003680 00000004 C=BSS      S=.bss     G=DGROUP   M=SysConst ACBP=A9
+ 0002:00003684 00000120 C=BSS      S=.bss     G=DGROUP   M=SysUtils ACBP=A9
+ 0002:000037A4 0000005C C=BSS      S=.bss     G=DGROUP   M=VarUtils ACBP=A9
+ 0002:00003800 00000040 C=BSS      S=.bss     G=DGROUP   M=Variants ACBP=A9
+ 0002:00003840 00000004 C=BSS      S=.bss     G=DGROUP   M=RTLConsts ACBP=A9
+ 0002:00003844 00000004 C=BSS      S=.bss     G=DGROUP   M=TypInfo  ACBP=A9
+ 0002:00003848 00000004 C=BSS      S=.bss     G=DGROUP   M=ActiveX  ACBP=A9
+ 0002:0000384C 00000034 C=BSS      S=.bss     G=DGROUP   M=Classes  ACBP=A9
+ 0002:00003880 00000004 C=BSS      S=.bss     G=DGROUP   M=Math     ACBP=A9
+ 0002:00003884 00000004 C=BSS      S=.bss     G=DGROUP   M=Contnrs  ACBP=A9
+ 0002:00003888 00000004 C=BSS      S=.bss     G=DGROUP   M=SyncObjs ACBP=A9
+ 0002:0000388C 00000004 C=BSS      S=.bss     G=DGROUP   M=JclResources ACBP=A9
+ 0002:00003890 00000008 C=BSS      S=.bss     G=DGROUP   M=JclBase  ACBP=A9
+ 0002:00003898 00000004 C=BSS      S=.bss     G=DGROUP   M=AccCtrl  ACBP=A9
+ 0002:0000389C 00000004 C=BSS      S=.bss     G=DGROUP   M=JclWin32 ACBP=A9
+ 0002:000038A0 00000004 C=BSS      S=.bss     G=DGROUP   M=ShellAPI ACBP=A9
+ 0002:000038A4 00000004 C=BSS      S=.bss     G=DGROUP   M=ComConst ACBP=A9
+ 0002:000038A8 00000011 C=BSS      S=.bss     G=DGROUP   M=ComObj   ACBP=A9
+ 0002:000038BC 00000004 C=BSS      S=.bss     G=DGROUP   M=CommCtrl ACBP=A9
+ 0002:000038C0 00000004 C=BSS      S=.bss     G=DGROUP   M=RegStr   ACBP=A9
+ 0002:000038C4 00000004 C=BSS      S=.bss     G=DGROUP   M=WinInet  ACBP=A9
+ 0002:000038C8 00000004 C=BSS      S=.bss     G=DGROUP   M=UrlMon   ACBP=A9
+ 0002:000038CC 00000004 C=BSS      S=.bss     G=DGROUP   M=ShlObj   ACBP=A9
+ 0002:000038D0 00000004 C=BSS      S=.bss     G=DGROUP   M=JclLogic ACBP=A9
+ 0002:000038D4 00000004 C=BSS      S=.bss     G=DGROUP   M=JclStringConversions ACBP=A9
+ 0002:000038D8 00000004 C=BSS      S=.bss     G=DGROUP   M=JclCharsets ACBP=A9
+ 0002:000038DC 00000004 C=BSS      S=.bss     G=DGROUP   M=Jcl8087  ACBP=A9
+ 0002:000038E0 00000004 C=BSS      S=.bss     G=DGROUP   M=WinSock  ACBP=A9
+ 0002:000038E4 00000004 C=BSS      S=.bss     G=DGROUP   M=Snmp     ACBP=A9
+ 0002:000038E8 00000004 C=BSS      S=.bss     G=DGROUP   M=TlHelp32 ACBP=A9
+ 0002:000038EC 00000004 C=BSS      S=.bss     G=DGROUP   M=PsAPI    ACBP=A9
+ 0002:000038F0 00000004 C=BSS      S=.bss     G=DGROUP   M=IniFiles ACBP=A9
+ 0002:000038F4 00000004 C=BSS      S=.bss     G=DGROUP   M=JclIniFiles ACBP=A9
+ 0002:000038F8 00000010 C=BSS      S=.bss     G=DGROUP   M=JclSysInfo ACBP=A9
+ 0002:00003908 00001418 C=BSS      S=.bss     G=DGROUP   M=JclUnicode ACBP=A9
+ 0002:00004D20 00000004 C=BSS      S=.bss     G=DGROUP   M=JclWideStrings ACBP=A9
+ 0002:00004D24 00000004 C=BSS      S=.bss     G=DGROUP   M=JclRegistry ACBP=A9
+ 0002:00004D28 00000004 C=BSS      S=.bss     G=DGROUP   M=JclSynch ACBP=A9
+ 0002:00004D2C 00000004 C=BSS      S=.bss     G=DGROUP   M=JclMath  ACBP=A9
+ 0002:00004D30 00000004 C=BSS      S=.bss     G=DGROUP   M=JclStreams ACBP=A9
+ 0002:00004D34 00000504 C=BSS      S=.bss     G=DGROUP   M=JclAnsiStrings ACBP=A9
+ 0002:00005238 00000504 C=BSS      S=.bss     G=DGROUP   M=JclStrings ACBP=A9
+ 0002:0000573C 00000004 C=BSS      S=.bss     G=DGROUP   M=JclShell ACBP=A9
+ 0002:00005740 00000004 C=BSS      S=.bss     G=DGROUP   M=JclSecurity ACBP=A9
+ 0002:00005744 00000004 C=BSS      S=.bss     G=DGROUP   M=JclDateTime ACBP=A9
+ 0002:00005748 00000004 C=BSS      S=.bss     G=DGROUP   M=JclConsole ACBP=A9
+ 0002:0000574C 00000008 C=BSS      S=.bss     G=DGROUP   M=JclSysUtils ACBP=A9
+ 0002:00005754 00000008 C=BSS      S=.bss     G=DGROUP   M=JclUnitVersioning ACBP=A9
+ 0002:0000575C 00000004 C=BSS      S=.bss     G=DGROUP   M=JclFileUtils ACBP=A9
+ 0002:00005760 00000022 C=BSS      S=.bss     G=DGROUP   M=sourcecnt ACBP=A9
+
+
+  Address         Publics by Name
+
+ 0002:00005748       .01
+ 0002:00003840       .1
+ 0002:00003674       .1
+ 0002:00003898       .1
+ 0002:0000388C       .1
+ 0002:0000573C       .1
+ 0002:0000366C       .1
+ 0002:000038A0       .1
+ 0002:000038A4       .1
+ 0002:000038BC       .1
+ 0002:000038C0       .1
+ 0002:000038C4       .1
+ 0002:000038C8       .1
+ 0002:000038CC       .1
+ 0002:000038F8       .1
+ 0002:00003680       .1
+ 0002:0000367C       .1
+ 0002:000038F4       .1
+ 0002:000038DC       .1
+ 0002:000038E0       .1
+ 0002:000038E4       .1
+ 0002:000038E8       .1
+ 0002:000038EC       .1
+ 0002:000038D0       .1
+ 0002:00005744       .2
+ 0002:00003880       .2
+ 0002:00005740       .2
+ 0002:00003884       .21
+ 0002:00003678       .3
+ 0002:00005234       .3
+ 0002:00004D24       .3
+ 0002:000038D8       .3
+ 0002:000038D4       .3
+ 0002:0000389C       .3
+ 0002:00003848       .3
+ 0002:00003794       .35
+ 0002:00003894       .4
+ 0002:00004D20       .4
+ 0002:000038A8       .41
+ 0002:00003854       .45
+ 0002:000035BC       .5
+ 0002:000037FC       .5
+ 0002:00005754       .5
+ 0002:00005750       .51
+ 0002:0000575C       .52
+ 0002:00003844       .6
+ 0002:00003888       .6
+ 0002:00004D2C       .7
+ 0002:0000390C       .71
+ 0002:000038F0       .8
+ 0002:00003820       .81
+ 0002:00005738       .9
+ 0002:00004D28       .91
+ 0002:00004D30       .92
+ 0001:00001F14       @AbstractError
+ 0001:00002D60       @AfterConstruction
+ 0001:000035B8       @Assert
+ 0001:00002D70       @BeforeDestruction
+ 0001:00002A18       @BoundErr
+ 0001:00002CA0       @CallDynaInst
+ 0001:00002D08       @ClassCreate
+ 0001:00002D58       @ClassDestroy
+ 0001:0000224C       @Close
+ 0001:00001BB0       @Copy
+ 0001:000041EC       @CopyArray
+ 0001:000040D0       @CopyRecord
+ 0001:00004358       @DispCallByIDError
+ 0001:0000D154       @DispInvokeError
+ 0001:000042F4       @Dispose
+ 0001:00003050       @DoneExcept
+ 0001:000047CC       @DynArrayAsg
+ 0001:00004790       @DynArrayClear
+ 0001:000045B0       @DynArrayHigh
+ 0001:000045A8       @DynArrayLength
+ 0001:00004784       @DynArraySetLength
+ 0001:00003138       @ExceptionHandler
+ 0001:000022C0       @FillChar
+ 0001:000040AC       @Finalize
+ 0001:00003FC0       @FinalizeArray
+ 0001:00003F74       @FinalizeRecord
+ 0001:00002240       @Flush
+ 0001:00002A0C       @FpuInit
+ 0001:00002948       @FpuMaskInit
+ 0001:00001A50       @FreeMem
+ 0001:00001A20       @GetMem
+ 0001:000055D0       @GetTls
+ 0001:000035A0       @Halt
+ 0001:000034C0       @Halt0
+ 0001:00002E70       @HandleAnyException
+ 0001:00002F9C       @HandleFinally
+ 0001:0000561C       @InitExe
+ 0001:00003F68       @Initialize
+ 0001:00003ED4       @InitializeArray
+ 0001:00003EA4       @InitializeRecord
+ 0001:00003368       @InitImports
+ 0001:00003340       @InitResStringImports
+ 0001:0000338C       @InitWideStrings
+ 0001:00004EDC       @IntfClear
+ 0001:00004EF4       @IntfCopy
+ 0001:00002C4C       @IsClass
+ 0001:00002918       @isNECWindows
+ 0001:00001BF4       @LGetDir
+ 0001:000035FC       @LStrArrayClr
+ 0001:0000362C       @LStrAsg
+ 0001:0000387C       @LStrCat
+ 0001:000038C0       @LStrCat3
+ 0001:00003934       @LStrCatN
+ 0001:000035D8       @LStrClr
+ 0001:000039C0       @LStrCmp
+ 0001:00003ABC       @LStrCopy
+ 0001:00003848       @LStrFromArray
+ 0001:000037C0       @LStrFromChar
+ 0001:000037D0       @LStrFromPChar
+ 0001:000036C8       @LStrFromPCharLen
+ 0001:00003800       @LStrFromPWChar
+ 0001:00003734       @LStrFromPWCharLen
+ 0001:0000383C       @LStrFromString
+ 0001:00003860       @LStrFromWStr
+ 0001:00003670       @LStrLAsg
+ 0001:00003874       @LStrLen
+ 0001:00003AFC       @LStrPos
+ 0001:00003B44       @LStrSetLength
+ 0001:00003A64       @LStrToPChar
+ 0001:000042E0       @New
+ 0001:0000369C       @NewAnsiString
+ 0001:00003BEC       @NewWideString
+ 0001:0000262C       @Pow10
+ 0001:000022A4       @PStrNCpy
+ 0001:00002FFC       @RaiseAgain
+ 0001:00002FD4       @RaiseExcept
+ 0001:00001A70       @ReallocMem
+ 0001:00001F88       @RewritText
+ 0001:00001F08       @ROUND
+ 0001:000035AC       @RunError
+ 0001:00002610       @SetEq
+ 0001:00003300       @StartExe
+ 0001:0000028C       @strlen
+ 0001:000022E0       @StrLong
+ 0001:00003080       @TryFinallyExit
+ 0001:00003AB4       @UniqueStringA
+ 0001:00004384       @ValInt64
+ 0001:00002340       @ValLong
+ 0001:00011820       @VarAddRef
+ 0001:0000DA48       @VarCast
+ 0001:0000D440       @VarClear
+ 0001:00003FA8       @VarClr
+ 0001:0000D454       @VarClr
+ 0001:0000D77C       @VarCopy
+ 0001:000040B8       @VarCopy
+ 0001:0001173C       @VarFromBool
+ 0001:000115C8       @VarFromByte
+ 0001:000116E4       @VarFromCurrency
+ 0001:00011710       @VarFromDate
+ 0001:000117F4       @VarFromDisp
+ 0001:000116B8       @VarFromDouble
+ 0001:00011668       @VarFromInt64
+ 0001:000115A8       @VarFromInteger
+ 0001:000117C8       @VarFromIntf
+ 0001:00011608       @VarFromLongWord
+ 0001:00011764       @VarFromLStr
+ 0001:00011628       @VarFromShortInt
+ 0001:00011694       @VarFromSingle
+ 0001:00011648       @VarFromSmallInt
+ 0001:000115E8       @VarFromWord
+ 0001:00011790       @VarFromWStr
+ 0001:0000D1A8       @VarNull
+ 0001:0000EECC       @VarToBoolean
+ 0001:0000E30C       @VarToByte
+ 0001:00010090       @VarToCurrency
+ 0001:0000FB28       @VarToDate
+ 0001:000114FC       @VarToDisp
+ 0001:0000F3D4       @VarToDouble
+ 0001:0000E8D0       @VarToInt64
+ 0001:0000DE0C       @VarToInteger
+ 0001:00011430       @VarToIntf
+ 0001:0000E584       @VarToLongWord
+ 0001:00010744       @VarToLStr
+ 0001:0000E25C       @VarToShortInt
+ 0001:0000F750       @VarToSingle
+ 0001:0000E3B4       @VarToSmallInt
+ 0001:0000E4AC       @VarToWord
+ 0001:00010E64       @VarToWStr
+ 0001:00002570       @Write0Long
+ 0001:00003BA8       @Write0LString
+ 0001:00002458       @WriteBytes
+ 0001:000025BC       @WriteLn
+ 0001:00002528       @WriteLong
+ 0001:00003BC4       @WriteLString
+ 0001:000024AC       @WriteSpaces
+ 0001:0000258C       @WriteString
+ 0001:00003C2C       @WStrArrayClr
+ 0001:00003C50       @WStrAsg
+ 0001:00003C14       @WStrClr
+ 0001:00003D8C       @WStrCmp
+ 0001:00003E10       @WStrCopy
+ 0001:00003D60       @WStrFromLStr
+ 0001:00003C74       @WStrFromPCharLen
+ 0001:00003D24       @WStrFromPWChar
+ 0001:00003D00       @WStrFromPWCharLen
+ 0001:00003D80       @WStrLen
+ 0001:00003E5C       @WStrSetLength
+ 0001:00003D70       @WStrToPWChar
+ 0001:00001B80       @_IOTest
+ 0001:00004360       @_llmul
+ 0001:0000A42C       AbstractErrorHandler
+ 0002:0000302C       AbstractErrorProc
+ 0001:00015FDC       AccCtrl
+ 0002:00000138       AccessMode
+ 0001:00001AE0       AcquireExceptionObject
+ 0001:00012188       ActiveX
+ 0001:000003F4       AddBlockAfter
+ 0001:00004D34       AddModuleUnloadProc
+ 0001:00004D44       AddModuleUnloadProc
+ 0001:0001E5DC       AdvBuildFileList
+ 0002:00001544       AllocGranularity
+ 0001:0000685C       AllocMem
+ 0002:000035B4       AllocMemCount
+ 0002:000035B8       AllocMemSize
+ 0001:00005578       AllocTlsBuffer
+ 0002:00004D34       AnsiCaseMap
+ 0002:00001DE8       AnsiCaseMapReady
+ 0002:00005034       AnsiCharTypes
+ 0001:00006994       AnsiCompareStr
+ 0001:000069CC       AnsiCompareText
+ 0001:00007018       AnsiLastChar
+ 0001:0000AC38       AnsiPos
+ 0002:00003890       AnsiReplacementCharacter
+ 0001:00006A04       AnsiSameText
+ 0001:0000AC74       AnsiStrPos
+ 0001:0000AD34       AnsiStrRScan
+ 0001:0000AD7C       AnsiStrScan
+ 0001:00005314       AnsiToUtf8
+ 0001:000113B8       AnyToIntf
+ 0001:00008368       AppendChars
+ 0001:00008734       AppendFormat
+ 0001:000083CC       AppendNumber
+ 0001:000083AC       AppendString
+ 0001:0000A410       AssertErrorHandler
+ 0002:00003024       AssertErrorProc
+ 0002:0000360C       avail
+ 0001:00007148       BackfillGetDiskFreeSpaceEx
+ 0001:0000C0C4       BackupVarBoolFromStr
+ 0001:0000C224       BackupVarBStrFromBool
+ 0001:0000C144       BackupVarBStrFromCy
+ 0001:0000C1B4       BackupVarBStrFromDate
+ 0001:0000C058       BackupVarCyFromStr
+ 0001:0000BFEC       BackupVarDateFromStr
+ 0001:0000BEA8       BackupVarI4FromStr
+ 0001:0000BE54       BackupVariantChangeTypeEx
+ 0001:0000BF14       BackupVarR4FromStr
+ 0001:0000BF80       BackupVarR8FromStr
+ 0001:0000BE90       BiUnimplemented
+ 0002:000035E4       blockDescBlockList
+ 0002:000035E8       blockDescFreeList
+ 0002:00000388       BooleanIdents
+ 0002:00000318       BooleanToStringRule
+ 0002:00001E20       BoolToStr
+ 0001:00006DB4       BoolToStr
+ 0001:000104CC       BoolToWStrViaOS
+ 0001:0001E20C       BuildFolderList
+ 0001:0000A9DC       ByteToCharIndex
+ 0001:0000A9B4       ByteToCharLen
+ 0001:0000A978       ByteType
+ 0001:0000A900       ByteTypeTest
+ 0002:00004114       CanonicalDecompositions
+ 0002:00003D14       CaseMapping
+ 0002:00003914       Categories
+ 0002:00004914       CCCs
+ 0002:00003818       ChangeAnyProc
+ 0001:000036F8       CharFromWChar
+ 0001:0001C964       CharIsLower
+ 0001:0001C5A8       CharIsLower
+ 0001:0001C5BC       CharIsUpper
+ 0001:0001C978       CharIsUpper
+ 0001:0000ABC0       CharLength
+ 0001:00005890       CharLowerBuff
+ 0001:00005898       CharLowerBuffA
+ 0001:000001FC       CharNext
+ 0001:000058A0       CharNext
+ 0001:0000AAC8       CharToByteIndex
+ 0001:0000AB2C       CharToByteLen
+ 0001:000058A8       CharToOemA
+ 0001:000058B0       CharUpperBuff
+ 0001:000058B8       CharUpperBuffA
+ 0001:00002DEC       CheckJmp
+ 0002:0000031C       CInvalidCustomVariantType
+ 0001:00015564       Classes
+ 0002:00003814       ClearAnyProc
+ 0001:00016E80       ClearExcepInfo
+ 0001:00011B5C       ClearVariantTypeList
+ 0001:000056D0       CloseHandle
+ 0001:0000019C       CloseHandle
+ 0002:00003040       CmdLine
+ 0002:0000303C       CmdShow
+ 0001:0000BE9C       CmpUnimplemented
+ 0002:000003F8       CoAddRefServerProcess
+ 0002:000003F0       CoCreateInstanceEx
+ 0001:0001B344       CodePageFromLocale
+ 0002:00000408       CoInitFlags
+ 0001:0001212C       CoInitialize
+ 0002:000003F4       CoInitializeEx
+ 0002:000038B0       ComClassManagerVar
+ 0001:00016330       ComConst
+ 0001:000171D0       CommCtrl
+ 0001:00000774       Commit
+ 0002:00003628       committedRoot
+ 0001:00017148       ComObj
+ 0001:000056D8       CompareString
+ 0001:000056E0       CompareStringA
+ 0001:000056E8       CompareStringW
+ 0001:0000691C       CompareText
+ 0001:0001B3B8       CompareTextWin95
+ 0001:0001B4B8       CompareTextWinNT
+ 0001:00006CDC       CompareWith
+ 0002:00004514       CompatibleDecompositions
+ 0002:00004D1C       Compositions
+ 0001:0001574C       Contnrs
+ 0001:00009E14       ConvertAddr
+ 0001:000084C0       ConvertEraString
+ 0001:00006838       ConvertErrorFmt
+ 0001:0000862C       ConvertYearString
+ 0001:000045B8       CopyArray
+ 0002:000003FC       CoReleaseServerProcess
+ 0002:00000400       CoResumeClassObjects
+ 0002:00000404       CoSuspendClassObjects
+ 0001:00012134       CoUninitialize
+ 0001:0000AA38       CountChars
+ 0002:00005765       count_em_lines
+ 0001:0000A354       CreateAssertException
+ 0001:0000A4DC       CreateAVObject
+ 0001:000056F0       CreateEvent
+ 0001:000056F8       CreateFile
+ 0001:000001A4       CreateFileA
+ 0001:00005700       CreateFileMapping
+ 0001:0000A280       CreateInOutError
+ 0001:00016230       CreateMutex
+ 0002:00000374       CRelationshipToBoolean
+ 0002:00000308       CResult
+ 0002:00000130       cSimpleBoolStrs
+ 0002:00000320       CText
+ 0002:00003620       curAlloc
+ 0002:00005760       curfile
+ 0002:0000368C       CurrencyDecimals
+ 0002:00003688       CurrencyFormat
+ 0002:00003684       CurrencyString
+ 0001:00008354       CurrentYear
+ 0001:00007EE0       CurrToStr
+ 0001:0001045C       CurrToWStrViaOS
+ 0001:00006A6C       CvtInt
+ 0001:00006AD8       CvtInt64
+ 0002:00000170       CWNear
+ 0002:0000368D       DateSeparator
+ 0001:00008F68       DateTimeToStr
+ 0001:00008F0C       DateTimeToString
+ 0001:00007FA0       DateTimeToTimeStamp
+ 0001:00010494       DateToWStrViaOS
+ 0001:0000832C       DayOfWeek
+ 0002:0000016C       DCon10
+ 0002:00000024       DebugHook
+ 0002:0000368B       DecimalSeparator
+ 0001:0000830C       DecodeDate
+ 0001:000081BC       DecodeDateFully
+ 0001:00008054       DecodeTime
+ 0001:00000834       Decommit
+ 0001:00000F60       DecommitFree
+ 0002:000035FC       decommittedRoot
+ 0002:00000020       Default8087CW
+ 0002:00000030       DefaultTextLineBreakStyle
+ 0002:000035C0       DefaultUserCodePage
+ 0002:000001FC       DefLongDayNames
+ 0002:000001B0       DefLongMonthNames
+ 0002:000001E0       DefShortDayNames
+ 0002:00000180       DefShortMonthNames
+ 0001:0000481C       DelayLoadResourceModule
+ 0001:00000450       DeleteBlock
+ 0001:00005708       DeleteCriticalSection
+ 0001:00000360       DeleteCriticalSection
+ 0001:00000D48       DeleteFree
+ 0002:0000008C       dig
+ 0001:00016894       DispatchInvoke
+ 0001:00016E74       DispatchInvokeError
+ 0001:00016E90       DispCall
+ 0001:00016F74       DispCallByID
+ 0002:00003000       DispCallByIDProc
+ 0001:00016DA0       DispCallError
+ 0002:00005764       displayhelp
+ 0001:0000681C       DivMod
+ 0001:0000A810       DoneExceptions
+ 0001:00015428       DoneThreadSynchronization
+ 0002:00000390       DotSep
+ 0001:000134B0       DoWrite
+ 0001:000045D0       DynArrayClear
+ 0001:000045D8       DynArraySetLength
+ 0001:0000A254       EHeapException.FreeInstance
+ 0001:00016144       EJclWin32Error.CreateRes
+ 0002:00003800       EmptyParam
+ 0002:000000B8       EmptyStr
+ 0002:000000BC       EmptyWideStr
+ 0001:00005710       EnterCriticalSection
+ 0001:00000350       EnterCriticalSection
+ 0001:00005718       EnumCalendarInfoA
+ 0001:00009A88       EnumEraNames
+ 0001:00009AC4       EnumEraYearOffsets
+ 0001:000165C4       EOleException.Create
+ 0001:000164F4       EOleSysError.Create
+ 0002:00003754       EraNames
+ 0001:000091E0       EraToYear
+ 0002:00003770       EraYearOffsets
+ 0002:00000064       errCaption
+ 0001:00001B74       Error
+ 0002:00000004       ErrorAddr
+ 0001:00001B28       ErrorAt
+ 0001:0000A300       ErrorHandler
+ 0002:00000218       ErrorMap
+ 0002:00003008       ErrorProc
+ 0002:000033E8       ErrOutput
+ 0002:0000300C       ExceptClsProc
+ 0001:0000A77C       ExceptHandler
+ 0001:0000A080       Exception.Create
+ 0001:0000A0BC       Exception.CreateFmt
+ 0001:0000A20C       Exception.CreateHelp
+ 0001:0000A13C       Exception.CreateRes
+ 0001:0000A178       Exception.CreateResFmt
+ 0002:0000301C       ExceptionClass
+ 0001:00009E20       ExceptionErrorMessage
+ 0002:00000250       ExceptMap
+ 0001:00001AC0       ExceptObject
+ 0002:00003010       ExceptObjProc
+ 0002:00003004       ExceptProc
+ 0002:00000000       ExitCode
+ 0001:00003404       ExitDll
+ 0002:00003048       ExitProc
+ 0001:00000204       ExitProcess
+ 0002:00003028       ExitProcessProc
+ 0001:0000710C       ExpandFileName
+ 0002:00005768       ext
+ 0001:000070D4       ExtractFileName
+ 0001:000070A0       ExtractFilePath
+ 0002:00003790       FalseBoolStrs
+ 0002:00000160       FCon1E18
+ 0001:00006F14       FileClose
+ 0001:00006E58       FileCreate
+ 0001:00006E7C       FileCreate
+ 0002:00000008       FileMode
+ 0001:00001FD0       FileNOPProc
+ 0001:00006E00       FileOpen
+ 0001:00006E84       FileRead
+ 0002:00005770       files
+ 0001:00006EDC       FileSeek
+ 0001:00005720       FileTimeToDosDateTime
+ 0001:00005728       FileTimeToLocalFileTime
+ 0001:00006EB0       FileWrite
+ 0001:00000E80       FillAfterGap
+ 0001:00000E20       FillBeforeGap
+ 0001:00000F20       FillerSizeAfterGap
+ 0001:00000EA8       FillerSizeBeforeGap
+ 0001:0001E40C       FillFileList
+ 0001:0001203C       Finalization
+ 0001:000155F8       Finalization
+ 0001:0001571C       Finalization
+ 0001:000158B0       Finalization
+ 0001:00015CD0       Finalization
+ 0001:00015F40       Finalization
+ 0001:00015FAC       Finalization
+ 0001:00011EB8       Finalization
+ 0001:00016240       Finalization
+ 0001:000162A8       Finalization
+ 0001:00016300       Finalization
+ 0001:00018EFC       Finalization
+ 0001:0000C5F0       Finalization
+ 0001:000170C8       Finalization
+ 0001:000171A0       Finalization
+ 0001:000171D8       Finalization
+ 0001:0001DEA8       Finalization
+ 0001:00018F34       Finalization
+ 0001:0001D600       Finalization
+ 0001:0001CF3C       Finalization
+ 0001:00018F6C       Finalization
+ 0001:00018FBC       Finalization
+ 0001:00017210       Finalization
+ 0001:00005698       Finalization
+ 0001:0001CDE0       Finalization
+ 0001:00005660       Finalization
+ 0001:0001CC84       Finalization
+ 0001:0000BC34       Finalization
+ 0001:0001CB20       Finalization
+ 0001:0001C9AC       Finalization
+ 0001:00017248       Finalization
+ 0001:00019100       Finalization
+ 0001:0001C5D0       Finalization
+ 0001:00017280       Finalization
+ 0001:000173A8       Finalization
+ 0001:000120A0       Finalization
+ 0001:00019B48       Finalization
+ 0001:00012158       Finalization
+ 0001:00018EC4       Finalization
+ 0001:0001750C       Finalization
+ 0001:0001C398       Finalization
+ 0001:0001E814       Finalization
+ 0001:00005430       Finalization
+ 0001:0001C22C       Finalization
+ 0001:0001C0B0       Finalization
+ 0001:0001BC14       Finalization
+ 0001:0001B770       Finalization
+ 0001:0001B530       Finalization
+ 0001:00018CF0       Finalization
+ 0001:00018E5C       Finalization
+ 0001:00005C18       Finalization
+ 0001:000058D8       Finalization
+ 0001:000154B4       Finalization
+ 0001:00005910       Finalization
+ 0001:0001E798       Finalization
+ 0001:000045C8       FinalizeArray
+ 0001:0001971C       FinalizeSysInfo
+ 0001:00003220       FinalizeUnits
+ 0001:0001DCC4       FinalizeUnitVersioning
+ 0001:000048AC       FindBS
+ 0001:00000214       FindClose
+ 0001:00005730       FindClose
+ 0001:00006FFC       FindClose
+ 0001:00000DDC       FindCommitted
+ 0001:00011E00       FindCustomVariantType
+ 0001:00006F88       FindFirst
+ 0001:0000021C       FindFirstFile
+ 0001:00005738       FindFirstFile
+ 0002:00003860       FindGlobalComponentProcs
+ 0001:000047F4       FindHInstance
+ 0001:00006F1C       FindMatchingFile
+ 0001:00006FD8       FindNext
+ 0001:00005740       FindNextFile
+ 0001:0000C2B8       FindProc
+ 0001:00004864       FindResourceHInstance
+ 0002:000037A0       FLanguages
+ 0001:00007B70       FloatToDecimal
+ 0001:00007EB0       FloatToStr
+ 0001:0000789C       FloatToText
+ 0001:00002234       Flush
+ 0002:00000174       FMSecsPerDay
+ 0001:00007790       FmtStr
+ 0002:0000017C       Format
+ 0001:0000777C       Format
+ 0001:000073B8       FormatBuf
+ 0001:000073AC       FormatClearStr
+ 0001:00007330       FormatError
+ 0002:00000158       FormatErrorStrs
+ 0001:00005748       FormatMessage
+ 0001:00007388       FormatVarToStr
+ 0001:00002624       FPower10
+ 0001:0000B954       FreeAndNil
+ 0001:00000ADC       FreeCommitted
+ 0001:00001114       FreeCurAlloc
+ 0001:00015440       FreeIntConstList
+ 0001:00005750       FreeLibrary
+ 0001:00000224       FreeLibrary
+ 0001:000006AC       FreeSpace
+ 0001:0000B454       FreeTerminateProcs
+ 0001:0001B524       FreeUnicodeData
+ 0001:0001D1D8       GetAccessToHandleList
+ 0001:00005760       GetACP
+ 0001:00000368       GetBlockDesc
+ 0001:00000304       GetCmdShow
+ 0001:0000022C       GetCommandLine
+ 0001:000008F0       GetCommitted
+ 0001:00000998       GetCommittedAt
+ 0001:00008418       GetCount
+ 0001:00005768       GetCPInfo
+ 0001:000071C8       GetCurrentDir
+ 0001:00000234       GetCurrentDirectory
+ 0001:00005770       GetCurrentProcessId
+ 0001:000002F4       GetCurrentThreadId
+ 0001:00005778       GetCurrentThreadId
+ 0001:00008448       GetDate
+ 0001:00005780       GetDateFormat
+ 0001:000090F8       GetDateOrder
+ 0001:00005788       GetDiskFreeSpaceA
+ 0002:0000012C       GetDiskFreeSpaceEx
+ 0001:00002C70       GetDynaMethod
+ 0001:00009B3C       GetEraNamesAndYearOffsets
+ 0001:0000918C       GetEraYearOffset
+ 0001:00012144       GetErrorInfo
+ 0001:0000A4C4       GetExceptionClass
+ 0001:0000A6B0       GetExceptionObject
+ 0001:000001B4       GetFileSize
+ 0001:000001AC       GetFileType
+ 0001:00005878       GetFileVersionInfo
+ 0001:00005880       GetFileVersionInfoSize
+ 0001:0000B028       GetFormatSettings
+ 0001:00005790       GetFullPathName
+ 0001:00016C0C       GetIDsOfNames
+ 0001:00002910       GetKeyboardType
+ 0001:00005798       GetLastError
+ 0001:0000023C       GetLastError
+ 0001:00009900       GetLocaleChar
+ 0001:00000244       GetLocaleInfo
+ 0001:000057A8       GetLocaleInfo
+ 0001:000098B4       GetLocaleStr
+ 0001:000057A0       GetLocalTime
+ 0001:000057B0       GetModuleFileName
+ 0001:0000024C       GetModuleFileName
+ 0001:00005558       GetModuleHandle
+ 0001:00000254       GetModuleHandle
+ 0001:000057B8       GetModuleHandle
+ 0001:0001DFFC       GetModulePath
+ 0001:00009964       GetMonthDayNames
+ 0001:00019494       GetNativeSystemInfo
+ 0001:00001CCC       GetParamStr
+ 0001:000057C0       GetProcAddress
+ 0001:0000025C       GetProcAddress
+ 0001:000005D0       GetSpace
+ 0001:00000634       GetSpaceAt
+ 0001:00000264       GetStartupInfo
+ 0001:000001BC       GetStdHandle
+ 0001:000057C8       GetStdHandle
+ 0001:000057D0       GetStringTypeEx
+ 0001:000057D8       GetStringTypeExA
+ 0001:000057E0       GetSystemInfo
+ 0001:000058C0       GetSystemMetrics
+ 0001:0000026C       GetThreadLocale
+ 0001:000057E8       GetThreadLocale
+ 0001:00008480       GetTime
+ 0001:00005584       GetTlsSize
+ 0001:0001DAB0       GetUnitVersioning
+ 0001:000002FC       GetVersion
+ 0001:000057F0       GetVersionEx
+ 0001:00016238       GetVersionEx
+ 0001:00019258       GetWindowsVersion
+ 0002:00003864       GlobalFixupList
+ 0002:00001EAC       GlobalMMFHandleListCS
+ 0002:0000384C       GlobalNameSpace
+ 0002:00001EBC       GlobalUnitVersioning
+ 0002:00000394       GUID_NULL
+ 0001:0000D0D0       HandleConversionException
+ 0002:000035C8       heapErrorCode
+ 0002:000035CC       heapLock
+ 0002:00000128       HexDisplayPrefix
+ 0002:00003668       HInstance
+ 0002:00000178       IMSecsPerDay
+ 0001:0000D1BC       InBounds
+ 0001:0000D45C       InBounds
+ 0001:0000D1EC       Increment
+ 0001:0000D48C       Increment
+ 0002:00001EB0       InfMantissa
+ 0001:00019004       IniFiles
+ 0001:00000B70       InitAllocator
+ 0001:00017050       InitComObj
+ 0002:00003638       InitContext
+ 0001:0000B480       InitDriveSpacePtr
+ 0001:0000A78C       InitExceptions
+ 0001:000057F8       InitializeCriticalSection
+ 0001:00000348       InitializeCriticalSection
+ 0002:000035C4       initialized
+ 0001:00005610       InitializeModule
+ 0001:0000C2E4       InitializeVarUtils
+ 0001:0000AE38       InitLeadBytes
+ 0001:0000A890       InitPlatformId
+ 0002:00003044       InitProc
+ 0001:00019520       InitSysInfo
+ 0001:0000AEB0       InitSysLocale
+ 0001:000153F4       InitThreadSynchronization
+ 0001:0000558C       InitThreadTLS
+ 0001:00003290       InitUnits
+ 0002:00003050       Input
+ 0001:0000101C       InsertFree
+ 0002:00003858       IntConstList
+ 0002:00000E60       IntelCacheDescription
+ 0001:00005758       InterlockedCompareExchange
+ 0001:000002EC       InterlockedDecrement
+ 0001:0000B4E8       InterlockedDecrement
+ 0001:0000B4F4       InterlockedExchange
+ 0001:0000B4FC       InterlockedExchangeAdd
+ 0001:000002E4       InterlockedIncrement
+ 0001:0000B4DC       InterlockedIncrement
+ 0001:00002010       InternalClose
+ 0001:000021EC       InternalFlush
+ 0001:00000E5C       InternalFreeMem
+ 0001:00003A70       InternalUniqueString
+ 0001:00006BCC       IntToHex
+ 0001:00006BA4       IntToStr
+ 0001:00006AB8       IntToStr
+ 0002:0000379C       InvalidPointer
+ 0001:00002B38       InvokeImplGetter
+ 0001:00001C6C       IOResult
+ 0002:0000304C       IsConsole
+ 0001:000080B0       IsLeapYear
+ 0002:00003038       IsLibrary
+ 0002:0000304D       IsMultiThread
+ 0001:0000AE98       IsWesternGroup
+ 0002:00000E44       IsWin2003
+ 0002:00000E4C       IsWin2003R2
+ 0002:00000E3C       IsWin2K
+ 0002:00000E58       IsWin7
+ 0002:00000E10       IsWin95
+ 0002:00000E14       IsWin95OSR2
+ 0002:00000E18       IsWin98
+ 0002:00000E1C       IsWin98SE
+ 0002:00000E20       IsWinME
+ 0002:00000E24       IsWinNT
+ 0002:00000E28       IsWinNT3
+ 0002:00000E2C       IsWinNT31
+ 0002:00000E30       IsWinNT35
+ 0002:00000E34       IsWinNT351
+ 0002:00000E38       IsWinNT4
+ 0002:00000E54       IsWinServer2008
+ 0002:00000E5C       IsWinServer2008R2
+ 0002:00000E50       IsWinVista
+ 0002:00000E40       IsWinXP
+ 0002:00000E48       IsWinXP64
+ 0001:00018EA8       Jcl8087
+ 0001:0001C61C       JclAnsiStrings
+ 0001:00015F8C       JclBase
+ 0002:00000450       JclCharsetInfos
+ 0001:00018D50       JclCharsets
+ 0001:0001CF88       JclConsole
+ 0001:0001CE2C       JclDateTime
+ 0001:0001E7F8       JclFileUtils
+ 0001:0001914C       JclIniFiles
+ 0001:000173F4       JclLogic
+ 0001:0001C28C       JclMath
+ 0001:0001BC74       JclRegistry
+ 0001:00015D1C       JclResources
+ 0001:0001CCD0       JclSecurity
+ 0001:0001CB74       JclShell
+ 0001:0001C3E4       JclStreams
+ 0001:00017558       JclStringConversions
+ 0001:0001CA0C       JclStrings
+ 0001:0001C0FC       JclSynch
+ 0001:00019B98       JclSysInfo
+ 0001:0001D684       JclSysUtils
+ 0001:0001B634       JclUnicode
+ 0001:0001DEF0       JclUnitVersioning
+ 0001:0001B7BC       JclWideStrings
+ 0001:0001628C       JclWin32
+ 0002:00000028       JITEnable
+ 0002:000038FC       KernelVersionHi
+ 0001:00007050       LastDelimiter
+ 0001:000053BC       LCIDToCodePage
+ 0001:0000ADC4       LCIDToCodePage
+ 0002:00000108       LeadBytes
+ 0001:00000358       LeaveCriticalSection
+ 0001:00005800       LeaveCriticalSection
+ 0002:00000034       LibModuleList
+ 0002:00003752       ListSeparator
+ 0001:00015F04       LoadAnsiReplacementCharacter
+ 0001:0001C52C       LoadCaseMap
+ 0001:0001C7C8       LoadCaseMap
+ 0001:0001C4F0       LoadCharTypes
+ 0001:0001C78C       LoadCharTypes
+ 0001:00016690       LoadComExProcs
+ 0002:00003910       LoadInProgress
+ 0001:00000274       LoadLibraryEx
+ 0001:00004AB0       LoadResourceModule
+ 0001:00005364       LoadResString
+ 0001:0000027C       LoadString
+ 0001:000058C8       LoadString
+ 0001:00005560       LocalAlloc
+ 0001:00000328       LocalAlloc
+ 0001:00000330       LocalFree
+ 0001:00009928       LocalGetLocaleStr
+ 0002:00003694       LongDateFormat
+ 0002:00003728       LongDayNames
+ 0002:000036DC       LongMonthNames
+ 0002:000036A8       LongTimeFormat
+ 0001:000068CC       LowerCase
+ 0001:00000284       lstrcpyn
+ 0002:00003824       LVarTypes
+ 0002:00003828       LVarTypeSync
+ 0002:00003030       MainInstance
+ 0002:00003034       MainThreadID
+ 0001:000003EC       MakeEmpty
+ 0001:000033A8       MakeErrorMessage
+ 0001:0000A444       MapException
+ 0001:0001BF14       MapSignalResult
+ 0001:00003098       MapToRunError
+ 0001:00005808       MapViewOfFile
+ 0001:00015628       Math
+ 0002:0000003C       MemoryManager
+ 0001:00000484       MergeBlockAfter
+ 0001:00001160       MergeCommit
+ 0001:000058D0       MessageBox
+ 0001:0000020C       MessageBox
+ 0001:00005940       Messages
+ 0002:00001EA8       MMFFinalized
+ 0002:00001EA4       MMFHandleList
+ 0002:000000A0       Module
+ 0002:00003665       ModuleIsCpp
+ 0002:00003664       ModuleIsLib
+ 0001:000154AC       ModuleUnload
+ 0002:00000038       ModuleUnloadList
+ 0002:000000D8       MonthDays
+ 0001:00001C8C       Move
+ 0001:00005810       MultiByteToWideChar
+ 0001:00000294       MultiByteToWideChar
+ 0002:00003904       MyGetFreeSystemResources
+ 0002:000038B8       NeedToUninitialize
+ 0002:00003689       NegCurrFormat
+ 0001:000011EC       NewCommit
+ 0001:00001218       NewCommitAt
+ 0001:0000ABFC       NextCharIndex
+ 0002:0000002C       NoErrMsg
+ 0001:00002DD8       NotifyAnyExcept
+ 0001:00002DC0       NotifyExcept
+ 0001:00002E0C       NotifyExceptFinally
+ 0001:00004DEC       NotifyModuleUnload
+ 0001:00002D9C       NotifyNonDelphiException
+ 0001:00002D80       NotifyReRaise
+ 0001:00002E34       NotifyTerminate
+ 0001:00002E50       NotifyUnhandled
+ 0002:00000314       NullAsStringValue
+ 0002:00000310       NullStrictConvert
+ 0002:00004D14       NumberCodes
+ 0002:00004D18       Numbers
+ 0001:00016678       OleCheck
+ 0001:0001665C       OleError
+ 0001:00004310       OleStrToStrVar
+ 0002:000038AC       OleUninitializing
+ 0001:00005818       OpenFileMapping
+ 0001:00001F30       OpenText
+ 0002:00003798       OutOfMemory
+ 0002:0000321C       Output
+ 0002:00001548       PageSize
+ 0001:00001E30       ParamCount
+ 0001:00001E98       ParamStr
+ 0001:00012B60       PointerInModule
+ 0002:00001DCC       PolarComplexFormatStr
+ 0001:0001B4F0       PrepareUnicodeData
+ 0002:00001540       ProcessorCount
+ 0001:00014C7C       PropValueError
+ 0001:00018F9C       PsAPI
+ 0001:00007858       PutExponent
+ 0001:0000A400       RaiseAssertException
+ 0001:0001472C       RaiseException
+ 0001:000001C4       RaiseException
+ 0001:00016CEC       RaiseException
+ 0002:00003014       RaiseExceptionProc
+ 0001:0000B3A8       RaiseLastOSError
+ 0001:00016BD8       RaiseNameException
+ 0001:00014C64       ReadError
+ 0001:000001CC       ReadFile
+ 0001:00005820       ReadFile
+ 0002:00001DC8       RectComplexFormatStr
+ 0002:0000381C       RefAnyProc
+ 0001:0000029C       RegCloseKey
+ 0002:0000385C       RegGroups
+ 0001:00004E48       RegisterModule
+ 0001:0001DD7C       RegisterUnitVersion
+ 0001:000002A4       RegOpenKeyEx
+ 0001:000002AC       RegQueryValueEx
+ 0001:00017208       RegStr
+ 0001:00005828       ReleaseMutex
+ 0002:00000048       reMap
+ 0002:0000361C       remBytes
+ 0001:0000050C       RemoveBlock
+ 0001:00014B34       RemoveFixupReferences
+ 0001:00014BE0       RemoveFixups
+ 0001:00004D64       RemoveModuleUnloadProc
+ 0001:00004D3C       RemoveModuleUnloadProc
+ 0001:00005830       ResetEvent
+ 0001:0001D1A0       ResetMemory
+ 0001:00001750       ResizeInPlace
+ 0002:00003900       ResmeterLibHandle
+ 0001:00012E74       ReturnAddr
+ 0001:00013610       ReturnAddr
+ 0002:00001CD8       RootKeys
+ 0002:00003618       rover
+ 0002:00001E28       RtdlMsiLibHandle
+ 0001:0001206C       RTLConsts
+ 0001:000001D4       RtlUnwind
+ 0002:00003018       RTLUnwindProc
+ 0002:0000006C       runErrMsg
+ 0001:00001B1C       RunErrorAt
+ 0001:0000C298       SafeArrayCreate
+ 0001:0000C2A0       SafeArrayGetLBound
+ 0001:0000C2A8       SafeArrayGetUBound
+ 0001:0000C2B0       SafeArrayPtrOfIndex
+ 0001:00016794       SafeCallError
+ 0002:00003020       SafeCallErrorProc
+ 0001:00006970       SameText
+ 0002:000038B4       SaveInitProc
+ 0001:00008F7C       ScanBlanks
+ 0001:000090C0       ScanChar
+ 0001:0000923C       ScanDate
+ 0001:00008FA0       ScanNumber
+ 0001:00009034       ScanString
+ 0001:00009580       ScanTime
+ 0001:00009144       ScanToNumber
+ 0001:0000124C       SearchSmallBlocks
+ 0001:00011B2C       SetClearVarToEmptyParam
+ 0001:000002B4       SetCurrentDirectory
+ 0001:00005838       SetEndOfFile
+ 0001:000001DC       SetEndOfFile
+ 0001:00005840       SetEvent
+ 0001:000031D8       SetExceptionHandler
+ 0001:000001E4       SetFilePointer
+ 0001:00005848       SetFilePointer
+ 0001:00001BA0       SetInOutRes
+ 0001:00011B14       SetVarAsError
+ 0001:0001D500       SharedCloseMem
+ 0001:0001D43C       SharedFreeMem
+ 0001:0001D22C       SharedGetMem
+ 0002:00000144       ShareMode
+ 0001:000162D8       ShellAPI
+ 0001:000172B0       ShlObj
+ 0002:00003690       ShortDateFormat
+ 0002:0000370C       ShortDayNames
+ 0002:000036AC       ShortMonthNames
+ 0002:000036A4       ShortTimeFormat
+ 0001:00009FB8       ShowException
+ 0002:0000574C       SimpleLog
+ 0001:00014FC8       SkipBinary
+ 0001:00014FF8       SkipCollection
+ 0001:00014FA0       SkipList
+ 0001:0000B3A0       Sleep
+ 0002:00003624       smallTab
+ 0001:00018F2C       Snmp
+ 0001:0001E9FC       sourcecnt
+ 0002:000035EC       spaceRoot
+ 0001:000072E8       StrAlloc
+ 0001:0000A99C       StrByteType
+ 0002:00005238       StrCaseMap
+ 0002:00001E04       StrCaseMapReady
+ 0001:0000AB8C       StrCharLength
+ 0002:00005538       StrCharTypes
+ 0001:000145F0       StringListCompareStrings
+ 0001:00004334       StringToOleStr
+ 0001:000071FC       StrLCopy
+ 0001:000071D4       StrLen
+ 0001:00007730       StrLFmt
+ 0001:00007230       StrLIComp
+ 0001:0001C844       StrMatches
+ 0001:000071EC       StrMove
+ 0001:000072FC       StrNew
+ 0001:0000ABAC       StrNextChar
+ 0001:00007294       StrPos
+ 0001:00007274       StrScan
+ 0001:00006BF4       StrToIntDef
+ 0001:0001214C       Succeeded
+ 0002:00003850       SyncEvent
+ 0002:000003A4       SyncList
+ 0001:000158E0       SyncObjs
+ 0001:000002CC       SysAllocStringLen
+ 0001:00005C48       SysConst
+ 0001:00009868       SysErrorMessage
+ 0001:00001578       SysFreeMem
+ 0001:000002DC       SysFreeString
+ 0001:0001213C       SysFreeString
+ 0001:000013CC       SysGetMem
+ 0001:00005690       SysInit
+ 0002:00003744       SysLocale
+ 0001:00001954       SysReallocMem
+ 0001:000002D4       SysReAllocStringLen
+ 0001:00005484       System
+ 0001:0000BDB4       SysUtils
+ 0001:00015898       TCriticalSection.Acquire
+ 0001:00015828       TCriticalSection.Create
+ 0001:00015868       TCriticalSection.Destroy
+ 0001:000158A4       TCriticalSection.Release
+ 0001:00011BC8       TCustomVariantType.BinaryOp
+ 0001:00011BD4       TCustomVariantType.Cast
+ 0001:00011C0C       TCustomVariantType.CastTo
+ 0001:00011C98       TCustomVariantType.CastToOle
+ 0001:00011C54       TCustomVariantType.Compare
+ 0001:00011C60       TCustomVariantType.CompareOp
+ 0001:00011CD4       TCustomVariantType.Destroy
+ 0001:00011DB4       TCustomVariantType.DispInvoke
+ 0001:00011D60       TCustomVariantType.IsClear
+ 0001:00011D64       TCustomVariantType.LeftPromotion
+ 0001:00011D78       TCustomVariantType.OlePromotion
+ 0001:00011DD8       TCustomVariantType.QueryInterface
+ 0001:00011D80       TCustomVariantType.RaiseCastError
+ 0001:00011D90       TCustomVariantType.RaiseDispError
+ 0001:00011D88       TCustomVariantType.RaiseInvalidOp
+ 0001:00011D98       TCustomVariantType.RightPromotion
+ 0001:00011DAC       TCustomVariantType.UnaryOp
+ 0001:00011DC0       TCustomVariantType._AddRef
+ 0001:00011DCC       TCustomVariantType._Release
+ 0002:00000304       TerminateProcList
+ 0002:0000304E       Test8086
+ 0001:00002020       TextClose
+ 0001:00001F94       TextIn
+ 0001:00002040       TextOpen
+ 0001:00001FD4       TextOut
+ 0001:00007D9C       TextToFloat
+ 0001:000149AC       TFileStream.Create
+ 0001:00014968       TFileStream.Create
+ 0001:00014B00       TFileStream.Destroy
+ 0001:000148A4       THandleStream.Create
+ 0001:000148E0       THandleStream.Read
+ 0001:00014900       THandleStream.Seek
+ 0001:0001492C       THandleStream.SetSize
+ 0001:00014940       THandleStream.SetSize
+ 0001:000148F0       THandleStream.Write
+ 0002:0000368A       ThousandSeparator
+ 0002:00003868       ThreadLock
+ 0002:0000040C       ThreadStrs
+ 0002:0000369C       TimeAMString
+ 0002:000036A0       TimePMString
+ 0002:00003698       TimeSeparator
+ 0001:00004F20       TInterfacedObject.AfterConstruction
+ 0001:00004F2C       TInterfacedObject.BeforeDestruction
+ 0001:00004F3C       TInterfacedObject.NewInstance
+ 0001:00004F4C       TInterfacedObject.QueryInterface
+ 0001:00004F74       TInterfacedObject._AddRef
+ 0001:00004F88       TInterfacedObject._Release
+ 0001:0001BF90       TJclCriticalSection.Create
+ 0001:0001BFD0       TJclCriticalSection.Destroy
+ 0001:0001BF48       TJclDispatcherObject.Destroy
+ 0001:0001BF78       TJclDispatcherObject.WaitFor
+ 0001:0001D53C       TJclIntfCriticalSection.Create
+ 0001:0001D580       TJclIntfCriticalSection.Destroy
+ 0001:0001D5D8       TJclIntfCriticalSection.QueryInterface
+ 0001:0001D5B0       TJclIntfCriticalSection._AddRef
+ 0001:0001D5C4       TJclIntfCriticalSection._Release
+ 0001:0001C000       TJclMutex.Create
+ 0001:0001C09C       TJclMutex.Release
+ 0001:00018F64       TlHelp32
+ 0001:00012DC8       TList.Add
+ 0001:00012DFC       TList.Clear
+ 0001:00012E14       TList.Delete
+ 0001:00012DA8       TList.Destroy
+ 0001:00012E78       TList.Error
+ 0001:00012EB0       TList.Error
+ 0001:00012F04       TList.Get
+ 0001:00012F2C       TList.Grow
+ 0001:0001300C       TList.Notify
+ 0001:00012F60       TList.SetCapacity
+ 0001:00012F9C       TList.SetCount
+ 0002:00003670       tlsBuffer
+ 0001:00005568       TlsGetValue
+ 0002:0000009C       TlsIndex
+ 0002:FFBDF00C       TlsLast
+ 0001:00005570       TlsSetValue
+ 0001:0000B87C       TMultiReadExclusiveWriteSynchronizer.BeginRead
+ 0001:0000B780       TMultiReadExclusiveWriteSynchronizer.BeginWrite
+ 0001:0000B73C       TMultiReadExclusiveWriteSynchronizer.BlockReaders
+ 0001:0000B680       TMultiReadExclusiveWriteSynchronizer.Create
+ 0001:0000B6F4       TMultiReadExclusiveWriteSynchronizer.Destroy
+ 0001:0000B8EC       TMultiReadExclusiveWriteSynchronizer.EndRead
+ 0001:0000B82C       TMultiReadExclusiveWriteSynchronizer.EndWrite
+ 0001:0000B754       TMultiReadExclusiveWriteSynchronizer.UnblockOneWriter
+ 0001:0000B748       TMultiReadExclusiveWriteSynchronizer.UnblockReaders
+ 0001:0000B760       TMultiReadExclusiveWriteSynchronizer.WaitForReadSignal
+ 0001:0000B770       TMultiReadExclusiveWriteSynchronizer.WaitForWriteSignal
+ 0001:00002CD8       TObject.AfterConstruction
+ 0001:00002CDC       TObject.BeforeDestruction
+ 0001:00002A2C       TObject.ClassName
+ 0001:00002A40       TObject.ClassParent
+ 0001:00002A20       TObject.ClassType
+ 0001:00002B18       TObject.CleanupInstance
+ 0001:00002A84       TObject.Create
+ 0001:00002CD4       TObject.DefaultHandler
+ 0001:00002AA4       TObject.Destroy
+ 0001:00002CE0       TObject.Dispatch
+ 0001:00002AB4       TObject.Free
+ 0001:00002A68       TObject.FreeInstance
+ 0001:00002B68       TObject.GetInterface
+ 0001:00002C08       TObject.GetInterfaceEntry
+ 0001:00002CB8       TObject.InheritsFrom
+ 0001:00002AC0       TObject.InitInstance
+ 0001:00002A7C       TObject.InstanceSize
+ 0001:00002A4C       TObject.NewInstance
+ 0001:00002CCC       TObject.SafeCallException
+ 0001:00015698       TObjectList.Add
+ 0001:000156A0       TObjectList.Create
+ 0001:000156DC       TObjectList.GetItem
+ 0001:000156F0       TObjectList.Notify
+ 0001:000048D8       ToLongPath
+ 0002:00005774       totalcount
+ 0002:00005778       totalfloat
+ 0001:0001312C       TPersistent.Assign
+ 0001:00013140       TPersistent.AssignError
+ 0001:00013210       TPersistent.AssignTo
+ 0001:00013218       TPersistent.DefineProperties
+ 0001:00013100       TPersistent.Destroy
+ 0001:0001321C       TPersistent.GetNamePath
+ 0001:000132CC       TPersistent.GetOwner
+ 0001:00009BEC       TranslateDateFormat
+ 0001:0000CE3C       TranslateResult
+ 0001:00014C88       TReader.CheckValue
+ 0001:00014CAC       TReader.EndOfList
+ 0001:00014CC0       TReader.NextValue
+ 0001:00014CD0       TReader.Read
+ 0001:00014D1C       TReader.ReadBuffer
+ 0001:00014D58       TReader.ReadListBegin
+ 0001:00014D60       TReader.ReadListEnd
+ 0001:00014D68       TReader.ReadStr
+ 0001:00014DA4       TReader.ReadString
+ 0001:00014F44       TReader.ReadValue
+ 0001:00014E60       TReader.ReadWideString
+ 0001:00015238       TReader.SkipBytes
+ 0001:000151F0       TReader.SkipProperty
+ 0001:00014F58       TReader.SkipSetBody
+ 0001:00015054       TReader.SkipValue
+ 0001:00012AA4       TRegGroup.Create
+ 0001:00012B20       TRegGroup.Destroy
+ 0001:00012B80       TRegGroup.UnregisterModuleClasses
+ 0001:00012C24       TRegGroups.Create
+ 0001:00012C98       TRegGroups.Destroy
+ 0001:00012CF4       TRegGroups.Lock
+ 0001:00012D00       TRegGroups.Unlock
+ 0001:00012D0C       TRegGroups.UnregisterModuleClasses
+ 0001:00006A1C       Trim
+ 0001:000164A4       TrimPunctuation
+ 0002:0000378C       TrueBoolStrs
+ 0001:000080EC       TryEncodeDate
+ 0001:00007FE4       TryEncodeTime
+ 0001:00001284       TryHarder
+ 0001:00002414       TryOpenForOutput
+ 0001:00006D18       TryStrToBool
+ 0001:00007F84       TryStrToCurr
+ 0001:00009774       TryStrToDate
+ 0001:000097DC       TryStrToDateTime
+ 0001:00007F10       TryStrToFloat
+ 0001:00007F58       TryStrToFloat
+ 0001:00007F2C       TryStrToFloat
+ 0001:00006C0C       TryStrToInt
+ 0001:00006C2C       TryStrToInt64
+ 0001:000097A8       TryStrToTime
+ 0001:00014668       TStream.GetPosition
+ 0001:00014688       TStream.GetSize
+ 0001:000147FC       TStream.Seek
+ 0001:00014778       TStream.Seek
+ 0001:000146D4       TStream.SetSize
+ 0001:000146D8       TStream.SetSize
+ 0001:0001486C       TStream.WriteBuffer
+ 0001:00014090       TStringList.Add
+ 0001:0001409C       TStringList.AddObject
+ 0001:00014100       TStringList.Changed
+ 0001:0001411C       TStringList.Changing
+ 0001:00014138       TStringList.Clear
+ 0001:0001464C       TStringList.CompareStrings
+ 0001:00014614       TStringList.CustomSort
+ 0001:00014178       TStringList.Delete
+ 0001:00014034       TStringList.Destroy
+ 0001:000141E4       TStringList.Exchange
+ 0001:00014240       TStringList.ExchangeItems
+ 0001:00014264       TStringList.Find
+ 0001:000142DC       TStringList.Get
+ 0001:00014310       TStringList.GetCapacity
+ 0001:00014314       TStringList.GetCount
+ 0001:00014318       TStringList.GetObject
+ 0001:00014340       TStringList.Grow
+ 0001:00014374       TStringList.IndexOf
+ 0001:000143B0       TStringList.Insert
+ 0001:00014414       TStringList.InsertItem
+ 0001:000143C0       TStringList.InsertObject
+ 0001:0001448C       TStringList.Put
+ 0001:000144E8       TStringList.PutObject
+ 0001:00014528       TStringList.QuickSort
+ 0001:000145BC       TStringList.SetCapacity
+ 0001:000145D8       TStringList.SetUpdateState
+ 0001:00014604       TStringList.Sort
+ 0001:00013300       TStrings.Add
+ 0001:00013324       TStrings.AddObject
+ 0001:00013348       TStrings.AddStrings
+ 0001:00013400       TStrings.Assign
+ 0001:00013498       TStrings.BeginUpdate
+ 0001:00013FF4       TStrings.CompareStrings
+ 0001:00013508       TStrings.DefineProperties
+ 0001:000132D0       TStrings.Destroy
+ 0001:00013554       TStrings.EndUpdate
+ 0001:00013568       TStrings.Equals
+ 0001:00013614       TStrings.Error
+ 0001:0001364C       TStrings.Error
+ 0001:000136A4       TStrings.Exchange
+ 0001:0001378C       TStrings.GetCapacity
+ 0001:00014000       TStrings.GetNameValueSeparator
+ 0001:00013794       TStrings.GetObject
+ 0001:00013798       TStrings.GetText
+ 0001:000137EC       TStrings.GetTextStr
+ 0001:00013914       TStrings.IndexOf
+ 0001:000139A0       TStrings.IndexOfName
+ 0001:00013A74       TStrings.IndexOfObject
+ 0001:00013AA8       TStrings.InsertObject
+ 0001:00013AD8       TStrings.LoadFromFile
+ 0001:00013B2C       TStrings.LoadFromStream
+ 0001:00013BD8       TStrings.Move
+ 0001:00013C88       TStrings.Put
+ 0001:00013CBC       TStrings.PutObject
+ 0001:00013CC0       TStrings.ReadData
+ 0001:00013D70       TStrings.SaveToFile
+ 0001:00013DC8       TStrings.SaveToStream
+ 0001:00013E24       TStrings.SetCapacity
+ 0001:00014018       TStrings.SetNameValueSeparator
+ 0001:00013E28       TStrings.SetStringsAdapter
+ 0001:00013E5C       TStrings.SetText
+ 0001:00013EAC       TStrings.SetTextStr
+ 0001:00013F6C       TStrings.SetUpdateState
+ 0001:00013F70       TStrings.WriteData
+ 0001:00015820       TSynchroObject.Acquire
+ 0001:00015824       TSynchroObject.Release
+ 0001:00013010       TThreadList.Create
+ 0001:00013064       TThreadList.Destroy
+ 0001:000130E0       TThreadList.LockList
+ 0001:000130F4       TThreadList.UnlockList
+ 0001:0000B61C       TThreadLocalCounter.Delete
+ 0001:0000B504       TThreadLocalCounter.Destroy
+ 0001:0000B570       TThreadLocalCounter.HashIndex
+ 0001:0000B588       TThreadLocalCounter.Open
+ 0001:0000B62C       TThreadLocalCounter.Recycle
+ 0001:0001D810       TUnitVersion.Create
+ 0001:0001D9C0       TUnitVersioning.Add
+ 0001:0001D934       TUnitVersioning.Create
+ 0001:0001D988       TUnitVersioning.Destroy
+ 0001:0001DA9C       TUnitVersioning.GetModules
+ 0001:0001DA40       TUnitVersioning.UnregisterModule
+ 0001:0001D8DC       TUnitVersioningModule.Add
+ 0001:0001D84C       TUnitVersioningModule.Create
+ 0001:0001D898       TUnitVersioningModule.Destroy
+ 0001:0001D8C8       TUnitVersioningModule.GetItems
+ 0001:0001D900       TUnitVersioningModule.IndexOfInfo
+ 0002:000000D4       TwoDigitYearCenturyWindow
+ 0001:00015280       TWriter.Write
+ 0001:000152CC       TWriter.WriteBuffer
+ 0001:000152E4       TWriter.WriteListBegin
+ 0001:000152EC       TWriter.WriteListEnd
+ 0001:000152F4       TWriter.WriteMinStr
+ 0001:0001538C       TWriter.WriteString
+ 0001:000153E0       TWriter.WriteValue
+ 0001:000056C8       Types
+ 0001:000120F0       TypInfo
+ 0001:000001EC       UnhandledExceptionFilter
+ 0002:00001564       UnicodeBlockData
+ 0001:00004FB0       UnicodeToUtf8
+ 0001:00000C48       UninitAllocator
+ 0002:00001D80       UnitVersioning
+ 0002:00000DD8       UnitVersioning
+ 0002:00001CC0       UnitVersioning
+ 0002:00000DC0       UnitVersioning
+ 0002:00001EC8       UnitVersioning
+ 0002:00001EE0       UnitVersioning
+ 0002:00001CA8       UnitVersioning
+ 0002:000003D8       UnitVersioning
+ 0002:00001E08       UnitVersioning
+ 0002:000003C0       UnitVersioning
+ 0002:00001E8C       UnitVersioning
+ 0002:00001E2C       UnitVersioning
+ 0002:0000154C       UnitVersioning
+ 0002:00000438       UnitVersioning
+ 0002:00001E44       UnitVersioning
+ 0002:00001DD0       UnitVersioning
+ 0002:00001E5C       UnitVersioning
+ 0002:00000420       UnitVersioning
+ 0002:00001E74       UnitVersioning
+ 0002:000003A8       UnitVersioning
+ 0002:00000DF8       UnitVersioning
+ 0002:00001D98       UnitVersioning
+ 0002:00001DB0       UnitVersioning
+ 0002:00001DEC       UnitVersioning
+ 0002:00001EC4       UnitVersioningFinalized
+ 0002:00005758       UnitVersioningMutex
+ 0002:00001EC0       UnitVersioningNPA
+ 0002:00001EB8       UnitVersioningOwner
+ 0001:0000BE84       UniUnimplemented
+ 0001:0001D524       UnloadModule
+ 0001:000194FC       UnloadSystemResourcesMeterLib
+ 0001:00005850       UnmapViewOfFile
+ 0001:00004E58       UnregisterModule
+ 0001:00012D5C       UnRegisterModuleClasses
+ 0001:0001DD98       UnregisterUnitVersion
+ 0001:000031F8       UnsetExceptionHandler
+ 0001:00001EFC       UpCase
+ 0002:00005766       update_inc
+ 0001:0000687C       UpperCase
+ 0001:00017278       UrlMon
+ 0001:00005270       UTF8Decode
+ 0001:000051C4       UTF8Encode
+ 0001:0000508C       Utf8ToUnicode
+ 0002:00000DF0       Values
+ 0002:000037B0       VarAdd
+ 0002:00000010       VarAddRefProc
+ 0002:000037C8       VarAnd
+ 0001:0000D248       VarArrayClear
+ 0001:0000D4E8       VarArrayCopyForEach
+ 0001:0000CDE8       VarArrayCreateError
+ 0002:000037EC       VarBoolFromStr
+ 0002:000037F8       VarBstrFromBool
+ 0002:000037F0       VarBstrFromCy
+ 0002:000037F4       VarBstrFromDate
+ 0001:0000D7C0       VarCastAsAny
+ 0001:0000D8C4       VarCastAsDispatch
+ 0001:0000D910       VarCastAsInterface
+ 0001:0000D82C       VarCastAsOleStr
+ 0001:0000D878       VarCastAsString
+ 0001:0000CC5C       VarCastError
+ 0001:0000CC08       VarCastError
+ 0001:0000D9DC       VarCastRare
+ 0001:0000D95C       VarCastViaOS
+ 0001:0000D3C4       VarClearDeep
+ 0002:0000000C       VarClearProc
+ 0002:000037D4       VarCmp
+ 0001:0000D6C8       VarCopyCopyProc
+ 0001:0000D6D0       VarCopyDeep
+ 0002:00000014       VarCopyProc
+ 0002:000037E8       VarCyFromStr
+ 0002:000037E4       VarDateFromStr
+ 0001:00016D04       VarDispInvoke
+ 0002:00003810       VarDispProc
+ 0002:000037BC       VarDiv
+ 0002:000037D8       VarI4FromStr
+ 0001:0000BE4C       VariantChangeType
+ 0002:000037A4       VariantChangeTypeEx
+ 0001:0000BE3C       VariantClear
+ 0001:0000BE44       VariantCopy
+ 0001:0000BE34       VariantInit
+ 0001:00011F30       Variants
+ 0002:000037C0       VarIDiv
+ 0001:0000CCF8       VarInvalidOp
+ 0002:000037C4       VarMod
+ 0002:000037B8       VarMul
+ 0002:000037A8       VarNeg
+ 0002:000037AC       VarNot
+ 0002:000037CC       VarOr
+ 0001:0000CD4C       VarOverflowError
+ 0002:000037DC       VarR4FromStr
+ 0002:000037E0       VarR8FromStr
+ 0001:0000D090       VarResultCheck
+ 0001:0000D09C       VarResultCheck
+ 0002:000037B4       VarSub
+ 0001:0000EE1C       VarToBoolAny
+ 0001:0000ED14       VarToBoolAsString
+ 0001:0000EE80       VarToBoolCustom
+ 0001:0000EDDC       VarToBoolViaOS
+ 0001:0000FFE0       VarToCurrencyAny
+ 0001:0000FF34       VarToCurrencyAsDouble
+ 0001:0000FE78       VarToCurrencyAsString
+ 0001:00010044       VarToCurrencyCustom
+ 0001:0000FF94       VarToCurrencyViaOS
+ 0001:0000FA78       VarToDateAny
+ 0001:0000F9CC       VarToDateAsDouble
+ 0001:0000F8E0       VarToDateAsString
+ 0001:0000FADC       VarToDateCustom
+ 0001:0000FA2C       VarToDateViaOS
+ 0001:0000F324       VarToDoubleAny
+ 0001:0000F214       VarToDoubleAsString
+ 0001:0000F388       VarToDoubleCustom
+ 0001:0000F2D8       VarToDoubleViaOS
+ 0001:0000E818       VarToInt64Any
+ 0001:0000E718       VarToInt64AsString
+ 0001:0000E884       VarToInt64Custom
+ 0001:0000E66C       VarToInt64ViaOS
+ 0001:0000DD64       VarToIntAny
+ 0001:0000DC74       VarToIntAsString
+ 0001:0000DDC8       VarToIntCustom
+ 0001:0000DD28       VarToIntViaOS
+ 0001:0001065C       VarToLStrAny
+ 0001:000106C0       VarToLStrCustom
+ 0002:00000018       VarToLStrProc
+ 0001:00010590       VarToLStrViaOS
+ 0001:00010D38       VarToWStrAny
+ 0001:00010D9C       VarToWStrCustom
+ 0002:0000001C       VarToWStrProc
+ 0001:00010C80       VarToWStrViaOS
+ 0001:000119A4       VarTypeAsText
+ 0001:0000C620       VarUtils
+ 0002:000037D0       VarXor
+ 0001:00006C4C       VerifyBoolStrArray
+ 0002:00001EF8       VerKeyNames
+ 0001:00005888       VerQueryValue
+ 0001:0001E140       VersionFixedFileInfo
+ 0002:0000576C       version_inc
+ 0001:00000338       VirtualAlloc
+ 0001:00000340       VirtualFree
+ 0001:00005858       VirtualQuery
+ 0001:000002C4       VirtualQuery
+ 0001:00005860       WaitForSingleObject
+ 0001:00003718       WCharFromChar
+ 0002:00000300       WesternGroups
+ 0001:00004304       WideCharLenToStrVar
+ 0001:00005868       WideCharToMultiByte
+ 0001:000002BC       WideCharToMultiByte
+ 0002:00003908       WideCompareText
+ 0002:000000CC       Win32BuildNumber
+ 0001:0000B444       Win32Check
+ 0002:000000D0       Win32CSDVersion
+ 0002:000000C4       Win32MajorVersion
+ 0002:000000C8       Win32MinorVersion
+ 0002:000000C0       Win32Platform
+ 0001:00005908       Windows
+ 0001:00017240       WinInet
+ 0001:00018EF4       WinSock
+ 0001:00003434       WriteErrorMessage
+ 0001:000001F4       WriteFile
+ 0001:00005870       WriteFile
+ 0001:00003BE4       WStrError
+ 0001:00003C04       WStrSet
+
+
+  Address         Publics by Value
+
+ 0002:FFBDF00C       TlsLast
+ 0001:0000019C       CloseHandle
+ 0001:000001A4       CreateFileA
+ 0001:000001AC       GetFileType
+ 0001:000001B4       GetFileSize
+ 0001:000001BC       GetStdHandle
+ 0001:000001C4       RaiseException
+ 0001:000001CC       ReadFile
+ 0001:000001D4       RtlUnwind
+ 0001:000001DC       SetEndOfFile
+ 0001:000001E4       SetFilePointer
+ 0001:000001EC       UnhandledExceptionFilter
+ 0001:000001F4       WriteFile
+ 0001:000001FC       CharNext
+ 0001:00000204       ExitProcess
+ 0001:0000020C       MessageBox
+ 0001:00000214       FindClose
+ 0001:0000021C       FindFirstFile
+ 0001:00000224       FreeLibrary
+ 0001:0000022C       GetCommandLine
+ 0001:00000234       GetCurrentDirectory
+ 0001:0000023C       GetLastError
+ 0001:00000244       GetLocaleInfo
+ 0001:0000024C       GetModuleFileName
+ 0001:00000254       GetModuleHandle
+ 0001:0000025C       GetProcAddress
+ 0001:00000264       GetStartupInfo
+ 0001:0000026C       GetThreadLocale
+ 0001:00000274       LoadLibraryEx
+ 0001:0000027C       LoadString
+ 0001:00000284       lstrcpyn
+ 0001:0000028C       @strlen
+ 0001:00000294       MultiByteToWideChar
+ 0001:0000029C       RegCloseKey
+ 0001:000002A4       RegOpenKeyEx
+ 0001:000002AC       RegQueryValueEx
+ 0001:000002B4       SetCurrentDirectory
+ 0001:000002BC       WideCharToMultiByte
+ 0001:000002C4       VirtualQuery
+ 0001:000002CC       SysAllocStringLen
+ 0001:000002D4       SysReAllocStringLen
+ 0001:000002DC       SysFreeString
+ 0001:000002E4       InterlockedIncrement
+ 0001:000002EC       InterlockedDecrement
+ 0001:000002F4       GetCurrentThreadId
+ 0001:000002FC       GetVersion
+ 0001:00000304       GetCmdShow
+ 0001:00000328       LocalAlloc
+ 0001:00000330       LocalFree
+ 0001:00000338       VirtualAlloc
+ 0001:00000340       VirtualFree
+ 0001:00000348       InitializeCriticalSection
+ 0001:00000350       EnterCriticalSection
+ 0001:00000358       LeaveCriticalSection
+ 0001:00000360       DeleteCriticalSection
+ 0001:00000368       GetBlockDesc
+ 0001:000003EC       MakeEmpty
+ 0001:000003F4       AddBlockAfter
+ 0001:00000450       DeleteBlock
+ 0001:00000484       MergeBlockAfter
+ 0001:0000050C       RemoveBlock
+ 0001:000005D0       GetSpace
+ 0001:00000634       GetSpaceAt
+ 0001:000006AC       FreeSpace
+ 0001:00000774       Commit
+ 0001:00000834       Decommit
+ 0001:000008F0       GetCommitted
+ 0001:00000998       GetCommittedAt
+ 0001:00000ADC       FreeCommitted
+ 0001:00000B70       InitAllocator
+ 0001:00000C48       UninitAllocator
+ 0001:00000D48       DeleteFree
+ 0001:00000DDC       FindCommitted
+ 0001:00000E20       FillBeforeGap
+ 0001:00000E5C       InternalFreeMem
+ 0001:00000E80       FillAfterGap
+ 0001:00000EA8       FillerSizeBeforeGap
+ 0001:00000F20       FillerSizeAfterGap
+ 0001:00000F60       DecommitFree
+ 0001:0000101C       InsertFree
+ 0001:00001114       FreeCurAlloc
+ 0001:00001160       MergeCommit
+ 0001:000011EC       NewCommit
+ 0001:00001218       NewCommitAt
+ 0001:0000124C       SearchSmallBlocks
+ 0001:00001284       TryHarder
+ 0001:000013CC       SysGetMem
+ 0001:00001578       SysFreeMem
+ 0001:00001750       ResizeInPlace
+ 0001:00001954       SysReallocMem
+ 0001:00001A20       @GetMem
+ 0001:00001A50       @FreeMem
+ 0001:00001A70       @ReallocMem
+ 0001:00001AC0       ExceptObject
+ 0001:00001AE0       AcquireExceptionObject
+ 0001:00001B1C       RunErrorAt
+ 0001:00001B28       ErrorAt
+ 0001:00001B74       Error
+ 0001:00001B80       @_IOTest
+ 0001:00001BA0       SetInOutRes
+ 0001:00001BB0       @Copy
+ 0001:00001BF4       @LGetDir
+ 0001:00001C6C       IOResult
+ 0001:00001C8C       Move
+ 0001:00001CCC       GetParamStr
+ 0001:00001E30       ParamCount
+ 0001:00001E98       ParamStr
+ 0001:00001EFC       UpCase
+ 0001:00001F08       @ROUND
+ 0001:00001F14       @AbstractError
+ 0001:00001F30       OpenText
+ 0001:00001F88       @RewritText
+ 0001:00001F94       TextIn
+ 0001:00001FD0       FileNOPProc
+ 0001:00001FD4       TextOut
+ 0001:00002010       InternalClose
+ 0001:00002020       TextClose
+ 0001:00002040       TextOpen
+ 0001:000021EC       InternalFlush
+ 0001:00002234       Flush
+ 0001:00002240       @Flush
+ 0001:0000224C       @Close
+ 0001:000022A4       @PStrNCpy
+ 0001:000022C0       @FillChar
+ 0001:000022E0       @StrLong
+ 0001:00002340       @ValLong
+ 0001:00002414       TryOpenForOutput
+ 0001:00002458       @WriteBytes
+ 0001:000024AC       @WriteSpaces
+ 0001:00002528       @WriteLong
+ 0001:00002570       @Write0Long
+ 0001:0000258C       @WriteString
+ 0001:000025BC       @WriteLn
+ 0001:00002610       @SetEq
+ 0001:00002624       FPower10
+ 0001:0000262C       @Pow10
+ 0001:00002910       GetKeyboardType
+ 0001:00002918       @isNECWindows
+ 0001:00002948       @FpuMaskInit
+ 0001:00002A0C       @FpuInit
+ 0001:00002A18       @BoundErr
+ 0001:00002A20       TObject.ClassType
+ 0001:00002A2C       TObject.ClassName
+ 0001:00002A40       TObject.ClassParent
+ 0001:00002A4C       TObject.NewInstance
+ 0001:00002A68       TObject.FreeInstance
+ 0001:00002A7C       TObject.InstanceSize
+ 0001:00002A84       TObject.Create
+ 0001:00002AA4       TObject.Destroy
+ 0001:00002AB4       TObject.Free
+ 0001:00002AC0       TObject.InitInstance
+ 0001:00002B18       TObject.CleanupInstance
+ 0001:00002B38       InvokeImplGetter
+ 0001:00002B68       TObject.GetInterface
+ 0001:00002C08       TObject.GetInterfaceEntry
+ 0001:00002C4C       @IsClass
+ 0001:00002C70       GetDynaMethod
+ 0001:00002CA0       @CallDynaInst
+ 0001:00002CB8       TObject.InheritsFrom
+ 0001:00002CCC       TObject.SafeCallException
+ 0001:00002CD4       TObject.DefaultHandler
+ 0001:00002CD8       TObject.AfterConstruction
+ 0001:00002CDC       TObject.BeforeDestruction
+ 0001:00002CE0       TObject.Dispatch
+ 0001:00002D08       @ClassCreate
+ 0001:00002D58       @ClassDestroy
+ 0001:00002D60       @AfterConstruction
+ 0001:00002D70       @BeforeDestruction
+ 0001:00002D80       NotifyReRaise
+ 0001:00002D9C       NotifyNonDelphiException
+ 0001:00002DC0       NotifyExcept
+ 0001:00002DD8       NotifyAnyExcept
+ 0001:00002DEC       CheckJmp
+ 0001:00002E0C       NotifyExceptFinally
+ 0001:00002E34       NotifyTerminate
+ 0001:00002E50       NotifyUnhandled
+ 0001:00002E70       @HandleAnyException
+ 0001:00002F9C       @HandleFinally
+ 0001:00002FD4       @RaiseExcept
+ 0001:00002FFC       @RaiseAgain
+ 0001:00003050       @DoneExcept
+ 0001:00003080       @TryFinallyExit
+ 0001:00003098       MapToRunError
+ 0001:00003138       @ExceptionHandler
+ 0001:000031D8       SetExceptionHandler
+ 0001:000031F8       UnsetExceptionHandler
+ 0001:00003220       FinalizeUnits
+ 0001:00003290       InitUnits
+ 0001:00003300       @StartExe
+ 0001:00003340       @InitResStringImports
+ 0001:00003368       @InitImports
+ 0001:0000338C       @InitWideStrings
+ 0001:000033A8       MakeErrorMessage
+ 0001:00003404       ExitDll
+ 0001:00003434       WriteErrorMessage
+ 0001:000034C0       @Halt0
+ 0001:000035A0       @Halt
+ 0001:000035AC       @RunError
+ 0001:000035B8       @Assert
+ 0001:000035D8       @LStrClr
+ 0001:000035FC       @LStrArrayClr
+ 0001:0000362C       @LStrAsg
+ 0001:00003670       @LStrLAsg
+ 0001:0000369C       @NewAnsiString
+ 0001:000036C8       @LStrFromPCharLen
+ 0001:000036F8       CharFromWChar
+ 0001:00003718       WCharFromChar
+ 0001:00003734       @LStrFromPWCharLen
+ 0001:000037C0       @LStrFromChar
+ 0001:000037D0       @LStrFromPChar
+ 0001:00003800       @LStrFromPWChar
+ 0001:0000383C       @LStrFromString
+ 0001:00003848       @LStrFromArray
+ 0001:00003860       @LStrFromWStr
+ 0001:00003874       @LStrLen
+ 0001:0000387C       @LStrCat
+ 0001:000038C0       @LStrCat3
+ 0001:00003934       @LStrCatN
+ 0001:000039C0       @LStrCmp
+ 0001:00003A64       @LStrToPChar
+ 0001:00003A70       InternalUniqueString
+ 0001:00003AB4       @UniqueStringA
+ 0001:00003ABC       @LStrCopy
+ 0001:00003AFC       @LStrPos
+ 0001:00003B44       @LStrSetLength
+ 0001:00003BA8       @Write0LString
+ 0001:00003BC4       @WriteLString
+ 0001:00003BE4       WStrError
+ 0001:00003BEC       @NewWideString
+ 0001:00003C04       WStrSet
+ 0001:00003C14       @WStrClr
+ 0001:00003C2C       @WStrArrayClr
+ 0001:00003C50       @WStrAsg
+ 0001:00003C74       @WStrFromPCharLen
+ 0001:00003D00       @WStrFromPWCharLen
+ 0001:00003D24       @WStrFromPWChar
+ 0001:00003D60       @WStrFromLStr
+ 0001:00003D70       @WStrToPWChar
+ 0001:00003D80       @WStrLen
+ 0001:00003D8C       @WStrCmp
+ 0001:00003E10       @WStrCopy
+ 0001:00003E5C       @WStrSetLength
+ 0001:00003EA4       @InitializeRecord
+ 0001:00003ED4       @InitializeArray
+ 0001:00003F68       @Initialize
+ 0001:00003F74       @FinalizeRecord
+ 0001:00003FA8       @VarClr
+ 0001:00003FC0       @FinalizeArray
+ 0001:000040AC       @Finalize
+ 0001:000040B8       @VarCopy
+ 0001:000040D0       @CopyRecord
+ 0001:000041EC       @CopyArray
+ 0001:000042E0       @New
+ 0001:000042F4       @Dispose
+ 0001:00004304       WideCharLenToStrVar
+ 0001:00004310       OleStrToStrVar
+ 0001:00004334       StringToOleStr
+ 0001:00004358       @DispCallByIDError
+ 0001:00004360       @_llmul
+ 0001:00004384       @ValInt64
+ 0001:000045A8       @DynArrayLength
+ 0001:000045B0       @DynArrayHigh
+ 0001:000045B8       CopyArray
+ 0001:000045C8       FinalizeArray
+ 0001:000045D0       DynArrayClear
+ 0001:000045D8       DynArraySetLength
+ 0001:00004784       @DynArraySetLength
+ 0001:00004790       @DynArrayClear
+ 0001:000047CC       @DynArrayAsg
+ 0001:000047F4       FindHInstance
+ 0001:0000481C       DelayLoadResourceModule
+ 0001:00004864       FindResourceHInstance
+ 0001:000048AC       FindBS
+ 0001:000048D8       ToLongPath
+ 0001:00004AB0       LoadResourceModule
+ 0001:00004D34       AddModuleUnloadProc
+ 0001:00004D3C       RemoveModuleUnloadProc
+ 0001:00004D44       AddModuleUnloadProc
+ 0001:00004D64       RemoveModuleUnloadProc
+ 0001:00004DEC       NotifyModuleUnload
+ 0001:00004E48       RegisterModule
+ 0001:00004E58       UnregisterModule
+ 0001:00004EDC       @IntfClear
+ 0001:00004EF4       @IntfCopy
+ 0001:00004F20       TInterfacedObject.AfterConstruction
+ 0001:00004F2C       TInterfacedObject.BeforeDestruction
+ 0001:00004F3C       TInterfacedObject.NewInstance
+ 0001:00004F4C       TInterfacedObject.QueryInterface
+ 0001:00004F74       TInterfacedObject._AddRef
+ 0001:00004F88       TInterfacedObject._Release
+ 0001:00004FB0       UnicodeToUtf8
+ 0001:0000508C       Utf8ToUnicode
+ 0001:000051C4       UTF8Encode
+ 0001:00005270       UTF8Decode
+ 0001:00005314       AnsiToUtf8
+ 0001:00005364       LoadResString
+ 0001:000053BC       LCIDToCodePage
+ 0001:00005430       Finalization
+ 0001:00005484       System
+ 0001:00005558       GetModuleHandle
+ 0001:00005560       LocalAlloc
+ 0001:00005568       TlsGetValue
+ 0001:00005570       TlsSetValue
+ 0001:00005578       AllocTlsBuffer
+ 0001:00005584       GetTlsSize
+ 0001:0000558C       InitThreadTLS
+ 0001:000055D0       @GetTls
+ 0001:00005610       InitializeModule
+ 0001:0000561C       @InitExe
+ 0001:00005660       Finalization
+ 0001:00005690       SysInit
+ 0001:00005698       Finalization
+ 0001:000056C8       Types
+ 0001:000056D0       CloseHandle
+ 0001:000056D8       CompareString
+ 0001:000056E0       CompareStringA
+ 0001:000056E8       CompareStringW
+ 0001:000056F0       CreateEvent
+ 0001:000056F8       CreateFile
+ 0001:00005700       CreateFileMapping
+ 0001:00005708       DeleteCriticalSection
+ 0001:00005710       EnterCriticalSection
+ 0001:00005718       EnumCalendarInfoA
+ 0001:00005720       FileTimeToDosDateTime
+ 0001:00005728       FileTimeToLocalFileTime
+ 0001:00005730       FindClose
+ 0001:00005738       FindFirstFile
+ 0001:00005740       FindNextFile
+ 0001:00005748       FormatMessage
+ 0001:00005750       FreeLibrary
+ 0001:00005758       InterlockedCompareExchange
+ 0001:00005760       GetACP
+ 0001:00005768       GetCPInfo
+ 0001:00005770       GetCurrentProcessId
+ 0001:00005778       GetCurrentThreadId
+ 0001:00005780       GetDateFormat
+ 0001:00005788       GetDiskFreeSpaceA
+ 0001:00005790       GetFullPathName
+ 0001:00005798       GetLastError
+ 0001:000057A0       GetLocalTime
+ 0001:000057A8       GetLocaleInfo
+ 0001:000057B0       GetModuleFileName
+ 0001:000057B8       GetModuleHandle
+ 0001:000057C0       GetProcAddress
+ 0001:000057C8       GetStdHandle
+ 0001:000057D0       GetStringTypeEx
+ 0001:000057D8       GetStringTypeExA
+ 0001:000057E0       GetSystemInfo
+ 0001:000057E8       GetThreadLocale
+ 0001:000057F0       GetVersionEx
+ 0001:000057F8       InitializeCriticalSection
+ 0001:00005800       LeaveCriticalSection
+ 0001:00005808       MapViewOfFile
+ 0001:00005810       MultiByteToWideChar
+ 0001:00005818       OpenFileMapping
+ 0001:00005820       ReadFile
+ 0001:00005828       ReleaseMutex
+ 0001:00005830       ResetEvent
+ 0001:00005838       SetEndOfFile
+ 0001:00005840       SetEvent
+ 0001:00005848       SetFilePointer
+ 0001:00005850       UnmapViewOfFile
+ 0001:00005858       VirtualQuery
+ 0001:00005860       WaitForSingleObject
+ 0001:00005868       WideCharToMultiByte
+ 0001:00005870       WriteFile
+ 0001:00005878       GetFileVersionInfo
+ 0001:00005880       GetFileVersionInfoSize
+ 0001:00005888       VerQueryValue
+ 0001:00005890       CharLowerBuff
+ 0001:00005898       CharLowerBuffA
+ 0001:000058A0       CharNext
+ 0001:000058A8       CharToOemA
+ 0001:000058B0       CharUpperBuff
+ 0001:000058B8       CharUpperBuffA
+ 0001:000058C0       GetSystemMetrics
+ 0001:000058C8       LoadString
+ 0001:000058D0       MessageBox
+ 0001:000058D8       Finalization
+ 0001:00005908       Windows
+ 0001:00005910       Finalization
+ 0001:00005940       Messages
+ 0001:00005C18       Finalization
+ 0001:00005C48       SysConst
+ 0001:0000681C       DivMod
+ 0001:00006838       ConvertErrorFmt
+ 0001:0000685C       AllocMem
+ 0001:0000687C       UpperCase
+ 0001:000068CC       LowerCase
+ 0001:0000691C       CompareText
+ 0001:00006970       SameText
+ 0001:00006994       AnsiCompareStr
+ 0001:000069CC       AnsiCompareText
+ 0001:00006A04       AnsiSameText
+ 0001:00006A1C       Trim
+ 0001:00006A6C       CvtInt
+ 0001:00006AB8       IntToStr
+ 0001:00006AD8       CvtInt64
+ 0001:00006BA4       IntToStr
+ 0001:00006BCC       IntToHex
+ 0001:00006BF4       StrToIntDef
+ 0001:00006C0C       TryStrToInt
+ 0001:00006C2C       TryStrToInt64
+ 0001:00006C4C       VerifyBoolStrArray
+ 0001:00006CDC       CompareWith
+ 0001:00006D18       TryStrToBool
+ 0001:00006DB4       BoolToStr
+ 0001:00006E00       FileOpen
+ 0001:00006E58       FileCreate
+ 0001:00006E7C       FileCreate
+ 0001:00006E84       FileRead
+ 0001:00006EB0       FileWrite
+ 0001:00006EDC       FileSeek
+ 0001:00006F14       FileClose
+ 0001:00006F1C       FindMatchingFile
+ 0001:00006F88       FindFirst
+ 0001:00006FD8       FindNext
+ 0001:00006FFC       FindClose
+ 0001:00007018       AnsiLastChar
+ 0001:00007050       LastDelimiter
+ 0001:000070A0       ExtractFilePath
+ 0001:000070D4       ExtractFileName
+ 0001:0000710C       ExpandFileName
+ 0001:00007148       BackfillGetDiskFreeSpaceEx
+ 0001:000071C8       GetCurrentDir
+ 0001:000071D4       StrLen
+ 0001:000071EC       StrMove
+ 0001:000071FC       StrLCopy
+ 0001:00007230       StrLIComp
+ 0001:00007274       StrScan
+ 0001:00007294       StrPos
+ 0001:000072E8       StrAlloc
+ 0001:000072FC       StrNew
+ 0001:00007330       FormatError
+ 0001:00007388       FormatVarToStr
+ 0001:000073AC       FormatClearStr
+ 0001:000073B8       FormatBuf
+ 0001:00007730       StrLFmt
+ 0001:0000777C       Format
+ 0001:00007790       FmtStr
+ 0001:00007858       PutExponent
+ 0001:0000789C       FloatToText
+ 0001:00007B70       FloatToDecimal
+ 0001:00007D9C       TextToFloat
+ 0001:00007EB0       FloatToStr
+ 0001:00007EE0       CurrToStr
+ 0001:00007F10       TryStrToFloat
+ 0001:00007F2C       TryStrToFloat
+ 0001:00007F58       TryStrToFloat
+ 0001:00007F84       TryStrToCurr
+ 0001:00007FA0       DateTimeToTimeStamp
+ 0001:00007FE4       TryEncodeTime
+ 0001:00008054       DecodeTime
+ 0001:000080B0       IsLeapYear
+ 0001:000080EC       TryEncodeDate
+ 0001:000081BC       DecodeDateFully
+ 0001:0000830C       DecodeDate
+ 0001:0000832C       DayOfWeek
+ 0001:00008354       CurrentYear
+ 0001:00008368       AppendChars
+ 0001:000083AC       AppendString
+ 0001:000083CC       AppendNumber
+ 0001:00008418       GetCount
+ 0001:00008448       GetDate
+ 0001:00008480       GetTime
+ 0001:000084C0       ConvertEraString
+ 0001:0000862C       ConvertYearString
+ 0001:00008734       AppendFormat
+ 0001:00008F0C       DateTimeToString
+ 0001:00008F68       DateTimeToStr
+ 0001:00008F7C       ScanBlanks
+ 0001:00008FA0       ScanNumber
+ 0001:00009034       ScanString
+ 0001:000090C0       ScanChar
+ 0001:000090F8       GetDateOrder
+ 0001:00009144       ScanToNumber
+ 0001:0000918C       GetEraYearOffset
+ 0001:000091E0       EraToYear
+ 0001:0000923C       ScanDate
+ 0001:00009580       ScanTime
+ 0001:00009774       TryStrToDate
+ 0001:000097A8       TryStrToTime
+ 0001:000097DC       TryStrToDateTime
+ 0001:00009868       SysErrorMessage
+ 0001:000098B4       GetLocaleStr
+ 0001:00009900       GetLocaleChar
+ 0001:00009928       LocalGetLocaleStr
+ 0001:00009964       GetMonthDayNames
+ 0001:00009A88       EnumEraNames
+ 0001:00009AC4       EnumEraYearOffsets
+ 0001:00009B3C       GetEraNamesAndYearOffsets
+ 0001:00009BEC       TranslateDateFormat
+ 0001:00009E14       ConvertAddr
+ 0001:00009E20       ExceptionErrorMessage
+ 0001:00009FB8       ShowException
+ 0001:0000A080       Exception.Create
+ 0001:0000A0BC       Exception.CreateFmt
+ 0001:0000A13C       Exception.CreateRes
+ 0001:0000A178       Exception.CreateResFmt
+ 0001:0000A20C       Exception.CreateHelp
+ 0001:0000A254       EHeapException.FreeInstance
+ 0001:0000A280       CreateInOutError
+ 0001:0000A300       ErrorHandler
+ 0001:0000A354       CreateAssertException
+ 0001:0000A400       RaiseAssertException
+ 0001:0000A410       AssertErrorHandler
+ 0001:0000A42C       AbstractErrorHandler
+ 0001:0000A444       MapException
+ 0001:0000A4C4       GetExceptionClass
+ 0001:0000A4DC       CreateAVObject
+ 0001:0000A6B0       GetExceptionObject
+ 0001:0000A77C       ExceptHandler
+ 0001:0000A78C       InitExceptions
+ 0001:0000A810       DoneExceptions
+ 0001:0000A890       InitPlatformId
+ 0001:0000A900       ByteTypeTest
+ 0001:0000A978       ByteType
+ 0001:0000A99C       StrByteType
+ 0001:0000A9B4       ByteToCharLen
+ 0001:0000A9DC       ByteToCharIndex
+ 0001:0000AA38       CountChars
+ 0001:0000AAC8       CharToByteIndex
+ 0001:0000AB2C       CharToByteLen
+ 0001:0000AB8C       StrCharLength
+ 0001:0000ABAC       StrNextChar
+ 0001:0000ABC0       CharLength
+ 0001:0000ABFC       NextCharIndex
+ 0001:0000AC38       AnsiPos
+ 0001:0000AC74       AnsiStrPos
+ 0001:0000AD34       AnsiStrRScan
+ 0001:0000AD7C       AnsiStrScan
+ 0001:0000ADC4       LCIDToCodePage
+ 0001:0000AE38       InitLeadBytes
+ 0001:0000AE98       IsWesternGroup
+ 0001:0000AEB0       InitSysLocale
+ 0001:0000B028       GetFormatSettings
+ 0001:0000B3A0       Sleep
+ 0001:0000B3A8       RaiseLastOSError
+ 0001:0000B444       Win32Check
+ 0001:0000B454       FreeTerminateProcs
+ 0001:0000B480       InitDriveSpacePtr
+ 0001:0000B4DC       InterlockedIncrement
+ 0001:0000B4E8       InterlockedDecrement
+ 0001:0000B4F4       InterlockedExchange
+ 0001:0000B4FC       InterlockedExchangeAdd
+ 0001:0000B504       TThreadLocalCounter.Destroy
+ 0001:0000B570       TThreadLocalCounter.HashIndex
+ 0001:0000B588       TThreadLocalCounter.Open
+ 0001:0000B61C       TThreadLocalCounter.Delete
+ 0001:0000B62C       TThreadLocalCounter.Recycle
+ 0001:0000B680       TMultiReadExclusiveWriteSynchronizer.Create
+ 0001:0000B6F4       TMultiReadExclusiveWriteSynchronizer.Destroy
+ 0001:0000B73C       TMultiReadExclusiveWriteSynchronizer.BlockReaders
+ 0001:0000B748       TMultiReadExclusiveWriteSynchronizer.UnblockReaders
+ 0001:0000B754       TMultiReadExclusiveWriteSynchronizer.UnblockOneWriter
+ 0001:0000B760       TMultiReadExclusiveWriteSynchronizer.WaitForReadSignal
+ 0001:0000B770       TMultiReadExclusiveWriteSynchronizer.WaitForWriteSignal
+ 0001:0000B780       TMultiReadExclusiveWriteSynchronizer.BeginWrite
+ 0001:0000B82C       TMultiReadExclusiveWriteSynchronizer.EndWrite
+ 0001:0000B87C       TMultiReadExclusiveWriteSynchronizer.BeginRead
+ 0001:0000B8EC       TMultiReadExclusiveWriteSynchronizer.EndRead
+ 0001:0000B954       FreeAndNil
+ 0001:0000BC34       Finalization
+ 0001:0000BDB4       SysUtils
+ 0001:0000BE34       VariantInit
+ 0001:0000BE3C       VariantClear
+ 0001:0000BE44       VariantCopy
+ 0001:0000BE4C       VariantChangeType
+ 0001:0000BE54       BackupVariantChangeTypeEx
+ 0001:0000BE84       UniUnimplemented
+ 0001:0000BE90       BiUnimplemented
+ 0001:0000BE9C       CmpUnimplemented
+ 0001:0000BEA8       BackupVarI4FromStr
+ 0001:0000BF14       BackupVarR4FromStr
+ 0001:0000BF80       BackupVarR8FromStr
+ 0001:0000BFEC       BackupVarDateFromStr
+ 0001:0000C058       BackupVarCyFromStr
+ 0001:0000C0C4       BackupVarBoolFromStr
+ 0001:0000C144       BackupVarBStrFromCy
+ 0001:0000C1B4       BackupVarBStrFromDate
+ 0001:0000C224       BackupVarBStrFromBool
+ 0001:0000C298       SafeArrayCreate
+ 0001:0000C2A0       SafeArrayGetLBound
+ 0001:0000C2A8       SafeArrayGetUBound
+ 0001:0000C2B0       SafeArrayPtrOfIndex
+ 0001:0000C2B8       FindProc
+ 0001:0000C2E4       InitializeVarUtils
+ 0001:0000C5F0       Finalization
+ 0001:0000C620       VarUtils
+ 0001:0000CC08       VarCastError
+ 0001:0000CC5C       VarCastError
+ 0001:0000CCF8       VarInvalidOp
+ 0001:0000CD4C       VarOverflowError
+ 0001:0000CDE8       VarArrayCreateError
+ 0001:0000CE3C       TranslateResult
+ 0001:0000D090       VarResultCheck
+ 0001:0000D09C       VarResultCheck
+ 0001:0000D0D0       HandleConversionException
+ 0001:0000D154       @DispInvokeError
+ 0001:0000D1A8       @VarNull
+ 0001:0000D1BC       InBounds
+ 0001:0000D1EC       Increment
+ 0001:0000D248       VarArrayClear
+ 0001:0000D3C4       VarClearDeep
+ 0001:0000D440       @VarClear
+ 0001:0000D454       @VarClr
+ 0001:0000D45C       InBounds
+ 0001:0000D48C       Increment
+ 0001:0000D4E8       VarArrayCopyForEach
+ 0001:0000D6C8       VarCopyCopyProc
+ 0001:0000D6D0       VarCopyDeep
+ 0001:0000D77C       @VarCopy
+ 0001:0000D7C0       VarCastAsAny
+ 0001:0000D82C       VarCastAsOleStr
+ 0001:0000D878       VarCastAsString
+ 0001:0000D8C4       VarCastAsDispatch
+ 0001:0000D910       VarCastAsInterface
+ 0001:0000D95C       VarCastViaOS
+ 0001:0000D9DC       VarCastRare
+ 0001:0000DA48       @VarCast
+ 0001:0000DC74       VarToIntAsString
+ 0001:0000DD28       VarToIntViaOS
+ 0001:0000DD64       VarToIntAny
+ 0001:0000DDC8       VarToIntCustom
+ 0001:0000DE0C       @VarToInteger
+ 0001:0000E25C       @VarToShortInt
+ 0001:0000E30C       @VarToByte
+ 0001:0000E3B4       @VarToSmallInt
+ 0001:0000E4AC       @VarToWord
+ 0001:0000E584       @VarToLongWord
+ 0001:0000E66C       VarToInt64ViaOS
+ 0001:0000E718       VarToInt64AsString
+ 0001:0000E818       VarToInt64Any
+ 0001:0000E884       VarToInt64Custom
+ 0001:0000E8D0       @VarToInt64
+ 0001:0000ED14       VarToBoolAsString
+ 0001:0000EDDC       VarToBoolViaOS
+ 0001:0000EE1C       VarToBoolAny
+ 0001:0000EE80       VarToBoolCustom
+ 0001:0000EECC       @VarToBoolean
+ 0001:0000F214       VarToDoubleAsString
+ 0001:0000F2D8       VarToDoubleViaOS
+ 0001:0000F324       VarToDoubleAny
+ 0001:0000F388       VarToDoubleCustom
+ 0001:0000F3D4       @VarToDouble
+ 0001:0000F750       @VarToSingle
+ 0001:0000F8E0       VarToDateAsString
+ 0001:0000F9CC       VarToDateAsDouble
+ 0001:0000FA2C       VarToDateViaOS
+ 0001:0000FA78       VarToDateAny
+ 0001:0000FADC       VarToDateCustom
+ 0001:0000FB28       @VarToDate
+ 0001:0000FE78       VarToCurrencyAsString
+ 0001:0000FF34       VarToCurrencyAsDouble
+ 0001:0000FF94       VarToCurrencyViaOS
+ 0001:0000FFE0       VarToCurrencyAny
+ 0001:00010044       VarToCurrencyCustom
+ 0001:00010090       @VarToCurrency
+ 0001:0001045C       CurrToWStrViaOS
+ 0001:00010494       DateToWStrViaOS
+ 0001:000104CC       BoolToWStrViaOS
+ 0001:00010590       VarToLStrViaOS
+ 0001:0001065C       VarToLStrAny
+ 0001:000106C0       VarToLStrCustom
+ 0001:00010744       @VarToLStr
+ 0001:00010C80       VarToWStrViaOS
+ 0001:00010D38       VarToWStrAny
+ 0001:00010D9C       VarToWStrCustom
+ 0001:00010E64       @VarToWStr
+ 0001:000113B8       AnyToIntf
+ 0001:00011430       @VarToIntf
+ 0001:000114FC       @VarToDisp
+ 0001:000115A8       @VarFromInteger
+ 0001:000115C8       @VarFromByte
+ 0001:000115E8       @VarFromWord
+ 0001:00011608       @VarFromLongWord
+ 0001:00011628       @VarFromShortInt
+ 0001:00011648       @VarFromSmallInt
+ 0001:00011668       @VarFromInt64
+ 0001:00011694       @VarFromSingle
+ 0001:000116B8       @VarFromDouble
+ 0001:000116E4       @VarFromCurrency
+ 0001:00011710       @VarFromDate
+ 0001:0001173C       @VarFromBool
+ 0001:00011764       @VarFromLStr
+ 0001:00011790       @VarFromWStr
+ 0001:000117C8       @VarFromIntf
+ 0001:000117F4       @VarFromDisp
+ 0001:00011820       @VarAddRef
+ 0001:000119A4       VarTypeAsText
+ 0001:00011B14       SetVarAsError
+ 0001:00011B2C       SetClearVarToEmptyParam
+ 0001:00011B5C       ClearVariantTypeList
+ 0001:00011BC8       TCustomVariantType.BinaryOp
+ 0001:00011BD4       TCustomVariantType.Cast
+ 0001:00011C0C       TCustomVariantType.CastTo
+ 0001:00011C54       TCustomVariantType.Compare
+ 0001:00011C60       TCustomVariantType.CompareOp
+ 0001:00011C98       TCustomVariantType.CastToOle
+ 0001:00011CD4       TCustomVariantType.Destroy
+ 0001:00011D60       TCustomVariantType.IsClear
+ 0001:00011D64       TCustomVariantType.LeftPromotion
+ 0001:00011D78       TCustomVariantType.OlePromotion
+ 0001:00011D80       TCustomVariantType.RaiseCastError
+ 0001:00011D88       TCustomVariantType.RaiseInvalidOp
+ 0001:00011D90       TCustomVariantType.RaiseDispError
+ 0001:00011D98       TCustomVariantType.RightPromotion
+ 0001:00011DAC       TCustomVariantType.UnaryOp
+ 0001:00011DB4       TCustomVariantType.DispInvoke
+ 0001:00011DC0       TCustomVariantType._AddRef
+ 0001:00011DCC       TCustomVariantType._Release
+ 0001:00011DD8       TCustomVariantType.QueryInterface
+ 0001:00011E00       FindCustomVariantType
+ 0001:00011EB8       Finalization
+ 0001:00011F30       Variants
+ 0001:0001203C       Finalization
+ 0001:0001206C       RTLConsts
+ 0001:000120A0       Finalization
+ 0001:000120F0       TypInfo
+ 0001:0001212C       CoInitialize
+ 0001:00012134       CoUninitialize
+ 0001:0001213C       SysFreeString
+ 0001:00012144       GetErrorInfo
+ 0001:0001214C       Succeeded
+ 0001:00012158       Finalization
+ 0001:00012188       ActiveX
+ 0001:00012AA4       TRegGroup.Create
+ 0001:00012B20       TRegGroup.Destroy
+ 0001:00012B60       PointerInModule
+ 0001:00012B80       TRegGroup.UnregisterModuleClasses
+ 0001:00012C24       TRegGroups.Create
+ 0001:00012C98       TRegGroups.Destroy
+ 0001:00012CF4       TRegGroups.Lock
+ 0001:00012D00       TRegGroups.Unlock
+ 0001:00012D0C       TRegGroups.UnregisterModuleClasses
+ 0001:00012D5C       UnRegisterModuleClasses
+ 0001:00012DA8       TList.Destroy
+ 0001:00012DC8       TList.Add
+ 0001:00012DFC       TList.Clear
+ 0001:00012E14       TList.Delete
+ 0001:00012E74       ReturnAddr
+ 0001:00012E78       TList.Error
+ 0001:00012EB0       TList.Error
+ 0001:00012F04       TList.Get
+ 0001:00012F2C       TList.Grow
+ 0001:00012F60       TList.SetCapacity
+ 0001:00012F9C       TList.SetCount
+ 0001:0001300C       TList.Notify
+ 0001:00013010       TThreadList.Create
+ 0001:00013064       TThreadList.Destroy
+ 0001:000130E0       TThreadList.LockList
+ 0001:000130F4       TThreadList.UnlockList
+ 0001:00013100       TPersistent.Destroy
+ 0001:0001312C       TPersistent.Assign
+ 0001:00013140       TPersistent.AssignError
+ 0001:00013210       TPersistent.AssignTo
+ 0001:00013218       TPersistent.DefineProperties
+ 0001:0001321C       TPersistent.GetNamePath
+ 0001:000132CC       TPersistent.GetOwner
+ 0001:000132D0       TStrings.Destroy
+ 0001:00013300       TStrings.Add
+ 0001:00013324       TStrings.AddObject
+ 0001:00013348       TStrings.AddStrings
+ 0001:00013400       TStrings.Assign
+ 0001:00013498       TStrings.BeginUpdate
+ 0001:000134B0       DoWrite
+ 0001:00013508       TStrings.DefineProperties
+ 0001:00013554       TStrings.EndUpdate
+ 0001:00013568       TStrings.Equals
+ 0001:00013610       ReturnAddr
+ 0001:00013614       TStrings.Error
+ 0001:0001364C       TStrings.Error
+ 0001:000136A4       TStrings.Exchange
+ 0001:0001378C       TStrings.GetCapacity
+ 0001:00013794       TStrings.GetObject
+ 0001:00013798       TStrings.GetText
+ 0001:000137EC       TStrings.GetTextStr
+ 0001:00013914       TStrings.IndexOf
+ 0001:000139A0       TStrings.IndexOfName
+ 0001:00013A74       TStrings.IndexOfObject
+ 0001:00013AA8       TStrings.InsertObject
+ 0001:00013AD8       TStrings.LoadFromFile
+ 0001:00013B2C       TStrings.LoadFromStream
+ 0001:00013BD8       TStrings.Move
+ 0001:00013C88       TStrings.Put
+ 0001:00013CBC       TStrings.PutObject
+ 0001:00013CC0       TStrings.ReadData
+ 0001:00013D70       TStrings.SaveToFile
+ 0001:00013DC8       TStrings.SaveToStream
+ 0001:00013E24       TStrings.SetCapacity
+ 0001:00013E28       TStrings.SetStringsAdapter
+ 0001:00013E5C       TStrings.SetText
+ 0001:00013EAC       TStrings.SetTextStr
+ 0001:00013F6C       TStrings.SetUpdateState
+ 0001:00013F70       TStrings.WriteData
+ 0001:00013FF4       TStrings.CompareStrings
+ 0001:00014000       TStrings.GetNameValueSeparator
+ 0001:00014018       TStrings.SetNameValueSeparator
+ 0001:00014034       TStringList.Destroy
+ 0001:00014090       TStringList.Add
+ 0001:0001409C       TStringList.AddObject
+ 0001:00014100       TStringList.Changed
+ 0001:0001411C       TStringList.Changing
+ 0001:00014138       TStringList.Clear
+ 0001:00014178       TStringList.Delete
+ 0001:000141E4       TStringList.Exchange
+ 0001:00014240       TStringList.ExchangeItems
+ 0001:00014264       TStringList.Find
+ 0001:000142DC       TStringList.Get
+ 0001:00014310       TStringList.GetCapacity
+ 0001:00014314       TStringList.GetCount
+ 0001:00014318       TStringList.GetObject
+ 0001:00014340       TStringList.Grow
+ 0001:00014374       TStringList.IndexOf
+ 0001:000143B0       TStringList.Insert
+ 0001:000143C0       TStringList.InsertObject
+ 0001:00014414       TStringList.InsertItem
+ 0001:0001448C       TStringList.Put
+ 0001:000144E8       TStringList.PutObject
+ 0001:00014528       TStringList.QuickSort
+ 0001:000145BC       TStringList.SetCapacity
+ 0001:000145D8       TStringList.SetUpdateState
+ 0001:000145F0       StringListCompareStrings
+ 0001:00014604       TStringList.Sort
+ 0001:00014614       TStringList.CustomSort
+ 0001:0001464C       TStringList.CompareStrings
+ 0001:00014668       TStream.GetPosition
+ 0001:00014688       TStream.GetSize
+ 0001:000146D4       TStream.SetSize
+ 0001:000146D8       TStream.SetSize
+ 0001:0001472C       RaiseException
+ 0001:00014778       TStream.Seek
+ 0001:000147FC       TStream.Seek
+ 0001:0001486C       TStream.WriteBuffer
+ 0001:000148A4       THandleStream.Create
+ 0001:000148E0       THandleStream.Read
+ 0001:000148F0       THandleStream.Write
+ 0001:00014900       THandleStream.Seek
+ 0001:0001492C       THandleStream.SetSize
+ 0001:00014940       THandleStream.SetSize
+ 0001:00014968       TFileStream.Create
+ 0001:000149AC       TFileStream.Create
+ 0001:00014B00       TFileStream.Destroy
+ 0001:00014B34       RemoveFixupReferences
+ 0001:00014BE0       RemoveFixups
+ 0001:00014C64       ReadError
+ 0001:00014C7C       PropValueError
+ 0001:00014C88       TReader.CheckValue
+ 0001:00014CAC       TReader.EndOfList
+ 0001:00014CC0       TReader.NextValue
+ 0001:00014CD0       TReader.Read
+ 0001:00014D1C       TReader.ReadBuffer
+ 0001:00014D58       TReader.ReadListBegin
+ 0001:00014D60       TReader.ReadListEnd
+ 0001:00014D68       TReader.ReadStr
+ 0001:00014DA4       TReader.ReadString
+ 0001:00014E60       TReader.ReadWideString
+ 0001:00014F44       TReader.ReadValue
+ 0001:00014F58       TReader.SkipSetBody
+ 0001:00014FA0       SkipList
+ 0001:00014FC8       SkipBinary
+ 0001:00014FF8       SkipCollection
+ 0001:00015054       TReader.SkipValue
+ 0001:000151F0       TReader.SkipProperty
+ 0001:00015238       TReader.SkipBytes
+ 0001:00015280       TWriter.Write
+ 0001:000152CC       TWriter.WriteBuffer
+ 0001:000152E4       TWriter.WriteListBegin
+ 0001:000152EC       TWriter.WriteListEnd
+ 0001:000152F4       TWriter.WriteMinStr
+ 0001:0001538C       TWriter.WriteString
+ 0001:000153E0       TWriter.WriteValue
+ 0001:000153F4       InitThreadSynchronization
+ 0001:00015428       DoneThreadSynchronization
+ 0001:00015440       FreeIntConstList
+ 0001:000154AC       ModuleUnload
+ 0001:000154B4       Finalization
+ 0001:00015564       Classes
+ 0001:000155F8       Finalization
+ 0001:00015628       Math
+ 0001:00015698       TObjectList.Add
+ 0001:000156A0       TObjectList.Create
+ 0001:000156DC       TObjectList.GetItem
+ 0001:000156F0       TObjectList.Notify
+ 0001:0001571C       Finalization
+ 0001:0001574C       Contnrs
+ 0001:00015820       TSynchroObject.Acquire
+ 0001:00015824       TSynchroObject.Release
+ 0001:00015828       TCriticalSection.Create
+ 0001:00015868       TCriticalSection.Destroy
+ 0001:00015898       TCriticalSection.Acquire
+ 0001:000158A4       TCriticalSection.Release
+ 0001:000158B0       Finalization
+ 0001:000158E0       SyncObjs
+ 0001:00015CD0       Finalization
+ 0001:00015D1C       JclResources
+ 0001:00015F04       LoadAnsiReplacementCharacter
+ 0001:00015F40       Finalization
+ 0001:00015F8C       JclBase
+ 0001:00015FAC       Finalization
+ 0001:00015FDC       AccCtrl
+ 0001:00016144       EJclWin32Error.CreateRes
+ 0001:00016230       CreateMutex
+ 0001:00016238       GetVersionEx
+ 0001:00016240       Finalization
+ 0001:0001628C       JclWin32
+ 0001:000162A8       Finalization
+ 0001:000162D8       ShellAPI
+ 0001:00016300       Finalization
+ 0001:00016330       ComConst
+ 0001:000164A4       TrimPunctuation
+ 0001:000164F4       EOleSysError.Create
+ 0001:000165C4       EOleException.Create
+ 0001:0001665C       OleError
+ 0001:00016678       OleCheck
+ 0001:00016690       LoadComExProcs
+ 0001:00016794       SafeCallError
+ 0001:00016894       DispatchInvoke
+ 0001:00016BD8       RaiseNameException
+ 0001:00016C0C       GetIDsOfNames
+ 0001:00016CEC       RaiseException
+ 0001:00016D04       VarDispInvoke
+ 0001:00016DA0       DispCallError
+ 0001:00016E74       DispatchInvokeError
+ 0001:00016E80       ClearExcepInfo
+ 0001:00016E90       DispCall
+ 0001:00016F74       DispCallByID
+ 0001:00017050       InitComObj
+ 0001:000170C8       Finalization
+ 0001:00017148       ComObj
+ 0001:000171A0       Finalization
+ 0001:000171D0       CommCtrl
+ 0001:000171D8       Finalization
+ 0001:00017208       RegStr
+ 0001:00017210       Finalization
+ 0001:00017240       WinInet
+ 0001:00017248       Finalization
+ 0001:00017278       UrlMon
+ 0001:00017280       Finalization
+ 0001:000172B0       ShlObj
+ 0001:000173A8       Finalization
+ 0001:000173F4       JclLogic
+ 0001:0001750C       Finalization
+ 0001:00017558       JclStringConversions
+ 0001:00018CF0       Finalization
+ 0001:00018D50       JclCharsets
+ 0001:00018E5C       Finalization
+ 0001:00018EA8       Jcl8087
+ 0001:00018EC4       Finalization
+ 0001:00018EF4       WinSock
+ 0001:00018EFC       Finalization
+ 0001:00018F2C       Snmp
+ 0001:00018F34       Finalization
+ 0001:00018F64       TlHelp32
+ 0001:00018F6C       Finalization
+ 0001:00018F9C       PsAPI
+ 0001:00018FBC       Finalization
+ 0001:00019004       IniFiles
+ 0001:00019100       Finalization
+ 0001:0001914C       JclIniFiles
+ 0001:00019258       GetWindowsVersion
+ 0001:00019494       GetNativeSystemInfo
+ 0001:000194FC       UnloadSystemResourcesMeterLib
+ 0001:00019520       InitSysInfo
+ 0001:0001971C       FinalizeSysInfo
+ 0001:00019B48       Finalization
+ 0001:00019B98       JclSysInfo
+ 0001:0001B344       CodePageFromLocale
+ 0001:0001B3B8       CompareTextWin95
+ 0001:0001B4B8       CompareTextWinNT
+ 0001:0001B4F0       PrepareUnicodeData
+ 0001:0001B524       FreeUnicodeData
+ 0001:0001B530       Finalization
+ 0001:0001B634       JclUnicode
+ 0001:0001B770       Finalization
+ 0001:0001B7BC       JclWideStrings
+ 0001:0001BC14       Finalization
+ 0001:0001BC74       JclRegistry
+ 0001:0001BF14       MapSignalResult
+ 0001:0001BF48       TJclDispatcherObject.Destroy
+ 0001:0001BF78       TJclDispatcherObject.WaitFor
+ 0001:0001BF90       TJclCriticalSection.Create
+ 0001:0001BFD0       TJclCriticalSection.Destroy
+ 0001:0001C000       TJclMutex.Create
+ 0001:0001C09C       TJclMutex.Release
+ 0001:0001C0B0       Finalization
+ 0001:0001C0FC       JclSynch
+ 0001:0001C22C       Finalization
+ 0001:0001C28C       JclMath
+ 0001:0001C398       Finalization
+ 0001:0001C3E4       JclStreams
+ 0001:0001C4F0       LoadCharTypes
+ 0001:0001C52C       LoadCaseMap
+ 0001:0001C5A8       CharIsLower
+ 0001:0001C5BC       CharIsUpper
+ 0001:0001C5D0       Finalization
+ 0001:0001C61C       JclAnsiStrings
+ 0001:0001C78C       LoadCharTypes
+ 0001:0001C7C8       LoadCaseMap
+ 0001:0001C844       StrMatches
+ 0001:0001C964       CharIsLower
+ 0001:0001C978       CharIsUpper
+ 0001:0001C9AC       Finalization
+ 0001:0001CA0C       JclStrings
+ 0001:0001CB20       Finalization
+ 0001:0001CB74       JclShell
+ 0001:0001CC84       Finalization
+ 0001:0001CCD0       JclSecurity
+ 0001:0001CDE0       Finalization
+ 0001:0001CE2C       JclDateTime
+ 0001:0001CF3C       Finalization
+ 0001:0001CF88       JclConsole
+ 0001:0001D1A0       ResetMemory
+ 0001:0001D1D8       GetAccessToHandleList
+ 0001:0001D22C       SharedGetMem
+ 0001:0001D43C       SharedFreeMem
+ 0001:0001D500       SharedCloseMem
+ 0001:0001D524       UnloadModule
+ 0001:0001D53C       TJclIntfCriticalSection.Create
+ 0001:0001D580       TJclIntfCriticalSection.Destroy
+ 0001:0001D5B0       TJclIntfCriticalSection._AddRef
+ 0001:0001D5C4       TJclIntfCriticalSection._Release
+ 0001:0001D5D8       TJclIntfCriticalSection.QueryInterface
+ 0001:0001D600       Finalization
+ 0001:0001D684       JclSysUtils
+ 0001:0001D810       TUnitVersion.Create
+ 0001:0001D84C       TUnitVersioningModule.Create
+ 0001:0001D898       TUnitVersioningModule.Destroy
+ 0001:0001D8C8       TUnitVersioningModule.GetItems
+ 0001:0001D8DC       TUnitVersioningModule.Add
+ 0001:0001D900       TUnitVersioningModule.IndexOfInfo
+ 0001:0001D934       TUnitVersioning.Create
+ 0001:0001D988       TUnitVersioning.Destroy
+ 0001:0001D9C0       TUnitVersioning.Add
+ 0001:0001DA40       TUnitVersioning.UnregisterModule
+ 0001:0001DA9C       TUnitVersioning.GetModules
+ 0001:0001DAB0       GetUnitVersioning
+ 0001:0001DCC4       FinalizeUnitVersioning
+ 0001:0001DD7C       RegisterUnitVersion
+ 0001:0001DD98       UnregisterUnitVersion
+ 0001:0001DEA8       Finalization
+ 0001:0001DEF0       JclUnitVersioning
+ 0001:0001DFFC       GetModulePath
+ 0001:0001E140       VersionFixedFileInfo
+ 0001:0001E20C       BuildFolderList
+ 0001:0001E40C       FillFileList
+ 0001:0001E5DC       AdvBuildFileList
+ 0001:0001E798       Finalization
+ 0001:0001E7F8       JclFileUtils
+ 0001:0001E814       Finalization
+ 0001:0001E9FC       sourcecnt
+ 0002:00000000       ExitCode
+ 0002:00000004       ErrorAddr
+ 0002:00000008       FileMode
+ 0002:0000000C       VarClearProc
+ 0002:00000010       VarAddRefProc
+ 0002:00000014       VarCopyProc
+ 0002:00000018       VarToLStrProc
+ 0002:0000001C       VarToWStrProc
+ 0002:00000020       Default8087CW
+ 0002:00000024       DebugHook
+ 0002:00000028       JITEnable
+ 0002:0000002C       NoErrMsg
+ 0002:00000030       DefaultTextLineBreakStyle
+ 0002:00000034       LibModuleList
+ 0002:00000038       ModuleUnloadList
+ 0002:0000003C       MemoryManager
+ 0002:00000048       reMap
+ 0002:00000064       errCaption
+ 0002:0000006C       runErrMsg
+ 0002:0000008C       dig
+ 0002:0000009C       TlsIndex
+ 0002:000000A0       Module
+ 0002:000000B8       EmptyStr
+ 0002:000000BC       EmptyWideStr
+ 0002:000000C0       Win32Platform
+ 0002:000000C4       Win32MajorVersion
+ 0002:000000C8       Win32MinorVersion
+ 0002:000000CC       Win32BuildNumber
+ 0002:000000D0       Win32CSDVersion
+ 0002:000000D4       TwoDigitYearCenturyWindow
+ 0002:000000D8       MonthDays
+ 0002:00000108       LeadBytes
+ 0002:00000128       HexDisplayPrefix
+ 0002:0000012C       GetDiskFreeSpaceEx
+ 0002:00000130       cSimpleBoolStrs
+ 0002:00000138       AccessMode
+ 0002:00000144       ShareMode
+ 0002:00000158       FormatErrorStrs
+ 0002:00000160       FCon1E18
+ 0002:0000016C       DCon10
+ 0002:00000170       CWNear
+ 0002:00000174       FMSecsPerDay
+ 0002:00000178       IMSecsPerDay
+ 0002:0000017C       Format
+ 0002:00000180       DefShortMonthNames
+ 0002:000001B0       DefLongMonthNames
+ 0002:000001E0       DefShortDayNames
+ 0002:000001FC       DefLongDayNames
+ 0002:00000218       ErrorMap
+ 0002:00000250       ExceptMap
+ 0002:00000300       WesternGroups
+ 0002:00000304       TerminateProcList
+ 0002:00000308       CResult
+ 0002:00000310       NullStrictConvert
+ 0002:00000314       NullAsStringValue
+ 0002:00000318       BooleanToStringRule
+ 0002:0000031C       CInvalidCustomVariantType
+ 0002:00000320       CText
+ 0002:00000374       CRelationshipToBoolean
+ 0002:00000388       BooleanIdents
+ 0002:00000390       DotSep
+ 0002:00000394       GUID_NULL
+ 0002:000003A4       SyncList
+ 0002:000003A8       UnitVersioning
+ 0002:000003C0       UnitVersioning
+ 0002:000003D8       UnitVersioning
+ 0002:000003F0       CoCreateInstanceEx
+ 0002:000003F4       CoInitializeEx
+ 0002:000003F8       CoAddRefServerProcess
+ 0002:000003FC       CoReleaseServerProcess
+ 0002:00000400       CoResumeClassObjects
+ 0002:00000404       CoSuspendClassObjects
+ 0002:00000408       CoInitFlags
+ 0002:0000040C       ThreadStrs
+ 0002:00000420       UnitVersioning
+ 0002:00000438       UnitVersioning
+ 0002:00000450       JclCharsetInfos
+ 0002:00000DC0       UnitVersioning
+ 0002:00000DD8       UnitVersioning
+ 0002:00000DF0       Values
+ 0002:00000DF8       UnitVersioning
+ 0002:00000E10       IsWin95
+ 0002:00000E14       IsWin95OSR2
+ 0002:00000E18       IsWin98
+ 0002:00000E1C       IsWin98SE
+ 0002:00000E20       IsWinME
+ 0002:00000E24       IsWinNT
+ 0002:00000E28       IsWinNT3
+ 0002:00000E2C       IsWinNT31
+ 0002:00000E30       IsWinNT35
+ 0002:00000E34       IsWinNT351
+ 0002:00000E38       IsWinNT4
+ 0002:00000E3C       IsWin2K
+ 0002:00000E40       IsWinXP
+ 0002:00000E44       IsWin2003
+ 0002:00000E48       IsWinXP64
+ 0002:00000E4C       IsWin2003R2
+ 0002:00000E50       IsWinVista
+ 0002:00000E54       IsWinServer2008
+ 0002:00000E58       IsWin7
+ 0002:00000E5C       IsWinServer2008R2
+ 0002:00000E60       IntelCacheDescription
+ 0002:00001540       ProcessorCount
+ 0002:00001544       AllocGranularity
+ 0002:00001548       PageSize
+ 0002:0000154C       UnitVersioning
+ 0002:00001564       UnicodeBlockData
+ 0002:00001CA8       UnitVersioning
+ 0002:00001CC0       UnitVersioning
+ 0002:00001CD8       RootKeys
+ 0002:00001D80       UnitVersioning
+ 0002:00001D98       UnitVersioning
+ 0002:00001DB0       UnitVersioning
+ 0002:00001DC8       RectComplexFormatStr
+ 0002:00001DCC       PolarComplexFormatStr
+ 0002:00001DD0       UnitVersioning
+ 0002:00001DE8       AnsiCaseMapReady
+ 0002:00001DEC       UnitVersioning
+ 0002:00001E04       StrCaseMapReady
+ 0002:00001E08       UnitVersioning
+ 0002:00001E20       BoolToStr
+ 0002:00001E28       RtdlMsiLibHandle
+ 0002:00001E2C       UnitVersioning
+ 0002:00001E44       UnitVersioning
+ 0002:00001E5C       UnitVersioning
+ 0002:00001E74       UnitVersioning
+ 0002:00001E8C       UnitVersioning
+ 0002:00001EA4       MMFHandleList
+ 0002:00001EA8       MMFFinalized
+ 0002:00001EAC       GlobalMMFHandleListCS
+ 0002:00001EB0       InfMantissa
+ 0002:00001EB8       UnitVersioningOwner
+ 0002:00001EBC       GlobalUnitVersioning
+ 0002:00001EC0       UnitVersioningNPA
+ 0002:00001EC4       UnitVersioningFinalized
+ 0002:00001EC8       UnitVersioning
+ 0002:00001EE0       UnitVersioning
+ 0002:00001EF8       VerKeyNames
+ 0002:00003000       DispCallByIDProc
+ 0002:00003004       ExceptProc
+ 0002:00003008       ErrorProc
+ 0002:0000300C       ExceptClsProc
+ 0002:00003010       ExceptObjProc
+ 0002:00003014       RaiseExceptionProc
+ 0002:00003018       RTLUnwindProc
+ 0002:0000301C       ExceptionClass
+ 0002:00003020       SafeCallErrorProc
+ 0002:00003024       AssertErrorProc
+ 0002:00003028       ExitProcessProc
+ 0002:0000302C       AbstractErrorProc
+ 0002:00003030       MainInstance
+ 0002:00003034       MainThreadID
+ 0002:00003038       IsLibrary
+ 0002:0000303C       CmdShow
+ 0002:00003040       CmdLine
+ 0002:00003044       InitProc
+ 0002:00003048       ExitProc
+ 0002:0000304C       IsConsole
+ 0002:0000304D       IsMultiThread
+ 0002:0000304E       Test8086
+ 0002:00003050       Input
+ 0002:0000321C       Output
+ 0002:000033E8       ErrOutput
+ 0002:000035B4       AllocMemCount
+ 0002:000035B8       AllocMemSize
+ 0002:000035BC       .5
+ 0002:000035C0       DefaultUserCodePage
+ 0002:000035C4       initialized
+ 0002:000035C8       heapErrorCode
+ 0002:000035CC       heapLock
+ 0002:000035E4       blockDescBlockList
+ 0002:000035E8       blockDescFreeList
+ 0002:000035EC       spaceRoot
+ 0002:000035FC       decommittedRoot
+ 0002:0000360C       avail
+ 0002:00003618       rover
+ 0002:0000361C       remBytes
+ 0002:00003620       curAlloc
+ 0002:00003624       smallTab
+ 0002:00003628       committedRoot
+ 0002:00003638       InitContext
+ 0002:00003664       ModuleIsLib
+ 0002:00003665       ModuleIsCpp
+ 0002:00003668       HInstance
+ 0002:0000366C       .1
+ 0002:00003670       tlsBuffer
+ 0002:00003674       .1
+ 0002:00003678       .3
+ 0002:0000367C       .1
+ 0002:00003680       .1
+ 0002:00003684       CurrencyString
+ 0002:00003688       CurrencyFormat
+ 0002:00003689       NegCurrFormat
+ 0002:0000368A       ThousandSeparator
+ 0002:0000368B       DecimalSeparator
+ 0002:0000368C       CurrencyDecimals
+ 0002:0000368D       DateSeparator
+ 0002:00003690       ShortDateFormat
+ 0002:00003694       LongDateFormat
+ 0002:00003698       TimeSeparator
+ 0002:0000369C       TimeAMString
+ 0002:000036A0       TimePMString
+ 0002:000036A4       ShortTimeFormat
+ 0002:000036A8       LongTimeFormat
+ 0002:000036AC       ShortMonthNames
+ 0002:000036DC       LongMonthNames
+ 0002:0000370C       ShortDayNames
+ 0002:00003728       LongDayNames
+ 0002:00003744       SysLocale
+ 0002:00003752       ListSeparator
+ 0002:00003754       EraNames
+ 0002:00003770       EraYearOffsets
+ 0002:0000378C       TrueBoolStrs
+ 0002:00003790       FalseBoolStrs
+ 0002:00003794       .35
+ 0002:00003798       OutOfMemory
+ 0002:0000379C       InvalidPointer
+ 0002:000037A0       FLanguages
+ 0002:000037A4       VariantChangeTypeEx
+ 0002:000037A8       VarNeg
+ 0002:000037AC       VarNot
+ 0002:000037B0       VarAdd
+ 0002:000037B4       VarSub
+ 0002:000037B8       VarMul
+ 0002:000037BC       VarDiv
+ 0002:000037C0       VarIDiv
+ 0002:000037C4       VarMod
+ 0002:000037C8       VarAnd
+ 0002:000037CC       VarOr
+ 0002:000037D0       VarXor
+ 0002:000037D4       VarCmp
+ 0002:000037D8       VarI4FromStr
+ 0002:000037DC       VarR4FromStr
+ 0002:000037E0       VarR8FromStr
+ 0002:000037E4       VarDateFromStr
+ 0002:000037E8       VarCyFromStr
+ 0002:000037EC       VarBoolFromStr
+ 0002:000037F0       VarBstrFromCy
+ 0002:000037F4       VarBstrFromDate
+ 0002:000037F8       VarBstrFromBool
+ 0002:000037FC       .5
+ 0002:00003800       EmptyParam
+ 0002:00003810       VarDispProc
+ 0002:00003814       ClearAnyProc
+ 0002:00003818       ChangeAnyProc
+ 0002:0000381C       RefAnyProc
+ 0002:00003820       .81
+ 0002:00003824       LVarTypes
+ 0002:00003828       LVarTypeSync
+ 0002:00003840       .1
+ 0002:00003844       .6
+ 0002:00003848       .3
+ 0002:0000384C       GlobalNameSpace
+ 0002:00003850       SyncEvent
+ 0002:00003854       .45
+ 0002:00003858       IntConstList
+ 0002:0000385C       RegGroups
+ 0002:00003860       FindGlobalComponentProcs
+ 0002:00003864       GlobalFixupList
+ 0002:00003868       ThreadLock
+ 0002:00003880       .2
+ 0002:00003884       .21
+ 0002:00003888       .6
+ 0002:0000388C       .1
+ 0002:00003890       AnsiReplacementCharacter
+ 0002:00003894       .4
+ 0002:00003898       .1
+ 0002:0000389C       .3
+ 0002:000038A0       .1
+ 0002:000038A4       .1
+ 0002:000038A8       .41
+ 0002:000038AC       OleUninitializing
+ 0002:000038B0       ComClassManagerVar
+ 0002:000038B4       SaveInitProc
+ 0002:000038B8       NeedToUninitialize
+ 0002:000038BC       .1
+ 0002:000038C0       .1
+ 0002:000038C4       .1
+ 0002:000038C8       .1
+ 0002:000038CC       .1
+ 0002:000038D0       .1
+ 0002:000038D4       .3
+ 0002:000038D8       .3
+ 0002:000038DC       .1
+ 0002:000038E0       .1
+ 0002:000038E4       .1
+ 0002:000038E8       .1
+ 0002:000038EC       .1
+ 0002:000038F0       .8
+ 0002:000038F4       .1
+ 0002:000038F8       .1
+ 0002:000038FC       KernelVersionHi
+ 0002:00003900       ResmeterLibHandle
+ 0002:00003904       MyGetFreeSystemResources
+ 0002:00003908       WideCompareText
+ 0002:0000390C       .71
+ 0002:00003910       LoadInProgress
+ 0002:00003914       Categories
+ 0002:00003D14       CaseMapping
+ 0002:00004114       CanonicalDecompositions
+ 0002:00004514       CompatibleDecompositions
+ 0002:00004914       CCCs
+ 0002:00004D14       NumberCodes
+ 0002:00004D18       Numbers
+ 0002:00004D1C       Compositions
+ 0002:00004D20       .4
+ 0002:00004D24       .3
+ 0002:00004D28       .91
+ 0002:00004D2C       .7
+ 0002:00004D30       .92
+ 0002:00004D34       AnsiCaseMap
+ 0002:00005034       AnsiCharTypes
+ 0002:00005234       .3
+ 0002:00005238       StrCaseMap
+ 0002:00005538       StrCharTypes
+ 0002:00005738       .9
+ 0002:0000573C       .1
+ 0002:00005740       .2
+ 0002:00005744       .2
+ 0002:00005748       .01
+ 0002:0000574C       SimpleLog
+ 0002:00005750       .51
+ 0002:00005754       .5
+ 0002:00005758       UnitVersioningMutex
+ 0002:0000575C       .52
+ 0002:00005760       curfile
+ 0002:00005764       displayhelp
+ 0002:00005765       count_em_lines
+ 0002:00005766       update_inc
+ 0002:00005768       ext
+ 0002:0000576C       version_inc
+ 0002:00005770       files
+ 0002:00005774       totalcount
+ 0002:00005778       totalfloat
+
+
+Line numbers for JclResources(JclResources.pas) segment .text
+
+  2233 0001:00015CD0  2236 0001:00015D18  2229 0001:00015D1C  2230 0001:00015D25
+  2232 0001:00015D34
+
+Line numbers for JclBase(JclBase.pas) segment .text
+
+   934 0001:00015F04   935 0001:00015F07   936 0001:00015F0C   937 0001:00015F18
+   939 0001:00015F23   940 0001:00015F3A   966 0001:00015F40   969 0001:00015F88
+   957 0001:00015F8C   959 0001:00015F95   961 0001:00015F9A   964 0001:00015FA9
+
+Line numbers for JclLogic(JclLogic.pas) segment .text
+
+  2333 0001:000173A8  2336 0001:000173F0  2329 0001:000173F4  2330 0001:000173FD
+  2332 0001:0001740C
+
+Line numbers for JclStringConversions(JclStringConversions.pas) segment .text
+
+  2631 0001:0001750C  2634 0001:00017554  2627 0001:00017558  2628 0001:00017561
+  2630 0001:00017570
+
+Line numbers for JclCharsets(JclCharsets.pas) segment .text
+
+   581 0001:00018CF0   584 0001:00018D4D   577 0001:00018D50   578 0001:00018D59
+   580 0001:00018D68
+
+Line numbers for Jcl8087(Jcl8087.pas) segment .text
+
+   301 0001:00018E5C   304 0001:00018EA4   297 0001:00018EA8   298 0001:00018EB1
+   300 0001:00018EC0
+
+Line numbers for JclIniFiles(JclIniFiles.pas) segment .text
+
+   184 0001:00019100   187 0001:00019148   180 0001:0001914C   181 0001:00019155
+   183 0001:00019164
+
+Line numbers for JclSysInfo(JclSysInfo.pas) segment .text
+
+  3040 0001:00019258  3041 0001:00019275  3042 0001:00019277  3043 0001:00019286
+  3045 0001:0001929C  3047 0001:000192B4  3048 0001:000192D2  3050 0001:000192D9
+  3055 0001:000192E0  3056 0001:000192EC  3058 0001:000192F3  3059 0001:00019311
+  3061 0001:00019318  3063 0001:0001931F  3066 0001:00019326  3068 0001:00019344
+  3070 0001:0001935D  3072 0001:00019364  3074 0001:0001936B  3077 0001:00019372
+  3079 0001:00019379  3081 0001:0001938F  3083 0001:00019396  3086 0001:0001939D
+  3087 0001:000193A7  3088 0001:000193AC  3089 0001:000193B4  3090 0001:000193BF
+  3092 0001:000193C6  3094 0001:000193E3  3096 0001:000193E7  3100 0001:000193EB
+  3103 0001:000193FB  3104 0001:00019405  3105 0001:0001941B  3107 0001:0001941F
+  3111 0001:00019423  3112 0001:0001942D  3113 0001:00019443  3115 0001:00019447
+  3120 0001:00019468  3701 0001:00019494  3702 0001:00019499  3703 0001:0001949B
+  3705 0001:000194A7  3707 0001:000194AB  3708 0001:000194B6  3710 0001:000194BA
+  3711 0001:000194BD  3714 0001:000194C1  3717 0001:000194C9  3718 0001:000194D1
+  5340 0001:000194FC  5342 0001:00019505  5343 0001:00019510  5344 0001:00019517
+  5346 0001:0001951E  5464 0001:00019520  5467 0001:00019539  5468 0001:00019546
+  5469 0001:0001954F  5470 0001:00019557  5471 0001:0001955F  5475 0001:00019567
+  5477 0001:00019576  5478 0001:00019588  5479 0001:0001958D  5480 0001:000195A5
+  5482 0001:000195AF  5484 0001:000195B6  5488 0001:0001961F  5490 0001:0001962B
+  5492 0001:00019637  5494 0001:00019643  5496 0001:0001964F  5499 0001:0001965B
+  5500 0001:00019662  5504 0001:0001966B  5505 0001:00019672  5509 0001:0001967B
+  5510 0001:00019682  5511 0001:00019689  5514 0001:00019692  5516 0001:0001969B
+  5518 0001:000196A4  5520 0001:000196AD  5522 0001:000196B6  5524 0001:000196BF
+  5526 0001:000196C8  5528 0001:000196D1  5530 0001:000196DA  5532 0001:000196E3
+  5534 0001:00019707  5538 0001:0001971C  5539 0001:00019721  5549 0001:00019B48
+  5551 0001:00019B6B  5555 0001:00019B95  5541 0001:00019B98  5542 0001:00019BAB
+  5544 0001:00019BB0  5547 0001:00019BBF
+
+Line numbers for JclUnicode(JclUnicode.pas) segment .text
+
+  6728 0001:0001B344  6729 0001:0001B35E  6730 0001:0001B36F  6731 0001:0001B3B1
+  6799 0001:0001B3B8  6800 0001:0001B3E0  6801 0001:0001B3EA  6802 0001:0001B3F4
+  6803 0001:0001B3FE  6804 0001:0001B408  6805 0001:0001B412  6806 0001:0001B435
+  6807 0001:0001B458  6809 0001:0001B4B0  6815 0001:0001B4B8  6816 0001:0001B4C1
+  6818 0001:0001B4EC  6850 0001:0001B4F0  6852 0001:0001B501  6853 0001:0001B50B
+  6855 0001:0001B516  6856 0001:0001B520  6861 0001:0001B524  6862 0001:0001B52E
+  6872 0001:0001B530  6874 0001:0001B557  6876 0001:0001B62F  6864 0001:0001B634
+  6865 0001:0001B64E  6867 0001:0001B653  6870 0001:0001B677
+
+Line numbers for JclWideStrings(JclWideStrings.pas) segment .text
+
+  2343 0001:0001B770  2346 0001:0001B7B8  2339 0001:0001B7BC  2340 0001:0001B7C5
+  2342 0001:0001B7D4
+
+Line numbers for JclSynch(JclSynch.pas) segment .text
+
+   725 0001:0001BF14   727 0001:0001BF35   729 0001:0001BF38   731 0001:0001BF3B
+   733 0001:0001BF3E   735 0001:0001BF41   737 0001:0001BF44   739 0001:0001BF46
+   750 0001:0001BF48   751 0001:0001BF53   752 0001:0001BF5C   753 0001:0001BF73
+   770 0001:0001BF78   771 0001:0001BF7E   772 0001:0001BF8D   809 0001:0001BF90
+   810 0001:0001BFA2   811 0001:0001BFAB   812 0001:0001BFCB   815 0001:0001BFD0
+   816 0001:0001BFDB   817 0001:0001BFE4   818 0001:0001BFFB  1038 0001:0001C000
+  1039 0001:0001C020  1040 0001:0001C029  1041 0001:0001C033  1042 0001:0001C04F
+  1043 0001:0001C053  1044 0001:0001C06A  1045 0001:0001C093  1058 0001:0001C09C
+  1059 0001:0001C09F  1060 0001:0001C0AE  1732 0001:0001C0B0  1735 0001:0001C0F8
+  1728 0001:0001C0FC  1729 0001:0001C105  1731 0001:0001C114
+
+Line numbers for JclMath(JclMath.pas) segment .text
+
+  4661 0001:0001C22C  4664 0001:0001C288  4657 0001:0001C28C  4658 0001:0001C295
+  4660 0001:0001C2A4
+
+Line numbers for JclStreams(JclStreams.pas) segment .text
+
+  2832 0001:0001C398  2835 0001:0001C3E0  2828 0001:0001C3E4  2829 0001:0001C3ED
+  2831 0001:0001C3FC
+
+Line numbers for JclAnsiStrings(JclAnsiStrings.pas) segment .text
+
+   530 0001:0001C4F0   531 0001:0001C4FA   534 0001:0001C502   535 0001:0001C507
+   560 0001:0001C517   564 0001:0001C51D   531 0001:0001C522   565 0001:0001C527
+   570 0001:0001C52C   571 0001:0001C52F   573 0001:0001C538   576 0001:0001C53F
+   577 0001:0001C543   578 0001:0001C546   579 0001:0001C552   590 0001:0001C55E
+   591 0001:0001C569   593 0001:0001C56F   594 0001:0001C57A   596 0001:0001C57F
+   597 0001:0001C581   598 0001:0001C587   599 0001:0001C590   600 0001:0001C596
+   573 0001:0001C598   601 0001:0001C59C   603 0001:0001C5A3  2832 0001:0001C5A8
+  2833 0001:0001C5B8  2868 0001:0001C5BC  2869 0001:0001C5CC  3680 0001:0001C5D0
+  3683 0001:0001C618  3673 0001:0001C61C  3674 0001:0001C625  3675 0001:0001C62A
+  3677 0001:0001C62F  3679 0001:0001C63E
+
+Line numbers for JclStrings(JclStrings.pas) segment .text
+
+   622 0001:0001C78C   623 0001:0001C796   626 0001:0001C79E   627 0001:0001C7A3
+   652 0001:0001C7B3   656 0001:0001C7B9   623 0001:0001C7BE   657 0001:0001C7C3
+   662 0001:0001C7C8   663 0001:0001C7CB   665 0001:0001C7D4   668 0001:0001C7DB
+   669 0001:0001C7DF   670 0001:0001C7E2   671 0001:0001C7EE   682 0001:0001C7FA
+   683 0001:0001C805   685 0001:0001C80B   686 0001:0001C816   688 0001:0001C81B
+   689 0001:0001C81D   690 0001:0001C823   691 0001:0001C82C   692 0001:0001C832
+   665 0001:0001C834   693 0001:0001C838   695 0001:0001C83F  2339 0001:0001C844
+  2340 0001:0001C84E  2341 0001:0001C852  2343 0001:0001C869  2345 0001:0001C878
+  2348 0001:0001C888  2349 0001:0001C897  2351 0001:0001C8AE  2352 0001:0001C8B4
+  2353 0001:0001C8BB  2354 0001:0001C8BD  2358 0001:0001C8BF  2361 0001:0001C8D2
+  2362 0001:0001C8D8  2365 0001:0001C8E4  2366 0001:0001C8E6  2367 0001:0001C8E8
+  2371 0001:0001C8EA  2372 0001:0001C8EB  2373 0001:0001C8ED  2377 0001:0001C8EF
+  2379 0001:0001C8F4  2380 0001:0001C8F5  2384 0001:0001C8F8  2386 0001:0001C8FE
+  2388 0001:0001C902  2390 0001:0001C90A  2391 0001:0001C90C  2392 0001:0001C90E
+  2396 0001:0001C910  2397 0001:0001C911  2401 0001:0001C912  2404 0001:0001C914
+  2407 0001:0001C927  2408 0001:0001C929  2412 0001:0001C92B  2413 0001:0001C92C
+  2417 0001:0001C930  2419 0001:0001C935  2420 0001:0001C936  2425 0001:0001C939
+  2427 0001:0001C93F  2429 0001:0001C943  2430 0001:0001C944  2431 0001:0001C946
+  2432 0001:0001C947  2433 0001:0001C949  2438 0001:0001C94A  2439 0001:0001C951
+  2662 0001:0001C964  2663 0001:0001C974  2697 0001:0001C978  2698 0001:0001C988
+  5059 0001:0001C9AC  5062 0001:0001CA09  5050 0001:0001CA0C  5051 0001:0001CA15
+  5052 0001:0001CA1A  5054 0001:0001CA1F  5058 0001:0001CA2E
+
+Line numbers for JclDateTime(JclDateTime.pas) segment .text
+
+  1438 0001:0001CDE0  1441 0001:0001CE28  1434 0001:0001CE2C  1435 0001:0001CE35
+  1437 0001:0001CE44
+
+Line numbers for JclSysUtils(JclSysUtils.pas) segment .text
+
+   614 0001:0001D000   692 0001:0001D1A0   694 0001:0001D1A4   695 0001:0001D1A7
+   697 0001:0001D1AE  1049 0001:0001D1D8  1050 0001:0001D1DC  1052 0001:0001D1EE
+  1059 0001:0001D1FC  1062 0001:0001D209  1063 0001:0001D20D  1065 0001:0001D214
+  1066 0001:0001D228  1080 0001:0001D22C  1081 0001:0001D24F  1082 0001:0001D254
+  1084 0001:0001D258  1085 0001:0001D275  1088 0001:0001D299  1092 0001:0001D2A1
+  1093 0001:0001D2A7  1095 0001:0001D2AB  1097 0001:0001D2B9  1098 0001:0001D2BC
+  1099 0001:0001D2C1  1100 0001:0001D2C8  1102 0001:0001D2CD  1093 0001:0001D2CF
+  1106 0001:0001D2D3  1107 0001:0001D2E9  1109 0001:0001D2EF  1110 0001:0001D2F5
+  1112 0001:0001D319  1113 0001:0001D31E  1114 0001:0001D32E  1116 0001:0001D333
+  1120 0001:0001D350  1122 0001:0001D357  1123 0001:0001D363  1126 0001:0001D36C
+  1127 0001:0001D372  1131 0001:0001D377  1132 0001:0001D390  1134 0001:0001D394
+  1135 0001:0001D3A2  1137 0001:0001D3B6  1138 0001:0001D3BF  1143 0001:0001D3C9
+  1144 0001:0001D3DB  1145 0001:0001D3E5  1146 0001:0001D3EB  1147 0001:0001D3F0
+  1149 0001:0001D3F7  1150 0001:0001D3FE  1151 0001:0001D424  1169 0001:0001D43C
+  1170 0001:0001D45A  1172 0001:0001D45F  1174 0001:0001D463  1176 0001:0001D46B
+  1177 0001:0001D471  1178 0001:0001D473  1180 0001:0001D477  1182 0001:0001D47E
+  1184 0001:0001D484  1185 0001:0001D487  1186 0001:0001D48B  1187 0001:0001D48F
+  1190 0001:0001D491  1191 0001:0001D49A  1193 0001:0001D4A3  1194 0001:0001D4A7
+  1196 0001:0001D4B0  1198 0001:0001D4B4  1199 0001:0001D4C1  1200 0001:0001D4C5
+  1201 0001:0001D4C9  1203 0001:0001D4CB  1204 0001:0001D4CD  1178 0001:0001D4CF
+  1208 0001:0001D4D5  1209 0001:0001D4F9  1226 0001:0001D500  1227 0001:0001D505
+  2875 0001:0001D524  2876 0001:0001D527  2877 0001:0001D52C  2878 0001:0001D534
+  2879 0001:0001D538  3204 0001:0001D53C  3205 0001:0001D54E  3206 0001:0001D557
+  3207 0001:0001D57D  3210 0001:0001D580  3211 0001:0001D58B  3212 0001:0001D593
+  3213 0001:0001D5AA  3216 0001:0001D5B0  3217 0001:0001D5B6  3218 0001:0001D5BD
+  3219 0001:0001D5BF  3222 0001:0001D5C4  3223 0001:0001D5CA  3224 0001:0001D5D2
+  3225 0001:0001D5D4  3228 0001:0001D5D8  3229 0001:0001D5DF  3230 0001:0001D5F0
+  3232 0001:0001D5F4  3233 0001:0001D5F9  3449 0001:0001D600  3456 0001:0001D623
+  3457 0001:0001D62A  3460 0001:0001D634  3461 0001:0001D63D  3462 0001:0001D681
+  3441 0001:0001D684  3442 0001:0001D68D  3444 0001:0001D694  3447 0001:0001D6A3
+
+Line numbers for JclUnitVersioning(JclUnitVersioning.pas) segment .text
+
+   183 0001:0001D810   184 0001:0001D825   185 0001:0001D82E   186 0001:0001D848
+   326 0001:0001D84C   327 0001:0001D861   328 0001:0001D86A   329 0001:0001D86D
+   330 0001:0001D893   333 0001:0001D898   334 0001:0001D8A3   335 0001:0001D8AB
+   336 0001:0001D8C2   344 0001:0001D8C8   345 0001:0001D8CE   346 0001:0001D8D8
+   349 0001:0001D8DC   350 0001:0001D8E2   351 0001:0001D8FA   354 0001:0001D900
+   355 0001:0001D908   356 0001:0001D916   357 0001:0001D924   355 0001:0001D925
+   358 0001:0001D928   359 0001:0001D92D   404 0001:0001D934   405 0001:0001D946
+   406 0001:0001D94F   407 0001:0001D95E   408 0001:0001D984   411 0001:0001D988
+   412 0001:0001D993   413 0001:0001D99B   414 0001:0001D9A3   415 0001:0001D9BA
+   421 0001:0001D9C0   422 0001:0001D9CC   423 0001:0001D9DA   425 0001:0001D9E8
+   426 0001:0001D9FC   427 0001:0001DA0D   428 0001:0001DA0F   422 0001:0001DA10
+   430 0001:0001DA13   431 0001:0001DA23   432 0001:0001DA2D   433 0001:0001DA37
+   438 0001:0001DA40   439 0001:0001DA48   440 0001:0001DA54   442 0001:0001DA62
+   443 0001:0001DA6C   444 0001:0001DA6E   439 0001:0001DA6F   445 0001:0001DA74
+   446 0001:0001DA82   445 0001:0001DA94   447 0001:0001DA97   489 0001:0001DA9C
+   490 0001:0001DAA2   491 0001:0001DAAC   584 0001:0001DAB0   585 0001:0001DAC8
+   587 0001:0001DAD1   588 0001:0001DAD3   591 0001:0001DAD8   592 0001:0001DAE1
+   594 0001:0001DB1B   596 0001:0001DB28   597 0001:0001DB35   598 0001:0001DB43
+   599 0001:0001DB4C   600 0001:0001DB84   602 0001:0001DB8D   603 0001:0001DB99
+   605 0001:0001DBA2   606 0001:0001DBB3   607 0001:0001DBC0   612 0001:0001DBC9
+   613 0001:0001DBDA   616 0001:0001DBEE   620 0001:0001DC00   622 0001:0001DC09
+   623 0001:0001DC16   624 0001:0001DC24   626 0001:0001DC3D   629 0001:0001DC4F
+   630 0001:0001DC79   633 0001:0001DCC4   634 0001:0001DCCA   635 0001:0001DCD1
+   636 0001:0001DCDF   638 0001:0001DCE8   639 0001:0001DCF5   640 0001:0001DD03
+   641 0001:0001DD0C   643 0001:0001DD23   646 0001:0001DD35   647 0001:0001DD47
+   648 0001:0001DD51   651 0001:0001DD67   652 0001:0001DD6C   653 0001:0001DD76
+   658 0001:0001DD7C   659 0001:0001DD82   660 0001:0001DD87   661 0001:0001DD8B
+   662 0001:0001DD93   667 0001:0001DD98   668 0001:0001DD9B   669 0001:0001DDA0
+   670 0001:0001DDA4   671 0001:0001DDAB   687 0001:0001DEA8   689 0001:0001DEEB
+   683 0001:0001DEF0   684 0001:0001DEF9   686 0001:0001DF08
+
+Line numbers for JclFileUtils(JclFileUtils.pas) segment .text
+
+  4122 0001:0001DFFC  4123 0001:0001E003  4124 0001:0001E008  4126 0001:0001E011
+  4135 0001:0001E01D  4136 0001:0001E026  4759 0001:0001E140  4760 0001:0001E161
+  4761 0001:0001E163  4762 0001:0001E168  4763 0001:0001E17B  4765 0001:0001E17F
+  4766 0001:0001E189  4767 0001:0001E18E  4768 0001:0001E193  4772 0001:0001E1CD
+  4773 0001:0001E1CF  4776 0001:0001E1FF  5470 0001:0001E20C  5471 0001:0001E249
+  5472 0001:0001E25B  5474 0001:0001E263  5477 0001:0001E275  5478 0001:0001E2B2
+  5479 0001:0001E2C0  5481 0001:0001E2C8  5483 0001:0001E2FA  5485 0001:0001E343
+  5479 0001:0001E34E  5488 0001:0001E363  5490 0001:0001E376  5491 0001:0001E388
+  5474 0001:0001E38E  5493 0001:0001E3D6  5501 0001:0001E40C  5502 0001:0001E448
+  5504 0001:0001E458  5506 0001:0001E483  5507 0001:0001E491  5509 0001:0001E499
+  5511 0001:0001E49B  5513 0001:0001E4C2  5515 0001:0001E4C6  5517 0001:0001E4D7
+  5519 0001:0001E4EE  5521 0001:0001E503  5522 0001:0001E50C  5525 0001:0001E520
+  5526 0001:0001E524  5527 0001:0001E52D  5529 0001:0001E554  5531 0001:0001E565
+  5507 0001:0001E570  5534 0001:0001E585  5536 0001:0001E5D6  5538 0001:0001E5DC
+  5539 0001:0001E609  5540 0001:0001E623  5541 0001:0001E62D  5543 0001:0001E637
+  5544 0001:0001E646  5545 0001:0001E64E  5546 0001:0001E65C  5548 0001:0001E667
+  5550 0001:0001E672  5552 0001:0001E67A  5557 0001:0001E681  5558 0001:0001E687
+  5560 0001:0001E68E  5562 0001:0001E6A5  5564 0001:0001E6D2  5565 0001:0001E6DC
+  5560 0001:0001E6DF  5567 0001:0001E6EF  5568 0001:0001E6F7  5570 0001:0001E707
+  5571 0001:0001E735  6838 0001:0001E798  6841 0001:0001E7F5  6834 0001:0001E7F8
+  6835 0001:0001E801  6837 0001:0001E810
+
+Line numbers for sourcecnt(C:\CodeProjects\FMFDLGTool\src\sourcecnt.dpr) segment .text
+
+    20 0001:0001E9FC    21 0001:0001EA2F    22 0001:0001EA40    23 0001:0001EA51
+    24 0001:0001EA62    25 0001:0001EA69    26 0001:0001EA70    27 0001:0001EA77
+    31 0001:0001EA8B    33 0001:0001EAA4    36 0001:0001EAAB    37 0001:0001EAC4
+    39 0001:0001EAD1    40 0001:0001EAEA    42 0001:0001EAF1    43 0001:0001EB0A
+    45 0001:0001EB11    27 0001:0001EB12    47 0001:0001EB19    49 0001:0001EB22
+    50 0001:0001EB3B    51 0001:0001EB54    52 0001:0001EB6D    55 0001:0001EB72
+    57 0001:0001EB7F    58 0001:0001EBB3    59 0001:0001EBE7    61 0001:0001EC1D
+    63 0001:0001EC5F    64 0001:0001EC89    65 0001:0001EC90    67 0001:0001ECA8
+    68 0001:0001ECCE    69 0001:0001ECEA    70 0001:0001ECFA    71 0001:0001ED2E
+    72 0001:0001ED38    65 0001:0001ED39    73 0001:0001ED40    74 0001:0001ED64
+    86 0001:0001ED71    88 0001:0001ED7E    89 0001:0001ED8D    90 0001:0001ED99
+    91 0001:0001EDA8    92 0001:0001EDB7    93 0001:0001EDC6    94 0001:0001EE0B
+    95 0001:0001EE1A    98 0001:0001EE4B
+
+Bound resource files
+
+C:\DelphiComp\jcl\source\common\JclUnicode.res
+sourcecnt.drf
+
+
+Program entry point at 0001:0001E9FC

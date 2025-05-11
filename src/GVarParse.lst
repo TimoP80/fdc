@@ -1,0 +1,29 @@
+
+================================================================================
+Grammar Tests:
+  Deletable symbols:        -- none --
+  Undefined nonterminals:   -- none --
+  Unreachable nonterminals: -- none --
+  Circular derivations:     -- none --
+  Underivable nonterminals: -- none --
+  LL(1) conditions:         --  ok  --
+
+================================================================================
+Time Compiled: 12. kesäkuuta 2008 @ 13:57:34
+
+Statistics:
+  number of terminals:        12 (limit   513)
+  number of non-terminals:     2 (limit   501)
+  number of pragmas:           0 (limit   501)
+  number of symbolnodes:      14 (limit   513)
+  number of graphnodes:       14 (limit  3001)
+  number of conditionsets:     1 (limit   101)
+  number of charactersets:    17 (limit   501)
+
+================================================================================
+Options:
+  Generate console app
+  Generate version information
+  Generate comment events
+
+

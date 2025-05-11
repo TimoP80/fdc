@@ -1,0 +1,835 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="SharedDLGData">
+  <const name="MAX_OPTIONS" type="Integer">
+    <value>
+      $200
+    </value>
+  </const>
+  <const name="MAX_NODES" type="Integer">
+    <value>
+      $200
+    </value>
+  </const>
+  <const name="MAX_CONDITIONS" type="Integer">
+    <value>
+      $40
+    </value>
+  </const>
+  <const name="MAX_FLOAT_NODES" type="Integer">
+    <value>
+      $200
+    </value>
+  </const>
+  <const name="MAX_ACTIONS" type="Integer">
+    <value>
+      $40
+    </value>
+  </const>
+  <const name="MAX_TIMED_EVENTS" type="Integer">
+    <value>
+      $80
+    </value>
+  </const>
+  <const name="FIELD_NPC_NAME" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="FIELD_NPC_LOCATION" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="FIELD_NPC_DESCRIPTION" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="FIELD_NPC_UNKNOWN_LOOK" type="Integer">
+    <value>
+      $3
+    </value>
+  </const>
+  <const name="FIELD_NPC_KNOWN_LOOK" type="Integer">
+    <value>
+      $4
+    </value>
+  </const>
+  <const name="FIELD_NPC_DETAILED_LOOK" type="Integer">
+    <value>
+      $5
+    </value>
+  </const>
+  <const name="FIELD_NODE_NPCTEXT" type="Integer">
+    <value>
+      $6
+    </value>
+  </const>
+  <const name="FIELD_NODE_NPCFEMALETEXT" type="Integer">
+    <value>
+      $7
+    </value>
+  </const>
+  <const name="FIELD_NODE_NOTES" type="Integer">
+    <value>
+      $8
+    </value>
+  </const>
+  <const name="FIELD_NODE_OPTIONCOUNT" type="Integer">
+    <value>
+      $9
+    </value>
+  </const>
+  <const name="FIELD_NODE_NAME" type="Integer">
+    <value>
+      $10
+    </value>
+  </const>
+  <const name="FIELD_PLAYEROPTION_OPTIONTEXT" type="Integer">
+    <value>
+      $A
+    </value>
+  </const>
+  <const name="FIELD_PLAYEROPTION_REACTION" type="Integer">
+    <value>
+      $B
+    </value>
+  </const>
+  <const name="FIELD_PLAYEROPTION_GENDERFLAGS" type="Integer">
+    <value>
+      $C
+    </value>
+  </const>
+  <const name="FIELD_PLAYEROPTION_NODELINK" type="Integer">
+    <value>
+      $D
+    </value>
+  </const>
+  <const name="FIELD_PLAYEROPTION_INTCHECK" type="Integer">
+    <value>
+      $E
+    </value>
+  </const>
+  <const name="FIELD_PLAYEROPTION_NOTES" type="Integer">
+    <value>
+      $F
+    </value>
+  </const>
+  <const name="REACTION_NEUTRAL" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="REACTION_GOOD" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="REACTION_BAD" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="GENDER_NONE" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="GENDER_MALE" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="GENDER_FEMALE" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <struct name="_skill">
+    <field name="Name" type="string" visibility="public" />
+    <field name="Value" type="Integer" visibility="public" />
+  </struct>
+  <struct name="PlayerChar">
+    <field name="Name" type="string" visibility="public" />
+    <field name="gender" type="Integer" visibility="public" />
+    <field name="age" type="Integer" visibility="public" />
+    <field name="strength" type="Integer" visibility="public" />
+    <field name="perception" type="Integer" visibility="public" />
+    <field name="endurance" type="Integer" visibility="public" />
+    <field name="charisma" type="Integer" visibility="public" />
+    <field name="intelligence" type="Integer" visibility="public" />
+    <field name="agility" type="Integer" visibility="public" />
+    <field name="luck" type="Integer" visibility="public" />
+    <field name="dude_caps" type="Integer" visibility="public" />
+    <field name="skills" type=".1" visibility="public" />
+  </struct>
+  <const name="CHECK_TYPE_STAT" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="CHECK_TYPE_SKILL" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="CHECK_TYPE_CHECKMONEY" type="Integer">
+    <value>
+      $3
+    </value>
+  </const>
+  <const name="CHECK_TYPE_GLOBAL_VARIABLE" type="Integer">
+    <value>
+      $4
+    </value>
+  </const>
+  <const name="CHECK_TYPE_LOCAL_VARIABLE" type="Integer">
+    <value>
+      $5
+    </value>
+  </const>
+  <const name="CHECK_TYPE_SCRIPT_VARIABLE" type="Integer">
+    <value>
+      $6
+    </value>
+  </const>
+  <const name="CHECK_TYPE_ITEM_PLAYER" type="Integer">
+    <value>
+      $7
+    </value>
+  </const>
+  <const name="CHECK_FIELD_DUDE_CAPS" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SELF_CAPS" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_ST" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_PE" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_EN" type="Integer">
+    <value>
+      $3
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_CH" type="Integer">
+    <value>
+      $4
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_IN" type="Integer">
+    <value>
+      $5
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_AG" type="Integer">
+    <value>
+      $6
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_LK" type="Integer">
+    <value>
+      $7
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_ARMOR_CLASS" type="Integer">
+    <value>
+      $8
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_CARRY_AMOUNT" type="Integer">
+    <value>
+      $9
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_HEALING_RATE" type="Integer">
+    <value>
+      $A
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_MAXIMUM_HIT_POINTS" type="Integer">
+    <value>
+      $B
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_CURRENT_HIT_POINTS" type="Integer">
+    <value>
+      $C
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_CURRENT_RAD_LEVEL" type="Integer">
+    <value>
+      $D
+    </value>
+  </const>
+  <const name="CHECK_FIELD_STAT_CURRENT_POISON_LEVEL" type="Integer">
+    <value>
+      $E
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_SMALLGUNS" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_BIGGUNS" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_ENERGYWEAPONS" type="Integer">
+    <value>
+      $3
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_UNARMED" type="Integer">
+    <value>
+      $4
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_MELEE" type="Integer">
+    <value>
+      $5
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_THROWING" type="Integer">
+    <value>
+      $6
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_FIRSTAID" type="Integer">
+    <value>
+      $7
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_DOCTOR" type="Integer">
+    <value>
+      $8
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_SNEAK" type="Integer">
+    <value>
+      $9
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_LOCKPICK" type="Integer">
+    <value>
+      $A
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_STEAL" type="Integer">
+    <value>
+      $B
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_TRAPS" type="Integer">
+    <value>
+      $C
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_SCIENCE" type="Integer">
+    <value>
+      $D
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_REPAIR" type="Integer">
+    <value>
+      $E
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_SPEECH" type="Integer">
+    <value>
+      $F
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_BARTER" type="Integer">
+    <value>
+      $10
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_GAMBLING" type="Integer">
+    <value>
+      $11
+    </value>
+  </const>
+  <const name="CHECK_FIELD_SKILL_OUTDOORSMAN" type="Integer">
+    <value>
+      $12
+    </value>
+  </const>
+  <const name="COMPARE_EQUAL" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="COMPARE_NOT_EQUAL" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="COMPARE_LARGER_THAN" type="Integer">
+    <value>
+      $3
+    </value>
+  </const>
+  <const name="COMPARE_LESS_THAN" type="Integer">
+    <value>
+      $4
+    </value>
+  </const>
+  <const name="COMPARE_LARGER_THAN_OR_EQUAL" type="Integer">
+    <value>
+      $5
+    </value>
+  </const>
+  <const name="COMPARE_LESS_THAN_OR_EQUAL" type="Integer">
+    <value>
+      $6
+    </value>
+  </const>
+  <const name="LINK_NONE" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="LINK_AND" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="LINK_OR" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <struct name="condition">
+    <field name="check_type" type="Integer" visibility="public" />
+    <field name="check_field" type="Integer" visibility="public" />
+    <field name="check_eval" type="Integer" visibility="public" />
+    <field name="var_ptr" type="string" visibility="public" />
+    <field name="check_value" type="string" visibility="public" />
+    <field name="resolved_code" type="string" visibility="public" />
+    <field name="link" type="Integer" visibility="public" />
+  </struct>
+  <const name="CHECK_FLAGS_SUCCESS" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <struct name="option">
+    <field name="optiontext" type="string" visibility="public" />
+    <field name="nodelink" type="string" visibility="public" />
+    <field name="noderesolved" type="Integer" visibility="public" />
+    <field name="link_to_proc" type="Boolean" visibility="public" />
+    <field name="link_to_skillcheck" type="Boolean" visibility="public" />
+    <field name="reaction" type="Integer" visibility="public" />
+    <field name="genderflags" type="Integer" visibility="public" />
+    <field name="intcheck" type="Integer" visibility="public" />
+    <field name="notes" type="string" visibility="public" />
+    <field name="conditions" visibility="public">
+      <array name="conditions" low="0" high="64">
+        <element />
+      </array>
+    </field>
+    <field name="conditioncnt" type="Integer" visibility="public" />
+  </struct>
+  <struct name="skillcheck">
+    <field name="check_proc_name" type="string" visibility="public" />
+    <field name="check_what" type="Integer" visibility="public" />
+    <field name="modifier" type="Integer" visibility="public" />
+    <field name="successnode" type="string" visibility="public" />
+    <field name="failurenode" type="string" visibility="public" />
+  </struct>
+  <struct name="dlgnode">
+    <field name="is_wtg" type="Boolean" visibility="public" />
+    <field name="customcode" type="string" visibility="public" />
+    <field name="skillchecks" visibility="public">
+      <array name="skillchecks" low="0" high="20">
+        <element />
+      </array>
+    </field>
+    <field name="skillcheckcnt" type="Integer" visibility="public" />
+    <field name="nodename" type="string" visibility="public" />
+    <field name="npctext" type="string" visibility="public" />
+    <field name="npctext_female" type="string" visibility="public" />
+    <field name="notes" type="string" visibility="public" />
+    <field name="hidden" type="Boolean" visibility="public" />
+    <field name="options" visibility="public">
+      <array name="options" low="0" high="512">
+        <element />
+      </array>
+    </field>
+    <field name="optioncnt" type="Integer" visibility="public" />
+  </struct>
+  <struct name="floatnode">
+    <field name="nodename" type="string" visibility="public" />
+    <field name="notes" type="string" visibility="public" />
+    <field name="Messages" type=".2" visibility="public" />
+    <field name="messagecnt" type="Integer" visibility="public" />
+  </struct>
+  <struct name="action">
+    <field name="linedata" type="string" visibility="public" />
+  </struct>
+  <struct name="time_event_data">
+    <field name="FixedParamName" type="string" visibility="public" />
+    <field name="FixedParamEnumIndex" type="Integer" visibility="public" />
+    <field name="actionlines" visibility="public">
+      <array name="actionlines" low="0" high="64">
+        <element />
+      </array>
+    </field>
+    <field name="actioncnt" type="Integer" visibility="public" />
+    <field name="israndom" type="Boolean" visibility="public" />
+    <field name="mininterval" type="Integer" visibility="public" />
+    <field name="maxinterval" type="Integer" visibility="public" />
+    <field name="interval" type="Integer" visibility="public" />
+  </struct>
+  <const name="VAR_FLAGS_NONE" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="VAR_FLAGS_IMPORT" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="VAR_FLAGS_EXPORT" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="VAR_FLAGS_LOCAL" type="Integer">
+    <value>
+      $3
+    </value>
+  </const>
+  <struct name="TVariable">
+    <field name="Name" type="string" visibility="public" />
+    <field name="flags" type="Integer" visibility="public" />
+    <field name="vartype" type="Integer" visibility="public" />
+    <field name="notes" type="string" visibility="public" />
+    <field name="Value" type="Variant" visibility="public" />
+  </struct>
+  <const name="LINKAGE_NONE" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="LINKAGE_AND" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="LINKAGE_OR" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <struct name="cond_data">
+    <field name="resultcode" type="string" visibility="public" />
+    <field name="parameter" type="string" visibility="public" />
+    <field name="evaluator" type="Integer" visibility="public" />
+    <field name="compareto" type="string" visibility="public" />
+    <field name="index_of_selection" type="Integer" visibility="public" />
+    <field name="linkage" type="Integer" visibility="public" />
+  </struct>
+  <struct name="starting_condition">
+    <field name="conditions" visibility="public">
+      <array name="conditions" low="0" high="30">
+        <element />
+      </array>
+    </field>
+    <field name="condcnt" type="Integer" visibility="public" />
+    <field name="goto_node" type="string" visibility="public" />
+  </struct>
+  <struct name="custom_proc">
+    <field name="Name" type="string" visibility="public" />
+    <field name="Lines" type="string" visibility="public" />
+    <field name="associatewithnode" type="Integer" visibility="public" />
+  </struct>
+  <struct name="dialog">
+    <field name="filename" type="string" visibility="public" />
+    <field name="npcname" type="string" visibility="public" />
+    <field name="description" type="string" visibility="public" />
+    <field name="location" type="string" visibility="public" />
+    <field name="unknowndesc" type="string" visibility="public" />
+    <field name="knowndesc" type="string" visibility="public" />
+    <field name="detaileddesc" type="string" visibility="public" />
+    <field name="start_time_event" type="Integer" visibility="public" />
+    <field name="startconditions" visibility="public">
+      <array name="startconditions" low="0" high="512">
+        <element />
+      </array>
+    </field>
+    <field name="startconditioncnt" type="Integer" visibility="public" />
+    <field name="default_cond" type="Integer" visibility="public" />
+    <field name="customprocs" visibility="public">
+      <array name="customprocs" low="0" high="400">
+        <element />
+      </array>
+    </field>
+    <field name="customproccnt" type="Integer" visibility="public" />
+    <field name="timedevents" visibility="public">
+      <array name="timedevents" low="0" high="128">
+        <element />
+      </array>
+    </field>
+    <field name="timedeventcnt" type="Integer" visibility="public" />
+    <field name="floatnodes" visibility="public">
+      <array name="floatnodes" low="0" high="512">
+        <element />
+      </array>
+    </field>
+    <field name="floatnodecount" type="Integer" visibility="public" />
+    <field name="nodes" visibility="public">
+      <array name="nodes" low="0" high="512">
+        <element />
+      </array>
+    </field>
+    <field name="nodecount" type="Integer" visibility="public" />
+    <field name="variables" visibility="public">
+      <array name="variables" low="0" high="1000">
+        <element />
+      </array>
+    </field>
+    <field name="varcnt" type="Integer" visibility="public" />
+  </struct>
+  <struct name="dialog_oldformat">
+    <field name="filename" type="string" visibility="public" />
+    <field name="npcname" type="string" visibility="public" />
+    <field name="description" type="string" visibility="public" />
+    <field name="location" type="string" visibility="public" />
+    <field name="unknowndesc" type="string" visibility="public" />
+    <field name="knowndesc" type="string" visibility="public" />
+    <field name="detaileddesc" type="string" visibility="public" />
+    <field name="nodes" visibility="public">
+      <array name="nodes" low="0" high="512">
+        <element />
+      </array>
+    </field>
+    <field name="nodecount" type="Integer" visibility="public" />
+  </struct>
+  <pointer name="playerptr" type="PlayerChar" indircnt="1" />
+  <pointer name="pdialogue" type="dialog_oldformat" indircnt="1" />
+  <pointer name="pnewdialogue" type="dialog" indircnt="1" />
+  <pointer name="pdlgnode" type="dlgnode" indircnt="1" />
+  <const name="VAR_TYPE_STRING" type="Integer">
+    <value>
+      $0
+    </value>
+  </const>
+  <const name="VAR_TYPE_INT" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="VAR_TYPE_FLOAT" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <variable name="currentdlg" type="dialog" />
+  <variable name="condcfg" type="TIniFile" />
+  <variable name="defdumbint" type="Integer" />
+  <variable name="defsmartint" type="Integer" />
+  <variable name="player" />
+  <procedure name="DeleteSkillCheck" visibility="private">
+    <parameters>
+      <parameter name="Name" type="string" />
+    </parameters>
+  </procedure>
+  <function name="IsValidNodeName" visibility="private">
+    <parameters>
+      <parameter name="nodename" type="string" />
+      <parameter name="errormsg" type="string" paramflags="var" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="GetVarDesc" visibility="private">
+    <parameters>
+      <parameter name="Name" type="string" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="GetVarIndexFromDLG" visibility="private">
+    <parameters>
+      <parameter name="Name" type="string" />
+      <parameter name="dlg" type="dialog" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="GetNodeIndexFromDLG" visibility="private">
+    <parameters>
+      <parameter name="Name" type="string" />
+      <parameter name="dlg" type="dialog" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="GetSkillCheckIndex" visibility="private">
+    <parameters>
+      <parameter name="Name" type="string" />
+      <parameter name="nodeind" type="Integer" paramflags="var" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="GetTimedEventIndex" visibility="private">
+    <parameters>
+      <parameter name="Name" type="string" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <procedure name="DeleteCustomProc" visibility="private">
+    <parameters>
+      <parameter name="nodeindex" type="Integer" />
+    </parameters>
+  </procedure>
+  <procedure name="DeleteCondFromSCStartCond" visibility="private">
+    <parameters>
+      <parameter name="condind" type="Integer" />
+      <parameter name="nodeindex" type="Integer" />
+    </parameters>
+  </procedure>
+  <procedure name="DeleteStartCond" visibility="private">
+    <parameters>
+      <parameter name="nodeindex" type="Integer" />
+    </parameters>
+  </procedure>
+  <procedure name="SetStartCondition" visibility="private">
+    <parameters>
+      <parameter name="index" type="Integer" />
+      <parameter name="resultcode" type="string" />
+      <parameter name="condindex" type="Integer" />
+      <parameter name="selector" type="string" />
+      <parameter name="eval" type="Integer" />
+      <parameter name="valcheck" type="string" />
+      <parameter name="targetnode" type="string" />
+      <parameter name="set_as_default" type="Boolean">
+        <value>
+          False
+        </value>
+      </parameter>
+    </parameters>
+  </procedure>
+  <procedure name="AddStartCondition" visibility="private">
+    <parameters>
+      <parameter name="targetnode" type="string" />
+      <parameter name="set_as_default" type="Boolean">
+        <value>
+          False
+        </value>
+      </parameter>
+    </parameters>
+  </procedure>
+  <procedure name="AddCondsToSC" visibility="private">
+    <parameters>
+      <parameter name="resultcode" type="string" />
+      <parameter name="cond_ind" type="Integer" />
+      <parameter name="condindex" type="Integer" />
+      <parameter name="selector" type="string" />
+      <parameter name="eval" type="Integer" />
+      <parameter name="valcheck" type="string" />
+      <parameter name="link" type="Integer" />
+    </parameters>
+  </procedure>
+  <procedure name="SetCondToSC" visibility="private">
+    <parameters>
+      <parameter name="cond_subid" type="Integer" />
+      <parameter name="resultcode" type="string" />
+      <parameter name="cond_ind" type="Integer" />
+      <parameter name="condindex" type="Integer" />
+      <parameter name="selector" type="string" />
+      <parameter name="eval" type="Integer" />
+      <parameter name="valcheck" type="string" />
+      <parameter name="link" type="Integer" />
+    </parameters>
+  </procedure>
+  <function name="GetFloatNodeIndex" visibility="private">
+    <parameters>
+      <parameter name="Name" type="string" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="ProcExists" visibility="private">
+    <parameters>
+      <parameter name="Name" type="string" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="GetNodeIndex" visibility="private">
+    <parameters>
+      <parameter name="Name" type="string" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <procedure name="ResolveNodes" visibility="private">
+  </procedure>
+  <function name="GenerateCondString" visibility="private">
+    <parameters>
+      <parameter name="cond" type="condition" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="ResolveToSSL" visibility="private">
+    <parameters>
+      <parameter name="cond" type="condition" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <procedure name="RemapNodes" visibility="private">
+    <parameters>
+      <parameter name="oldname" type="string" />
+      <parameter name="newname" type="string" />
+    </parameters>
+  </procedure>
+  <procedure name="DeleteFloaterNode" visibility="private">
+    <parameters>
+      <parameter name="nodeindex" type="Integer" />
+    </parameters>
+  </procedure>
+  <procedure name="DeleteVar" visibility="private">
+    <parameters>
+      <parameter name="varindex" type="Integer" />
+    </parameters>
+  </procedure>
+  <procedure name="DeleteTimedEvent" visibility="private">
+    <parameters>
+      <parameter name="eventindex" type="Integer" />
+    </parameters>
+  </procedure>
+  <procedure name="DeleteNode" visibility="private">
+    <parameters>
+      <parameter name="nodeindex" type="Integer" />
+    </parameters>
+  </procedure>
+  <procedure name="DeleteOptionCondition" visibility="private">
+    <parameters>
+      <parameter name="nodeindex" type="Integer" />
+      <parameter name="optionindex" type="Integer" />
+      <parameter name="conditionindex" type="Integer" />
+    </parameters>
+  </procedure>
+  <procedure name="DeleteFloatNodeMessage" visibility="private">
+    <parameters>
+      <parameter name="nodeindex" type="Integer" />
+      <parameter name="optionindex" type="Integer" />
+    </parameters>
+  </procedure>
+  <procedure name="DeletePlayeroption" visibility="private">
+    <parameters>
+      <parameter name="nodeindex" type="Integer" />
+      <parameter name="optionindex" type="Integer" />
+    </parameters>
+  </procedure>
+</namespace>

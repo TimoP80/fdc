@@ -1,0 +1,330 @@
+date/time         : 2006-10-29, 20:43:09, 906ms
+computer name     : TIMO800
+user name         : Timo <admin>
+operating system  : Windows XP Service Pack 2 build 2600
+system language   : Finnish
+system up time    : 1 day 5 hours
+program up time   : 4 seconds
+processor         : AMD Athlon(tm) XP 2500+
+physical memory   : 397/1023 MB (free/total)
+free disk space   : (E:) 283,20 MB (M:) 8,67 GB
+display mode      : 1024x768, 32 bit
+process id        : $1dd0
+allocated memory  : 10,29 MB
+executable        : FMFDiagram.exe
+exec. date/time   : 2006-10-21 13:54
+madExcept version : 3.0b
+callstack crc     : $068f90a3, $60e43b90, $60e43b90
+exception number  : 1
+exception class   : EAccessViolation
+exception message : Access violation at address 004F3F01 in module 'FMFDiagram.exe'. Read of address 00000000.
+
+main thread ($1dd4):
+004f3f01 +06d FMFDiagram.exe SharedDLGData     1033   +1 ResolveToSSL
+004f4a83 +593 FMFDiagram.exe FMF                491 +165 CreateNewCondition
+004fc03f +1db FMFDiagram.exe FMF               2408  +79 TFMF._Condition
+004fbd40 +958 FMFDiagram.exe FMF               2312 +114 TFMF._Options
+004f9d1c +518 FMFDiagram.exe FMF               1877  +85 TFMF._Node
+004f97e6 +00a FMFDiagram.exe FMF               1784   +1 TFMF._Nodes
+004fc0db +06f FMFDiagram.exe FMF               2437  +24 TFMF._Main
+004fc1f8 +030 FMFDiagram.exe FMF               2479  +10 TFMF._FMF
+004fc3ed +029 FMFDiagram.exe FMF               2551   +4 TFMF.Parse
+004f8cf5 +09d FMFDiagram.exe FMF               1615  +17 TFMF.Execute
+00519eed +065 FMFDiagram.exe DiagramViewerForm   89   +5 TDiagramMain.LoadDialogue1Click
+0049f8fa +0a6 FMFDiagram.exe Menus             1826  +14 TMenuItem.Click
+004a0aa7 +013 FMFDiagram.exe Menus             2546   +5 TMenu.DispatchCommand
+004a8e9f +01f FMFDiagram.exe Forms             4115   +2 TCustomForm.WMCommand
+0048ee4c +188 FMFDiagram.exe Controls          4645  +53 TControl.WndProc
+00491d97 +157 FMFDiagram.exe Controls          6342  +33 TWinControl.WndProc
+004a6f05 +421 FMFDiagram.exe Forms             3098 +103 TCustomForm.WndProc
+00491a14 +02c FMFDiagram.exe Controls          6237   +3 TWinControl.MainWndProc
+0046e318 +014 FMFDiagram.exe Classes                     StdWndProc
+77d496c2 +00a user32.dll                                 DispatchMessageA
+004ad2ab +083 FMFDiagram.exe Forms             6873  +13 TApplication.ProcessMessage
+004ad2e2 +00a FMFDiagram.exe Forms             6892   +1 TApplication.HandleMessage
+004ad502 +096 FMFDiagram.exe Forms             6976  +16 TApplication.Run
+0051a86b +03b FMFDiagram.exe FMFDiagram          17   +3 initialization
+
+thread $1de8:
+7c90eb94 +0 ntdll.dll  KiFastSystemCallRet
+7c90d85a +a ntdll.dll  NtDelayExecution
+
+thread $1dec:
+7c90eb94 +0 ntdll.dll  KiFastSystemCallRet
+7c90e319 +a ntdll.dll  NtRemoveIoCompletion
+
+thread $1df0:
+7c90eb94 +0 ntdll.dll  KiFastSystemCallRet
+7c90e319 +a ntdll.dll  NtRemoveIoCompletion
+
+modules:
+00400000 FMFDiagram.exe                        M:\FMFDLGTool\src
+02200000 intl3_svn.dll        0.14.5.0         E:\Program Files\TortoiseSVN\bin
+10000000 tortoisesvn.dll      1.4.0.7195       E:\Program Files\TortoiseSVN\bin
+5ad70000 uxtheme.dll          6.0.2900.2180    E:\WINDOWS\system32
+5b860000 NETAPI32.dll         5.1.2600.2952    E:\WINDOWS\system32
+5edd0000 olepro32.dll         5.1.2600.2180    E:\WINDOWS\system32
+6e060000 windows-1252.so                       E:\Program Files\TortoiseSVN\iconv
+6ed50000 utf-8.so                              E:\Program Files\TortoiseSVN\iconv
+6ee40000 _tbl_simple.so                        E:\Program Files\TortoiseSVN\iconv
+6ee50000 libapriconv_tsvn.dll 0.9.7.0          E:\Program Files\TortoiseSVN\bin
+6ee60000 libaprutil_tsvn.dll  0.9.12.0         E:\Program Files\TortoiseSVN\bin
+6eec0000 libapr_tsvn.dll      0.9.12.0         E:\Program Files\TortoiseSVN\bin
+71a50000 MSWSOCK.dll          5.1.2600.2180    E:\WINDOWS\system32
+71aa0000 WS2HELP.dll          5.1.2600.2180    E:\WINDOWS\system32
+71ab0000 WS2_32.dll           5.1.2600.2180    E:\WINDOWS\system32
+71ad0000 wsock32.dll          5.1.2600.2180    E:\WINDOWS\system32
+73000000 winspool.drv         5.1.2600.2180    E:\WINDOWS\system32
+74720000 MSCTF.dll            5.1.2600.2180    E:\WINDOWS\system32
+74d30000 oledlg.dll           5.1.2600.0       E:\WINDOWS\system32
+74e30000 RICHED20.DLL         5.30.23.1221     E:\WINDOWS\system32
+754d0000 CRYPTUI.dll          5.131.2600.2180  E:\WINDOWS\system32
+75f80000 browseui.dll         6.0.2900.2937    E:\WINDOWS\system32
+763b0000 comdlg32.dll         6.0.2900.2180    E:\WINDOWS\system32
+76600000 CSCDLL.dll           5.1.2600.2180    E:\WINDOWS\System32
+76780000 SHFOLDER.dll         6.0.2900.2180    E:\WINDOWS\system32
+76990000 ntshrui.dll          5.1.2600.2180    E:\WINDOWS\system32
+769c0000 USERENV.dll          5.1.2600.2180    E:\WINDOWS\system32
+76b20000 ATL.DLL              3.5.2284.0       E:\WINDOWS\system32
+76c30000 WINTRUST.dll         5.131.2600.2180  E:\WINDOWS\system32
+76c90000 IMAGEHLP.dll         5.1.2600.2180    E:\WINDOWS\system32
+76f60000 WLDAP32.dll          5.1.2600.2180    E:\WINDOWS\system32
+76fd0000 CLBCATQ.DLL          2001.12.4414.308 E:\WINDOWS\system32
+77050000 COMRes.dll           2001.12.4414.258 E:\WINDOWS\system32
+77120000 oleaut32.dll         5.1.2600.2180    E:\WINDOWS\system32
+771b0000 WININET.dll          6.0.2900.2937    E:\WINDOWS\system32
+773d0000 comctl32.dll         6.0.2900.2982    E:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03
+774e0000 ole32.dll            5.1.2600.2726    E:\WINDOWS\system32
+77760000 shdocvw.dll          6.0.2900.2987    E:\WINDOWS\system32
+77920000 SETUPAPI.dll         5.1.2600.2180    E:\WINDOWS\system32
+77a20000 cscui.dll            5.1.2600.2180    E:\WINDOWS\System32
+77a80000 CRYPT32.dll          5.131.2600.2180  E:\WINDOWS\system32
+77b20000 MSASN1.dll           5.1.2600.2180    E:\WINDOWS\system32
+77b40000 appHelp.dll          5.1.2600.2180    E:\WINDOWS\system32
+77c00000 version.dll          5.1.2600.2180    E:\WINDOWS\system32
+77c10000 msvcrt.dll           7.0.2600.2180    E:\WINDOWS\system32
+77d40000 user32.dll           5.1.2600.2622    E:\WINDOWS\system32
+77dd0000 advapi32.dll         5.1.2600.2180    E:\WINDOWS\system32
+77e70000 RPCRT4.dll           5.1.2600.2180    E:\WINDOWS\system32
+77f10000 GDI32.dll            5.1.2600.2818    E:\WINDOWS\system32
+77f60000 SHLWAPI.dll          6.0.2900.2937    E:\WINDOWS\system32
+77fe0000 Secur32.dll          5.1.2600.2180    E:\WINDOWS\system32
+78130000 MSVCR80.dll          8.0.50727.163    E:\WINDOWS\WinSxS\x86_Microsoft.VC80.CRT_1fc8b3b9a1e18e3b_8.0.50727.163_x-ww_681e29fb
+7c420000 MSVCP80.dll          8.0.50727.163    E:\WINDOWS\WinSxS\x86_Microsoft.VC80.CRT_1fc8b3b9a1e18e3b_8.0.50727.163_x-ww_681e29fb
+7c800000 kernel32.dll         5.1.2600.2945    E:\WINDOWS\system32
+7c900000 ntdll.dll            5.1.2600.2180    E:\WINDOWS\system32
+7c9c0000 shell32.dll          6.0.2900.2951    E:\WINDOWS\system32
+
+processes:
+0000 Idle
+0004 System            normal
+018c smss.exe          normal E:\WINDOWS\system32
+01c0 CSRSS.EXE
+01dc winlogon.exe      high   E:\WINDOWS\system32
+020c services.exe      normal E:\WINDOWS\system32
+0218 lsass.exe         normal E:\WINDOWS\system32
+02b8 Ati2evxx.exe      normal E:\WINDOWS\system32
+02cc svchost.exe       normal E:\WINDOWS\system32
+030c SVCHOST.EXE
+0334 MsMpEng.exe       normal E:\Program Files\Windows Defender
+0370 svchost.exe       normal E:\WINDOWS\System32
+03a8 Ati2evxx.exe      normal E:\WINDOWS\system32
+03c4 SVCHOST.EXE
+0424 SVCHOST.EXE
+04b8 spoolsv.exe       normal E:\WINDOWS\system32
+0568 Apache.exe        normal M:\Program Files\Apache Group\Apache2\bin
+0588 AdskScSrv.exe     normal E:\Program Files\Common Files\Autodesk Shared\Service
+05b4 CDAC11BA.EXE      normal E:\WINDOWS\System32\drivers
+05d0 DCPFLICS.exe      normal E:\Program Files\DCPFLICS
+05ec gearsec.exe       normal E:\WINDOWS\System32
+05f8 Apache.exe        normal M:\Program Files\Apache Group\Apache2\bin
+09fc inetinfo.exe      normal E:\WINDOWS\system32\inetsrv
+0a18 MDM.EXE           normal E:\Program Files\Common Files\Microsoft Shared\VS7DEBUG
+0a74 timesync.exe      normal E:\WINDOWS\System32
+0af0 mysqld-nt.exe     normal C:\mysql\bin
+0b34 RichVideo.exe     normal E:\Program Files\CyberLink\Shared Files
+0b6c sfmgr.exe         normal P:\brazil\Brazil R-S 1.2.21 for 3ds max 5.x & 6.x\sfmgr 1.2.1
+0b88 svchost.exe       normal E:\WINDOWS\system32
+0bd4 mysqld.exe        normal R:\PROGRA~1\SUGARC~1.0C\mysql\bin
+0be8 vmount2.exe       normal E:\Program Files\Common Files\VMware\VMware Virtual Image Editing
+0e50 alg.exe
+0ee0 htpatch.exe       normal E:\WINDOWS
+0efc TSVNCache.exe     normal E:\Program Files\TortoiseSVN\bin
+0f08 MXOALDR.EXE       normal E:\WINDOWS
+0f10 CTHELPER.EXE      normal E:\WINDOWS\system32
+0f18 jusched.exe       normal S:\Program Files\Java\jre1.5.0_08\bin
+0f2c cledx.exe         normal E:\Program Files\SyncroSoft\Pos\H2O
+0f48 ICQLite.exe       normal M:\Program Files\ICQLite
+0f68 DeltTray.exe      normal E:\WINDOWS\system32
+0f78 daemon.exe        normal E:\Program Files\DAEMON Tools
+0f98 CXWibu.exe        normal E:\Program Files\WIBUKEY\H2O
+0fd4 winampa.exe       normal P:\Program Files\Winamp
+00d8 DataLayer.exe     normal E:\Program Files\Common Files\PCSuite\DataLayer
+01a0 NclTray.exe       normal E:\Program Files\Common Files\Nokia\Tools
+0284 ServiceLayer.exe  normal E:\Program Files\Common Files\PCSuite\Services
+0280 anysee_TR.exe     normal E:\Program Files\anysee\anysee-E30
+0354 CLI.EXE           normal E:\Program Files\ATI Technologies\ATI.ACE
+03b4 MSASCui.exe       normal E:\Program Files\Windows Defender
+0434 RssReader.exe     normal M:\Program Files\RssReader
+0be4 msnmsgr.exe       normal E:\Program Files\MSN Messenger
+0c38 ctfmon.exe        normal E:\WINDOWS\system32
+04a8 NMBgMonitor.exe   normal E:\Program Files\Common Files\Ahead\Lib
+0d6c sqlmangr.exe      normal E:\Program Files\Microsoft SQL Server\80\Tools\Binn
+0d74 ApacheMonitor.exe normal M:\Program Files\Apache Group\Apache2\bin
+1240 cli.exe           normal E:\Program Files\ATI Technologies\ATI.ACE
+1248 cli.exe           normal E:\Program Files\ATI Technologies\ATI.ACE
+1418 firefox.exe       normal P:\Mozilla
+15b4 mirc.exe          normal H:\mirc
+1318 LastFM.exe        normal E:\Program Files\Last.fm
+1064 cmd.exe           normal E:\WINDOWS\system32
+137c winamp.exe        normal P:\Program Files\Winamp
+0e6c googletalk.exe    normal E:\Program Files\Google\Google Talk
+1710 bsplayer.exe      normal H:\BSplayerPro
+0ec8 explorer.exe      normal E:\WINDOWS
+0e38 avguard.exe       normal E:\Program Files\AntiVir PersonalEdition Classic
+1700 avgnt.exe         normal E:\Program Files\AntiVir PersonalEdition Classic
+1224 sched.exe         normal E:\Program Files\AntiVir PersonalEdition Classic
+0d2c WISPTIS.EXE       high   E:\WINDOWS\System32
+1584 utorrent.exe      normal O:
+1dd0 FMFDiagram.exe    normal M:\FMFDLGTool\src
+
+hardware:
++ ATITool Utility
+  - ATITool Driver (driver 1.24.0.0)
++ Computer
+  - ACPI Uniprocessor PC
++ Disk drives
+  - Maxtor 33073H3
+  - SAMSUNG SP0802N
+  - SAMSUNG SP2014N
++ Display adapters
+  - RADEON 9600 SERIES     (driver 8.291.0.0)
+  - RADEON 9600 SERIES - Secondary   (driver 8.291.0.0)
++ DVD/CD-ROM drives
+  - HL-DT-ST DVDRAM GSA-4081B
+  - PR5242P BPU045K SCSI CdRom Device
+  - PR5242P BPU045K SCSI CdRom Device
+  - PR5242P BPU045K SCSI CdRom Device
+  - PR5242P BPU045K SCSI CdRom Device
++ Floppy disk controllers
+  - Standard floppy disk controller
++ IDE ATA/ATAPI controllers
+  - Primary IDE Channel
+  - Secondary IDE Channel
+  - SiS PCI IDE Controller
++ Keyboards
+  - Standard 101/102-Key or Microsoft Natural PS/2 Keyboard
++ Mice and other pointing devices
+  - Microsoft PS/2 Mouse
++ Monitors
+  - Plug and Play Monitor
++ Network adapters
+  - SiS 900-Based PCI Fast Ethernet Adapter #2 (driver 1.16.0.0)
++ NT Apm/Legacy Support
+  - NT Apm/Legacy Interface Node
++ Ports (COM & LPT)
+  - Communications Port (COM1)
+  - ECP Printer Port (LPT1)
++ Probe Devices
+  - Radeon Probe Driver (driver 2.1.2028.0)
++ Processors
+  - AMD Athlon(tm) XP 2500+
++ SCSI and RAID controllers
+  - SCSI/RAID Host Controller
++ Sound, video and game controllers
+  - anysee BDA Capture Device(2006.05.19.AD01000309) (driver 1.0.3.9)
+  - Audio Codecs
+  - Driver for Midistart-2 (driver 1.0.0.0)
+  - Legacy Audio Drivers
+  - Legacy Video Capture Devices
+  - M-Audio Delta Audiophile (driver 5.10.0.5047)
+  - Media Control Devices
+  - Standard Game Port
+  - Video Codecs
++ System devices
+  - ACPI Fixed Feature Button
+  - ACPI Power Button
+  - Direct memory access controller
+  - Extended IO Bus
+  - ISAPNP Read Data Port
+  - Logical Disk Manager
+  - Microcode Update Device
+  - Microsoft ACPI-Compliant System
+  - Motherboard resources
+  - NCF Virtual Serial Bus Enumerator (driver 1.0.1.0)
+  - Numeric data processor
+  - PCI bus
+  - PCI standard host CPU bridge
+  - Plug and Play Software Device Enumerator
+  - PnP BIOS Extension (driver 3.46.0.0)
+  - Printer Port Logical Interface
+  - Programmable interrupt controller
+  - SIS PCI to ISA bridge
+  - SIS Processor to AGP Controller
+  - Syncro TruEmu Team H2O (driver 0.3.141.666)
+  - Syncro TruEmu Team H2O (driver 0.3.141.666)
+  - System CMOS/real time clock
+  - System speaker
+  - System timer
+  - Terminal Server Device Redirector
+  - Terminal Server Keyboard Driver
+  - Terminal Server Mouse Driver
+  - Volume Manager
++ Universal Serial Bus controllers
+  - SiS 7001 PCI to USB Open Host Controller
+  - SiS 7001 PCI to USB Open Host Controller
+  - SiS PCI to USB Enhanced Host Controller
+  - USB Root Hub
+  - USB Root Hub
+  - USB Root Hub
++ VSO devices
+  - pcouffin device for 32 bits systems (driver 1.36.0.0)
+
+cpu registers:
+eax = 00000000
+ebx = 005d1e6c
+ecx = 00b35788
+edx = 004f4070
+esi = 0012fb40
+edi = 0012faec
+eip = 004f3f01
+esp = 0012fa88
+ebp = 0012fb00
+
+stack dump:
+0012fa88  f8 fa 12 00 00 00 00 00 - 08 fb 12 00 44 45 40 00  ............DE@.
+0012fa98  00 fb 12 00 a0 fe 12 00 - 00 00 00 00 6c 1e 5d 00  ............l.].
+0012faa8  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012fab8  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012fac8  00 00 00 00 00 00 00 00 - 05 00 00 00 00 00 00 00  ................
+0012fad8  03 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012fae8  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012faf8  00 00 00 00 20 fb 12 00 - 44 fb 12 00 88 4a 4f 00  ........D....JO.
+0012fb08  4c fb 12 00 44 45 40 00 - 44 fb 12 00 a0 fe 12 00  L...DE@.D.......
+0012fb18  00 00 00 00 6c 1e 5d 00 - 00 00 00 00 05 00 00 00  ....l.].........
+0012fb28  00 00 00 00 03 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012fb38  00 00 00 00 00 00 00 00 - cc 9b b2 00 6c fb 12 00  ............l...
+0012fb48  44 c0 4f 00 74 fb 12 00 - 44 45 40 00 6c fb 12 00  D.O.t...DE@.l...
+0012fb58  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012fb68  cc 9b b2 00 a4 fb 12 00 - 45 bd 4f 00 ac fb 12 00  ........E.O.....
+0012fb78  44 45 40 00 a4 fb 12 00 - b0 95 b2 00 00 00 00 00  DE@.............
+0012fb88  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+0012fb98  00 00 00 00 00 00 00 00 - cc 9b b2 00 ec fb 12 00  ................
+0012fba8  21 9d 4f 00 24 fc 12 00 - 44 45 40 00 ec fb 12 00  !.O.$...DE@.....
+0012fbb8  00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00  ................
+
+disassembling:
+[...]
+004f3eed        call    -$eef32 ($404fc0)      ; System.@LStrCat3
+004f3ef2        mov     ecx, [ebp-$38]
+004f3ef5        mov     eax, [$52052c]
+004f3efa        mov     eax, [eax]
+004f3efc        mov     edx, $4f4070           ; 'Main'
+004f3f01      > mov     ebx, [eax]
+004f3f03        call    dword ptr [ebx]
+004f3f05 1034   push    0
+004f3f07        lea     eax, [ebp-$c]
+004f3f0a        push    eax
+004f3f0b        mov     eax, [$52052c]
+[...]
+

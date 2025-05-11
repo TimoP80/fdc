@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="ddf_output">
+  <variable name="msg_step" type="Integer" />
+  <variable name="AMDS_Cfg" type="TIniFile" />
+  <variable name="templatecfg" type="TIniFile" />
+  <variable name="config" type="TIniFile" />
+  <variable name="nodes" type="Integer" />
+  <variable name="node" type="string" />
+  <variable name="tempstr" type="string" />
+  <variable name="temp" type="string" />
+  <variable name="tempstrz" type="string" />
+  <variable name="scriptoutputpath" type="string" />
+  <variable name="reaction" type="ShortString" />
+  <variable name="sslpath" type="ShortString" />
+  <variable name="msgpath" type="ShortString" />
+  <variable name="startpath" type="string" />
+  <variable name="cur_node" type="dlgnode" />
+  <variable name="linebase" type="Integer" />
+  <variable name="sslfile" type="string" />
+  <variable name="msgfile" type="string" />
+  <variable name="script_template" type="string" />
+  <variable name="npcname" type="string" />
+  <variable name="description" type="string" />
+  <variable name="location" type="string" />
+  <variable name="scriptID" type="string" />
+  <variable name="unknowndesc" type="string" />
+  <variable name="knowndesc" type="string" />
+  <variable name="detailed" type="string" />
+  <procedure name="InitDDFDumper" visibility="private">
+    <parameters>
+      <parameter name="basepath" type="string" />
+    </parameters>
+  </procedure>
+  <function name="SaveFMF2DDF" visibility="private">
+    <parameters>
+      <parameter name="dlg" type="dialog" />
+      <retval type="string" />
+    </parameters>
+  </function>
+</namespace>

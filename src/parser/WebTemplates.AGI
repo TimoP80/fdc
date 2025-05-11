@@ -1,0 +1,47 @@
+[Frames]
+Ancestor=$(CocoR)\Frames\CocoBase.pas
+Parser=$(CocoR)\Frames\component.frm
+Test Project=$(CocoR)\Frames\Test.dpr.frm
+Test Form=$(CocoR)\Frames\Test.pas.frm
+Test DFM=$(CocoR)\Frames\Test.dfm.frm
+Console=$(CocoR)\Frames\Console.dpr.frm
+
+[Output]
+Directory=
+[Registration]
+Palette=Coco/R
+[Messages]
+Show Warnings=1
+Show LL(1) Start Succ=1
+[Hash]
+Primary=
+Secondary=
+[Options]
+C=0
+M=0
+R=0
+E=0
+Z=0
+V=0
+B=0
+O=0
+H=0
+Y=0
+D=0
+L=0
+A=0
+F=0
+G=0
+I=0
+S=0
+T=0
+X=0
+[Version Info]
+Major Version=0
+Minor Version=0
+Next Build=0
+Release=0
+Comment=
+Author=
+Copyright=
+Last Build=30.12.1899

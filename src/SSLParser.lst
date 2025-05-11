@@ -1,0 +1,417 @@
+
+================================================================================
+Grammar Tests:
+  Deletable symbols:
+     VarList
+     SSLParser
+  Undefined nonterminals:   -- none --
+  Unreachable nonterminals: -- none --
+  Circular derivations:     -- none --
+  Underivable nonterminals: -- none --
+  LL(1) conditions:
+     LL(1) error in Primary: identifier is the start of several alternatives
+     LL(1) error in Primary: number is the start of several alternatives
+     LL(1) error in Primary: _string is the start of several alternatives
+     LL(1) error in Primary: _char is the start of several alternatives
+     LL(1) error in Primary: "(" is the start & successor of a deletable structure
+     LL(1) error in Primary: ")" is the start & successor of a deletable structure
+     LL(1) error in PostFixExp: "CALL" is the start & successor of a deletable structure
+     LL(1) error in PostFixExp: "(" is the start & successor of a deletable structure
+     LL(1) error in PostFixExp: "[" is the start & successor of a deletable structure
+     LL(1) error in UnaryExp: identifier is the start of several alternatives
+     LL(1) error in UnaryExp: number is the start of several alternatives
+     LL(1) error in UnaryExp: _string is the start of several alternatives
+     LL(1) error in UnaryExp: _char is the start of several alternatives
+     LL(1) error in UnaryExp: "(" is the start of several alternatives
+     LL(1) error in UnaryExp: "&" is the start of several alternatives
+     LL(1) error in UnaryExp: "+" is the start of several alternatives
+     LL(1) error in UnaryExp: "-" is the start of several alternatives
+     LL(1) error in UnaryExp: "*" is the start of several alternatives
+     LL(1) error in UnaryExp: "CALL" is the start of several alternatives
+     LL(1) error in UnaryExp: "!" is the start of several alternatives
+     LL(1) error in UnaryExp: "~" is the start of several alternatives
+     LL(1) error in UnaryExp: "&" is the start of several alternatives
+     LL(1) error in UnaryExp: "+" is the start of several alternatives
+     LL(1) error in UnaryExp: "-" is the start of several alternatives
+     LL(1) error in UnaryExp: "*" is the start of several alternatives
+     LL(1) error in UnaryExp: "!" is the start of several alternatives
+     LL(1) error in UnaryExp: "~" is the start of several alternatives
+     LL(1) error in MultExp: "*" is the start & successor of a deletable structure
+     LL(1) error in MultExp: "/" is the start & successor of a deletable structure
+     LL(1) error in MultExp: "%" is the start & successor of a deletable structure
+     LL(1) error in AddExp: "+" is the start & successor of a deletable structure
+     LL(1) error in AddExp: "-" is the start & successor of a deletable structure
+     LL(1) error in ShiftExp: "<<" is the start & successor of a deletable structure
+     LL(1) error in ShiftExp: ">>" is the start & successor of a deletable structure
+     LL(1) error in RelationExp: "<=" is the start & successor of a deletable structure
+     LL(1) error in RelationExp: ">=" is the start & successor of a deletable structure
+     LL(1) error in RelationExp: "<" is the start & successor of a deletable structure
+     LL(1) error in RelationExp: ">" is the start & successor of a deletable structure
+     LL(1) error in EqualExp: "==" is the start & successor of a deletable structure
+     LL(1) error in EqualExp: "!=" is the start & successor of a deletable structure
+     LL(1) error in ANDExp: "&" is the start & successor of a deletable structure
+     LL(1) error in ExclORExp: "BWAND" is the start & successor of a deletable structure
+     LL(1) error in InclORExp: "BWOR" is the start & successor of a deletable structure
+     LL(1) error in LogANDExp: "OR" is the start & successor of a deletable structure
+     LL(1) error in LogORExp: "AND" is the start & successor of a deletable structure
+     LL(1) error in Expression: ":=" is the start & successor of a deletable structure
+     LL(1) error in Expression: "*=" is the start & successor of a deletable structure
+     LL(1) error in Expression: "/=" is the start & successor of a deletable structure
+     LL(1) error in Expression: "%=" is the start & successor of a deletable structure
+     LL(1) error in Expression: "+=" is the start & successor of a deletable structure
+     LL(1) error in Expression: "-=" is the start & successor of a deletable structure
+     LL(1) error in WhileStatement: "BEGIN" is the start & successor of a deletable structure
+     LL(1) error in WhileStatement: "END" is the start & successor of a deletable structure
+     LL(1) error in IfStatement: "ELSE" is the start & successor of a deletable structure
+     LL(1) error in CompoundStatement: "END" is the start & successor of a deletable structure
+     LL(1) error in Definition: ";" is the start of several alternatives
+
+================================================================================
+Time Compiled: 18. kesäkuuta 2008 @ 18:30:00
+
+Statistics:
+  number of terminals:        60 (limit   513)
+  number of non-terminals:    42 (limit   453)
+  number of pragmas:           1 (limit   453)
+  number of symbolnodes:     103 (limit   513)
+  number of graphnodes:      274 (limit  3001)
+  number of conditionsets:     1 (limit   101)
+  number of charactersets:    17 (limit   501)
+
+================================================================================
+Options:
+  Generate version information
+  Generate comment events
+  Use Hash functions to lookup literals
+  Force source listing
+
+
+
+================================================================================
+Listing
+
+    1  COMPILER SSLParser     
+    2  (*
+    3    
+    4    This is an attempt to create a parser module for parsing
+    5    the SSL scripting language
+    6    
+    7    Possibly non-preprocessed scripts also.
+    8    
+    9    *)
+   10  
+   11  DELPHI
+   12    PRIVATE
+   13      fOutputStream : TMemoryStream;
+   14      fSubSelectDepth : integer;
+   15      fInNaturalJoin : boolean;
+   16              
+   17      procedure Init;
+   18      procedure Final;
+   19                  
+   20      property OutputStream : TMemoryStream read fOutputStream write fOutputStream;
+   21      CREATE 
+   22      fOutputStream := TMemoryStream.Create;
+   23    DESTROY                     
+   24      fOutputStream.Free;
+   25    ERRORS
+   26   
+   27  END_DELPHI
+   28  
+   29  (* Arbitrary Code *)
+   30  
+   31  const
+   32    PadLen = 20;
+   33                          
+   34  function PadR(S : string; Ch : char; L : integer) : string;
+   35  var
+   36    i : integer;
+   37  begin
+   38    for i := 1 to L - (Length(s)) do
+   39      s := s + Ch;
+   40    Result := s;
+   41  end;
+   42  
+   43  procedure T-->Grammar<--.Init;
+   44  begin
+   45    OutputStream.Clear;
+   46  
+   47   end;
+   48  
+   49  procedure T-->Grammar<--.Final;
+   50  begin
+   51     OutputStream.Position := 0;
+   52    OutputStream.SaveToStream(ListStream);
+   53    OutputStream.Clear;
+   54  end;
+   55                                   
+   56  function parse_string(zstr: string): string;
+   57  var t:    integer;
+   58  var temp: string;
+   59  var len:  integer;
+   60  begin;
+   61  result:='';
+   62    len := 0;
+   63  temp:='';
+   64    //writeln ('Parsing string: ',zstr);
+   65    t   := pos('"', zstr) + 1;
+   66    len := length(zstr);
+   67    while (zstr[t] <> '"') do
+   68    begin;
+   69      //writeln (zstr[t]);
+   70      if (zstr[t] = '\') and (zstr[t + 1] = '"') then
+   71      begin;
+   72        temp := temp + '"';
+   73        Inc(t, 1);
+   74      end else
+   75      if (zstr[t] = '\') and (zstr[t + 1] = '\') then
+   76      begin;
+   77        temp := temp + '\';
+   78        Inc(t, 1);
+   79      end else
+   80      if (zstr[t] = '\') and (zstr[t + 1] = 't') then
+   81      begin;
+   82        temp := temp + #9;
+   83        Inc(t, 1);
+   84      end else
+   85      if (zstr[t] = '\') and (zstr[t + 1] = 'n') then
+   86      begin;
+   87        temp := temp + #13#10;
+   88        Inc(t, 1);
+   89      end else
+   90  
+   91        temp := temp + zstr[t];
+   92  
+   93      Inc(t);
+   94    end;
+   95    Result := temp;
+   96  end;
+   97  
+   98  
+   99  
+  100  
+  101  (* End of Arbitrary Code *)
+  102  
+  103  IGNORE CASE
+  104  
+  105  CHARACTERS
+  106    letter   = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" .
+  107    digit    = "0123456789" .
+  108    hexdigit = digit + "ABCDEFabcdef" .
+  109    tab      = CHR(9) .
+  110    lf       = CHR(10) .
+  111    eol      = CHR(13) .
+  112    files    = letter + digit + ":\." .
+  113    chars    = CHR(32) .. CHR(255) - "'" .
+  114    strings  = CHR(32) .. CHR(255) - '"'.
+  115    macros   = ANY - eol .
+  116  
+  117  COMMENTS FROM "/*" TO "*/" 
+  118  COMMENTS FROM "//" TO eol 
+  119  
+  120  
+  121  IGNORE
+  122    tab + eol + lf
+  123  
+  124  TOKENS
+  125    identifier = ( "_" | letter) { "_" | letter | digit } .
+*****  ^  in Primary:  identifier is the start of several alternatives
+*****  ^  in UnaryExp:  identifier is the start of several alternatives
+  126    number     = ["-"] digit { digit } [ "." { digit }] [ "U" | "u" | "L" | "l" ] .
+*****  ^  in Primary:  number is the start of several alternatives
+*****  ^  in UnaryExp:  number is the start of several alternatives
+  127    hexnumber  = "0" ( "x" | "X" ) hexdigit { hexdigit } [ "U" | "u" | "L" | "l" ] .
+  128    _string     = '"' ["\"] { strings } '"' .
+*****  ^  in Primary:  _string is the start of several alternatives
+*****  ^  in UnaryExp:  _string is the start of several alternatives
+  129    _char       = "'" [ "\" ] chars "'" .
+*****  ^  in Primary:  _char is the start of several alternatives
+*****  ^  in UnaryExp:  _char is the start of several alternatives
+  130    _library    = "<" files { files } ">" .
+  131  
+  132  IGNORE CHR(1)..CHR(32)
+  133          
+  134  PRAGMAS
+  135    PreProcessor = "#" {macros}  .
+  136    
+  137    
+  138  PRODUCTIONS
+  139  
+  140  
+  141  
+  142  SSLParser = {Definition} .
+*****  ^ SSLParser is a deletable symbol
+  143  (* Variable and Type Definitions *)
+  144  
+  145    Definition           = ("procedure"|[("import"|"export")] "variable")  identifier (.writeln('definition: ',lexstring); .)
+  146                              ( FunctionDefinition | VarList ";" )  .
+*****  ^  in Definition:  ";" is the start of several alternatives
+  147  
+  148  
+  149   
+  150    VarList              = { "," identifier } [":=" (_string | number)].
+*****  ^ VarList is a deletable symbol
+*****  ^  in Expression:  ":=" is the start & successor of a deletable structure
+  151  
+  152    
+  153  (* Function Definitions *)
+  154  
+  155    FunctionDefinition   =  (. writeln('function def!') .) [FunctionHeader] ( ";" (. writeln('function header ENDS!') .) | FunctionBody ) .
+  156    FunctionHeader       = "(" [ FormalParamList ] ")" .
+*****  ^  in Primary:  "(" is the start & successor of a deletable structure
+*****  ^  in Primary:  ")" is the start & successor of a deletable structure
+*****  ^  in PostFixExp:  "(" is the start & successor of a deletable structure
+*****  ^  in UnaryExp:  "(" is the start of several alternatives
+  157    FunctionBody         = CompoundStatement .
+  158    FormalParamList      = FormalParameter { "," FormalParameter } .
+  159    FormalParameter      = "variable" [ identifier ] .
+  160  
+  161  (* Statements *)
+  162  
+  163    Statement            = { LabelC }
+  164                           (  AssignmentExpression | BreakStatement
+  165                             | CompoundStatement | ContinueStatement
+  166                             | DoStatement | ForStatement
+  167                             | IfStatement  
+  168                             | ReturnStatement | SwitchStatement
+  169                             | WhileStatement ) .
+  170  
+  171    LabelC                = "case" ConstExpression ":"  |  "default" ":" .
+  172  
+  173  (* There is no requirement that a switch statement be followed by a compound
+  174     statement.  Actually labels may be even more general *)
+  175  
+  176    AssignmentExpression = Expression [";"] .
+  177  
+  178    BreakStatement       = "break" ";" .
+  179  
+  180    CompoundStatement    = "begin" (. writeln('COMPOUND STATEMENT!') .)[{ LocalDeclaration } { Statement }] "end" .
+*****  ^  in WhileStatement:  "BEGIN" is the start & successor of a deletable structure
+*****  ^  in WhileStatement:  "END" is the start & successor of a deletable structure
+*****  ^  in CompoundStatement:  "END" is the start & successor of a deletable structure
+  181  
+  182    ContinueStatement    = "continue" ";" .
+  183  
+  184    DoStatement          = "do" Statement "while" "(" Expression ")" ";" .
+  185  
+  186    ForStatement         = "for"  "(" [ Expression ] ";" [ Expression ] ";" [ Expression ] ")" Statement .
+  187  
+  188    IfStatement          = "if" { Expression } "then" Statement [ "else" Statement ] .
+*****  ^  in IfStatement:  "ELSE" is the start & successor of a deletable structure
+  189  
+  190  
+  191    ReturnStatement      = "return" [ Expression ] ";" .
+  192                           (* Expression usually in parentheses *)
+  193  
+  194    SwitchStatement      = "switch" "(" Expression ")" Statement .
+  195  
+  196    WhileStatement       = "while" "(" Expression ")" "do" ["begin"] Statement ["end"] .
+  197  
+  198  (* LocalDeclarations *)
+  199  
+  200    LocalDeclaration     = ("variable") identifier
+  201                            ( VarList ) ";"  .
+  202  
+  203  (* Expressions, based on Kernighan and Ritchie: "The C Programming Language".
+  204     There does not seem to be a way to make this work in an LL(1) fashion,
+  205     but this generates a "working" parser *)
+  206  
+  207    ConstExpression      =  Expression .
+  208  
+  209    Expression           = Conditional { AssignmentOperator Expression }.
+  210  
+  211    Conditional          = LogORExp .
+  212  
+  213    LogORExp             = LogANDExp   { "and" LogANDExp } .
+*****  ^  in LogORExp:  "AND" is the start & successor of a deletable structure
+  214  
+  215    LogANDExp            = InclORExp   { "or" InclORExp }.
+*****  ^  in LogANDExp:  "OR" is the start & successor of a deletable structure
+  216  
+  217    InclORExp            = ExclORExp   { "bwor" ExclORExp } .
+*****  ^  in InclORExp:  "BWOR" is the start & successor of a deletable structure
+  218  
+  219    ExclORExp            = ANDExp      { "bwand" ANDExp } .
+*****  ^  in ExclORExp:  "BWAND" is the start & successor of a deletable structure
+  220  
+  221    ANDExp               = EqualExp    { "&" EqualExp } .
+*****  ^  in UnaryExp:  "&" is the start of several alternatives
+*****  ^  in UnaryExp:  "&" is the start of several alternatives
+*****  ^  in ANDExp:  "&" is the start & successor of a deletable structure
+  222  
+  223    EqualExp             = RelationExp { ( "==" | "!=" ) RelationExp } .
+*****  ^  in EqualExp:  "==" is the start & successor of a deletable structure
+*****  ^  in EqualExp:  "!=" is the start & successor of a deletable structure
+  224  
+  225    RelationExp          = ShiftExp    { ( "<=" | ">=" | "<" | ">" ) ShiftExp }.
+*****  ^  in RelationExp:  "<=" is the start & successor of a deletable structure
+*****  ^  in RelationExp:  ">=" is the start & successor of a deletable structure
+*****  ^  in RelationExp:  "<" is the start & successor of a deletable structure
+*****  ^  in RelationExp:  ">" is the start & successor of a deletable structure
+  226  
+  227    ShiftExp             = AddExp      { ( "<<" | ">>" ) AddExp } .
+*****  ^  in ShiftExp:  "<<" is the start & successor of a deletable structure
+*****  ^  in ShiftExp:  ">>" is the start & successor of a deletable structure
+  228  
+  229    AddExp               = MultExp     { ( "+" | "-" ) MultExp } .
+*****  ^  in UnaryExp:  "+" is the start of several alternatives
+*****  ^  in UnaryExp:  "-" is the start of several alternatives
+*****  ^  in UnaryExp:  "+" is the start of several alternatives
+*****  ^  in UnaryExp:  "-" is the start of several alternatives
+*****  ^  in AddExp:  "+" is the start & successor of a deletable structure
+*****  ^  in AddExp:  "-" is the start & successor of a deletable structure
+  230  
+  231    MultExp              = CastExp     { ( "*" | "/" | "%" ) CastExp } .
+*****  ^  in UnaryExp:  "*" is the start of several alternatives
+*****  ^  in UnaryExp:  "*" is the start of several alternatives
+*****  ^  in MultExp:  "*" is the start & successor of a deletable structure
+*****  ^  in MultExp:  "/" is the start & successor of a deletable structure
+*****  ^  in MultExp:  "%" is the start & successor of a deletable structure
+  232  
+  233    CastExp              = UnaryExp .
+  234  
+  235  (* we should really add
+  236                           | "(" identifier ")" CastExp .
+  237     but this breaks it badly *)
+  238  
+  239    UnaryExp             = PostFixExp
+  240                           | UnaryExp
+  241                           | UnaryOperator CastExp .
+  242  
+  243  (* we should really add
+  244                           | "sizeof" ( UnaryExp | "(" TypeC ")" ) .
+  245     but this breaks it badly *)
+  246  
+  247    PostFixExp           = ["call"] Primary
+*****  ^  in PostFixExp:  "CALL" is the start & successor of a deletable structure
+*****  ^  in UnaryExp:  "CALL" is the start of several alternatives
+  248                           { "[" Expression "]"
+*****  ^  in PostFixExp:  "[" is the start & successor of a deletable structure
+  249                            | FunctionCall
+  250                           
+  251                           } .
+  252  
+  253    Primary              = identifier | _string | _char | number | ["("] Expression [")"] .
+  254  
+  255    FunctionCall         = "(" [ ActualParameters ] ")" .
+  256  
+  257    ActualParameters     = Expression { "," Expression } .
+  258  
+  259    AssignmentOperator   =   ":="  | "*=" | "/=" | "%=" | "+=" | "-=" .
+*****  ^  in Expression:  "*=" is the start & successor of a deletable structure
+*****  ^  in Expression:  "/=" is the start & successor of a deletable structure
+*****  ^  in Expression:  "%=" is the start & successor of a deletable structure
+*****  ^  in Expression:  "+=" is the start & successor of a deletable structure
+*****  ^  in Expression:  "-=" is the start & successor of a deletable structure
+  260  
+  261    UnaryOperator        = "+" | "-" | "*" | "!" | "&" | "~" .
+*****  ^  in UnaryExp:  "!" is the start of several alternatives
+*****  ^  in UnaryExp:  "~" is the start of several alternatives
+*****  ^  in UnaryExp:  "!" is the start of several alternatives
+*****  ^  in UnaryExp:  "~" is the start of several alternatives
+  262                                                                    
+  263  END SSLParser.
+
+   56 LL(1) errors
+    2 warnings
+

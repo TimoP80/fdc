@@ -1,0 +1,258 @@
+// Script output plugin for FMF Dialogue tool
+
+// modified from a previous AMDS plugin
+
+library Export_ScriptOutput;
+
+{$DEFINE BUILD_ScriptExporter}
+
+
+uses
+  winapi.Windows,
+  Forms,
+  Classes,
+  Controls,
+  Dialogs,
+  DLGDef,
+  exportcfg in 'exportcfg.pas',
+  Inifiles,
+  JclStrings,
+  pluginfunc,
+  ScriptCompilerIntf in '..\ScriptCompilerIntf.pas',
+  SysUtils;
+
+{$R *.res}
+
+
+
+  function GetPluginName: ShortString; stdcall;
+  begin
+
+    Result := 'Dialogue -> SSL + MSG';
+  end;
+
+
+
+  function GetPluginDescription: ShortString; stdcall;
+  begin
+
+    Result := 'This plugin exports the final dialogue.';
+  end;
+
+  procedure PluginClose; stdcall;
+  begin
+    if Assigned(form1) then
+    begin
+      // Force system style before destruction
+      TStyleManager.SetStyle(TStyleManager.SystemStyle);
+      // Safe component cleanup
+      form1.JvDirectoryEdit1.Text := '';
+      form1.LMDFileOpenEdit1.Text := '';
+      form1.LMDFileOpenEdit2.Text := '';
+      form1.LMDFileOpenEdit3.Text := '';
+      form1.edit1.Text := '';
+      form1.edit2.Text := '';
+      form1.edit3.Text := '';
+      form1.edit4.Text := '';
+
+      // Proper form destruction sequence
+      form1.Hide;
+      form1.Release;
+      Application.ProcessMessages;
+      FreeAndNil(form1);
+    end;
+
+    if Assigned(AMDS_Cfg) then
+      FreeAndNil(AMDS_Cfg);
+
+    if Assigned(templatecfg) then
+      FreeAndNil(templatecfg);
+
+    if Assigned(dlgcfg) then
+      FreeAndNil(dlgcfg);
+
+    if Assigned(DLGDef1) then
+      FreeAndNil(DLGDef1);
+  end;
+
+  function GetInterfaceVersion: shortstring; stdcall;
+  begin
+    Result := interface_version;
+  end;
+
+
+  function CanAddToMenu: boolean; stdcall;
+  begin
+
+    Result := True;
+  end;
+
+  procedure RunPlugin(BasePath: ShortString); stdcall;
+  var
+    temcnt, i: integer;
+    scriptPath: string;
+    localDlg: pnewdialogue;
+  begin
+
+    //MessageDlg('This plug-in does not have import capabilities.', mtInformation, [mbOK], 0);
+
+   localdlg := GetDLGNew;
+    try
+      cur_dlg := localDlg;
+
+      if cur_dlg.filename = '' then
+      begin
+        MessageDlg('You need to save the dialogue before exporting the final script + message file.',
+          mtInformation, [mbOK], 0);
+        exit;
+      end;
+
+      startpath   := basepath;
+      AMDS_Cfg    := TInifile.Create(basepath + '\plugins\export.cfg');
+      templatecfg := TInifile.Create(basepath + '\ssltemplates\templates.cfg');
+
+      dlgcfg      := TInifile.Create(basepath + '\fdc.ini');
+      headerspath := dlgcfg.ReadString('Global Config', 'HeadersPath', '');
+      if headerspath = '' then
+      begin
+        ;
+        MessageDlg('Headers path not specified! Go to File->Preferences to set it.', mtWarning, [mbOK], 0);
+        exit;
+      end;
+      senddebugmsg(PChar('Headers Path := ' + headerspath));
+
+
+      form1 := TForm1.Create(nil);
+      // Disable style inheritance
+      form1.StyleElements := [];
+      form1.ParentBackground := False;
+      // Complete visual independence
+      form1.ParentWindow := 0;
+      SetWindowLongPtr(form1.Handle, GWL_HWNDPARENT, 0);
+      SetWindowLong(form1.Handle, GWL_EXSTYLE, 
+        GetWindowLong(form1.Handle, GWL_EXSTYLE) or WS_EX_APPWINDOW);
+      form1.ParentFont := True;
+      form1.Font.Name := 'Tahoma';
+      form1.checkbox3.Checked := amds_cfg.readbool('DDF Exporter', 'Write MSG References', False);
+
+
+      temcnt := templatecfg.ReadInteger('TemplateMain', 'count', 0);
+      if temcnt > 0 then
+      begin
+        ;
+        for i := 1 to temcnt do
+        begin
+          ;
+          Form1.templateList.Items.add(templatecfg.ReadString('TemplateMain', 'Template' + IntToStr(i), ''));
+        end;
+        form1.templateList.ItemIndex := 0;
+      end;
+      form1.JvDirectoryEdit1.Text := amds_cfg.ReadString('Output', 'ScriptPath', '');
+
+      form1.LMDFileOpenEdit1.initialdir :=
+        getsslpath;
+      form1.LMDFileOpenEdit2.initialdir :=
+        getmsgpath;
+
+      form1.CheckBox4.Checked := amds_cfg.readbool('DDF Exporter', 'Debug Nodes', False);
+      form1.CheckBox5.Checked := amds_cfg.Readbool('DDF Exporter', 'Debug Local vars', False);
+
+      sslpath := getsslpath;
+      msgpath := getmsgpath;
+
+      //form1.CheckBox2.Checked := amds_cfg.Readbool('DDF Exporter','Auto Fetch Descriptions',false);
+  (*
+  amds_cfg.writestring('DDF Exporter', 'NPC Name', edit1.text);
+  amds_cfg.writestring('DDF Exporter', 'Description', edit2.text);
+  amds_cfg.writestring('DDF Exporter', 'Location', edit3.text);
+  amds_cfg.writestring('DDF Exporter', 'Script ID', edit4.text);
+  amds_cfg.WriteString('DDF Exporter', 'DDF Output Path', ExtractFileDir(form1.SaveDialog1.filename));
+  amds_cfg.writebool('DDF Exporter', 'ProcessDDF', form1.checkbox1.checked);
+
+  *)
+
+
+      // form1.memo1.Text := amds_cfg.readstring('DDF Descriptions - '+npcname,'Unknown','');
+
+
+
+      form1.edit1.Text := cur_Dlg.npcname;
+      npcname          := form1.edit1.Text;
+
+      form1.LMDFileOpenEdit3.Filename :=
+        amds_cfg.readstring('DDF Settings - ' + npcname, 'Template', amds_cfg.ReadString(
+        'DDF Exporter', 'Script Template', ''));
+
+  (*form1.edit2.text := amds_cfg.readstring('DDF Descriptions - '+npcname, 'Description', '');
+  form1.edit3.text := amds_cfg.readstring('DDF Descriptions - '+npcname, 'Location', '');
+
+  *)
+      form1.edit2.Text := cur_dlg.description;
+      form1.edit3.Text := cur_dlg.location;
+      form1.edit4.Text := amds_cfg.readstring('DDF Descriptions - ' + npcname, 'Script ID', '');
+      if form1.edit4.Text = '' then
+        form1.edit4.Text := uppercase(cur_dlg.npcname);
+
+      form1.memo1.Text := cur_dlg.unknowndesc;
+      form1.memo2.Text := cur_dlg.knowndesc;
+      form1.memo3.Text := cur_dlg.detaileddesc;
+      DLGDef1          := TDLGDef.Create(NIL);
+
+      form1.LMDFileOpenEdit1.filename :=
+        sslpath + '\' + extractfilename(changefileext(cur_dlg.filename, '.ssl'));
+      form1.LMDFileOpenEdit2.filename :=
+        msgpath + '\' + extractfilename(changefileext(cur_dlg.filename, '.msg'));
+
+      form1.checkbox1.Checked :=
+        amds_cfg.readbool('DDF Exporter', 'Process DDF', True);
+      form1.Show;
+
+      while form1.Visible = True do
+      begin
+        application.ProcessMessages;
+      end;
+
+      // Save directory path BEFORE freeing form
+      scriptPath := Form1.JvDirectoryEdit1.Text;
+     //script.Free;
+      amds_cfg.writeString('Output', 'ScriptPath', scriptPath);
+
+      // Add cleanup after form closes
+      FreeAndNil(form1);
+      FreeAndNil(AMDS_Cfg);
+      FreeAndNil(templatecfg);
+      FreeAndNil(dlgcfg);
+      FreeAndNil(DLGDef1);
+
+
+    finally
+      // Don't dispose - main app owns the data
+      localDlg := nil;
+    end;
+  end;
+
+
+exports
+
+  CanAddToMenu,
+  GetPluginName,
+  GetInterfaceVersion,
+  GetPluginDescription,
+  // SetApplicationHandle,
+  PluginClose,
+  RunPlugin;
+
+
+// Add DLL unload handler
+var
+  OldDllProc: TDLLProc;
+
+procedure DLLExitProc(Reason: Integer);
+begin
+ 
+end;
+
+begin
+
+end.
+

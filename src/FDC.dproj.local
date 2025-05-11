@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00.00.00.000.716,C:\CodeProjects\FMFDLGTool\src\Source D12\Unit29.dfm=C:\CodeProjects\FMFDLGTool\src\Source D12\SplashScreen.dfm</Transaction>
+    <Transaction>1899.12.30 00.00.00.000.716,C:\CodeProjects\FMFDLGTool\src\Source D12\Unit29.pas=C:\CodeProjects\FMFDLGTool\src\Source D12\SplashScreen.pas</Transaction>
+    <Transaction>1899.12.30 00.00.00.000.061,=C:\CodeProjects\FMFDLGTool\src\Source D12\Unit29.pas</Transaction>
+  </Transactions>
+</BorlandProject>

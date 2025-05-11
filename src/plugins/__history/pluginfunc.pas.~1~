@@ -1,0 +1,561 @@
+(*
+
+FMF Dialogue Tool - dialogue editor for Fallout 2 mods
+Copyright (C) 2005-2008 T. Pitkänen
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+*)
+
+{ This is the plugin SDK unit which contains the EXE imports
+  and structure definitions.                                 }
+
+unit pluginfunc;
+
+
+interface
+
+uses
+  Classes,
+  Controls,
+  Forms,
+  StdCtrls,
+  SysUtils,
+  Windows;
+
+const
+
+
+  Interface_Version     = '0.28';
+
+const
+
+  MAX_OPTIONS           = 512;
+  MAX_NODES             = 512;
+
+  MAX_CONDITIONS        = 64;
+  MAX_FLOAT_NODES       = 512;
+  MAX_ACTIONS           = 64;
+  MAX_TIMED_EVENTS      = 128;
+  FIELD_NPC_NAME        = 0;
+  FIELD_NPC_LOCATION    = 1;
+  FIELD_NPC_DESCRIPTION = 2;
+  FIELD_NPC_UNKNOWN_LOOK = 3;
+  FIELD_NPC_KNOWN_LOOK  = 4;
+  FIELD_NPC_DETAILED_LOOK = 5;
+  FIELD_NODE_NPCTEXT    = 6;
+  FIELD_NODE_NPCFEMALETEXT = 7;
+  FIELD_NODE_NOTES      = 8;
+  FIELD_NODE_OPTIONCOUNT = 9;
+  FIELD_NODE_NAME       = 16;
+  FIELD_PLAYEROPTION_OPTIONTEXT = 10;
+  FIELD_PLAYEROPTION_REACTION = 11;
+  FIELD_PLAYEROPTION_GENDERFLAGS = 12;
+  FIELD_PLAYEROPTION_NODELINK = 13;
+  FIELD_PLAYEROPTION_INTCHECK = 14;
+  FIELD_PLAYEROPTION_NOTES = 15;
+
+
+const
+  REACTION_NEUTRAL      = 0;
+  REACTION_GOOD         = 1;
+  REACTION_BAD          = 2;
+
+
+  GENDER_NONE           = 0;
+  GENDER_MALE           = 1;
+  GENDER_FEMALE         = 2;
+
+
+  (*
+
+  Player character data structure
+  NOTE! This is for future releases, possibly 0.23 or 0.24
+
+  *)
+type
+  _skill = record
+    Name:  string;
+    Value: integer;
+  end;
+
+type
+  PlayerChar = record
+    Name:         string;
+    gender:       integer;
+    age:          integer; // not really useful but just for completeness sake
+    strength:     integer;
+    perception:   integer;
+    endurance:    integer;
+    charisma:     integer;
+    intelligence: integer;
+    agility:      integer;
+    luck:         integer;
+    dude_caps:    integer;
+    skills:       array [0..17] of _skill;
+
+  end;
+
+const
+  CHECK_TYPE_STAT     = 1;
+  CHECK_TYPE_SKILL    = 2;
+
+  // to be worked out later.
+  CHECK_TYPE_CHECKMONEY = 3;
+  CHECK_TYPE_ROLL_VS_SKILL = 4;
+
+  CHECK_FIELD_DUDE_CAPS = 1;
+  CHECK_FIELD_SELF_CAPS = 2;
+
+  CHECK_FIELD_STAT_ST = 1;
+  CHECK_FIELD_STAT_PE = 2;
+  CHECK_FIELD_STAT_EN = 3;
+  CHECK_FIELD_STAT_CH = 4;
+  CHECK_FIELD_STAT_IN = 5;
+  CHECK_FIELD_STAT_AG = 6;
+  CHECK_FIELD_STAT_LK = 7;
+
+  CHECK_FIELD_SKILL_SMALLGUNS = 1;
+  CHECK_FIELD_SKILL_BIGGUNS = 2;
+  CHECK_FIELD_SKILL_ENERGYWEAPONS = 3;
+  CHECK_FIELD_SKILL_UNARMED = 4;
+  CHECK_FIELD_SKILL_MELEE = 5;
+  CHECK_FIELD_SKILL_THROWING = 6;
+  CHECK_FIELD_SKILL_FIRSTAID = 7;
+  CHECK_FIELD_SKILL_DOCTOR = 8;
+  CHECK_FIELD_SKILL_SNEAK = 9;
+  CHECK_FIELD_SKILL_LOCKPICK = 10;
+  CHECK_FIELD_SKILL_STEAL = 11;
+  CHECK_FIELD_SKILL_TRAPS = 12;
+  CHECK_FIELD_SKILL_SCIENCE = 13;
+  CHECK_FIELD_SKILL_REPAIR = 14;
+  CHECK_FIELD_SKILL_SPEECH = 15;
+  CHECK_FIELD_SKILL_BARTER = 16;
+  CHECK_FIELD_SKILL_GAMBLING = 17;
+  CHECK_FIELD_SKILL_OUTDOORSMAN = 18;
+
+  COMPARE_EQUAL       = 1;                // ==
+  COMPARE_NOT_EQUAL   = 2;                // !=
+  COMPARE_LARGER_THAN = 3;                // >
+  COMPARE_LESS_THAN   = 4;                // <
+  COMPARE_LARGER_THAN_OR_EQUAL = 5;       // >=
+  COMPARE_LESS_THAN_OR_EQUAL = 6;         // <=
+
+type
+  condition           = record
+    check_type:    integer;
+    check_field:   integer;
+    check_eval:    integer;
+    var_ptr:       string;
+    check_value:   string;
+    resolved_code: string;
+    link:          integer;
+  end;
+
+const
+  LINK_NONE = 0;
+
+const
+  LINK_AND = 1;
+
+const
+  LINK_OR = 2;
+
+const
+  CHECK_FLAGS_SUCCESS = 1;
+
+
+type
+  option = record
+    optiontext:         string;
+    nodelink:           string;
+    noderesolved:       integer;
+    link_to_proc:       boolean;
+    link_to_skillcheck: boolean;
+    reaction:           integer;
+    genderflags:        integer;
+    intcheck:           integer;
+
+    notes:        string;
+    conditions:   array [0..MAX_CONDITIONS] of ^condition;
+    conditioncnt: integer;
+  end;
+
+type
+  skillcheck = record
+    check_proc_name: string;
+    check_what:      integer;
+    modifier:        integer;
+    successnode:     string;
+    failurenode:     string;
+  end;
+
+
+type
+  dlgnode = record
+    is_wtg: boolean;
+
+    customcode:    string;
+    // skill checks are located here so that when the DDF
+    // is spit out, they will be found in the node that they are needed
+    // in
+    skillchecks:   array [0..20] of ^skillcheck;
+    skillcheckcnt: integer;
+
+    nodename:       string;
+    npctext:        string;
+    npctext_female: string;
+    notes:          string;
+    hidden:         boolean;
+    options:        array [0..MAX_OPTIONS] of ^option;
+    optioncnt:      integer;
+  end;
+
+type
+  floatnode = record
+    nodename:   string;
+    notes:      string;
+    Messages:   array [0..256] of string;
+    messagecnt: integer;
+  end;
+
+type
+  action = record
+    // This is regular SSL code, but
+    // it is entered using pre-defined stuff
+    // so it is easier to add more things here.
+    linedata: string;
+  end;
+
+type
+  time_event_data = record
+    FixedParamName:      string;
+    FixedParamEnumIndex: integer;
+    actionlines:         array [0..MAX_ACTIONS] of ^action;
+    actioncnt:           integer;
+    israndom:            boolean;
+    mininterval:         integer;
+    maxinterval:         integer;
+    interval:            integer;
+  end;
+
+const
+  VAR_FLAGS_NONE   = 0;
+  VAR_FLAGS_IMPORT = 1;
+  VAR_FLAGS_EXPORT = 2;
+  VAR_FLAGS_LOCAL  = 3;
+
+type
+  TVariable        = record
+    Name:    string;
+    flags:   integer;
+    vartype: integer;
+    notes:   string;
+    Value:   variant;
+  end;
+
+type
+  cond_data = record
+    resultcode:         string;
+    parameter:          string;
+    evaluator:          integer;
+    compareto:          string;
+    index_of_selection: integer;
+    linkage:            integer;
+  end;
+
+
+type
+  starting_condition = record
+    conditions: array [0..30] of ^cond_data;
+    condcnt:    integer;
+    goto_node:  string;
+
+  end;
+
+type
+  custom_proc = record
+    Name:  string;
+    Lines: string;
+    associatewithnode: integer;
+  end;
+
+type
+  dialog = record
+    filename:         string;
+    npcname:          string;
+    description:      string;
+    location:         string;
+    unknowndesc, knowndesc, detaileddesc: string;
+    // start time event is the first timed event to add
+    // when the script starts
+    start_time_event: integer;
+
+    startconditions:   array [0..512] of ^starting_condition;
+    startconditioncnt: integer;
+    default_cond:      integer;
+    customprocs:       array [0..400] of ^custom_proc;
+    customproccnt:     integer;
+
+    timedevents:    array [0..MAX_TIMED_EVENTS] of ^time_event_data;
+    timedeventcnt:  integer;
+    floatnodes:     array [0..MAX_FLOAT_NODES] of ^floatnode;
+    floatnodecount: integer;
+    nodes:          array [0..MAX_NODES] of ^dlgnode;
+    nodecount:      integer;
+    variables:      array [0..1000] of ^TVariable;
+    varcnt:         integer;
+  end;
+
+
+
+type
+  dialog_oldformat = record
+    filename:    string;
+    npcname:     string;
+    description: string;
+    location:    string;
+    unknowndesc, knowndesc, detaileddesc: string;
+    nodes:       array [0..MAX_NODES] of ^dlgnode;
+    nodecount:   integer;
+  end;
+
+
+
+
+type
+  playerptr = ^playerchar;
+
+type
+  pdialogue = ^dialog_oldformat;
+
+type
+  pnewdialogue = ^dialog;
+
+type
+  pdlgnode = ^dlgnode;
+
+type
+  startcondition = record
+    condition:  string;
+    targetnode: string;
+  end;
+
+const
+  VAR_TYPE_STRING = 0;
+  VAR_TYPE_INT    = 1;
+  VAR_TYPE_FLOAT  = 2;
+
+
+
+  {*------------------------------------------------------------------------------
+Description
+
+  Returns a pointer to the player character data.
+  This is a local instance.
+
+  @return pointer to the player character data
+ -------------------------------------------------------------------------------}
+
+function GetPlayer: playerptr; stdcall; external 'fdc.exe';
+
+// displays a help file... just an attempt to see if it works
+
+procedure HelpSystemDeInit; stdcall; external 'fdc.exe';
+
+
+
+
+procedure HelpSystem(parentform: TForm; filename: pchar; Caption: pchar); stdcall; external 'fdc.exe';
+
+
+{*------------------------------------------------------------------------------
+Description
+
+  This function is the main method to retrieve dialogue data from
+  the dialogue tool. The function returns a pointer to the dialogue record from the editor
+  This is a local instance and does not update the actual dialogue
+  contained in the editor.
+
+  This function only returns the global npc properties and
+  the dialogue nodes.
+
+  Use GetDLGNew to get float nodes, timed events and variables as well.
+
+  @return Pointer to the dialogue structure
+  @see GetDLGNew
+-------------------------------------------------------------------------------}
+function GetDLG: pdialogue; stdcall; external 'fdc.exe';
+
+
+
+{*------------------------------------------------------------------------------
+Description
+  Returns a pointer to the dialogue record from the editor
+  This is a local instance and does not update the actual dialogue
+  contained in the editor.
+
+  @return pointer to the dialogue structure in the new format
+  @see GetDLG
+-------------------------------------------------------------------------------}
+procedure GetDLGNew_Alt(var dlg: pnewdialogue); stdcall; external 'fdc.exe';
+function GetDLGNew: pnewdialogue; stdcall; external 'fdc.exe';
+
+{*------------------------------------------------------------------------------
+Description
+  Tells the host application to execute a script command using the
+  DelphiWebScript engine
+
+  @param Data the script line to execute
+-------------------------------------------------------------------------------}
+
+procedure ExecuteScriptLines(Data: pchar); stdcall; external 'fdc.exe';
+
+{*------------------------------------------------------------------------------
+Description
+  Returns the name of the current dialogue file.
+  This function is no longer used as the filename
+  is contained in the dialogue data structure.
+  @param dastr variable to store the filename to
+  -------------------------------------------------------------------------------}
+procedure GetCurrentDLGName(var dastr: pchar); stdcall; external 'fdc.exe';
+
+
+{*------------------------------------------------------------------------------
+Description
+  Sets the output control to display output from the host application
+  This function was added mainly for use by the debugging console.
+
+  Currently supports TMemo type controls
+
+  @param ctrl Control to hook the text display to
+  -------------------------------------------------------------------------------}
+
+procedure SetOutputControl(ctrl: TControl); stdcall; external 'fdc.exe';
+
+
+{*------------------------------------------------------------------------------
+Description
+  Releases the output control so that it will no longer receive text
+  from the host application
+  -------------------------------------------------------------------------------}
+procedure UnsetOutputControl; stdcall; external 'fdc.exe';
+
+
+{*------------------------------------------------------------------------------
+Description
+  Requests the currently running node if dialogue is being tested
+
+  @return The name of the current node
+  -------------------------------------------------------------------------------}
+function GetCurrentNode: shortstring; stdcall; external 'fdc.exe';
+
+{*------------------------------------------------------------------------------
+Description
+  Requests the currently running node if dialogue is being tested
+
+  The specified node must exist in order for this to work.
+
+  @param node The node to jump in the FMFDLG dialogue engine
+  -------------------------------------------------------------------------------}
+procedure SetCurrentNode(node: shortstring); stdcall; external 'fdc.exe';
+
+
+{*------------------------------------------------------------------------------
+Description
+  Changes the target node of a player option
+
+  @param nodeind Node index
+  @param optionind Option index
+  @param newdata New node link data
+  -------------------------------------------------------------------------------}
+procedure SetOptionTargetNode(nodeind: integer; optionind: integer; newdata: pchar);
+procedure AddNode(nodename: string; npctext: string; notes: string; npctext_female: string = '');
+
+
+{*------------------------------------------------------------------------------
+Description
+  This function was a pathetic attempt to see if an external application could
+  interact with the dialogue tool. Needless to say, it didn't work.
+
+  However, plugins can call this function to register a non visible DLL file
+
+  I don't know what kind of use it has, yet, but we'll see.
+
+  @param appname Application name
+  @param name ?? NAME?
+  @param desc description
+  @param InterfaceVer interface version
+-------------------------------------------------------------------------------}
+procedure DoExternalRegister(appname: pchar; Name: pchar; desc: pchar; InterfaceVer: shortstring);
+  stdcall; external 'fdc.exe';
+
+{*------------------------------------------------------------------------------
+Description
+Gets the SSL output path
+
+@return Path where SSL files are generated to
+-------------------------------------------------------------------------------}
+function GetSSLPath: shortstring; stdcall; external 'fdc.exe';
+
+(*
+Description
+Returns the program version number for FMF Dialogue Tool. e.g. 0.25.4-stable
+*)
+
+function GetProgramVer: shortstring; stdcall; external 'fdc.exe';
+{*------------------------------------------------------------------------------
+Description
+Gets the MSG output path
+
+@return Path where MSG files are generated to
+-------------------------------------------------------------------------------}
+function GetMSGPath: shortstring; stdcall; external 'fdc.exe';
+
+
+{*------------------------------------------------------------------------------
+Description
+Sends a message to the debug window. Useful for debugging your plugins.
+
+@param str String to send to the debug window
+-------------------------------------------------------------------------------}
+procedure SendDebugMSG(str: pchar); stdcall; external 'fdc.exe';
+procedure SetApplicationHandle(Handle: HWnd); stdcall;
+
+implementation
+
+
+
+procedure SetApplicationHandle(Handle: HWnd); stdcall;
+begin
+  Application.Handle := Handle;
+  // Winskindata.SkinDll(adata);
+
+end;
+
+procedure SetOptionTargetNode(nodeind: integer; optionind: integer; newdata: pchar);
+begin
+  ;
+  ExecuteScriptLines(PChar(Format('SetPlayerOptionLink(%d,%d,''%s'');', [nodeind, optionind, newdata])));
+end;
+
+procedure AddNode(nodename: string; npctext: string; notes: string; npctext_female: string = '');
+begin
+  ExecuteScriptLines(PChar(Format('AddNodeNoRefresh(''%s'',''%s'',''%s'',''%s'');',
+    [nodename, npctext, notes, npctext_female])));
+end;
+
+end.
+

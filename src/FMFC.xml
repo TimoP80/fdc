@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="FMFC">
+  <contains name="CocoBaseNew" />
+  <contains name="FmxUtils" />
+  <contains name="JclBase" />
+  <contains name="JclLogic" />
+  <contains name="JclResources" />
+  <contains name="CommDlg" />
+  <contains name="WinSpool" />
+  <contains name="StdCtrls" />
+  <contains name="Dlgs" />
+  <contains name="StrUtils" />
+  <contains name="ShellAPI" />
+  <contains name="RegStr" />
+  <contains name="WinInet" />
+  <contains name="UrlMon" />
+  <contains name="ShlObj" />
+  <contains name="StdActns" />
+  <contains name="Imm" />
+  <contains name="Contnrs" />
+  <contains name="ImgList" />
+  <contains name="CommCtrl" />
+  <contains name="SyncObjs" />
+  <contains name="RTLConsts" />
+  <contains name="Consts" />
+  <contains name="Messages" />
+  <contains name="ActiveX" />
+  <contains name="Math" />
+  <contains name="SysConst" />
+  <contains name="ImageHlp" />
+  <contains name="Types" />
+  <contains name="Forms" />
+  <contains name="Clipbrd" />
+  <contains name="Dialogs" />
+  <contains name="ExtCtrls" />
+  <contains name="GraphUtil" />
+  <contains name="FlatSB" />
+  <contains name="Printers" />
+  <contains name="HelpIntfs" />
+  <contains name="Menus" />
+  <contains name="ActnList" />
+  <contains name="Controls" />
+  <contains name="Themes" />
+  <contains name="UxTheme" />
+  <contains name="MultiMon" />
+  <contains name="Graphics" />
+  <contains name="mwStringHashList" />
+  <contains name="JclStrings" />
+  <contains name="JclWideStrings" />
+  <contains name="TypInfo" />
+  <contains name="VarUtils" />
+  <contains name="Variants" />
+  <contains name="SysUtils" />
+  <contains name="Windows" />
+  <contains name="SharedDLGData" />
+  <contains name="ScriptCompilerIntf" />
+  <contains name="Registry" />
+  <contains name="IniFiles" />
+  <contains name="FMF" />
+  <contains name="DLGDef" />
+  <contains name="ddf_output" />
+  <contains name="CocoBase" />
+  <contains name="Classes" />
+  <contains name="SysInit" />
+  <contains name="System" />
+  <const name="ResultStr" type="string">
+    <value>
+      Results can be found in 
+    </value>
+  </const>
+  <class name="TDisplayObj">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="InitInstance" visibility="public">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public">
+      </methodref>
+      <methodref name="ClassName" visibility="public">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public">
+      </methodref>
+      <methodref name="ClassParent" visibility="public">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public">
+      </methodref>
+      <methodref name="MethodName" visibility="public">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public">
+      </methodref>
+      <methodref name="Dispatch" visibility="public">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public">
+      </methodref>
+      <methodref name="NewInstance" visibility="public">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public">
+      </methodref>
+      <methodref name="Destroy" visibility="public">
+      </methodref>
+    </ancestor>
+    <members>
+      <function name="CustomErrorEvent" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+          <parameter name="ErrorCode" type="Integer" paramflags="const" />
+          <parameter name="Data" type="string" paramflags="const" />
+          <retval type="string" />
+        </parameters>
+      </function>
+      <procedure name="onError" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+          <parameter name="Error" type="TCocoError" />
+        </parameters>
+      </procedure>
+      <procedure name="OnSuccess" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+        </parameters>
+      </procedure>
+      <procedure name="OnFailure" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+          <parameter name="NumErrors" type="Integer" />
+        </parameters>
+      </procedure>
+    </members>
+  </class>
+  <variable name="DLGDef1" type="TDLGDef" />
+  <variable name="FMFParser" type="TFMF" />
+  <variable name="Data" type="string" />
+  <variable name="reg" type="TRegistry" />
+  <variable name="DisplayObj" type="TDisplayObj" />
+  <variable name="x" type="Integer" />
+  <variable name="inputfile" type="string" />
+  <variable name="SourceList" type="TStringList" />
+  <procedure name="ShowVersion" visibility="private">
+  </procedure>
+  <procedure name="preprocess" visibility="private">
+    <parameters>
+      <parameter name="filename" type="string" />
+    </parameters>
+  </procedure>
+  <procedure name="ShowHelp" visibility="private">
+  </procedure>
+  <variable name="i" type="Integer" />
+</namespace>

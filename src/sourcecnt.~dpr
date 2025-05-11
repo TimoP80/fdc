@@ -1,0 +1,31 @@
+program sourcecnt;
+
+{$APPTYPE CONSOLE}
+
+uses
+  classes,JclFileUtils,
+  SysUtils;
+
+var curfile: TStrings;
+var j: integer;
+var files: TStrings;
+var totalcount: integer;
+begin
+files := TStringlist.create;
+curfile:=TStringlist.create;
+
+AdvBuildFileList(getcurrentdir+'\*.ssl',faAnyFile,files,amAny,[flFullNames]);
+AdvBuildFileList(getcurrentdir+'\*.pas',faAnyFile,files,amAny,[flFullNames]);
+AdvBuildFileList(getcurrentdir+'\*.dpr',faAnyFile,files,amAny,[flFullNames]);
+writeln(files.count,' source files found in list.');
+totalcount := 0;
+for j:=0 to files.count-1 do
+begin;
+write(files[j]);
+curfile.LoadFromFile(files[j]);
+inc(totalcount,curfile.Count);
+writeln(' -> ',curfile.count,' lines.');
+curfile.clear;
+end;
+writeln('Total lines of code: ',totalcount);
+end.

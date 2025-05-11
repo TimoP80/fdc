@@ -1,0 +1,71 @@
+library ThemeLibraryModule;
+
+uses
+  Winapi.Windows, System.SysUtils, System.IOUtils, System.Classes, Vcl.Styles, Vcl.Themes;
+
+var
+  StyleList: TStringList;
+
+{$R VCLStyles.res}
+
+// Callback function to enumerate VCL styles
+function EnumResNamesProc(hModule: HMODULE; lpszType, lpszName: PChar;
+  lParam: LPARAM): BOOL; stdcall;
+begin
+  StyleList.Add(lpszName); // Add style name to list
+  Result := True;
+end;
+
+// Retrieve list of styles inside the DLL
+procedure GetVCLStylesInDLL; stdcall;
+begin
+  StyleList.Clear;
+  EnumResourceNames(HInstance, RT_RCDATA, @EnumResNamesProc, 0);
+end;
+
+// Exported function to return the style list as a PChar
+function GetVCLStyleList: PChar; stdcall;
+begin
+  GetVCLStylesInDLL;
+  Result := PChar(StyleList.Text);
+end;
+
+// Exported function to extract and load a VCL Style
+function ApplyVCLStyle(StyleName: PChar): Boolean; stdcall;
+var
+  ResStream: TResourceStream;
+  TempFile: string;
+begin
+  Result := False;
+
+  if FindResource(HInstance, StyleName, RT_RCDATA) = 0 then
+    Exit; // Style not found
+
+  try
+    // Create a temporary file for the style
+    TempFile := IncludeTrailingPathDelimiter(TPath.GetTempPath()) + StyleName + '.vsf';
+
+    // Extract the style resource
+    ResStream := TResourceStream.Create(HInstance, StyleName, RT_RCDATA);
+    try
+      ResStream.SaveToFile(TempFile);
+    finally
+      ResStream.Free;
+    end;
+
+    // Load and apply the style
+    TStyleManager.SetStyle(TStyleManager.LoadFromFile(TempFile));
+    Result := True;
+  except
+    on E: Exception do
+      OutputDebugString(PChar('Error applying VCL Style: ' + E.Message));
+  end;
+end;
+
+exports
+  GetVCLStyleList,
+  ApplyVCLStyle;
+
+begin
+  StyleList := TStringList.Create;
+end.

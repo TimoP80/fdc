@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="ScriptCompilerIntf">
+  <variable name="libhandle" type="Cardinal" />
+  <variable name="CompileScript" type="TCompileProc" />
+  <variable name="GetLastCompilerError" type="TErrorProc" />
+  <variable name="cmppath" type="string" />
+  <variable name="script_output" type="string" />
+  <function name="DoCompile" visibility="private">
+    <parameters>
+      <parameter name="filename" type="string" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <procedure name="DeInitCompiler" visibility="private">
+  </procedure>
+  <function name="InitCompiler" visibility="private">
+    <parameters>
+      <parameter name="DLLpath" type="string" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+</namespace>

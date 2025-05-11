@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="StrUtils_">
+  <set name="TCharSet" alias="TSysCharSet" namespace="SysUtils" type="Char" />
+  <const name="CRLF" type="string">
+    <value>
+      
+
+    </value>
+  </const>
+  <const name="DigitChars" type="Set">
+    <value>
+      ['0'..'9']
+    </value>
+  </const>
+  <const name="Brackets" type="Set">
+    <value>
+      ['('..')','[',']','{','}']
+    </value>
+  </const>
+  <const name="StdWordDelims" type="Set">
+    <value>
+      ['..' ','"','''..')',',','.'..'/',':'..';','['..']','`','{','}']
+    </value>
+  </const>
+  <function name="StrToOem" visibility="private">
+    <parameters>
+      <parameter name="AnsiStr" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="OemToAnsiStr" visibility="private">
+    <parameters>
+      <parameter name="OemStr" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="IsEmptyStr" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="EmptyChars" type="TSysCharSet" paramflags="var" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="ReplaceStr" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="Srch" type="string" paramflags="const" />
+      <parameter name="Replace" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="DelSpace" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="DelChars" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="Chr" type="Char" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="DelBSpace" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="DelESpace" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="DelRSpace" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="DelSpace1" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="Tab2Space" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="Numb" type="Byte" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="MakeStr" visibility="private">
+    <parameters>
+      <parameter name="C" type="Char" />
+      <parameter name="N" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="MS" visibility="private">
+    <parameters>
+      <parameter name="C" type="Char" />
+      <parameter name="N" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="NPos" visibility="private">
+    <parameters>
+      <parameter name="C" type="string" paramflags="const" />
+      <parameter name="S" type="string" />
+      <parameter name="N" type="Integer" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="AddChar" visibility="private">
+    <parameters>
+      <parameter name="C" type="Char" />
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="N" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="AddCharR" visibility="private">
+    <parameters>
+      <parameter name="C" type="Char" />
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="N" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="LeftStr" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="N" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="RightStr" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="N" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="CompStr" visibility="private">
+    <parameters>
+      <parameter name="S1" type="string" paramflags="const" />
+      <parameter name="S2" type="string" paramflags="const" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="CompText" visibility="private">
+    <parameters>
+      <parameter name="S1" type="string" paramflags="const" />
+      <parameter name="S2" type="string" paramflags="const" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="Copy2Symb" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="Symb" type="Char" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="Copy2SymbDel" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="var" />
+      <parameter name="Symb" type="Char" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="Copy2Space" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="Copy2SpaceDel" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="var" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="AnsiProperCase" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="WordDelims" type="TSysCharSet" paramflags="var" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="WordCount" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="WordDelims" type="TSysCharSet" paramflags="var" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="WordPosition" visibility="private">
+    <parameters>
+      <parameter name="N" type="Integer" paramflags="const" />
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="WordDelims" type="TSysCharSet" paramflags="var" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="ExtractWord" visibility="private">
+    <parameters>
+      <parameter name="N" type="Integer" />
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="WordDelims" type="TSysCharSet" paramflags="var" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="ExtractWordPos" visibility="private">
+    <parameters>
+      <parameter name="N" type="Integer" />
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="WordDelims" type="TSysCharSet" paramflags="var" />
+      <parameter name="Pos" type="Integer" paramflags="var" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="ExtractDelimited" visibility="private">
+    <parameters>
+      <parameter name="N" type="Integer" />
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="Delims" type="TSysCharSet" paramflags="var" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="ExtractSubstr" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="Pos" type="Integer" paramflags="var" />
+      <parameter name="Delims" type="TSysCharSet" paramflags="var" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="IsWordPresent" visibility="private">
+    <parameters>
+      <parameter name="W" type="string" paramflags="const" />
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="WordDelims" type="TSysCharSet" paramflags="var" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="QuotedString" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="Quote" type="Char" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="ExtractQuotedString" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="Quote" type="Char" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="Numb2USA" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="CenterStr" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <parameter name="Len" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="Dec2Hex" visibility="private">
+    <parameters>
+      <parameter name="N" type="Integer" />
+      <parameter name="A" type="Byte" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="D2H" visibility="private">
+    <parameters>
+      <parameter name="N" type="Integer" />
+      <parameter name="A" type="Byte" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="Hex2Dec" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="H2D" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="Dec2Numb" visibility="private">
+    <parameters>
+      <parameter name="N" type="Integer" />
+      <parameter name="A" type="Byte" />
+      <parameter name="B" type="Byte" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="Numb2Dec" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" />
+      <parameter name="B" type="Byte" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="RomanToInt" visibility="private">
+    <parameters>
+      <parameter name="S" type="string" paramflags="const" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="IntToRoman" visibility="private">
+    <parameters>
+      <parameter name="Value" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="IntToBin" visibility="private">
+    <parameters>
+      <parameter name="Value" type="Integer" />
+      <parameter name="Digits" type="Integer" />
+      <parameter name="Spaces" type="Integer" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="FindPart" visibility="private">
+    <parameters>
+      <parameter name="HelpWilds" type="string" paramflags="const" />
+      <parameter name="InputStr" type="string" paramflags="const" />
+      <retval type="Integer" />
+    </parameters>
+  </function>
+  <function name="IsWild" visibility="private">
+    <parameters>
+      <parameter name="InputStr" type="string" />
+      <parameter name="Wilds" type="string" />
+      <parameter name="IgnoreCase" type="Boolean" />
+      <retval type="Boolean" />
+    </parameters>
+  </function>
+  <function name="XorString" visibility="private">
+    <parameters>
+      <parameter name="Key" type="ShortString" paramflags="var" />
+      <parameter name="Src" type="ShortString" paramflags="var" />
+      <retval type="ShortString" />
+    </parameters>
+  </function>
+  <function name="XorEncode" visibility="private">
+    <parameters>
+      <parameter name="Key" type="string" paramflags="const" />
+      <parameter name="Source" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="XorDecode" visibility="private">
+    <parameters>
+      <parameter name="Key" type="string" paramflags="const" />
+      <parameter name="Source" type="string" paramflags="const" />
+      <retval type="string" />
+    </parameters>
+  </function>
+  <function name="GetCmdLineArg" visibility="private">
+    <parameters>
+      <parameter name="Switch" type="string" paramflags="const" />
+      <parameter name="SwitchChars" type="TSysCharSet" />
+      <retval type="string" />
+    </parameters>
+  </function>
+</namespace>

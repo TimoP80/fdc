@@ -1,0 +1,50 @@
+[Frames]
+Ancestor=$(CocoR)\Frames\CocoBase.pas
+Parser=$(CocoR)\Frames\component.frm
+Test Project=$(CocoR)\Frames\Test.dpr.frm
+Test Form=$(CocoR)\Frames\Test.pas.frm
+Test DFM=$(CocoR)\Frames\Test.dfm.frm
+Console=$(CocoR)\Frames\Console.dpr.frm
+[Output]
+Directory=C:\CodeProjects\AdventureCreator\src\adventurecreator
+[Registration]
+Palette=Coco/R
+[Messages]
+Show Warnings=1
+Show LL(1) Start Succ=1
+[Hash]
+Primary=TinyHash
+Secondary=HashSecondaryOne
+[Error Msg]
+Expected=%D% expected
+Invalid=invalid %D%
+Not Expected=this symbol not expected in %D%
+[Strings]
+Last Build Format=
+Version Format=
+[Options]
+C=1
+M=0
+R=0
+E=0
+Z=1
+V=0
+B=0
+O=0
+H=0
+Y=0
+D=0
+L=0
+A=0
+F=0
+G=0
+I=0
+S=0
+T=0
+X=0
+[Version Info]
+Version Number=0.0.0.0
+Last Build=27.12.2019 19:36:49
+Comment=
+Author=
+Copyright=

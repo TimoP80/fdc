@@ -1,0 +1,32 @@
+
+================================================================================
+Grammar Tests:
+  Deletable symbols:        -- none --
+  Undefined nonterminals:   -- none --
+  Unreachable nonterminals: -- none --
+  Circular derivations:     -- none --
+  Underivable nonterminals: -- none --
+  LL(1) conditions:         --  ok  --
+
+================================================================================
+Time Compiled: 2. elokuuta 2005 @ 16:09:55
+
+Statistics:
+  number of terminals:        17 (limit   513)
+  number of non-terminals:     4 (limit   496)
+  number of pragmas:           1 (limit   496)
+  number of symbolnodes:      22 (limit   513)
+  number of graphnodes:       38 (limit  3001)
+  number of conditionsets:     1 (limit   101)
+  number of charactersets:     8 (limit   501)
+
+================================================================================
+Options:
+  Generate a component registration unit
+  Generate console app
+  Generate version information
+  Auto-increment build number
+  Use Hash functions to lookup literals
+  Append a semi-colon to semantic actions
+
+

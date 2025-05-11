@@ -1,0 +1,204 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{1D8211F9-1F4D-4947-827E-3345B21E1CBE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DEV_ScriptConsole.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Export_HTML.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Export_PHP.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Export_ScriptOutput.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Export_TXT.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Export_XML.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Import_SSL.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Import_TXT.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Net_UploadFMF.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Utility_NodeTreeView.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Utility_RenameNodes.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Utility_ScriptReg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Utility_SkillCheckTool.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Utility_ValidateDLG.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\DEV_PluginCreator.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DEV_ScriptConsole">
+        <MSBuild Projects="DEV_ScriptConsole.dproj"/>
+    </Target>
+    <Target Name="DEV_ScriptConsole:Clean">
+        <MSBuild Projects="DEV_ScriptConsole.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DEV_ScriptConsole:Make">
+        <MSBuild Projects="DEV_ScriptConsole.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Export_HTML">
+        <MSBuild Projects="Export_HTML.dproj"/>
+    </Target>
+    <Target Name="Export_HTML:Clean">
+        <MSBuild Projects="Export_HTML.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Export_HTML:Make">
+        <MSBuild Projects="Export_HTML.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Export_PHP">
+        <MSBuild Projects="Export_PHP.dproj"/>
+    </Target>
+    <Target Name="Export_PHP:Clean">
+        <MSBuild Projects="Export_PHP.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Export_PHP:Make">
+        <MSBuild Projects="Export_PHP.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Export_ScriptOutput">
+        <MSBuild Projects="Export_ScriptOutput.dproj"/>
+    </Target>
+    <Target Name="Export_ScriptOutput:Clean">
+        <MSBuild Projects="Export_ScriptOutput.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Export_ScriptOutput:Make">
+        <MSBuild Projects="Export_ScriptOutput.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Export_TXT">
+        <MSBuild Projects="Export_TXT.dproj"/>
+    </Target>
+    <Target Name="Export_TXT:Clean">
+        <MSBuild Projects="Export_TXT.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Export_TXT:Make">
+        <MSBuild Projects="Export_TXT.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Export_XML">
+        <MSBuild Projects="Export_XML.dproj"/>
+    </Target>
+    <Target Name="Export_XML:Clean">
+        <MSBuild Projects="Export_XML.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Export_XML:Make">
+        <MSBuild Projects="Export_XML.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Import_SSL">
+        <MSBuild Projects="Import_SSL.dproj"/>
+    </Target>
+    <Target Name="Import_SSL:Clean">
+        <MSBuild Projects="Import_SSL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Import_SSL:Make">
+        <MSBuild Projects="Import_SSL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Import_TXT">
+        <MSBuild Projects="Import_TXT.dproj"/>
+    </Target>
+    <Target Name="Import_TXT:Clean">
+        <MSBuild Projects="Import_TXT.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Import_TXT:Make">
+        <MSBuild Projects="Import_TXT.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Net_UploadFMF">
+        <MSBuild Projects="Net_UploadFMF.dproj"/>
+    </Target>
+    <Target Name="Net_UploadFMF:Clean">
+        <MSBuild Projects="Net_UploadFMF.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Net_UploadFMF:Make">
+        <MSBuild Projects="Net_UploadFMF.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Utility_NodeTreeView">
+        <MSBuild Projects="Utility_NodeTreeView.dproj"/>
+    </Target>
+    <Target Name="Utility_NodeTreeView:Clean">
+        <MSBuild Projects="Utility_NodeTreeView.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Utility_NodeTreeView:Make">
+        <MSBuild Projects="Utility_NodeTreeView.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Utility_RenameNodes">
+        <MSBuild Projects="Utility_RenameNodes.dproj"/>
+    </Target>
+    <Target Name="Utility_RenameNodes:Clean">
+        <MSBuild Projects="Utility_RenameNodes.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Utility_RenameNodes:Make">
+        <MSBuild Projects="Utility_RenameNodes.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Utility_ScriptReg">
+        <MSBuild Projects="Utility_ScriptReg.dproj"/>
+    </Target>
+    <Target Name="Utility_ScriptReg:Clean">
+        <MSBuild Projects="Utility_ScriptReg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Utility_ScriptReg:Make">
+        <MSBuild Projects="Utility_ScriptReg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Utility_SkillCheckTool">
+        <MSBuild Projects="Utility_SkillCheckTool.dproj"/>
+    </Target>
+    <Target Name="Utility_SkillCheckTool:Clean">
+        <MSBuild Projects="Utility_SkillCheckTool.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Utility_SkillCheckTool:Make">
+        <MSBuild Projects="Utility_SkillCheckTool.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Utility_ValidateDLG">
+        <MSBuild Projects="Utility_ValidateDLG.dproj"/>
+    </Target>
+    <Target Name="Utility_ValidateDLG:Clean">
+        <MSBuild Projects="Utility_ValidateDLG.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Utility_ValidateDLG:Make">
+        <MSBuild Projects="Utility_ValidateDLG.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DEV_PluginCreator">
+        <MSBuild Projects="..\DEV_PluginCreator.dproj"/>
+    </Target>
+    <Target Name="DEV_PluginCreator:Clean">
+        <MSBuild Projects="..\DEV_PluginCreator.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DEV_PluginCreator:Make">
+        <MSBuild Projects="..\DEV_PluginCreator.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DEV_ScriptConsole;Export_HTML;Export_PHP;Export_ScriptOutput;Export_TXT;Export_XML;Import_SSL;Import_TXT;Net_UploadFMF;Utility_NodeTreeView;Utility_RenameNodes;Utility_ScriptReg;Utility_SkillCheckTool;Utility_ValidateDLG;DEV_PluginCreator"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DEV_ScriptConsole:Clean;Export_HTML:Clean;Export_PHP:Clean;Export_ScriptOutput:Clean;Export_TXT:Clean;Export_XML:Clean;Import_SSL:Clean;Import_TXT:Clean;Net_UploadFMF:Clean;Utility_NodeTreeView:Clean;Utility_RenameNodes:Clean;Utility_ScriptReg:Clean;Utility_SkillCheckTool:Clean;Utility_ValidateDLG:Clean;DEV_PluginCreator:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DEV_ScriptConsole:Make;Export_HTML:Make;Export_PHP:Make;Export_ScriptOutput:Make;Export_TXT:Make;Export_XML:Make;Import_SSL:Make;Import_TXT:Make;Net_UploadFMF:Make;Utility_NodeTreeView:Make;Utility_RenameNodes:Make;Utility_ScriptReg:Make;Utility_SkillCheckTool:Make;Utility_ValidateDLG:Make;DEV_PluginCreator:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

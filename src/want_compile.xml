@@ -1,0 +1,51 @@
+
+<project name = "compilecode" basedir = "." default = "compile" >
+
+<patternset id = "sources" >
+
+<include name = "m:\fmfdlgtool\src\plugins"  />
+
+<include name = "P:\Delphi7SE\Lib"  />
+
+</patternset>
+
+<target name = "compile" >
+
+<dcc basedir = "." source = "C:\CodeProjects\FMFDLGTool\src\fmfdlg.dpr" >
+
+<build value = "True"  />
+
+<exeoutput path = "C:\CodeProjects\FMFDlgTool"  />
+
+<Optimization value = "False"  />
+
+<RangeChecks value = "True"  />
+
+<Overflowchecks value = "True"  />
+
+<DefinitionInfo value = "False"  />
+
+<Assertions value = "False"  />
+
+<UseVerbose value = "True"  />
+
+<warnings value = "False"  />
+
+<map value = "detailed"  />
+
+<console value = "True"  />
+
+<define name = "DEBUGBUILD"  />
+
+<unitPath refid = "sources"  />
+
+<includePath refid = "sources"  />
+
+<resourcePath refid = "sources"  />
+
+</dcc>
+
+</target>
+
+</project>
+

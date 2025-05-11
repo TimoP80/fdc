@@ -1,0 +1,9 @@
+utility_nodeviewer.dll
+_CanAddToMenu@0		CanAddToMenu
+_GetInterfaceVersion@0		GetInterfaceVersion
+_GetPluginDescription@0		GetPluginDescription
+_GetPluginName@0		GetPluginName
+_LibMain@12		LibMain
+_PluginClose@0		PluginClose
+_PluginUpdate@0		PluginUpdate
+_RunPlugin@256		RunPlugin

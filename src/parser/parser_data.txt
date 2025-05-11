@@ -1,0 +1,205 @@
+var tempcondcheck: string;
+  tempcondfield:   string;
+  tempcondval:     string;
+  tempcondeval:    string;
+  tempcondlink:    integer;
+
+procedure TFMF.Init;
+begin
+  currentdlg.nodecount := 0;
+  OutputStream.Clear;
+  currentdlg.floatnodecount := 0;
+  currentdlg.varcnt := 0;
+  currentdlg.timedeventcnt := 0;
+  currentdlg.startconditioncnt := 0;
+  SubSelectDepth := 0;
+end;
+
+procedure TFMF.Final;
+begin
+  OutputStream.Position := 0;
+  OutputStream.SaveToStream(ListStream);
+  OutputStream.Clear;
+end;
+
+
+
+procedure TFMF.WriteStr(S: string);
+begin
+  S := S + #13#10;
+  OutputStream.WriteBuffer(S[1], length(S));
+end;
+
+
+procedure CreateNewCondition;
+var temp_cond: condition;
+begin;
+  temp_cond.check_type  := 0;
+  temp_cond.check_field := 0;
+  temp_cond.check_eval  := 0;
+  temp_cond.link        := tempcondlink;
+  if tempcondcheck = 'CHECK_SKILL' then
+    temp_cond.check_type := CHECK_TYPE_SKILL else
+  if tempcondcheck = 'CHECK_STAT' then
+    temp_cond.check_type := CHECK_TYPE_STAT else
+  if tempcondcheck = 'CHECK_MONEY' then
+    temp_cond.check_type := CHECK_TYPE_CHECKMONEY else
+  if tempcondcheck = 'GLOBAL_VARIABLE' then
+  begin;
+    temp_cond.check_type := CHECK_TYPE_GLOBAL_VARIABLE;
+    temp_cond.var_ptr    := tempcondfield;
+  end else
+  if tempcondcheck = 'LOCAL_VARIABLE' then
+  begin;
+    temp_cond.check_type := CHECK_TYPE_LOCAL_VARIABLE;
+    temp_cond.var_ptr    := tempcondfield;
+
+  end else
+  if tempcondcheck = 'SCRIPT_VARIABLE' then
+  begin;
+    temp_cond.check_type := CHECK_TYPE_SCRIPT_VARIABLE;
+    temp_cond.var_ptr    := tempcondfield;
+  end else
+  if tempcondcheck = 'PLAYER_HAS_ITEM' then
+  begin;
+    temp_cond.check_type := CHECK_TYPE_ITEM_PLAYER;
+    temp_cond.var_ptr    := tempcondfield;
+  end;
+
+
+  if tempcondfield = 'dude_caps' then
+    temp_cond.check_field := CHECK_FIELD_DUDE_CAPS else
+  if tempcondfield = 'strength' then
+    temp_cond.check_field := CHECK_FIELD_STAT_ST else
+  if tempcondfield = 'perception' then
+    temp_cond.check_field := CHECK_FIELD_STAT_PE else
+  if tempcondfield = 'endurance' then
+    temp_cond.check_field := CHECK_FIELD_STAT_EN else
+  if tempcondfield = 'charisma' then
+    temp_cond.check_field := CHECK_FIELD_STAT_CH else
+  if tempcondfield = 'intelligence' then
+    temp_cond.check_field := CHECK_FIELD_STAT_IN else
+  if tempcondfield = 'agility' then
+    temp_cond.check_field := CHECK_FIELD_STAT_AG else
+  if tempcondfield = 'luck' then
+    temp_cond.check_field := CHECK_FIELD_STAT_LK else
+  if tempcondfield = 'armor_class' then
+    temp_cond.check_field := CHECK_FIELD_STAT_ARMOR_CLASS else
+  if tempcondfield = 'carry_amount' then
+    temp_cond.check_field := CHECK_FIELD_STAT_CARRY_AMOUNT else
+  if tempcondfield = 'healing_rate' then
+    temp_cond.check_field := CHECK_FIELD_STAT_HEALING_RATE else
+  if tempcondfield = 'max_hp' then
+    temp_cond.check_field := CHECK_FIELD_STAT_MAXIMUM_HIT_POINTS else
+  if tempcondfield = 'cur_hp' then
+    temp_cond.check_field := CHECK_FIELD_STAT_CURRENT_HIT_POINTS else
+  if tempcondfield = 'cur_rad_lev' then
+    temp_cond.check_field := CHECK_FIELD_STAT_CURRENT_RAD_LEVEL else
+  if tempcondfield = 'cur_poison_lev' then
+    temp_cond.check_field := CHECK_FIELD_STAT_CURRENT_POISON_LEVEL else
+
+  if tempcondfield = 'small_guns' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_SMALLGUNS else
+  if tempcondfield = 'big_guns' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_BIGGUNS else
+  if tempcondfield = 'energy_weapons' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_ENERGYWEAPONS else
+  if tempcondfield = 'unarmed_combat' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_UNARMED else
+  if tempcondfield = 'melee_combat' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_MELEE else
+  if tempcondfield = 'throwing' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_THROWING else
+  if tempcondfield = 'first_aid' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_FIRSTAID else
+  if tempcondfield = 'doctor' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_DOCTOR else
+  if tempcondfield = 'sneak' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_SNEAK else
+  if tempcondfield = 'lockpick' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_LOCKPICK else
+  if tempcondfield = 'steal' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_STEAL else
+  if tempcondfield = 'traps' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_TRAPS else
+  if tempcondfield = 'science' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_SCIENCE else
+  if tempcondfield = 'repair' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_REPAIR else
+  if tempcondfield = 'speech' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_SPEECH else
+  if tempcondfield = 'barter' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_BARTER else
+  if tempcondfield = 'gambling' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_GAMBLING else
+  if tempcondfield = 'outdoorsman' then
+    temp_cond.check_field := CHECK_FIELD_SKILL_OUTDOORSMAN;
+
+  if tempcondeval = '==' then
+    temp_cond.check_eval := COMPARE_EQUAL else
+  if tempcondeval = '!=' then
+    temp_cond.check_eval := COMPARE_NOT_EQUAL else
+  if tempcondeval = '<' then
+    temp_cond.check_eval := COMPARE_LESS_THAN else
+  if tempcondeval = '>' then
+    temp_cond.check_eval := COMPARE_LARGER_THAN else
+  if tempcondeval = '>=' then
+    temp_cond.check_eval := COMPARE_LARGER_THAN_OR_EQUAL else
+  if tempcondeval = '<=' then
+    temp_cond.check_eval := COMPARE_LESS_THAN_OR_EQUAL;
+  temp_cond.check_value := tempcondval;
+
+
+  temp_cond.resolved_code := ResolveToSSL(temp_cond);
+  try
+    new(currentdlg.nodes[currentdlg.nodecount].options[currentdlg.nodes[currentdlg.nodecount].optioncnt].conditions
+      [currentdlg.nodes[currentdlg.nodecount].options[currentdlg.nodes[currentdlg.nodecount].optioncnt].conditioncnt]);
+    currentdlg.nodes[currentdlg.nodecount].options[currentdlg.nodes[currentdlg.nodecount].optioncnt].conditions[
+      currentdlg.nodes[currentdlg.nodecount].options[currentdlg.nodes[currentdlg.nodecount].optioncnt].
+      conditioncnt]^ :=
+      temp_cond;
+    Inc(currentdlg.nodes[currentdlg.nodecount].options[currentdlg.nodes[currentdlg.nodecount].optioncnt].conditioncnt);
+  except on e : Exception do
+    begin;
+      MessageDlg('ALLOC ERROR!!!!', mtError, [mbOK], 0);
+    end;
+  end;
+
+end;
+
+function parse_string(zstr: string): string;
+var t:    integer;
+var temp: string;
+var len:  integer;
+begin;
+  len := 0;
+  temp:='';
+  //writeln ('Parsing string: ',zstr);
+  t   := pos('"', zstr) + 1;
+  len := length(zstr);
+  while (zstr[t] <> '"') do
+  begin;
+    //writeln (zstr[t]);
+    if (zstr[t] = '\') and (zstr[t + 1] = '"') then
+    begin;
+      temp := temp + '"';
+      Inc(t, 1);
+    end else
+    if (zstr[t] = '\') and (zstr[t + 1] = 't') then
+    begin;
+      temp := temp + #9;
+      Inc(t, 1);
+    end else
+    if (zstr[t] = '\') and (zstr[t + 1] = 'n') then
+    begin;
+      temp := temp + #13#10;
+      Inc(t, 1);
+    end else
+
+      temp := temp + zstr[t];
+
+    Inc(t);
+  end;
+  Result := temp;
+end;
+

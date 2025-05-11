@@ -1,0 +1,406 @@
+unit regscrunit;
+
+interface
+
+uses
+  Classes, ComCtrls, Controls, Dialogs, ExtCtrls, Forms,
+  Graphics, JvExStdCtrls,
+  JvHtControls, Messages, pluginfunc, ScriptRegister, StdCtrls, SysUtils,
+  Variants, Windows,
+  Mask, JvExMask, JvToolEdit;
+
+type
+  TForm1 = class(TForm)
+    Label1:     TLabel;
+    ListView1:  TListView;
+    Bevel1:     TBevel;
+    Button1:    TButton;
+    GroupBox1:  TGroupBox;
+    Label2:     TLabel;
+    Label3:     TLabel;
+    Edit2:      TEdit;
+    Label4:     TLabel;
+    Edit3:      TEdit;
+    UpDown1:    TUpDown;
+    JvHTLabel1: TJvHTLabel;
+    Button2:    TButton;
+    Edit1:      TJvFilenameEdit;
+    Button3:    TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure ListView1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Edit1BeforeDialog(Sender: TObject; var Name: string;
+      var Action: boolean);
+    procedure Edit1ButtonClick(Sender: TObject);
+    procedure Edit1AfterDialog(Sender: TObject; var Name: string;
+      var Action: boolean);
+    procedure Edit1Change(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1:    TForm1;
+  datapath: string;
+  state:    integer;
+
+const
+  STATE_ADD_NEW      = 1;
+  STATE_REPLACE_OLD  = 2;
+  STATE_DELETE_ENTRY = 3;
+
+
+procedure RefreshScripts;
+
+implementation
+
+function ScriptExists(filename: string): boolean;
+var
+  y: integer;
+begin
+  Result := False;
+  for y := 0 to scriptlstentrycnt - 1 do
+  begin
+    if (scriptlstentries[y].scriptfilename = filename) then
+    begin
+      Result := True;
+      exit;
+    end;
+  end;
+end;
+
+
+procedure RefreshScripts;
+var
+  t: integer;
+  x: TListItem;
+begin
+  form1.JvHTLabel1.Caption :=
+    'Total number of scripts: <b>' + IntToStr(scriptlstentrycnt) + '</b>';
+  form1.JvHTLabel1.Canvas.Brush.Style := bsClear;
+  Form1.ListView1.Clear;
+  for t := 0 to scriptlstentrycnt - 1 do
+  begin
+    x := Form1.ListView1.Items.Add;
+    x.Caption := scriptlstentries[t].scriptfilename;
+    x.subitems.add(scriptlstentries[t].scriptdesc);
+    x.subitems.add(IntToStr(scriptlstentries[t].localvars));
+  end;
+  //  form1.listview1.setitemindex(listview1.items.count-1);
+
+end;
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  form1.Close;
+end;
+
+procedure TForm1.ListView1Click(Sender: TObject);
+begin
+  if listview1.selected <> nil then
+  begin
+    edit1.Text := scriptlstentries[listview1.Selected.index].scriptfilename;
+    edit2.Text := scriptlstentries[listview1.Selected.index].scriptdesc;
+    edit3.Text := IntToStr(scriptlstentries[listview1.Selected.index].localvars);
+    Button3.Enabled := True;
+
+  end;
+
+  if (listview1.selected = nil) then
+
+  begin
+    edit1.Text := '';
+    edit2.Text := '';
+    UpDown1.Position := 0;
+    Button3.Enabled := False;
+    state := STATE_ADD_NEW;
+    button2.Caption := 'Add new';
+  end else
+  begin
+    state := STATE_REPLACE_OLD;
+    button2.Caption := 'Apply';
+  end;
+
+end;
+
+
+
+function GenerateSpace(start: integer; stop: integer): string;
+var
+  i: integer;
+begin
+  Result := '';
+
+  for i := start to stop do
+    Result := Result + ' ';
+
+end;
+
+function FindStringByID(str: string; thestringlist: TStrings): integer;
+var
+  t: integer;
+begin
+  Result := -1;
+  for t := 0 to thestringlist.Count - 1 do
+  begin
+    if pos(str, thestringlist[t]) <> 0 then
+    begin
+      Result := t;
+      exit;
+    end;
+
+  end;
+
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  scriptfilename: string;
+  description: string;
+  localvars: integer;
+  Data, scriptname: string;
+  loader: TStrings;
+  ind: integer;
+  oldscriptID: string;
+  scriptID: string;
+  header: TStrings;
+begin
+
+    scriptfilename := edit1.Text;
+    SendDebugMSG('Starting register process');
+    if state = STATE_ADD_NEW then
+    begin
+      if ScriptExists(scriptfilename) then
+      begin
+        MessageDlg('That script already exists. Pick a non-existent filename.',
+          mtWarning, [mbOK], 0);
+        exit;
+      end;
+    end else
+    begin
+      SendDebugMSG('STATE = EDIT EXISTING');
+      oldscriptID := 'SCRIPT_' + uppercase(
+        changefileext(scriptlstentries[listview1.selected.index].scriptfilename, ''));
+      senddebugmsg(PChar('Old script ID = ' + oldscriptid));
+    end;
+    SendDebugMSG('setting data..');
+    description := Edit2.Text;
+    loader := TStringList.Create;
+    localvars := strtoint(edit3.text);
+    SendDebugMSG('before Script ID..');
+    scriptID := 'SCRIPT_' + uppercase(changefileext(scriptfilename, ''));
+    SendDebugMSG('Script ID SET..');
+    senddebugmsg(PChar('ScriptID = ' + scriptID));
+    if state = STATE_ADD_NEW then
+      scriptname := InputBox('Request',
+        'Enter name for scrname.msg (or leave empty)', '');
+
+    header := TStringList.Create;
+
+    header.loadfromfile(headerspath + '\scripts.h');
+
+    if state = STATE_REPLACE_OLD then
+    begin
+      ind := FindStringByID(oldScriptID, header);
+      if ind <> -1 then
+      begin
+       header.Delete(ind);
+        header.Insert(ind, '#define ' + scriptID + ' ' +
+          generatespace(length(scriptID), 21) + ' (' +
+          IntToStr(listview1.selected.index + 1) + ')  // ' +
+          scriptfilename + generatespace(length(scriptfilename), 15) +
+          '; ' + description + generatespace(length(description), 44));
+
+      end else
+        SendDebugMSG(PChar('Cannot find script id ' + scriptid));
+    end else
+    begin
+      header.Insert(header.Count - 1, '#define ' + scriptID + ' ' +
+        generatespace(length(scriptID), 21) + ' (' + IntToStr(scriptlstentrycnt + 1) +
+        ')  // ' + scriptfilename + generatespace(length(scriptfilename), 15) +
+        '; ' + description + generatespace(length(description), 44));
+    end;
+    header.SaveToFile(headerspath + '\scripts.h');
+
+
+    if fileexists(fo2basepath + '\' + datapath + '\text\english\game\scrname.msg') =
+      False then
+      loader.LoadFromFile(fo2basepath + '\data\text\english\game\scrname.msg')
+    else
+
+      loader.LoadFromFile(fo2basepath + '\' + datapath +
+        '\text\english\game\scrname.msg');
+
+
+    if state = STATE_ADD_NEW then
+    begin
+      Data := '{' + IntToStr(scriptlstentrycnt + (100 + 1)) + '}{}{' + scriptname + '}';
+      loader.Add(Data + generatespace(length(Data), 39) + '# ' +
+        scriptfilename + generatespace(length(scriptfilename), 15) +
+        '; ' + description + generatespace(length(description), 44));
+    end else
+    begin
+      Data := '{' + IntToStr(listview1.selected.index + (100 + 1)) +
+        '}{}{' + scriptname + '}';
+      ind  := FindStringByID(scriptfilename, loader);
+      if ind <> -1 then
+      begin
+        loader.Delete(ind);
+        loader.insert(ind, Data + generatespace(length(Data), 39) +
+          '# ' + scriptfilename + generatespace(length(scriptfilename), 15) +
+          '; ' + description + generatespace(length(description), 44));
+
+      end;
+
+    end;
+
+    loader.SaveToFile(fo2basepath + '\' + datapath + '\text\english\game\scrname.msg');
+    loader.Clear;
+    loader.loadfromfile(fo2basepath + '\' + datapath + '\scripts\scripts.lst');
+    //assignfile(t,fo2basepath+'\data\scripts\scripts.lst');
+    //append(t);
+    if state = STATE_REPLACE_OLD then
+    begin
+      senddebugmsg(pchar('Local vars = '+inttostr(localvars)));
+      loader.Delete(listview1.Selected.index);
+      loader.Insert(listview1.Selected.index, scriptfilename +
+        generatespace(length(scriptfilename), 15) + '; ' + description +
+        generatespace(length(description), 45) + '# local_vars=' + IntToStr(localvars));
+    end else
+    if state = STATE_ADD_NEW then
+      loader.add(scriptfilename + generatespace(length(scriptfilename), 15) +
+        '; ' + description + generatespace(length(description), 45) +
+        '# local_vars=' + IntToStr(localvars));
+    //writeln (t,scriptfilename,generatespace(length(scriptfilename),15),'; ',description,generatespace(length(description),45),'# local_vars=',localvars);
+    //closefile(t);
+    loader.savetofile(fo2basepath + '\' + datapath + '\scripts\scripts.lst');
+    LoadScriptList(fo2basepath + '\' + datapath + '\scripts\scripts.lst');
+    RefreshScripts;
+
+    form1.listview1.selected :=
+      form1.listview1.Items[form1.listview1.items.Count - 1];
+    form1.listview1.selected.focused := True;
+    form1.listview1.Selected.MakeVisible(False);
+
+
+end;
+
+procedure TForm1.Edit1BeforeDialog(Sender: TObject; var Name: string;
+  var Action: boolean);
+begin
+  Edit1.initialdir := fo2basepath + '\' + datapath + '\scripts';
+end;
+
+procedure TForm1.Edit1ButtonClick(Sender: TObject);
+begin
+  edit1.Text := extractfilename(edit1.FileName);
+end;
+
+procedure TForm1.Edit1AfterDialog(Sender: TObject; var Name: string;
+  var Action: boolean);
+begin
+  edit1.Text := extractfilename(edit1.FileName);
+  action := True;
+end;
+
+procedure TForm1.Edit1Change(Sender: TObject);
+begin
+  if edit1.Text <> '' then
+    edit1.Text := extractfilename(edit1.Text);
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+var
+  scriptfilename: string;
+  description: string;
+  localvars: integer;
+  Data, scriptname: string;
+  loader: TStrings;
+  ind: integer;
+  oldscriptID: string;
+  scriptID: string;
+  header: TStrings;
+begin
+  try
+    scriptfilename := edit1.Text;
+    oldscriptID := 'SCRIPT_' + uppercase(
+      changefileext(scriptlstentries[listview1.selected.index].scriptfilename, ''));
+    senddebugmsg(PChar('Old script ID = ' + oldscriptid));
+
+    description := Edit2.Text;
+    loader := TStringList.Create;
+    localvars := UpDown1.Position;
+    scriptID := 'SCRIPT_' + uppercase(changefileext(scriptfilename, ''));
+    senddebugmsg(PChar('ScriptID = ' + scriptID));
+
+    header := TStringList.Create;
+
+    header.loadfromfile(headerspath + '\scripts.h');
+
+    ind := FindStringByID(oldScriptID, header);
+    if ind <> -1 then
+    begin
+      senddebugmsg(PChar('DELETE THE VITUN INDEX: ' + IntToStr(ind - 1)));
+      header.Delete(ind);
+    end else
+      SendDebugMSG(PChar('Cannot find script id ' + scriptid));
+    header.SaveToFile(headerspath + '\scripts.h');
+
+
+    if fileexists(fo2basepath + '\' + datapath + '\text\english\game\scrname.msg') =
+      False then
+      loader.LoadFromFile(fo2basepath + '\data\text\english\game\scrname.msg')
+    else
+
+      loader.LoadFromFile(fo2basepath + '\' + datapath +
+        '\text\english\game\scrname.msg');
+
+
+    Data := '{' + IntToStr(listview1.selected.index + (100 + 1)) +
+      '}{}{' + scriptname + '}';
+    ind  := FindStringByID(scriptfilename, loader);
+    if ind <> -1 then
+    begin
+      loader.Delete(ind);
+    end;
+
+
+    loader.SaveToFile(fo2basepath + '\' + datapath + '\text\english\game\scrname.msg');
+    loader.Clear;
+    loader.loadfromfile(fo2basepath + '\' + datapath + '\scripts\scripts.lst');
+    //assignfile(t,fo2basepath+'\data\scripts\scripts.lst');
+    //append(t);
+    loader.Delete(listview1.Selected.index);
+    //writeln (t,scriptfilename,generatespace(length(scriptfilename),15),'; ',description,generatespace(length(description),45),'# local_vars=',localvars);
+    //closefile(t);
+    loader.savetofile(fo2basepath + '\' + datapath + '\scripts\scripts.lst');
+    LoadScriptList(fo2basepath + '\' + datapath + '\scripts\scripts.lst');
+    RefreshScripts;
+
+    form1.listview1.selected :=
+      form1.listview1.Items[form1.listview1.items.Count - 1];
+    form1.listview1.selected.focused := True;
+    form1.listview1.Selected.MakeVisible(False);
+  except
+    on e: Exception do
+    begin
+      Senddebugmsg('Vittu perkele saatana error!!!!!');
+    end;
+  end;
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  state := STATE_ADD_NEW;
+end;
+
+end.
+

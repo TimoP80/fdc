@@ -1,0 +1,175 @@
+COMPILER MSGParser
+(*
+
+Attempt to create MSG parser
+  
+*)
+
+DELPHI
+  PRIVATE
+    fOutputStream : TMemoryStream;
+    fSubSelectDepth : integer;
+    fInNaturalJoin : boolean;
+            
+    procedure Init;
+    procedure Final;
+    property OutputStream : TMemoryStream read fOutputStream write fOutputStream;
+  PUBLISHED
+    CREATE 
+      fOutputStream := TMemoryStream.Create;
+ 
+  DESTROY                     
+    fOutputStream.Free;
+  ERRORS
+ 
+END_DELPHI
+
+(* Arbitrary Code *)
+
+type
+  MSGEntry = record
+    beforeline_comments: TCommentList;
+    index:      Integer;
+    voicefile:  String;
+    messagestr: String;
+  end;
+
+type
+  MessageFile = record
+    msgfilename: String;
+    entries:     array of ^MSGEntry;
+    entrycnt:    Integer;
+  end;
+
+var
+  CurrentMessageFile: Messagefile;
+
+
+const
+  PadLen = 20;
+
+
+                        
+function PadR(S : string; Ch : char; L : integer) : string;
+var
+  i : integer;
+begin
+  for i := 1 to L - (Length(s)) do
+    s := s + Ch;
+  Result := s;
+end;
+
+
+procedure T-->Grammar<--.Init;
+begin
+  OutputStream.Clear;
+
+ end;
+
+procedure T-->Grammar<--.Final;
+begin
+   OutputStream.Position := 0;
+  OutputStream.SaveToStream(ListStream);
+  OutputStream.Clear;
+end;
+                                 
+function parse_string(zstr: string): string;
+var t:    integer;
+var temp: string;
+var len:  integer;
+begin;
+result:='';
+  len := 0;
+temp:='';
+  //writeln ('Parsing string: ',zstr);
+  t   := pos('{', zstr) + 1;
+  len := length(zstr);
+  while (zstr[t] <> '}') do
+  begin;
+    //writeln (zstr[t]);
+
+      temp := temp + zstr[t];
+
+    Inc(t);
+  end;
+  Result := temp;
+end;
+
+
+
+(* End of Arbitrary Code *)
+
+IGNORE CASE
+
+CHARACTERS
+  letter   = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" .
+  digit    = "0123456789" .
+  hexdigit = digit + "ABCDEFabcdef" .
+  tab      = CHR(9) .
+  lf       = CHR(10) .
+  eol      = CHR(13) .
+  files    = letter + digit + ":\." .
+  chars    = CHR(32) .. CHR(255) - "'" .
+  strings  = CHR(32) .. CHR(255) - '"'.
+  msgentrys  = CHR(13) + CHR (10) +  CHR(32) .. CHR(255) - '{' - '}'.
+  macros   = ANY - eol .
+
+COMMENTS FROM "#" TO eol
+
+IGNORE
+  tab + eol + lf
+
+TOKENS
+  identifier = ( "_" | letter) { "_" | letter | digit } .
+  number     = digit { digit } [ "." { digit }] [ "U" | "u" | "L" | "l" ] .
+  hexnumber  = "0" ( "x" | "X" ) hexdigit { hexdigit } [ "U" | "u" | "L" | "l" ] .
+  _string     = '"' { strings } '"' .
+  _msgentry = "{" { ["#"] msgentrys } "}" .
+  char       = "'" [ "\" ] chars "'" .
+  library    = "<" files { files } ">" .
+  endofline = eol.
+
+IGNORE CHR(1)..CHR(32)
+
+PRODUCTIONS
+
+MSGEntry = (. 
+ setlength(CurrentMessageFile.entries, CurrentMessageFile.entrycnt + 1);
+  new(CurrentMessageFile.entries[CurrentMessageFile.entrycnt]);
+  CurrentMessageFile.entries[CurrentMessageFile.entrycnt].beforeline_comments := TCommentList.create;
+
+    if GetScanner.fLastCommentList.Count > 0 then
+  begin
+    //    writeln('before line comments: ', GetScanner.fLastCommentList.Text);
+    for i:=0 to GetScanner.fLastCommentList.Count -1 do
+    begin
+     CurrentMessageFile.entries[CurrentMessageFile.entrycnt].beforeline_comments.Add(GetScanner.fLastCommentList.Comments[i],GetScanner.fLastCommentList.Line[i],GetScanner.fLastCommentList.Column[i]);
+   end;
+
+
+      if Assigned(fInternalGrammarComment) then
+      fInternalGrammarComment(Self, GetScanner.fLastCommentList);
+      GetScanner.fLastCommentList.Clear;
+ // showmessage('comment count: '+inttostr( CurrentMessageFile.entries[CurrentMessageFile.entrycnt].beforeline_comments.count ));
+  end;
+
+  
+.) _msgentry (. 
+
+  CurrentMessageFile.entries[CurrentMessageFile.entrycnt].index := StrToInt(parse_string(lexstring));
+
+
+
+ .) _msgentry (. 
+   CurrentMessageFile.entries[CurrentMessageFile.entrycnt].voicefile := parse_string(lexstring);
+
+ 
+ .) _msgentry  (.
+  CurrentMessageFile.entries[CurrentMessageFile.entrycnt].messagestr := parse_string(lexstring);
+    Inc(currentmessagefile.entrycnt);
+
+  .) .
+
+MSGParser = MSGEntry {MSGEntry}.
+                                                                
+END MSGParser.

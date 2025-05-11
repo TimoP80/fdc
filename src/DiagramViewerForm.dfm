@@ -1,0 +1,121 @@
+object DiagramMain: TDiagramMain
+  Left = 238
+  Top = 123
+  Width = 710
+  Height = 478
+  Caption = 'FMF Dialogue Diagram Viewer'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Verdana'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Memo1: TMemo
+    Left = 8
+    Top = 8
+    Width = 161
+    Height = 401
+    Color = clInfoBk
+    Ctl3D = False
+    ParentCtl3D = False
+    TabOrder = 0
+  end
+  object atDiagram1: TatDiagram
+    Left = 176
+    Top = 8
+    Width = 513
+    Height = 401
+    NettoExportOffset = 3
+    AutomaticNodes = True
+    AutoScroll = True
+    Background.Scroll = True
+    Background.Style = biTile
+    Background.Visible = False
+    Background.Gradient.Direction = grTopBottom
+    Background.Gradient.StartColor = clWhite
+    Background.Gradient.EndColor = clYellow
+    Background.Gradient.Visible = False
+    Background.PrintGradient = False
+    SnapGrid.Active = True
+    SnapGrid.Visible = False
+    SnapGrid.SizeX = 8.000000000000000000
+    SnapGrid.SizeY = 8.000000000000000000
+    SnapGrid.Style = gsDots
+    SnapGrid.SnapToRuler = False
+    ShowLinkPoints = True
+    LeftRuler.Visible = False
+    LeftRuler.Divisions = 5
+    LeftRuler.Font.Charset = DEFAULT_CHARSET
+    LeftRuler.Font.Color = clWindowText
+    LeftRuler.Font.Height = -9
+    LeftRuler.Font.Name = 'Arial'
+    LeftRuler.Font.Style = []
+    LeftRuler.Units = unCenti
+    LeftRuler.MinorTickLength = 4
+    LeftRuler.MajorTickLength = 6
+    LeftRuler.Color = clWhite
+    LeftRuler.TickColor = clBlack
+    LeftRuler.Size = 0
+    LeftRuler.AutoFactor = True
+    TopRuler.Visible = False
+    TopRuler.Divisions = 5
+    TopRuler.Font.Charset = DEFAULT_CHARSET
+    TopRuler.Font.Color = clWindowText
+    TopRuler.Font.Height = -9
+    TopRuler.Font.Name = 'Arial'
+    TopRuler.Font.Style = []
+    TopRuler.Units = unCenti
+    TopRuler.MinorTickLength = 4
+    TopRuler.MajorTickLength = 6
+    TopRuler.Color = clWhite
+    TopRuler.TickColor = clBlack
+    TopRuler.Size = 0
+    TopRuler.AutoFactor = True
+    Zoom = 100
+    BorderColor = clGray
+    MouseWheelMode = mwOff
+    ActiveLayers = 0
+    LinkCursor = crHandPoint
+    PanCursor = crHandPoint
+    ZoomCursor = crDefault
+    BiDiMode = bdLeftToRight
+    BorderStyle = bsSingle
+    Color = clCream
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    ShowHint = False
+    TabOrder = 1
+  end
+  object MainMenu1: TMainMenu
+    Left = 72
+    Top = 40
+    object File1: TMenuItem
+      Caption = 'File'
+      object LoadDialogue1: TMenuItem
+        Caption = 'Load Dialogue'
+        OnClick = LoadDialogue1Click
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Quit1: TMenuItem
+        Caption = 'Quit'
+        OnClick = Quit1Click
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 40
+    Top = 56
+  end
+end

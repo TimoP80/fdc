@@ -1,0 +1,263 @@
+COMPILER SSLParser     
+(*
+  
+  This is an attempt to create a parser module for parsing
+  the SSL scripting language
+  
+  Possibly non-preprocessed scripts also.
+  
+  *)
+
+DELPHI
+  PRIVATE
+    fOutputStream : TMemoryStream;
+    fSubSelectDepth : integer;
+    fInNaturalJoin : boolean;
+            
+    procedure Init;
+    procedure Final;
+                
+    property OutputStream : TMemoryStream read fOutputStream write fOutputStream;
+    CREATE 
+    fOutputStream := TMemoryStream.Create;
+  DESTROY                     
+    fOutputStream.Free;
+  ERRORS
+ 
+END_DELPHI
+
+(* Arbitrary Code *)
+
+const
+  PadLen = 20;
+                        
+function PadR(S : string; Ch : char; L : integer) : string;
+var
+  i : integer;
+begin
+  for i := 1 to L - (Length(s)) do
+    s := s + Ch;
+  Result := s;
+end;
+
+procedure T-->Grammar<--.Init;
+begin
+  OutputStream.Clear;
+
+ end;
+
+procedure T-->Grammar<--.Final;
+begin
+   OutputStream.Position := 0;
+  OutputStream.SaveToStream(ListStream);
+  OutputStream.Clear;
+end;
+                                 
+function parse_string(zstr: string): string;
+var t:    integer;
+var temp: string;
+var len:  integer;
+begin;
+result:='';
+  len := 0;
+temp:='';
+  //writeln ('Parsing string: ',zstr);
+  t   := pos('"', zstr) + 1;
+  len := length(zstr);
+  while (zstr[t] <> '"') do
+  begin;
+    //writeln (zstr[t]);
+    if (zstr[t] = '\') and (zstr[t + 1] = '"') then
+    begin;
+      temp := temp + '"';
+      Inc(t, 1);
+    end else
+    if (zstr[t] = '\') and (zstr[t + 1] = '\') then
+    begin;
+      temp := temp + '\';
+      Inc(t, 1);
+    end else
+    if (zstr[t] = '\') and (zstr[t + 1] = 't') then
+    begin;
+      temp := temp + #9;
+      Inc(t, 1);
+    end else
+    if (zstr[t] = '\') and (zstr[t + 1] = 'n') then
+    begin;
+      temp := temp + #13#10;
+      Inc(t, 1);
+    end else
+
+      temp := temp + zstr[t];
+
+    Inc(t);
+  end;
+  Result := temp;
+end;
+
+
+
+
+(* End of Arbitrary Code *)
+
+IGNORE CASE
+
+CHARACTERS
+  letter   = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" .
+  digit    = "0123456789" .
+  hexdigit = digit + "ABCDEFabcdef" .
+  tab      = CHR(9) .
+  lf       = CHR(10) .
+  eol      = CHR(13) .
+  files    = letter + digit + ":\." .
+  chars    = CHR(32) .. CHR(255) - "'" .
+  strings  = CHR(32) .. CHR(255) - '"'.
+  macros   = ANY - eol .
+
+COMMENTS FROM "/*" TO "*/" 
+COMMENTS FROM "//" TO eol 
+
+
+IGNORE
+  tab + eol + lf
+
+TOKENS
+  identifier = ( "_" | letter) { "_" | letter | digit } .
+  number     = ["-"] digit { digit } [ "." { digit }] [ "U" | "u" | "L" | "l" ] .
+  hexnumber  = "0" ( "x" | "X" ) hexdigit { hexdigit } [ "U" | "u" | "L" | "l" ] .
+  _string     = '"' ["\"] { strings } '"' .
+  _char       = "'" [ "\" ] chars "'" .
+  _library    = "<" files { files } ">" .
+
+IGNORE CHR(1)..CHR(32)
+        
+PRAGMAS
+  PreProcessor = "#" {macros}  .
+  
+  
+PRODUCTIONS
+
+
+
+SSLParser = {Definition} .
+(* Variable and Type Definitions *)
+
+  Definition           = ("procedure"|[("import"|"export")] "variable")  identifier (.writeln('definition: ',lexstring); .)
+                            ( FunctionDefinition | VarList ";" )  .
+
+
+ 
+  VarList              = { "," identifier } [":=" (_string | number)].
+
+  
+(* Function Definitions *)
+
+  FunctionDefinition   =  (. writeln('function def!') .) [FunctionHeader] ( ";" (. writeln('function header ENDS!') .) | FunctionBody ) .
+  FunctionHeader       = "(" [ FormalParamList ] ")" .
+  FunctionBody         = CompoundStatement .
+  FormalParamList      = FormalParameter { "," FormalParameter } .
+  FormalParameter      = "variable" [ identifier ] .
+
+(* Statements *)
+
+  Statement            = { LabelC }
+                         (  AssignmentExpression | BreakStatement
+                           | CompoundStatement | ContinueStatement
+                           | DoStatement | ForStatement
+                           | IfStatement  
+                           | ReturnStatement | SwitchStatement
+                           | WhileStatement ) .
+
+  LabelC                = "case" ConstExpression ":"  |  "default" ":" .
+
+(* There is no requirement that a switch statement be followed by a compound
+   statement.  Actually labels may be even more general *)
+
+  AssignmentExpression = Expression [";"] .
+
+  BreakStatement       = "break" ";" .
+
+  CompoundStatement    = "begin" (. writeln('COMPOUND STATEMENT!') .)[{ LocalDeclaration } { Statement }] "end" .
+
+  ContinueStatement    = "continue" ";" .
+
+  DoStatement          = "do" Statement "while" "(" Expression ")" ";" .
+
+  ForStatement         = "for"  "(" [ Expression ] ";" [ Expression ] ";" [ Expression ] ")" Statement .
+
+  IfStatement          = "if" { Expression } "then" Statement [ "else" Statement ] .
+
+
+  ReturnStatement      = "return" [ Expression ] ";" .
+                         (* Expression usually in parentheses *)
+
+  SwitchStatement      = "switch" "(" Expression ")" Statement .
+
+  WhileStatement       = "while" "(" Expression ")" "do" ["begin"] Statement ["end"] .
+
+(* LocalDeclarations *)
+
+  LocalDeclaration     = ("variable") identifier
+                          ( VarList ) ";"  .
+
+(* Expressions, based on Kernighan and Ritchie: "The C Programming Language".
+   There does not seem to be a way to make this work in an LL(1) fashion,
+   but this generates a "working" parser *)
+
+  ConstExpression      =  Expression .
+
+  Expression           = Conditional { AssignmentOperator Expression }.
+
+  Conditional          = LogORExp .
+
+  LogORExp             = LogANDExp   { "and" LogANDExp } .
+
+  LogANDExp            = InclORExp   { "or" InclORExp }.
+
+  InclORExp            = ExclORExp   { "bwor" ExclORExp } .
+
+  ExclORExp            = ANDExp      { "bwand" ANDExp } .
+
+  ANDExp               = EqualExp    { "&" EqualExp } .
+
+  EqualExp             = RelationExp { ( "==" | "!=" ) RelationExp } .
+
+  RelationExp          = ShiftExp    { ( "<=" | ">=" | "<" | ">" ) ShiftExp }.
+
+  ShiftExp             = AddExp      { ( "<<" | ">>" ) AddExp } .
+
+  AddExp               = MultExp     { ( "+" | "-" ) MultExp } .
+
+  MultExp              = CastExp     { ( "*" | "/" | "%" ) CastExp } .
+
+  CastExp              = UnaryExp .
+
+(* we should really add
+                         | "(" identifier ")" CastExp .
+   but this breaks it badly *)
+
+  UnaryExp             = PostFixExp
+                         | UnaryExp
+                         | UnaryOperator CastExp .
+
+(* we should really add
+                         | "sizeof" ( UnaryExp | "(" TypeC ")" ) .
+   but this breaks it badly *)
+
+  PostFixExp           = ["call"] Primary
+                         { "[" Expression "]"
+                          | FunctionCall
+                         
+                         } .
+
+  Primary              = identifier | _string | _char | number | ["("] Expression [")"] .
+
+  FunctionCall         = "(" [ ActualParameters ] ")" .
+
+  ActualParameters     = Expression { "," Expression } .
+
+  AssignmentOperator   =   ":="  | "*=" | "/=" | "%=" | "+=" | "-=" .
+
+  UnaryOperator        = "+" | "-" | "*" | "!" | "&" | "~" .
+                                                                  
+END SSLParser.

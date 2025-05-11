@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet>
+  <view uin="9n50gdm8k_v">
+    <property name="$name" value="default" />
+    <property name="$defaultDiagram" value="True" />
+    <property name="$metaclass" value="Package Diagram" />
+    <reference referencedUin="design:view:::on5puxfrj_v">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_class:src:Utility_NodeTreeView:testwnd.TForm1" />
+    </reference>
+  </view>
+</nodeSet>

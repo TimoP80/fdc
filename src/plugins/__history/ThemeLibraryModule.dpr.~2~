@@ -1,0 +1,50 @@
+library ThemeLibraryModule;
+
+{ Important note about DLL memory management: ShareMem must be the
+  first unit in your library's USES clause AND your project's (select
+  Project-View Source) USES clause if your DLL exports any procedures or
+  functions that pass strings as parameters or function results. This
+  applies to all strings passed to and from your DLL--even those that
+  are nested in records and classes. ShareMem is the interface unit to
+  the BORLNDMM.DLL shared memory manager, which must be deployed along
+  with your DLL. To avoid using BORLNDMM.DLL, pass string information
+  using PChar or ShortString parameters. }
+
+uses
+  System.SysUtils,
+  Winapi.Windows, VCL.Themes, VCL.Styles, System.Classes;
+
+{$R *.res}
+{$R VCLStyles.res}
+var
+  StyleList: TStringList;
+
+// Callback function for EnumResourceNames
+function EnumResNamesProc(hModule: HMODULE; lpszType, lpszName: PChar;
+  lParam: LPARAM): BOOL; stdcall;
+begin
+  // Store the resource name (which is a VCL Style name)
+  StyleList.Add(lpszName);
+  Result := True; // Continue enumeration
+end;
+
+// Function to get the list of VCL Styles in the DLL
+procedure GetVCLStylesInDLL; stdcall;
+begin
+  StyleList.Clear;
+  EnumResourceNames(HInstance, RT_RCDATA, @EnumResNamesProc, 0);
+end;
+
+// Exported function to retrieve styles as a PChar
+function GetVCLStyleList: PChar; stdcall;
+begin
+  GetVCLStylesInDLL;
+  Result := PChar(StyleList.Text);
+end;
+
+exports
+  GetVCLStyleList;
+
+begin
+  StyleList := TStringList.Create;
+end.

@@ -1,0 +1,267 @@
+
+================================================================================
+Options:
+  Generate console app
+  Generate version information
+  Generate comment events
+
+
+================================================================================
+Listing
+
+    1  COMPILER CodeSnippets 
+    2  (*
+    3  
+    4  Parser for the Fallout 2 Global Variable list
+    5    
+    6  *)
+    7  
+    8  DELPHI
+    9    PRIVATE
+   10      fOutputStream : TMemoryStream;
+   11      fSubSelectDepth : integer;
+   12      fInNaturalJoin : boolean;
+   13              
+   14      procedure Init;
+   15      procedure Final;
+   16                  
+   17      property OutputStream : TMemoryStream read fOutputStream write fOutputStream;
+   18      CREATE 
+   19      fOutputStream := TMemoryStream.Create;
+   20    DESTROY                     
+   21      fOutputStream.Free;
+   22    ERRORS
+   23   
+   24  END_DELPHI
+   25  
+   26  (* Arbitrary Code *)
+   27  
+   28  const
+   29    PadLen = 20;
+   30  
+   31  const
+   32  
+   33    PARAM_TYPE_INT       = 1;
+   34    PARAM_TYPE_NODE      = 2;
+   35    PARAM_TYPE_BOOL      = 3;
+   36    PARAM_TYPE_FLOATNODE = 4;
+   37    PARAM_TYPE_STRING    = 5;
+   38    PARAM_TYPE_SKILL     = 6;
+   39    PARAM_TYPE_STAT      = 7;
+   40    PARAM_TYPE_GVAR      = 8;
+   41    PARAM_TYPE_LVAR      = 9;
+   42    PARAM_TYPE_SVAR      = 10;
+   43    PARAM_TYPE_PID       = 11;
+   44    PARAM_TYPE_MVAR      = 12;
+   45  
+   46  type Param             = record
+   47      ParamType: integer;
+   48      paramname: string;
+   49      paramdesc: string;
+   50  
+   51    end;
+   52  
+   53  
+   54  type CodeSnippet = record
+   55      InternalName: string;
+   56      DisplayName:  string;
+   57      Params:       array [0..32] of ^Param;
+   58      ParamCount:   integer;
+   59      Lines:        string;
+   60    end;
+   61  
+   62  var CodeSnippetData: array [0..256] of ^CodeSnippet;
+   63  var CodeSnippetcnt:  integer;
+   64  function GetParamType(ptype: integer): string;
+   65  
+   66  
+   67                          
+   68  function PadR(S : string; Ch : char; L : integer) : string;
+   69  var
+   70    i : integer;
+   71  begin
+   72    for i := 1 to L - (Length(s)) do
+   73      s := s + Ch;
+   74    Result := s;
+   75  end;
+   76  
+   77  procedure T-->Grammar<--.Init;
+   78  begin
+   79    OutputStream.Clear;
+   80  
+   81   end;
+   82  
+   83  procedure T-->Grammar<--.Final;
+   84  begin
+   85     OutputStream.Position := 0;
+   86    OutputStream.SaveToStream(ListStream);
+   87    OutputStream.Clear;
+   88  end;
+   89                                   
+   90  
+   91  
+   92  
+   93  function GetParamType(ptype: integer): string;
+   94  begin;
+   95    Result := 'Unknown';
+   96    case ptype of
+   97      PARAM_TYPE_INT:
+   98        Result := 'Integer';
+   99      PARAM_TYPE_NODE:
+  100        Result := 'NodePTR';
+  101      PARAM_TYPE_BOOL:
+  102        Result := 'Boolean';
+  103      PARAM_TYPE_STRING:
+  104        Result := 'String';
+  105      PARAM_TYPE_FLOATNODE:
+  106        Result := 'FloatNodePTR';
+  107      PARAM_TYPE_GVAR:
+  108        Result := 'Global Var';
+  109      PARAM_TYPE_SVAR:
+  110        Result := 'Script Var';
+  111      PARAM_TYPE_MVAR:
+  112        Result := 'Map Var';
+  113      PARAM_TYPE_LVAR:
+  114        Result := 'Local Var';
+  115      PARAM_TYPE_STAT:
+  116        Result := 'Player Stat';
+  117      PARAM_TYPE_SKILL:
+  118        Result := 'Player Skill';
+  119      PARAM_TYPE_PID:
+  120        Result := 'Item/Critter PID';
+  121    end;
+  122  
+  123  end;
+  124  
+  125  
+  126  
+  127  procedure T-->Grammar<--.Final;
+  128  var u, t: integer;
+  129  begin
+  130  {$IFDEF ParserBuild}
+  131    writeln('Codesnippets: ', codesnippetcnt);
+  132    for t := 0 to codesnippetcnt - 1 do
+  133    begin;
+  134      writeln('#', t + 1, ': ', codesnippetdata[t].internalname, ' (', codesnippetdata[t].displayname, ')');
+  135      for u := 0 to codesnippetdata[t].ParamCount - 1 do
+  136      begin;
+  137        writeln('   param=', u + 1, ': ', GetParamType(codesnippetdata[t].params[u].ParamType),
+  138          ' ', codesnippetdata[t].params[u].paramname, ' (',
+  139          codesnippetdata[t].params[u].paramdesc, ')');
+  140      end;
+  141      writeln;
+  142      writeln(codesnippetdata[t].Lines);
+  143    end;
+  144  {$ENDIF}
+  145    OutputStream.Position := 0;
+  146    OutputStream.SaveToStream(ListStream);
+  147    OutputStream.Clear;
+  148  end;
+  149  
+  150  
+  151  
+  152  procedure T-->Grammar<--.WriteStr(S: string);
+  153  begin
+  154    S := S + #13#10;
+  155    OutputStream.WriteBuffer(S[1], length(S));
+  156  end;
+  157  
+  158  function parse_string(zstr: string): string;
+  159  var t:    integer;
+  160  var temp: string;
+  161  var len:  integer;
+  162  begin;
+  163  result:='';
+  164    len := 0;
+  165  temp:='';
+  166    //writeln ('Parsing string: ',zstr);
+  167    t   := pos('"', zstr) + 1;
+  168    len := length(zstr);
+  169    while (zstr[t] <> '"') do
+  170    begin;
+  171      //writeln (zstr[t]);
+  172      if (zstr[t] = '\') and (zstr[t + 1] = '"') then
+  173      begin;
+  174        temp := temp + '"';
+  175        Inc(t, 1);
+  176      end else
+  177      if (zstr[t] = '\') and (zstr[t + 1] = '\') then
+  178      begin;
+  179        temp := temp + '\';
+  180        Inc(t, 1);
+  181      end else
+  182      if (zstr[t] = '\') and (zstr[t + 1] = 't') then
+  183      begin;
+  184        temp := temp + #9;
+  185        Inc(t, 1);
+  186      end else
+  187      if (zstr[t] = '\') and (zstr[t + 1] = 'n') then
+  188      begin;
+  189        temp := temp + #13#10;
+  190        Inc(t, 1);
+  191      end else
+  192  
+  193        temp := temp + zstr[t];
+  194  
+  195      Inc(t);
+  196    end;
+  197    Result := temp;
+  198  end;
+  199  
+  200  
+  201  
+  202  (* End of Arbitrary Code *)
+  203  
+  204  IGNORE CASE
+  205  
+  206  CHARACTERS
+  207    letter   = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" .
+  208    digit    = "0123456789" .
+  209    hexdigit = digit + "ABCDEFabcdef" .
+  210    tab      = CHR(9) .
+  211    lf       = CHR(10) .
+  212    eol      = CHR(13) .
+  213    files    = letter + digit + ":\." .
+  214    chars    = CHR(32) .. CHR(255) - "'" .
+  215    strings  = CHR(32) .. CHR(255) - '"'.
+  216    macros   = ANY - eol .
+  217  
+  218  COMMENTS FROM "//" TO eol  
+  219  
+  220  COMMENTS FROM "/*" TO "*/"  
+  221  
+  222  IGNORE
+  223    tab + eol + lf
+  224  
+  225  TOKENS
+  226    identifier = ( "_" | letter) { "_" | letter | digit } .
+  227    number     = ["-"] digit { digit } [ "." { digit }] [ "U" | "u" | "L" | "l" ] .
+  228    hexnumber  = "0" ( "x" | "X" ) hexdigit { hexdigit } [ "U" | "u" | "L" | "l" ] .
+  229    _string     = '"' ["\" ] { strings } '"' .
+  230    char       = "'" [ "\" ] chars "'" .
+  231    library    = "<" files { files } ">" .
+  232  
+  233  IGNORE CHR(1)..CHR(32)
+  234  
+  235  PRODUCTIONS
+  236   
+  237   paramtype = ("int" | "string" | "stat" | "skill" | "pid_id" | "local_var" | "map_var" | "global_var" | "node" | "floatnode"
+  238    )
+  239   
+  240   Params = paramtype identifier "=" _string.
+*****          ^ invalid Coco/R factor
+  241                                                           
+  242   CodePreset = "CodePreset" identifier "(" Params {"," Params} ")" "desc" "=" _string
+  243   "{"
+  244    _string {"," _string}
+  245   "}"
+  246   .
+  247   
+  248   
+  249   CodeSnippets = CodePreset {CodePreset}.          
+  250   
+  251                                                              
+  252  END CodeSnippets.
+
+    1 syntax error
+

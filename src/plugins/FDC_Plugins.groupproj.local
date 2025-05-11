@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00.00.00.000.529,C:\CodeProjects\FMFDLGTool\src\plugins\FDC_Plugins.groupproj=C:\Users\tpitk\Documents\Embarcadero\Studio\Projects\ProjectGroup1.groupproj</Transaction>
+  </Transactions>
+	<Default.Personality>
+		<Projects ActiveProject="C:\CodeProjects\FMFDLGTool\src\Source D12\plugins\Import_SSL.dproj"/>
+	</Default.Personality>
+</BorlandProject>

@@ -1,0 +1,29 @@
+MAINICON ICON "M:\FMFDLGTool\src\mainicon.ico"
+1 VERSIONINFO
+FILEVERSION 0,2,5,4
+PRODUCTVERSION 0,2,5,4
+FILEFLAGSMASK 0x3FL
+FILEFLAGS 0x00L
+FILEOS 0x40004L
+FILETYPE 0x1L
+FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+         BLOCK "040B04E4"
+         BEGIN
+              VALUE "FileDescription", "FMF Dialogue Tool\0"
+              VALUE "FileVersion", "0.2.5.4\0"
+              VALUE "InternalName", "FMFDLG\0"
+              VALUE "LegalCopyright", "(c) 2005 Dj Unique\0"
+              VALUE "OriginalFilename", "fmfdlg.exe\0"
+              VALUE "ProductName", "FMF Dialogue Tool\0"
+              VALUE "ProductVersion", "0.2.5.4\0"
+              VALUE "Compile Date", "6. elokuuta 2005 19:05\0"
+         END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+         VALUE "Translation", 0x040B, 1252
+    END
+END

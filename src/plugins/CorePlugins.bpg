@@ -1,0 +1,60 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = Export_HTML.dll Export_ScriptOutput.dll Export_TXT.dll \
+  Utility_RenameNodes.dll Utility_ValidateDLG.dll DEV_ScriptConsole.dll \
+  Import_TXT.dll DEV_PluginCreator.dll Utility_NodeTreeView.dll \
+  Utility_ScriptReg.dll Update_BetaCheck.dll Export_PHP.dll \
+  Utility_SkillCheckTool.dll
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+Export_HTML.dll: Export_HTML.dpr
+  $(DCC)
+
+Export_ScriptOutput.dll: Export_ScriptOutput.dpr
+  $(DCC)
+
+Export_TXT.dll: Export_TXT.dpr
+  $(DCC)
+
+Utility_RenameNodes.dll: Utility_RenameNodes.dpr
+  $(DCC)
+
+Utility_ValidateDLG.dll: Utility_ValidateDLG.dpr
+  $(DCC)
+
+DEV_ScriptConsole.dll: DEV_ScriptConsole.dpr
+  $(DCC)
+
+Import_TXT.dll: Import_TXT.dpr
+  $(DCC)
+
+DEV_PluginCreator.dll: ..\DEV_PluginCreator.dpr
+  $(DCC)
+
+Utility_NodeTreeView.dll: Utility_NodeTreeView.dpr
+  $(DCC)
+
+Utility_ScriptReg.dll: Utility_ScriptReg.dpr
+  $(DCC)
+
+Update_BetaCheck.dll: Update_BetaCheck.dpr
+  $(DCC)
+
+Export_PHP.dll: Export_PHP.dpr
+  $(DCC)
+
+Utility_SkillCheckTool.dll: Utility_SkillCheckTool.dpr
+  $(DCC)
+
+

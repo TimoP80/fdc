@@ -1,0 +1,800 @@
+unit exportcfg;
+
+interface
+
+uses
+  Windows,
+  Classes,
+  ComCtrls,
+  Controls,
+  Dialogs,
+  DlgDef,
+  Forms,
+  Graphics,
+  JclStrings,
+  ScriptCompilerIntf,
+  Inifiles,
+  JvExMask,
+  JvToolEdit,
+  Mask,
+  Messages,
+  pluginfunc,
+  StdCtrls,
+  SysUtils,
+  Variants;
+
+type
+  TForm1 = class(TForm)
+    GroupBox1 :    TGroupBox;
+    Label1 :       TLabel;
+    Label2 :       TLabel;
+    GroupBox2 :    TGroupBox;
+    Button1 :      TButton;
+    Button2 :      TButton;
+    Label3 :       TLabel;
+    GroupBox3 :    TGroupBox;
+    Label4 :       TLabel;
+    Edit1 :        TEdit;
+    Label5 :       TLabel;
+    Label6 :       TLabel;
+    Edit3 :        TEdit;
+    Label7 :       TLabel;
+    Memo1 :        TMemo;
+    Label8 :       TLabel;
+    Memo2 :        TMemo;
+    Memo3 :        TMemo;
+    Label9 :       TLabel;
+    Label10 :      TLabel;
+    Edit4 :        TEdit;
+    CheckBox1 :    TCheckBox;
+    Button4 :      TButton;
+    Edit2 :        TMemo;
+    Label11 :      TLabel;
+    Edit5 :        TEdit;
+    UpDown1 :      TUpDown;
+    LMDFileOpenEdit1 : TJvFilenameEdit;
+    LMDFileOpenEdit2 : TJvFilenameEdit;
+    LMDFileOpenEdit3 : TJvFilenameEdit;
+    CheckBox2 :    TCheckBox;
+    JvDirectoryEdit1 : TJvDirectoryEdit;
+    templateList : TComboBox;
+    CheckBox3 :    TCheckBox;
+    CheckBox4 :    TCheckBox;
+    CheckBox5 :    TCheckBox;
+    Button5 :      TButton;
+    CheckBox6 :    TCheckBox;
+    procedure Edit1Change(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1:         TForm1;
+  fetchdesc, ddfmode: boolean;
+  npc_count:     integer;
+  msgname, sslname: shortstring;
+  cur_node:      dlgnode;
+  cur_dlg:       pnewdialogue;
+  AMDS_Cfg, dlgcfg, templatecfg: TInifile;
+  nodes:         integer;
+  node, tempstr: string;
+  temp:          string;
+  tempstrz:      string;
+  scriptoutputpath: string;
+  script:        TStrings;
+  reaction:      shortstring;
+  DLGDef1:       TDlgDef;
+  // msgname, sslname: shortstring;
+  sslpath, msgpath: shortstring;
+  startpath:     string;
+  linebase:      integer;
+
+  sslfile, msgfile, script_template, npcname, description, location, scriptID, unknowndesc,
+  knowndesc, detailed: string;
+
+
+implementation
+
+uses
+  ddfabout,
+  Math;
+
+
+
+
+{$R *.dfm}
+
+procedure TForm1.Edit1Change(Sender: TObject);
+begin
+  npcname := edit1.Text;
+
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  Form1.LMDFileOpenEdit1.Text := '';
+  Form1.LMDFileOpenEdit2.Text := '';
+  if MessageDlg('Do you wish to keep the current script template setting?', mtConfirmation,
+    [mbYes, mbNo], 0) = mrNo then
+    Form1.LMDFileOpenEdit3.Text := '';
+  edit1.Text := '';
+  edit2.Text := '';
+  edit3.Text := '';
+  edit4.Text := '';
+  memo1.Text := '';
+  memo2.Text := '';
+  memo3.Text := '';
+
+end;
+
+function skillfieldtoconst(fld: integer): string;
+begin
+  ;
+  case fld of
+    CHECK_FIELD_SKILL_SMALLGUNS :
+      Result := ' CHECK_FIELD_SKILL_SMALLGUNS';
+    CHECK_FIELD_SKILL_BIGGUNS :
+      Result := 'CHECK_FIELD_SKILL_BIGGUNS';
+    CHECK_FIELD_SKILL_ENERGYWEAPONS :
+      Result := 'CHECK_FIELD_SKILL_ENERGYWEAPONS';
+    CHECK_FIELD_SKILL_UNARMED :
+      Result := 'CHECK_FIELD_SKILL_UNARMED';
+    CHECK_FIELD_SKILL_MELEE :
+      Result := 'CHECK_FIELD_SKILL_MELEE';
+    CHECK_FIELD_SKILL_THROWING :
+      Result := 'CHECK_FIELD_SKILL_THROWING';
+    CHECK_FIELD_SKILL_FIRSTAID :
+      Result := 'CHECK_FIELD_SKILL_FIRSTAID';
+    CHECK_FIELD_SKILL_DOCTOR :
+      Result := 'CHECK_FIELD_SKILL_DOCTOR';
+    CHECK_FIELD_SKILL_SNEAK :
+      Result := 'CHECK_FIELD_SKILL_SNEAK';
+    CHECK_FIELD_SKILL_LOCKPICK :
+      Result := 'CHECK_FIELD_SKILL_LOCKPICK';
+    CHECK_FIELD_SKILL_STEAL :
+      Result := 'CHECK_FIELD_SKILL_STEAL';
+    CHECK_FIELD_SKILL_TRAPS :
+      Result := 'CHECK_FIELD_SKILL_TRAPS';
+    CHECK_FIELD_SKILL_SCIENCE :
+      Result := 'CHECK_FIELD_SKILL_SCIENCE';
+    CHECK_FIELD_SKILL_REPAIR :
+      Result := 'CHECK_FIELD_SKILL_REPAIR';
+    CHECK_FIELD_SKILL_SPEECH :
+      Result := 'CHECK_FIELD_SKILL_SPEECH';
+    CHECK_FIELD_SKILL_BARTER :
+      Result := 'CHECK_FIELD_SKILL_BARTER';
+    CHECK_FIELD_SKILL_GAMBLING :
+      Result := 'CHECK_FIELD_SKILL_GAMBLING';
+    CHECK_FIELD_SKILL_OUTDOORSMAN :
+      Result := 'CHECK_FIELD_SKILL_OUTDOORSMAN';
+  end;
+
+end;
+
+function GetConditionSTR(Data: starting_condition): string;
+var
+  t: integer;
+begin
+  ;
+  Result := '';
+  for t := 0 to Data.condcnt - 1 do
+  begin
+    ;
+    Result := Result + '(' + Data.conditions[t].resultcode + ')';
+    if t < Data.condcnt - 1 then
+    begin
+      ;
+      case Data.conditions[t].linkage of
+        1 :
+          Result := Result + ' and ';
+        2 :
+          Result := Result + ' or ';
+      end;
+    end;
+
+  end;
+
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  cancontinue: boolean;
+var
+  str:         string;
+  temcnt, l, k, c, i, j, temp_int: integer;
+  varflags:    string;
+  codetemp:    string;
+  npctext_temp, npcfemaletext_temp: string;
+  codelst:     TStrings;
+  temp, conds: string;
+begin
+
+  cancontinue := (edit4.Text <> '') and (LMDFileOpenEdit3.filename <> '');
+  str         := '';
+
+  if edit4.Text = '' then
+    str := str + #13#10 + 'Script ID Constant';
+
+  if lmdfileopenedit3.Text = '' then
+    str := str + #13#10 + 'Script Template';
+
+  if cancontinue = False then
+  begin
+    ;
+    MessageDlg('The following fields that are required are empty:' + #13#10 + str, mtError, [mbOK], 0);
+    exit;
+  end;
+
+
+
+  if cur_Dlg.startconditioncnt = 0 then
+  begin
+    ;
+    MessageDlg(format('No starting conditions specified. Setting %s as the default node to' +
+      #13 + #10 + 'start dialogue from.', [cur_dlg.nodes[0].nodename]), mtInformation, [mbOK], 0);
+  end;
+
+  ddfmode           := Form1.CheckBox1.Checked;
+  sslfile           := form1.LMDFileOpenEdit1.Text;
+  msgfile           := form1.LMDFileOpenEdit2.Text;
+  sslfile           := stringreplace(sslfile, '"', '', [rfreplaceall]);
+  msgfile           := stringreplace(msgfile, '"', '', [rfreplaceall]);
+  write_text_data   := Form1.CheckBox3.Checked;
+  debug_skillchecks := form1.checkbox6.Checked;
+  script_template   := startpath + '\' + templatecfg.ReadString(form1.templateList.Text, 'filename', '');
+  senddebugmsg(PChar('Using template ' + script_template));
+  script_template   := stringreplace(script_template, '"', '', [rfreplaceall]);
+
+  npcname     := form1.edit1.Text;
+  description := form1.edit2.Text;
+  location    := form1.edit3.Text;
+  scriptID    := form1.edit4.Text;
+  unknowndesc := form1.memo1.Text;
+  knowndesc   := form1.memo2.Text;
+  detailed    := form1.memo3.Text;
+  nodes       := cur_dlg.nodecount;
+  script      := TStringList.Create;
+  script.add('/*');
+  script.add('');
+  script.add(' Intermediate DDF File');
+  script.add(' Exported by FMF Dialogue tool Script Export plugin.');
+  script.add('');
+  script.add('NPC: ' + npcname);
+  script.add('Location: ' + location);
+  script.add('description: ' + description);
+  script.add('');
+  script.add('*/');
+  script.add('');
+  description := stringreplace(description, #13#10, '\n', [rfreplaceall]);
+  unknowndesc := stringreplace(unknowndesc, #13#10, '\n', [rfreplaceall]);
+  knowndesc   := stringreplace(knowndesc, #13#10, '\n', [rfreplaceall]);
+  detailed    := stringreplace(detailed, #13#10, '\n', [rfreplaceall]);
+  script.add(Format('MSGOutputName = "%s"', [msgfile]));
+  script.add(Format('SCROutputName = "%s"', [sslfile]));
+  script.add(Format('ScriptTemplate = "%s"', [script_template]));
+  script.add(Format('ScriptID = %s', [scriptID]));
+  script.add(Format('NPCName = "%s"', [npcname]));
+  script.add(Format('Description = "%s"', [description]));
+  script.add(Format('Location = "%s"', [location]));
+
+  script.add('');
+  script.add('descproc');
+  script.add('begin;');
+  script.add(Format('unknown = "%s"', [unknowndesc]));
+  script.add(Format('known = "%s"', [knowndesc]));
+  script.add(Format('detailed = "%s"', [detailed]));
+  script.add('end;');
+  script.add('');
+  script.add('StartNodes');
+  script.add('Begin');
+  //script.add('// Insert start node list here manually');
+  if cur_dlg.startconditioncnt = 0 then
+  begin
+    ;
+    script.add('Case (default): ' + cur_dlg.nodes[0].nodename + ' EndCase');
+  end
+  else
+  begin
+
+
+    for j := 0 to cur_dlg.startconditioncnt - 1 do
+    begin
+
+      if (J <> cur_dlg.default_cond) then
+      begin
+
+        script.add(format('Case %s: %s EndCase', [GetConditionSTR(cur_Dlg.startconditions[j]^),
+          cur_dlg.startconditions[j].goto_node]));
+      end
+      else
+        senddebugmsg(PChar('Skipped default startnode: ' +
+          cur_dlg.startconditions[cur_dlg.default_cond].goto_node));
+    end;
+    if (cur_dlg.default_cond <> -1) then
+    begin
+
+      script.add('Case (default): ' + cur_dlg.startconditions[cur_dlg.default_cond].goto_node + ' EndCase');
+    end;
+  end;
+
+  script.add('End');
+
+  script.add('');
+
+  if cur_dlg.varcnt > 0 then
+  begin
+    ;
+    script.add('/* Variable definitions */');
+    for j := 0 to cur_Dlg.varcnt - 1 do
+    begin
+      ;
+
+      case cur_dlg.variables[j].flags of
+        VAR_FLAGS_NONE :
+          varflags := ' ';
+        VAR_FLAGS_IMPORT :
+          varflags := ' import ';
+        VAR_FLAGS_EXPORT :
+          varflags := ' export ';
+        VAR_FLAGS_LOCAL :
+          varflags := ' local ';
+      end;
+
+      if cur_dlg.variables[j].vartype <> -1 then
+      begin
+        ;
+        case cur_dlg.variables[j].vartype of
+          VAR_TYPE_INT :
+            script.add('variable' + varflags + cur_dlg.variables[j].Name + ' = ' +
+              IntToStr(cur_dlg.variables[j].Value) + ';');
+          VAR_TYPE_STRING :
+            script.add('variable' + varflags + cur_dlg.variables[j].Name + ' = "' +
+              cur_dlg.variables[j].Value + '";');
+          VAR_TYPE_FLOAT :
+            script.add('variable' + varflags + cur_dlg.variables[j].Name + ' = ' +
+              floattostr(cur_dlg.variables[j].Value) + ';');
+
+        end;
+
+      end
+      else
+      begin
+        ;
+        script.add('variable' + varflags + cur_dlg.variables[j].Name + ';');
+      end;
+    end;
+
+    script.add('');
+  end;
+
+
+  if cur_dlg.timedeventcnt > 0 then
+  begin
+    ;
+    script.add('timed_events_block');
+    script.add('default_event=' + IntToStr(cur_dlg.start_time_event) + ';');
+    script.add('begin');
+    for j := 0 to cur_dlg.timedeventcnt - 1 do
+    begin
+      ;
+      script.add('    time_event ' + cur_dlg.timedevents[j].FixedParamName + '=' +
+        IntToStr(cur_dlg.timedevents[j].FixedParamEnumIndex) + ';');
+      if (cur_dlg.timedevents[j].israndom = False) then
+        script.add
+        (format('    interval %d;', [cur_dlg.timedevents[j].interval]))
+      else
+        script.add(format('    interval %d - %d;', [cur_dlg.timedevents[j].mininterval,
+          cur_dlg.timedevents[j].maxinterval]));
+      script.add('    code');
+      script.add('       begin');
+      for i := 0 to cur_dlg.timedevents[j].actioncnt - 1 do
+      begin
+        ;
+        temp := cur_dlg.timedevents[j].actionlines[i].linedata;
+        temp := StringReplace(temp, '"', '\"', [rfReplaceAll]);
+        if i < cur_dlg.timedevents[j].actioncnt - 1 then
+        begin
+          ;
+          script.add('      "' + temp + '",');
+        end
+        else
+          script.add('      "' + temp + '"');
+
+      end;
+
+      script.add('        end');
+
+    end;
+
+    script.add('  end');
+
+  end;
+
+
+
+  script.add('dialogue:');
+  script.add('begin');
+  linebase := 200;
+  for i := 0 to cur_dlg.floatnodecount - 1 do
+  begin
+    ;
+
+    if cur_dlg.floatnodes[i].notes <> '' then
+    begin
+      ;
+      temp := cur_dlg.floatnodes[i].notes;
+      temp := StringReplace(temp, '"', '\"', [rfReplaceAll]);
+      temp := StringReplace(temp, #13#10, '\n', [rfReplaceAll]);
+
+      script.add('  ' + cur_dlg.floatnodes[i].nodename + ': ("' + cur_dlg.floatnodes[i].notes +
+        '") notes "' + temp + '"');
+
+    end
+    else
+
+      script.add('  ' + cur_dlg.floatnodes[i].nodename + ': ');
+
+    script.add('  StartNum=' + IntToStr(linebase) + ';');
+
+    script.add('');
+
+    script.add('   begin');
+
+    script.add('    RandomFloats');
+    script.add('    (');
+    for j := 0 to cur_dlg.floatnodes[i].messagecnt - 1 do
+    begin
+      temp := cur_dlg.floatnodes[i].Messages[j];
+      temp := StringReplace(temp, '"', '\"', [rfReplaceAll]);
+      if j < cur_dlg.floatnodes[i].messagecnt - 1 then
+        script.add('    "' + temp + '",')
+      else
+        script.add('    "' + temp + '"');
+    end;
+    script.add('    )');
+    script.add('   end');
+    if form1.UpDown1.position = 0 then
+      Inc(linebase, cur_node.optioncnt + 1)
+    else
+    begin
+      ;
+      if cur_Dlg.floatnodes[i].messagecnt > form1.UpDown1.position then
+        Inc(linebase, cur_Dlg.floatnodes[i].messagecnt)
+      else
+        Inc(linebase, form1.updown1.position);
+    end;
+  end;
+
+
+
+  for I := 0 to cur_Dlg.nodecount - 1 do
+  begin
+
+    cur_node := cur_dlg.nodes[i]^;
+    //senddebugmsg(PChar('LineBase for node (' + cur_node.nodename + ') = ' + IntToStr(linebase)));
+    if cur_node.notes <> '' then
+    begin
+      tempstrz := cur_node.notes;
+      tempstrz := stringreplace(tempstrz, #13#10, '\"', [rfReplaceAll]);
+      tempstrz := stringreplace(tempstrz, '"', '\"', [rfReplaceAll]);
+      script.add(Format('     %s: notes "%s"', [cur_node.NodeName, tempstrz]));
+    end
+    else
+      script.add(Format('     %s: ', [cur_node.NodeName]));
+    script.add(Format('     StartNum=%d;', [linebase]));
+
+    for k := 0 to cur_dlg.customproccnt - 1 do
+    begin
+      ;
+      if cur_dlg.customprocs[k].associatewithnode = i then
+      begin
+        ;
+        script.add('add_new_proc ' + cur_dlg.customprocs[k].Name + ' {');
+        codetemp := cur_dlg.customprocs[k].Lines;
+        codelst  := TStringList.Create;
+        StrToStrings(codetemp, #13#10, codelst);
+        for l := 0 to codelst.Count - 1 do
+        begin
+          ;
+          if l < codelst.Count - 1 then
+            script.add('  "' + stringreplace(codelst[l], '"', '\"', [rfReplaceAll]) + '",')
+          else
+            script.add('  "' + stringreplace(codelst[l], '"', '\"', [rfReplaceAll]) + '"');
+
+        end;
+
+        script.add('}');
+
+      end;
+
+    end;
+
+
+    script.add('    begin');
+
+    for k := 0 to cur_dlg.nodes[i].skillcheckcnt - 1 do
+    begin
+      ;
+      script.add('addskillcheck ' + cur_dlg.nodes[i].skillchecks[k].check_proc_name + ' {');
+      script.add('field = ' + skillfieldtoconst(cur_dlg.nodes[i].skillchecks[k].check_what));
+      script.add('modifier = ' + IntToStr(cur_dlg.nodes[i].skillchecks[k].modifier));
+      script.add('onsuccess => ' + cur_dlg.nodes[i].skillchecks[k].successnode);
+      script.add('onfailure => ' + cur_dlg.nodes[i].skillchecks[k].failurenode);
+      script.add('}');
+      script.add('');
+    end;
+
+    if (cur_dlg.nodes[i].customcode <> '') then
+    begin
+      ;
+      script.Add('custom_code {');
+      codetemp := cur_dlg.nodes[i].customcode;
+      codelst  := TStringList.Create;
+      StrToStrings(codetemp, #13#10, codelst);
+      for k := 0 to codelst.Count - 1 do
+      begin
+        ;
+        if k < codelst.Count - 1 then
+          script.add('  "' + stringreplace(codelst[k], '"', '\"', [rfReplaceAll]) + '",')
+        else
+          script.add('  "' + stringreplace(codelst[k], '"', '\"', [rfReplaceAll]) + '"');
+
+      end;
+      script.Add('}');
+
+      codelst.Free;
+    end;
+    script.add('');
+
+    npctext_temp := cur_node.npctext;
+    npctext_temp :=
+      StringReplace(npctext_temp, '"', '\"', [rfReplaceAll]);
+    npctext_temp :=
+      StringReplace(npctext_temp, #13#10, '\n', [rfReplaceAll]);
+
+    npctext_temp :=
+      StringReplace(npctext_temp, '|', '"+"', [rfReplaceAll]);
+
+    npctext_temp :=
+      StringReplace(npctext_temp, '${', '"+', [rfReplaceAll]);
+    npctext_temp :=
+      StringReplace(npctext_temp, '}', '+"', [rfReplaceAll]);
+    npctext_temp :=
+      StringReplace(npctext_temp, '<PC>', '"+dude_name+"', [rfReplaceAll]);
+
+    npcfemaletext_temp := cur_node.npctext_female;
+    npcfemaletext_temp :=
+      StringReplace(npcfemaletext_temp, '"', '\"', [rfReplaceAll]);
+
+
+    npcfemaletext_temp :=
+      StringReplace(npcfemaletext_temp, '${', '"+', [rfReplaceAll]);
+
+
+
+    npcfemaletext_temp :=
+      StringReplace(npcfemaletext_temp, '|', '"+"', [rfReplaceAll]);
+
+    npcfemaletext_temp :=
+      StringReplace(npcfemaletext_temp, '}', '+"', [rfReplaceAll]);
+    npcfemaletext_temp :=
+      StringReplace(npcfemaletext_temp, '<PC>', '"+dude_name+"', [rfReplaceAll]);
+
+    if cur_node.npctext_female <> '' then
+      script.add(Format('     NPC: "%s" female: "%s";', [npctext_temp, npcfemaletext_temp]))
+    else
+      script.add(Format('     NPC: "%s";', [npctext_temp]));
+    for j := 0 to cur_node.optioncnt - 1 do
+    begin
+      temp := cur_node.options[j].optiontext;
+      temp := stringreplace(temp, '"', '\"', [rfReplaceAll]);
+      temp := stringreplace(temp, #13#10, '\n', [rfReplaceAll]);
+
+      conds := '';
+      case cur_node.options[j].reaction of
+        REACTION_NEUTRAL :
+          reaction := 'NEUTRAL';
+        REACTION_GOOD :
+          reaction := 'GOOD';
+        REACTION_BAD :
+          reaction := 'BAD';
+      end;
+      tempstr := '    Player [int=%d] [reaction=' + reaction + ']: "%s", Goto=>%s';
+      if (cur_node.options[j].conditioncnt > 0) then
+      begin
+        ;
+        for c := 0 to cur_node.options[j].conditioncnt - 1 do
+        begin
+          ;
+          conds := conds + '(' + cur_node.options[j].conditions[c].resolved_code + ')';
+          if c < cur_node.options[j].conditioncnt - 1 then
+          begin
+            ;
+            case cur_node.options[j].conditions[c].link of
+              LINK_NONE :
+                conds := conds + ' ';
+              LINK_AND :
+                conds := conds + ' and ';
+              LINK_OR :
+                conds := conds + ' or ';
+            end;
+
+          end;
+
+        end;
+        tempstr := '    Player [int=%d] [reaction=' + reaction + '] condition: ' + conds + ': "%s", Goto=>%s';
+      end;
+
+      if cur_node.options[j].genderflags = GENDER_FEMALE then
+      begin
+        ;
+        if cur_node.options[j].conditioncnt > 0 then
+          conds := conds + ' and (dude_is_female)'
+        else
+          conds := '(dude_is_female)';
+        tempstr := '    Player [int=%d] [reaction=' + reaction + '] condition: ' + conds + ': "%s", Goto=>%s';
+      end
+      else
+      if cur_node.options[j].genderflags = GENDER_MALE then
+      begin
+        if cur_node.options[j].conditioncnt > 0 then
+          conds := conds + ' and (dude_is_male)'
+        else
+          conds := '(dude_is_male)';
+
+        tempstr :=
+          '    Player [int=%d] [reaction=' + reaction + '] condition: ' + conds + ': "%s", Goto=>%s';
+      end;
+      tempstrz := '';
+      if cur_node.options[j].notes <> '' then
+      begin
+        tempstrz := cur_node.options[j].notes;
+        tempstrz := stringreplace(tempstrz, #13#10, '\n', [rfReplaceAll]);
+        tempstrz := stringreplace(tempstrz, '"', '\"', [rfReplaceAll]);
+        tempstrz := stringreplace(tempstrz, '%', '%%', [rfReplaceAll]);
+        tempstr  := tempstr + ' notes "' + tempstrz + '"';
+      end;
+      tempstr := tempstr + ';';
+      if pos('${', cur_node.options[j].optiontext) <> 0 then
+      begin
+        temp := StringReplace(temp, '${', '"+', [rfReplaceAll]);
+        temp := StringReplace(temp, '}', '+"', [rfReplaceAll]);
+      end;
+      if pos('<PC>', cur_node.options[j].optiontext) <> 0 then
+      begin
+        ;
+        temp := StringReplace(temp, '<PC>', '"+dude_name+"', [rfReplaceAll]);
+      end;
+      if cur_node.Options[j].NodeLink = 'done' then
+        node := 'Node999'
+      else
+      if cur_node.Options[j].NodeLink = 'combat' then
+        node := 'Node998'
+      else
+        node := cur_node.Options[j].nodelink;
+      try
+        temp_int := cur_node.options[j].intcheck;
+        script.add(Format(tempstr, [temp_int, temp, node]));
+      except
+        on e : Exception do
+        begin
+          ShowMessage('Error while adding: ' + tempstr);
+        end;
+      end;
+    end;
+    script.add('    end');
+    if form1.UpDown1.position = 0 then
+      Inc(linebase, cur_node.optioncnt + 2)
+    else
+      Inc(linebase, form1.updown1.position);
+  end;
+  script.add('end');
+  amds_cfg.WriteString('DDF Exporter', 'Script Template',
+    form1.LMDFileOpenEdit3.Text);
+  amds_cfg.WriteString('DDF Exporter', 'SSL Path',
+    extractfiledir(form1.LMDFileOpenEdit1.Filename));
+  amds_cfg.WriteString('DDF Exporter', 'MSG Path',
+    extractfiledir(form1.LMDFileOpenEdit2.Filename));
+  //amds_cfg.WriteBool  ('DDF Exporter', 'Auto Fetch Descriptions',form1.checkbox2.checked);
+  amds_cfg.writebool('DDF Exporter', 'Write MSG References', form1.checkbox3.Checked);
+  amds_cfg.writebool('DDF Exporter', 'Process DDF', form1.checkbox1.Checked);
+  amds_cfg.WriteString('DDF Exporter', 'Current NPC', form1.edit1.Text);
+
+  amds_cfg.writestring('DDF Descriptions - ' + npcname, 'Script ID',
+    form1.edit4.Text);
+  debug_nodes      := Form1.CheckBox4.Checked;
+  debug_local_vars := form1.checkbox5.Checked;
+  amds_cfg.writebool('DDF Exporter', 'Debug Nodes', debug_nodes);
+  amds_cfg.writebool('DDF Exporter', 'Debug Local vars', debug_local_vars);
+
+
+  script.SaveToFile(changefileext(cur_dlg.filename, '.ddf'));
+  script.free;
+  if ddfmode = False then
+  begin
+    MessageDlg(format('A DDF file was exported to %s' + #13 + #10 + '' + #13 + #10 +
+      'It can be compiled with the DDFC.EXE commandline application', [changefileext(cur_dlg.filename, '.ddf')]),
+      mtInformation, [mbOK], 0);
+  end;
+  if ddfmode = True then
+  begin
+    dlgdef1.SourceFileName := changefileext(cur_dlg.filename, '.ddf');
+    dlgdef1.Execute;
+    if dlgdef1.successful then
+    begin
+      //PrintToLog('The DDF script was successfully processed. Export process finished.');
+      deletefile(changefileext(cur_dlg.filename, '.ddf'));
+      if Form1.CheckBox2.Checked = True then
+      begin
+        ;
+        scriptoutputpath := form1.JvDirectoryEdit1.Text;
+        amds_cfg.WriteString('Output', 'ScriptPath', scriptoutputpath);
+        if (DoCompile(form1.lmdfileopenedit1.filename) = True) then
+        begin
+          ;
+          if fileexists(scriptoutputpath + '\' + extractfilename(
+            changefileext(form1.lmdfileopenedit1.filename, '.int'))) then
+            deletefile(scriptoutputpath + '\' + extractfilename(
+              changefileext(form1.lmdfileopenedit1.filename, '.int')));
+          RenameFile(changefileext(form1.lmdfileopenedit1.filename, '.int'),
+            scriptoutputpath + '\' + extractfilename(
+            changefileext(form1.lmdfileopenedit1.filename, '.int')));
+          MessageDlg(format('Dialogue for NPC ''%s''' + #13 + #10 + 'successfully exported!' +
+            #13 + #10 + '' + #13 + #10 + 'SSL filename: %s' + #13 + #10 + 'MSG filename: %s' +
+            #13#10 + 'Compiled script: %s', [cur_dlg.npcname, sslfile, msgfile,
+            scriptoutputpath + '\' + extractfilename(changefileext(form1.lmdfileopenedit1.filename, '.int'))]),
+            mtInformation, [mbOK], 0);
+
+        end
+        else
+        begin
+          ;
+          MessageDlg(format('Error while exporting script!' + #13 + #10 + '' + #13 +
+            #10 + 'Last error message from compiler:' + #13 + #10 + '%s', [GetLastCompilerError]),
+            mtError, [mbOK], 0);
+
+        end;
+
+      end
+      else
+        MessageDlg(format('Dialogue for NPC ''%s''' + #13 + #10 + 'successfully exported!' +
+          #13 + #10 + '' + #13 + #10 + 'SSL filename: %s' + #13 + #10 + 'MSG filename: %s' +
+          #13#10, [cur_dlg.npcname, sslfile, msgfile]),
+          mtInformation, [mbOK], 0);
+
+    end
+    else
+    begin
+      MessageDlg(Format('Errors found in the temporary DDF script!' + #13 + #10 +
+        'List file is located at %s\error.log', [getcurrentdir]),
+        mtWarning, [mbOK], 0);
+      dlgdef1.ListStream.SaveToFile('error.log');
+    end;
+
+
+    // dlgdef1.Free;
+  end;
+
+
+  form1.hide;
+
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+//  HelpSystem(Form1, 'script_exporter.rtf', 'Script Exporter Help');
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  form1.Close;
+end;
+
+end.
+

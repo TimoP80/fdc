@@ -1,0 +1,346 @@
+unit testwnd;
+
+interface
+
+uses
+  Classes, ComCtrls, Controls, Dialogs, ExtCtrls, Forms,
+  Graphics, ImgList, jclfileutils, JvComponent,
+  JvExControls, JvExStdCtrls, JvHtControls,
+  Menus, Messages, pluginfunc,  StdCtrls, SysUtils, Variants, Windows,
+  System.ImageList;
+type
+  TForm1 = class(TForm)
+    Panel1:       TPanel;
+    Label2:       TLabel;
+    Label3:       TLabel;
+    Label4:       TLabel;
+    Button1:      TButton;
+    TreeView1:    TTreeView;
+    Label5:       TLabel;
+    lbNodeInfo:   TJvHTListBox;
+    ImageList1:   TImageList;
+    CheckBox1:    TCheckBox;
+    procedure Button1Click(Sender: TObject);
+    procedure TreeView1Click(Sender: TObject);
+    procedure lbNodeInfoHyperLinkClick(Sender: TObject; LinkName: string);
+    procedure CheckBox1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1:         TForm1;
+  dlg:           pnewdialogue;
+  theplayer:     playerptr;
+  path:          shortstring;
+  cond, f, g:    TTreeNode;
+  lastselection: TTreeNode;
+procedure UpdateData;
+implementation
+
+{$R *.dfm}
+
+procedure UpdateData;
+
+var nodestr:            string;
+var tempstr1, tempstr2: string;
+var i, j, h:            integer;
+begin;
+  if form1.Visible = False then
+    exit;
+
+  dlg       := getdlgnew;
+  form1.lbNodeInfo.Clear;
+  theplayer := GetPlayer;
+  form1.Label2.Caption := format('%d nodes in dialogue. Player name: %s', [dlg.nodecount, theplayer.Name]);
+  nodestr   := getcurrentnode;
+  if nodestr <> '' then
+    form1.Label3.Caption := 'Dialogue is running at node ' + nodestr else
+    form1.label3.Caption := 'Dialogue is not running.';
+
+  try
+    if form1.TreeView1.Items.Count > 0 then
+    begin;
+
+      if form1.treeview1.selected <> NIL then
+      begin;
+
+        lastselection := Form1.treeview1.selected;
+      end;
+
+      form1.TreeView1.Items.Clear;
+
+    end;
+
+  except on e: Exception do
+    begin;
+      ShowMessage('ERROR UPDATING!');
+    end;
+  end;
+
+
+  if dlg.nodecount > 0 then
+  begin;
+
+    for j := 0 to dlg.nodecount - 1 do
+    begin;
+      if form1.CheckBox1.Checked = True then
+        tempstr1 := '(' + dlg.nodes[j].nodename + ') ' + dlg.nodes[j].npctext else
+
+        tempstr1 := dlg.nodes[j].npctext;
+
+      tempstr1 := StringReplace(tempstr1, '<PC>', theplayer.Name, [rfReplaceAll]);
+      g        := Form1.TreeView1.Items.add(NIL, tempstr1);
+      for i := 0 to dlg.nodes[j].optioncnt - 1 do
+      begin;
+        tempstr2 := dlg.nodes[j].options[i].optiontext;
+        tempstr2 := StringReplace(tempstr2, '<PC>', theplayer.Name, [rfReplaceAll]);
+        f        := form1.TreeView1.Items.addchild(g, tempstr2);
+        if dlg.nodes[j].options[i].conditioncnt > 0 then
+        begin;
+          for h := 0 to dlg.nodes[j].options[i].conditioncnt - 1 do
+          begin;
+            tempstr2 := dlg.nodes[j].options[i].conditions[h].resolved_code;
+            cond     := form1.treeview1.Items.AddChild(f, tempstr2);
+          end;
+
+        end;
+
+      end;
+    end;
+
+  end;
+
+  tempstr1 := '';
+  tempstr2 := '';
+
+  if lastselection <> NIL then
+  begin;
+    form1.TreeView1.Select(lastselection);
+    form1.treeview1.SetFocus;
+    form1.TreeView1Click(NIL);
+  end;
+
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+Dispose(dlg);
+dispose(theplayer);
+form1.Hide;
+
+end;
+{
+
+List all node references to the specified node
+as a comma separated list with links to the nodes as well
+
+}
+function ListNodeReferences(node: string): string;
+var links: TStrings;
+var z, y:  integer;
+begin;
+
+  links := TStringList.Create;
+  links.Clear;
+  for y := 0 to dlg.nodecount - 1 do
+  begin;
+    for z := 0 to dlg.nodes[y].optioncnt - 1 do
+    begin;
+      if (node <> dlg.nodes[y].nodename) and (dlg.nodes[y].options[z].nodelink = node) then
+      begin;
+        if (links.indexof(dlg.nodes[y].nodename) = -1) then
+        begin;
+          senddebugmsg(PChar(format('added node (%s) ind=%d option %d link to list',
+            [dlg.nodes[y].nodename, y, z])));
+          links.add(dlg.nodes[y].nodename);
+        end;
+      end;
+
+    end;
+
+  end;
+
+  for z := 0 to links.Count - 1 do
+  begin;
+    Result := Result + '<a href="node:' + links[z] + '">' + links[z] + '</a> ';
+    if z < links.Count - 1 then
+      Result := Result + '<br>';
+  end;
+
+end;
+
+procedure TForm1.TreeView1Click(Sender: TObject);
+var parentindex, nodeindex: integer;
+var text_temp, references:  string;
+begin
+  form1.lbNodeInfo.Clear;
+  if treeview1.selected <> NIL then
+  begin;
+    // level 0 - Node Info
+    case (TreeView1.Selected.Level) of
+      0:
+      begin;
+        form1.lbNodeInfo.Items.Add('<b>Node name:</b> ' + dlg.nodes[treeview1.selected.index].nodename);
+        text_temp := dlg.nodes[treeview1.Selected.index].npctext;
+        text_temp := StringReplace(text_temp, '<PC>', theplayer.Name, [rfReplaceAll]);
+        form1.lbNodeInfo.Items.Add(wraptext('<b>NPC Text:</b> ' + text_temp, '<br>',
+          [' ', ',', '?', '!', '.', ';'], 60));
+        if (dlg.nodes[treeview1.Selected.index].npctext_female <> '') then
+        begin;
+          text_temp := dlg.nodes[treeview1.Selected.index].npctext_female;
+          text_temp := StringReplace(text_temp, '<PC>', theplayer.Name, [rfReplaceAll]);
+
+          form1.lbNodeInfo.Items.Add(wraptext('<b>Alternate NPC Text: (female PC)</b> ' +
+            text_temp, '<br>', [' ', ',', '?', '!', '.', ';'], 60));
+        end;
+
+        if (dlg.nodes[treeview1.Selected.index].notes <> '') then
+          form1.lbNodeInfo.items.add(wraptext('<b>Notes: </b>' + dlg.nodes[treeview1.selected.index].notes,
+            '<br>', [' ', ','], 65));
+        form1.lbNodeInfo.items.add('<b>Number of player options: </b>' +
+          IntToStr(dlg.nodes[treeview1.selected.index].optioncnt));
+        references := ListNodeReferences(dlg.nodes[treeview1.selected.index].nodename);
+        if (references <> '') then
+        begin;
+          form1.lbNodeInfo.items.add('<b>Nodes that link here: </b><br>' + references);
+        end;
+
+      end;
+      1:
+      begin;
+        parentindex := treeview1.Selected.Parent.index;
+        nodeindex   := Treeview1.Selected.Index;
+        text_temp   := dlg.nodes[parentindex].options[nodeindex].optiontext;
+        text_temp   := StringReplace(text_temp, '<PC>', theplayer.Name, [rfReplaceAll]);
+
+        form1.lbnodeinfo.Items.add(wraptext('<b>Player text</b>: ' + text_temp, '<br>',
+          [' ', ',', '!', '?', '.', ';'], 60));
+        form1.lbnodeinfo.items.add('<b>Int requirement</b>: ' + IntToStr(
+          dlg.nodes[parentindex].options[nodeindex].intcheck));
+        case dlg.nodes[parentindex].options[nodeindex].reaction of
+          REACTION_NEUTRAL:
+            form1.lbnodeinfo.items.add('<b>Dialogue reaction</b>: Neutral');
+          REACTION_BAD:
+            form1.lbnodeinfo.items.add(
+              '<b>Dialogue reaction</b>: <font color=clRed>Bad</b>');
+          REACTION_GOOD:
+            form1.lbnodeinfo.items.add(
+              '<b>Dialogue reaction</b>: <font color=clBlue>Good</b>');
+        end;
+        case dlg.nodes[parentindex].options[nodeindex].genderflags of
+          GENDER_NONE:
+            form1.lbnodeinfo.items.add(
+              '<b>Gender flags: </b> None, visible to both genders.');
+          GENDER_MALE:
+            form1.lbnodeinfo.items.add(
+              '<b>Gender flags: </b> GENDER_MALE, visible to male players only.');
+          GENDER_FEMALE:
+            form1.lbnodeinfo.items.add(
+              '<b>Gender flags: </b> GENDER_FEMALE, visible to female players only.');
+        end;
+        if (dlg.nodes[parentindex].options[nodeindex].notes <> '') then
+        begin;
+          form1.lbnodeinfo.items.add('<b>Designer notes: </b>' + wraptext(
+            dlg.nodes[parentindex].options[nodeindex].notes, '<br>', [' ', ','], 60));
+        end;
+        if (dlg.nodes[parentindex].options[nodeindex].conditioncnt > 0) then
+        begin;
+          form1.lbNodeInfo.items.add('<b>Number of conditions: ' + IntToStr(
+            dlg.nodes[parentindex].options[nodeindex].conditioncnt));
+        end;
+
+        if (dlg.nodes[parentindex].options[nodeindex].nodelink = 'done') then
+          form1.lbnodeinfo.items.add('<b>Player option ends dialogue.</b>') else
+        if (dlg.nodes[parentindex].options[nodeindex].nodelink = 'combat') then
+          form1.lbnodeinfo.items.add('<b>Player option starts combat.</b>') else
+        begin;
+          form1.lbnodeinfo.items.add('<b>Links to node: </b> <a href="node:' +
+            dlg.nodes[parentindex].options[nodeindex].nodelink + '">' +
+            dlg.nodes[parentindex].options[nodeindex].nodelink + '</a>');
+          if (dlg.nodes[parentindex].options[nodeindex].noderesolved = -1) then
+            form1.lbNodeInfo.Items.add(
+              '<b>Note:</b> This option refers to an unresolved node.');
+        end;
+      end;
+    end;
+  end;
+
+end;
+
+function GetNodeIndex(Name: string): integer;
+var t: integer;
+begin;
+  Result := -1;
+  for t := 0 to dlg.nodecount - 1 do
+  begin;
+    if (Name = dlg.nodes[t].nodename) then
+    begin;
+
+      Result := t;
+      exit;
+    end;
+
+  end;
+
+end;
+
+function FindItemWithIndex(TreeView: TTreeView; ind: integer): TTreeNode;
+var t: integer;
+begin;
+  Result := NIL;
+  for t := 0 to treeview.Items.Count - 1 do
+  begin;
+    if (treeview.Items[t].Index = ind) and (treeview.items[t].Level = 0) then
+    begin;
+      Result := treeview.Items[t];
+      exit;
+    end;
+
+  end;
+
+end;
+
+procedure TForm1.lbNodeInfoHyperLinkClick(Sender: TObject; LinkName: string);
+var ind: integer;
+begin
+  if pos('node:', linkname) <> 0 then
+  begin;
+    ind := GetNodeIndex(copy(linkname, pos(':', linkname) + 1, length(linkname)));
+    if ind <> -1 then
+    begin;
+      treeview1.Select(FindItemWithIndex(treeview1, ind), []);
+      treeview1.SetFocus;
+      treeview1click(NIL);
+    end else
+      ShowMessage('Node does not exist!');
+
+  end;
+
+end;
+
+procedure TForm1.CheckBox1Click(Sender: TObject);
+begin
+  executescriptlines('RequestPluginRefresh;');
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  New(dlg);
+  new(theplayer);
+
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+
+
+  //  application.Handle
+end;
+
+end.
+

@@ -1,0 +1,46 @@
+[Frames]
+Ancestor=$(CocoR)C:\Program Files\CocoR for Delphi\Frames\CocoBase.pas
+Parser=$(CocoR)C:\Program Files\CocoR for Delphi\Frames\component.frm
+Test Project=$(CocoR)C:\Program Files\CocoR for Delphi\Frames\Test.dpr.frm
+Test Form=$(CocoR)C:\Program Files\CocoR for Delphi\Frames\Test.pas.frm
+Test DFM=$(CocoR)C:\Program Files\CocoR for Delphi\Frames\Test.dfm.frm
+Console=$(CocoR)C:\Program Files\CocoR for Delphi\Frames\Console.dpr.frm
+[Output]
+Directory=$(CocoR)C:\CodeProjects\CueOffset\
+[Registration]
+Palette=Coco/R
+[Messages]
+Show Warnings=1
+Show LL(1) Start Succ=1
+[Hash]
+Primary=TinyHash
+Secondary=HashSecondaryOne
+[Options]
+C=0
+M=0
+R=0
+E=0
+Z=1
+V=0
+B=0
+O=0
+H=0
+Y=0
+D=0
+L=0
+A=0
+F=0
+G=0
+I=0
+S=0
+T=0
+X=0
+[Version Info]
+Major Version=0
+Minor Version=0
+Next Build=0
+Release=0
+Comment=
+Author=
+Copyright=
+Last Build=17.3.2010 23:34:53
