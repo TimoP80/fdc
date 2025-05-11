@@ -19,6 +19,16 @@ F1 or Help->Dialogue Tool Help)
 
 To see a list of changes made over time, check changelog.txt
 
+To compile you need the following components:
+
+JCL
+JVCL
+DelphiWebScript
+Synedit
+Graphics32
+
+Should compile just fine under Delphi 10 to Delphi 12
+
 Fallout Dialogue Creator - dialogue editor for Fallout 2 mods
 Copyright (C) 2005-2018 T. Pitkänen
 
